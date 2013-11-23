@@ -1,9 +1,9 @@
 
-** Conflict (shift/reduce) in state 177.
+** Conflict (shift/reduce) in state 174.
 ** Token involved: ELSE
 ** This state is reached from fichier after reading:
 
-boption(INCLUDE) proto LBRACE IF paren IF paren instruction 
+boption(INCLUDE) proto LBRACE IF paren(expr) IF paren(expr) instruction 
 
 ** The derivations that appear below have the following common factor:
 ** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
@@ -16,20 +16,20 @@ boption(INCLUDE) list(decl) EOF
                               instruction list(instruction) 
                               (?)
 
-** In state 177, looking ahead at ELSE, reducing production
-** instruction -> IF paren instruction 
-** is permitted because of the following sub-derivation:
-
-IF paren instruction ELSE instruction // lookahead token appears
-         IF paren instruction . 
-
-** In state 177, looking ahead at ELSE, shifting is permitted
+** In state 174, looking ahead at ELSE, shifting is permitted
 ** because of the following sub-derivation:
 
-IF paren instruction 
-         IF paren instruction . ELSE instruction 
+IF paren(expr) instruction ELSE instruction 
+               IF paren(expr) instruction . ELSE instruction 
 
-** Conflict (shift/reduce) in state 172.
+** In state 174, looking ahead at ELSE, reducing production
+** instruction -> IF paren(expr) instruction 
+** is permitted because of the following sub-derivation:
+
+IF paren(expr) instruction ELSE instruction // lookahead token appears
+               IF paren(expr) instruction . 
+
+** Conflict (shift/reduce) in state 169.
 ** Token involved: LPAREN
 ** This state is reached from fichier after reading:
 
@@ -45,21 +45,22 @@ boption(INCLUDE) list(decl) EOF
                        LBRACE list(instruction) RBRACE 
                               (?)
 
-** In state 172, looking ahead at LPAREN, shifting is permitted
-** because of the following sub-derivation:
-
-instruction list(instruction) 
-type_rule var ASSIGN expr 
-                     expr . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
-
-** In state 172, looking ahead at LPAREN, reducing production
+** In state 169, looking ahead at LPAREN, reducing production
 ** instruction -> type_rule var ASSIGN expr 
 ** is permitted because of the following sub-derivation:
 
 instruction list(instruction) // lookahead token appears because list(instruction) can begin with LPAREN
 type_rule var ASSIGN expr . 
 
-** Conflict (shift/reduce) in state 163.
+** In state 169, looking ahead at LPAREN, shifting is permitted
+** because of the following sub-derivation:
+
+instruction list(instruction) 
+type_rule var ASSIGN expr 
+                     expr paren(separated_list(COMMA,expr)) 
+                          . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
+
+** Conflict (shift/reduce) in state 159.
 ** Tokens involved: TIMES PLUS MINUS LPAREN INCR DECR
 ** The following explanations concentrate on token TIMES.
 ** This state is reached from fichier after reading:
@@ -76,7 +77,7 @@ boption(INCLUDE) list(decl) EOF
                        LBRACE list(instruction) RBRACE 
                               (?)
 
-** In state 163, looking ahead at TIMES, reducing production
+** In state 159, looking ahead at TIMES, reducing production
 ** expr_str -> expr 
 ** is permitted because of the following sub-derivation:
 
@@ -85,7 +86,7 @@ COUT nonempty_list(preceded(IN,expr_str)) // lookahead token is inherited
      IN expr_str // lookahead token is inherited
         expr . 
 
-** In state 163, looking ahead at TIMES, shifting is permitted
+** In state 159, looking ahead at TIMES, shifting is permitted
 ** because of the following sub-derivation:
 
 instruction list(instruction) 
@@ -95,7 +96,7 @@ COUT nonempty_list(preceded(IN,expr_str))
         expr operateur expr 
              . TIMES 
 
-** Conflict (shift/reduce) in state 138.
+** Conflict (shift/reduce) in state 134.
 ** Token involved: LPAREN
 ** This state is reached from fichier after reading:
 
@@ -113,20 +114,21 @@ boption(INCLUDE) list(decl) EOF
                               expr SEMICOLON 
                               (?)
 
-** In state 138, looking ahead at LPAREN, shifting is permitted
-** because of the following sub-derivation:
-
-NOT expr 
-    expr . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
-
-** In state 138, looking ahead at LPAREN, reducing production
+** In state 134, looking ahead at LPAREN, reducing production
 ** expr -> NOT expr 
 ** is permitted because of the following sub-derivation:
 
-expr LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN // lookahead token appears
+expr paren(separated_list(COMMA,expr)) // lookahead token appears because paren(separated_list(COMMA,expr)) can begin with LPAREN
 NOT expr . 
 
-** Conflict (shift/reduce) in state 133.
+** In state 134, looking ahead at LPAREN, shifting is permitted
+** because of the following sub-derivation:
+
+NOT expr 
+    expr paren(separated_list(COMMA,expr)) 
+         . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
+
+** Conflict (shift/reduce) in state 126.
 ** Token involved: LPAREN
 ** This state is reached from fichier after reading:
 
@@ -144,20 +146,21 @@ boption(INCLUDE) list(decl) EOF
                               expr SEMICOLON 
                               (?)
 
-** In state 133, looking ahead at LPAREN, shifting is permitted
-** because of the following sub-derivation:
-
-INCR expr 
-     expr . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
-
-** In state 133, looking ahead at LPAREN, reducing production
+** In state 126, looking ahead at LPAREN, reducing production
 ** expr -> INCR expr 
 ** is permitted because of the following sub-derivation:
 
-expr LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN // lookahead token appears
+expr paren(separated_list(COMMA,expr)) // lookahead token appears because paren(separated_list(COMMA,expr)) can begin with LPAREN
 INCR expr . 
 
-** Conflict (shift/reduce) in state 132.
+** In state 126, looking ahead at LPAREN, shifting is permitted
+** because of the following sub-derivation:
+
+INCR expr 
+     expr paren(separated_list(COMMA,expr)) 
+          . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
+
+** Conflict (shift/reduce) in state 125.
 ** Token involved: LPAREN
 ** This state is reached from fichier after reading:
 
@@ -175,20 +178,21 @@ boption(INCLUDE) list(decl) EOF
                               expr SEMICOLON 
                               (?)
 
-** In state 132, looking ahead at LPAREN, shifting is permitted
-** because of the following sub-derivation:
-
-ECOMM expr 
-      expr . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
-
-** In state 132, looking ahead at LPAREN, reducing production
+** In state 125, looking ahead at LPAREN, reducing production
 ** expr -> ECOMM expr 
 ** is permitted because of the following sub-derivation:
 
-expr LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN // lookahead token appears
+expr paren(separated_list(COMMA,expr)) // lookahead token appears because paren(separated_list(COMMA,expr)) can begin with LPAREN
 ECOMM expr . 
 
-** Conflict (shift/reduce) in state 131.
+** In state 125, looking ahead at LPAREN, shifting is permitted
+** because of the following sub-derivation:
+
+ECOMM expr 
+      expr paren(separated_list(COMMA,expr)) 
+           . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
+
+** Conflict (shift/reduce) in state 124.
 ** Token involved: LPAREN
 ** This state is reached from fichier after reading:
 
@@ -206,20 +210,21 @@ boption(INCLUDE) list(decl) EOF
                               expr SEMICOLON 
                               (?)
 
-** In state 131, looking ahead at LPAREN, shifting is permitted
-** because of the following sub-derivation:
-
-DECR expr 
-     expr . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
-
-** In state 131, looking ahead at LPAREN, reducing production
+** In state 124, looking ahead at LPAREN, reducing production
 ** expr -> DECR expr 
 ** is permitted because of the following sub-derivation:
 
-expr LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN // lookahead token appears
+expr paren(separated_list(COMMA,expr)) // lookahead token appears because paren(separated_list(COMMA,expr)) can begin with LPAREN
 DECR expr . 
 
-** Conflict (shift/reduce) in state 130.
+** In state 124, looking ahead at LPAREN, shifting is permitted
+** because of the following sub-derivation:
+
+DECR expr 
+     expr paren(separated_list(COMMA,expr)) 
+          . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
+
+** Conflict (shift/reduce) in state 123.
 ** Tokens involved: TIMES PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND
 ** The following explanations concentrate on token TIMES.
 ** This state is reached from fichier after reading:
@@ -238,21 +243,21 @@ boption(INCLUDE) list(decl) EOF
                               expr SEMICOLON 
                               (?)
 
-** In state 130, looking ahead at TIMES, reducing production
+** In state 123, looking ahead at TIMES, reducing production
 ** expr -> unary_times expr 
 ** is permitted because of the following sub-derivation:
 
 expr operateur expr // lookahead token appears because operateur can begin with TIMES
 unary_times expr . 
 
-** In state 130, looking ahead at TIMES, shifting is permitted
+** In state 123, looking ahead at TIMES, shifting is permitted
 ** because of the following sub-derivation:
 
 unary_times expr 
             expr operateur expr 
                  . TIMES 
 
-** Conflict (shift/reduce) in state 129.
+** Conflict (shift/reduce) in state 122.
 ** Tokens involved: TIMES PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND
 ** The following explanations concentrate on token TIMES.
 ** This state is reached from fichier after reading:
@@ -271,21 +276,21 @@ boption(INCLUDE) list(decl) EOF
                               expr SEMICOLON 
                               (?)
 
-** In state 129, looking ahead at TIMES, reducing production
+** In state 122, looking ahead at TIMES, reducing production
 ** expr -> unary_plus expr 
 ** is permitted because of the following sub-derivation:
 
 expr operateur expr // lookahead token appears because operateur can begin with TIMES
 unary_plus expr . 
 
-** In state 129, looking ahead at TIMES, shifting is permitted
+** In state 122, looking ahead at TIMES, shifting is permitted
 ** because of the following sub-derivation:
 
 unary_plus expr 
            expr operateur expr 
                 . TIMES 
 
-** Conflict (shift/reduce) in state 128.
+** Conflict (shift/reduce) in state 121.
 ** Tokens involved: TIMES PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND
 ** The following explanations concentrate on token TIMES.
 ** This state is reached from fichier after reading:
@@ -304,21 +309,21 @@ boption(INCLUDE) list(decl) EOF
                               expr SEMICOLON 
                               (?)
 
-** In state 128, looking ahead at TIMES, reducing production
+** In state 121, looking ahead at TIMES, reducing production
 ** expr -> expr operateur expr 
 ** is permitted because of the following sub-derivation:
 
 expr operateur expr // lookahead token appears because operateur can begin with TIMES
 expr operateur expr . 
 
-** In state 128, looking ahead at TIMES, shifting is permitted
+** In state 121, looking ahead at TIMES, shifting is permitted
 ** because of the following sub-derivation:
 
 expr operateur expr 
                expr operateur expr 
                     . TIMES 
 
-** Conflict (shift/reduce) in state 123.
+** Conflict (shift/reduce) in state 115.
 ** Token involved: LPAREN
 ** This state is reached from fichier after reading:
 
@@ -336,20 +341,21 @@ boption(INCLUDE) list(decl) EOF
                               expr SEMICOLON 
                               (?)
 
-** In state 123, looking ahead at LPAREN, reducing production
+** In state 115, looking ahead at LPAREN, reducing production
 ** expr -> expr ASSIGN expr 
 ** is permitted because of the following sub-derivation:
 
-expr LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN // lookahead token appears
+expr paren(separated_list(COMMA,expr)) // lookahead token appears because paren(separated_list(COMMA,expr)) can begin with LPAREN
 expr ASSIGN expr . 
 
-** In state 123, looking ahead at LPAREN, shifting is permitted
+** In state 115, looking ahead at LPAREN, shifting is permitted
 ** because of the following sub-derivation:
 
 expr ASSIGN expr 
-            expr . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
+            expr paren(separated_list(COMMA,expr)) 
+                 . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 
-** Conflict (shift/reduce) in state 98.
+** Conflict (shift/reduce) in state 97.
 ** Tokens involved: TIMES PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND
 ** The following explanations concentrate on token TIMES.
 ** This state is reached from fichier after reading:
@@ -368,21 +374,21 @@ boption(INCLUDE) list(decl) EOF
                               expr SEMICOLON 
                               (?)
 
-** In state 98, looking ahead at TIMES, reducing production
+** In state 97, looking ahead at TIMES, reducing production
 ** expr -> unary_minus expr 
 ** is permitted because of the following sub-derivation:
 
 expr operateur expr // lookahead token appears because operateur can begin with TIMES
 unary_minus expr . 
 
-** In state 98, looking ahead at TIMES, shifting is permitted
+** In state 97, looking ahead at TIMES, shifting is permitted
 ** because of the following sub-derivation:
 
 unary_minus expr 
             expr operateur expr 
                  . TIMES 
 
-** Conflict (shift/reduce) in state 47.
+** Conflict (shift/reduce) in state 48.
 ** Tokens involved: VOID TINT TIDENT
 ** The following explanations concentrate on token VOID.
 ** This state is reached from fichier after reading:
@@ -401,21 +407,21 @@ boption(INCLUDE) list(decl) EOF
                                                                        member list(member) 
                                                                        (?)
 
-** In state 47, looking ahead at VOID, reducing production
+** In state 48, looking ahead at VOID, reducing production
 ** boption(VIRTUAL) -> 
 ** is permitted because of the following sub-derivation:
 
 boption(VIRTUAL) proto SEMICOLON // lookahead token appears because proto can begin with VOID
 . 
 
-** In state 47, looking ahead at VOID, shifting is permitted
+** In state 48, looking ahead at VOID, shifting is permitted
 ** because of the following sub-derivation:
 
 decl_vars 
 type_rule separated_nonempty_list(COMMA,var) SEMICOLON 
 . VOID 
 
-** Conflict (shift/reduce) in state 39.
+** Conflict (shift/reduce) in state 40.
 ** Tokens involved: VOID TINT TIDENT
 ** The following explanations concentrate on token VOID.
 ** This state is reached from fichier after reading:
@@ -433,14 +439,14 @@ boption(INCLUDE) list(decl) EOF
                                                                 member list(member) 
                                                                 (?)
 
-** In state 39, looking ahead at VOID, reducing production
+** In state 40, looking ahead at VOID, reducing production
 ** boption(VIRTUAL) -> 
 ** is permitted because of the following sub-derivation:
 
 boption(VIRTUAL) proto SEMICOLON // lookahead token appears because proto can begin with VOID
 . 
 
-** In state 39, looking ahead at VOID, shifting is permitted
+** In state 40, looking ahead at VOID, shifting is permitted
 ** because of the following sub-derivation:
 
 decl_vars 

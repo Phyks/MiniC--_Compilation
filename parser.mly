@@ -82,21 +82,21 @@ member:
         }
 
 proto:
-      x=type_rule y=qvar LPAREN z=separated_list(COMMA, argument) RPAREN 
+      x=type_rule y=qvar z=paren(separated_list(COMMA, argument))
         {
             { 
                 ident = Qvar (x, y);
                 args = z;
             }
         }
-    | x=TIDENT LPAREN y=separated_list(COMMA, argument) 
+    | x=TIDENT y=paren(separated_list(COMMA, argument))
         {
             {
                 ident = Type x;
                 args = y;
             }
         }
-    | x=TIDENT COLON COLON y=TIDENT LPAREN z=separated_list(COMMA, argument) 
+    | x=TIDENT COLON COLON y=TIDENT z=paren(separated_list(COMMA, argument))
         {
             {
                 ident = Herit (x, y);
@@ -104,18 +104,18 @@ proto:
             }
         }
 
+
 unary_plus:
-    PLUS {} %prec DECR
+    PLUS {} %prec INCR
 
 unary_minus:
-    MINUS {} %prec DECR
+    MINUS {} %prec INCR
 
 unary_times:
-    TIMES {} %prec DECR
+    TIMES {} %prec INCR
 
-paren:
-    LPAREN x=expr RPAREN { x } %prec ARROW
-
+paren(X):
+    LPAREN x=X RPAREN { x } %prec ARROW
 
 type_rule:
       VOID { Void }
@@ -151,8 +151,8 @@ expr:
     | x=expr DOT y=IDENT { Dot (x, y) }
     | x=expr ARROW y=IDENT { Arrow (x, y)}
     | x=expr ASSIGN y=expr { Assign (x, y) }
-    | x=expr LPAREN y=separated_list(COMMA, expr) RPAREN { Apply (x, y) }
-    | NEW t=TIDENT LPAREN x=separated_list(COMMA, expr) RPAREN
+    | x=expr y=paren(separated_list(COMMA, expr)) { Apply (x, y) }
+    | NEW t=TIDENT x=paren(separated_list(COMMA, expr))
         { 
             types_lexhack := !types_lexhack :: (t, TIDENT t);
             Instance (t, x)
@@ -166,7 +166,7 @@ expr:
     | unary_minus x=expr { UOp (UMinus, x) }
     | unary_plus x=expr { UOp (UPlus, x) }
     | x=expr y=operateur z=expr { Op (y, x, z) }
-    | LPAREN x=expr RPAREN { x }
+    | x=paren(expr) { x }
 
 operateur:
       EQ { Eq }
@@ -188,12 +188,12 @@ instruction:
     | x=expr SEMICOLON { Expr x }
     | x=type_rule y=var { Var (x, y, None) }
     | x=type_rule y=var z=preceded(ASSIGN, expr) { Var (x, y, z) }
-    | x=type_rule y=var z=preceded(ASSIGN, TIDENT) LPAREN t=separated_nonempty_list(COMMA, expr) RPAREN
+    | x=type_rule y=var z=preceded(ASSIGN, TIDENT) t=paren(separated_nonempty_list(COMMA, expr))
         { Var (x, y, (Tident (z, t))) }
-    | IF paren y=instruction { If (x, y) }
-    | IF paren y=instruction ELSE z=instruction { IfElse (x, y, z) }
-    | WHILE paren y=instruction { While (x, y) }
-    | FOR LPAREN x=separated_list(COMMA, expr) SEMICOLON y=expr? SEMICOLON z=separated_list(COMMA, expr) RPAREN t=instruction { For (x, y, z, t) }
+    | IF paren(expr) y=instruction ELSE z=instruction { IfElse (x, y, z) }
+    | IF paren(expr) y=instruction { If (x, y) }
+    | WHILE paren(expr) y=instruction { While (x, y) }
+    | FOR LPAREN x=separated_list(COMMA, expr) SEMICOLON y=expr? SEMICOLON z=separated_list(COMMA, expr) RPAREN t=instruction { For (x, y, z, t) } (* TODO *)
     | x=bloc { x }
     | COUT x=nonempty_list(preceded(IN, expr_str)) { x }
     | RETURN x=expr? SEMICOLON { x }
