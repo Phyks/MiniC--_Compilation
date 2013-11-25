@@ -1,4 +1,4 @@
-CMO=lexer.cmo parser.cmo main.cmo
+CMO=lexer.cmo lexhack.cmo parser.cmo main.cmo
 GENERATED = lexer.ml parser.ml parser.mli
 BIN=minic++
 FLAGS=-annot
@@ -25,6 +25,9 @@ $(BIN):$(CMO)
 
 .mly.mli:
 	ocamlyacc -v $<
+
+lexhack.cmo:
+	ocamlc -c lexhack.ml
 
 clean:
 	rm -f *.cm[io] *.o *~ $(BIN) $(GENERATED)

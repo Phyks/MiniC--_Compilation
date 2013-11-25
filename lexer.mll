@@ -28,7 +28,7 @@
         List.iter (fun (s, t) -> Hashtbl.add keywords s t) keywords_tbl;
         fun s -> 
             try Hashtbl.find keywords s with Not_found -> 
-                try List.assoc s !types_lexhack with Not_found ->
+                (*try List.assoc s !types_lexhack with Not_found ->*)
                     IDENT s
 
     let newline lexbuf =

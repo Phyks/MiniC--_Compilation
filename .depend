@@ -1,5 +1,7 @@
 lexer.cmo : parser.cmi
 lexer.cmx : parser.cmx
+lexhack.cmo : parser.cmi
+lexhack.cmx : parser.cmx
 main.cmo : parser.cmi lexer.cmo
 main.cmx : parser.cmx lexer.cmx
 parser.cmo : ast.cmi parser.cmi

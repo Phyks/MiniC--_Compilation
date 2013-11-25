@@ -1,8 +1,9 @@
 /* Analyseur syntaxique pour MiniC++ */
 
+/*%parameter <Lexhack : sig type t end>*/
+
 %{
     open Ast
-    let types_lexhack = ref ["int", TINT]
 %}
 
 %token <int> INT
@@ -154,7 +155,7 @@ expr:
     | x=expr y=paren(separated_list(COMMA, expr)) { Apply (x, y) }
     | NEW t=TIDENT x=paren(separated_list(COMMA, expr))
         { 
-            types_lexhack := !types_lexhack :: (t, TIDENT t);
+            (*Lexhack.types_lexhack := !Lexhack.types_lexhack :: (t, TIDENT t);*)
             Instance (t, x)
         }
     | INCR x=expr { Incr (IncrL, x) }
