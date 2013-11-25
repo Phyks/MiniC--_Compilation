@@ -8,7 +8,8 @@
 
     exception Lexing_error of string
 
-    let keywords_tbl = ["class", CLASS;
+    let keywords_tbl = ["cout", COUT;
+                        "class", CLASS;
                         "else", ELSE;
                         "false", FALSE;
                         "for", FOR; 
@@ -58,7 +59,7 @@ let chaine = '\"' caractere* '\"'
 let space = [' ' '\t']
 
 rule token = parse
-    | "#include <iostream>" {  INCLUDE }
+    | "#include <iostream>" { INCLUDE }
     | '\n' { newline lexbuf ; token lexbuf }
     | space+  { token lexbuf }
     | "/*" { comment lexbuf}
@@ -84,6 +85,12 @@ rule token = parse
     | ')' { RPAREN }
     | "->" { ARROW }
     | '.' { DOT }
+    | ';' { SEMICOLON }
+    | ':' { COLON }
+    | ',' { COMMA }
+    | "<<" { IN }
+    | '{' { LBRACE }
+    | '}' { RBRACE }
     | ident as s
         { id_or_kwd s }
     | entier as i { INT (int_of_string i) }
