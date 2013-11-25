@@ -1,1 +1,1 @@
-int main() { int x = 0xG; }
+int x;

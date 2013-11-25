@@ -3,9 +3,9 @@
 (* Opérateurs binaires *)
 type operateur = Eq | Neq | Lt | Leq | Gt | Geq | Plus | Minus | Times | Div | Mod | And | Or
 (* Opérateurs unaires *)
-type uoperateur = Ecomm | Not | UMinus | UPlus | UTimes
+type uoperateur = EComm | Not | UMinus | UPlus | UTimes
 
-type incr = IncrL (* ++e *) | DecrL | IncrR | DecR
+type incr = IncrL (* ++e *) | DecrL | IncrR | DecrR
 
 type ident = string
 type tident = string
@@ -13,15 +13,15 @@ type qident = Ident of ident | Tident of tident * ident
 
 type ast_type = Void | Int | Tident of tident
 
-type var = Ident of ident | UTimes of var | Ecomm of var
-type qvar = Qident of qident | UTimes of qvar | Ecomm of qvar
+type var = Ident of ident | VUTimes of var | VEComm of var
+type qvar = Qident of qident | QUTimes of qvar | QEComm of qvar
 
-type expr = Int of int 
-            | This
-            | False 
-            | True 
-            | Null
-            | Qident of qident 
+type expr = EInt of int 
+            | EThis
+            | EFalse 
+            | ETrue 
+            | ENull
+            | EQident of qident 
             | Dot of expr * ident 
             | Arrow of expr * ident 
             | Assign of expr * expr
@@ -33,19 +33,21 @@ type expr = Int of int
 
 type expr_string = Expr of expr | String of string
 
-type some_expr = None | Some of expr
-type some_assign = None | Expr of expr | Tident of tident * (expr list)
+type some_expr = expr option
+type some_assign = NoAssign | SAExpr of expr | Tident of tident * (expr list)
 
 type instruction = Nop
-                   | Expr of expr
-                   | Var of ast_type * var * some_assign
+                   | IExpr of expr
+                   | IVar of ast_type * var * some_assign
                    | If of expr * instruction
                    | IfElse of expr * instruction * instruction
                    | While of expr * instruction
-                   | For of (expr list) * some_expr * (expr list) * instruction
-                   | Bloc of instruction list
+                   | For of expr list * some_expr * expr list * instruction
+                   | IBloc of bloc
                    | Cout of expr_string list
                    | Return of some_expr
+               and
+               bloc = Bloc of instruction list
 
 type argument = ast_type * var
 
@@ -56,11 +58,11 @@ type proto = {
 }
 
 type decl_vars = ast_type * (var list)
-type member = Var of decl_vars | Proto of bool * proto
-type supers = None | Some of tident list
+type member = MVar of decl_vars | Proto of bool * proto
+type supers = (tident list) option
 type decl_class = ident * supers * (member list)
-type fonction = proto * (instruction list)
-type decl = Var of decl_vars | Class of decl_class | Fonction of fonction
+type fonction = proto * bloc
+type decl = DVar of decl_vars | Class of decl_class | Fonction of fonction
 
 type program = {
     includes : bool;

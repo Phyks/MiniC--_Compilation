@@ -13,6 +13,7 @@
                         "false", FALSE;
                         "for", FOR; 
                         "if", IF;
+                        "int", TINT; (* TODO : Delete and put in lexer hack *)
                         "new", NEW;
                         "NULL", NULL;
                         "public", PUBLIC;
@@ -57,7 +58,7 @@ let chaine = '\"' caractere* '\"'
 let space = [' ' '\t']
 
 rule token = parse
-    | "#include <iostream>" { INCLUDE }
+    | "#include <iostream>" {  INCLUDE }
     | '\n' { newline lexbuf ; token lexbuf }
     | space+  { token lexbuf }
     | "/*" { comment lexbuf}
@@ -94,3 +95,7 @@ and comment = parse
     | "*/" { token lexbuf }
     | _ { comment lexbuf }
     | eof { raise (Lexing_error "Commentaire non terminé.") }
+
+{
+    let p = token (Lexing.from_channel (open_in "test.cpp"))
+}

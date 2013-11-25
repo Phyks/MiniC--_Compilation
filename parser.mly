@@ -59,9 +59,9 @@ fichier:
     }
 
 decl:
-      x=decl_vars { x }
-    | x=decl_class { x }
-    | x=proto y=bloc { (x, y) }
+      x=decl_vars { DVar x }
+    | x=decl_class { Class x }
+    | x=proto y=bloc { Fonction (x, y) }
 
 decl_vars:
     x=type_rule y=separated_nonempty_list(COMMA, var) SEMICOLON
@@ -73,17 +73,17 @@ decl_class:
 
 supers:
     COLON x=separated_nonempty_list(COMMA, preceded(PUBLIC, TIDENT))
-    { Some x }
+    { x }
 
 member:
-      x = decl_vars { x }
+      x = decl_vars { MVar x }
     | x=boption(VIRTUAL) y=proto SEMICOLON 
         { 
-            (x, proto)
+            Proto (x, y)
         }
 
 proto:
-      x=type_rule y=qvar z=paren(separated_list(COMMA, argument))
+    x=type_rule y=qvar z=paren(separated_list(COMMA, argument))
         {
             { 
                 ident = Qvar (x, y);
@@ -105,7 +105,6 @@ proto:
             }
         }
 
-
 unary_plus:
     PLUS {} %prec INCR
 
@@ -121,7 +120,7 @@ paren(X):
 type_rule:
       VOID { Void }
     | TINT { Int }
-    | x=TIDENT { x }
+    | x=TIDENT { Tident x }
 
 argument:
     x=type_rule y=var
@@ -129,25 +128,25 @@ argument:
 
 var:
       x=IDENT { Ident x }
-    | unary_times x=var { Utimes x }
-    | ECOMM var { EComm x }
+    | unary_times x=var { VUTimes x }
+    | ECOMM x=var { VEComm x }
 
 qvar:
       x=qident { Qident x }
-    | unary_times x=qvar { UTimes x }
-    | ECOMM x=qvar { EComm x }
+    | unary_times x=qvar { QUTimes x }
+    | ECOMM x=qvar { QEComm x }
 
 qident:
       x=IDENT { Ident x }
     | x=TIDENT COLON COLON y=IDENT { Tident (x, y) }
 
 expr:
-      x=INT { Int x }
-    | THIS { This }
-    | FALSE { False }
-    | TRUE { True }
-    | NULL { Null }
-    | x=qident { Qident x }
+    x=INT { EInt x }
+    | THIS { EThis }
+    | FALSE { EFalse }
+    | TRUE { ETrue }
+    | NULL { ENull }
+    | x=qident { EQident x }
     | unary_times x=expr { UOp (UTimes, x) }
     | x=expr DOT y=IDENT { Dot (x, y) }
     | x=expr ARROW y=IDENT { Arrow (x, y)}
@@ -162,7 +161,7 @@ expr:
     | DECR x=expr { Incr (DecrL, x) }
     | x=expr INCR { Incr (IncrR, x) }
     | x=expr DECR { Incr (DecrR, x) }
-    | ECOMM x=expr { UOp (Ecomm, x) }
+    | ECOMM x=expr { UOp (EComm, x) }
     | NOT x=expr { UOp (Not, x) }
     | unary_minus x=expr { UOp (UMinus, x) }
     | unary_plus x=expr { UOp (UPlus, x) }
@@ -185,23 +184,23 @@ operateur:
     | OR { Or }
 
 instruction:
-      SEMICOLON { Nop }
-    | x=expr SEMICOLON { Expr x }
-    | x=type_rule y=var { Var (x, y, None) }
-    | x=type_rule y=var z=preceded(ASSIGN, expr) { Var (x, y, z) }
+    SEMICOLON { Nop }
+    | x=expr SEMICOLON { IExpr x }
+    | x=type_rule y=var { IVar (x, y, NoAssign) }
+    | x=type_rule y=var z=preceded(ASSIGN, expr) { IVar (x, y, SAExpr z) }
     | x=type_rule y=var z=preceded(ASSIGN, TIDENT) t=paren(separated_nonempty_list(COMMA, expr))
-        { Var (x, y, (Tident (z, t))) }
-    | IF paren(expr) y=instruction ELSE z=instruction { IfElse (x, y, z) }
-    | IF paren(expr) y=instruction { If (x, y) }
-    | WHILE paren(expr) y=instruction { While (x, y) }
-    | FOR LPAREN x=separated_list(COMMA, expr) SEMICOLON y=expr? SEMICOLON z=separated_list(COMMA, expr) RPAREN t=instruction { For (x, y, z, t) } (* TODO *)
-    | x=bloc { x }
-    | COUT x=nonempty_list(preceded(IN, expr_str)) { x }
-    | RETURN x=expr? SEMICOLON { x }
+        { let tid = Tident (z, t) in IVar (x, y, tid) }
+    | IF x=paren(expr) y=instruction ELSE z=instruction { IfElse (x, y, z) }
+    | IF x=paren(expr) y=instruction { If (x, y) }
+    | WHILE x=paren(expr) y=instruction { While (x, y) }
+    | FOR LPAREN x=separated_list(COMMA, expr) SEMICOLON y=expr? SEMICOLON z=separated_list(COMMA, expr) RPAREN t=instruction { For (x, y, z, t) }
+    | x=bloc { IBloc x }
+    | COUT x=nonempty_list(preceded(IN, expr_str)) { Cout x }
+    | RETURN x=expr? SEMICOLON { Return x }
 
 expr_str:
       x=expr { Expr x }
     | x=STRING { String x }
 
 bloc:
-    LBRACE x=instruction* RBRACE { x }
+     LBRACE x=instruction* RBRACE { Bloc x }
