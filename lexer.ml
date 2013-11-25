@@ -5,7 +5,7 @@
 
     exception Lexing_error of string
 
-    let keywords_tbl = ["cout", COUT;
+    let keywords_tbl = ["std::cout", COUT;
                         "class", CLASS;
                         "else", ELSE;
                         "false", FALSE;
@@ -509,8 +509,3 @@ and __ocaml_lex_comment_rec lexbuf __ocaml_lex_state =
 
 ;;
 
-# 106 "lexer.mll"
- 
-    let p = token (Lexing.from_channel (open_in "test.cpp"))
-
-# 517 "lexer.ml"

@@ -8,7 +8,7 @@
 
     exception Lexing_error of string
 
-    let keywords_tbl = ["cout", COUT;
+    let keywords_tbl = ["std::cout", COUT;
                         "class", CLASS;
                         "else", ELSE;
                         "false", FALSE;
@@ -102,7 +102,3 @@ and comment = parse
     | "*/" { token lexbuf }
     | _ { comment lexbuf }
     | eof { raise (Lexing_error "Commentaire non terminé.") }
-
-{
-    let p = token (Lexing.from_channel (open_in "test.cpp"))
-}
