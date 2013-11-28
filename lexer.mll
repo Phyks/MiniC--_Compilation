@@ -1,10 +1,9 @@
 (* Analyseur lexical pour MiniC++ *)
 
-(* Colon, semicolon, comma, COUT etc *)
-
 {
     open Lexing
     open Parser
+    open Lexhack
 
     exception Lexing_error of string
 
@@ -14,7 +13,7 @@
                         "false", FALSE;
                         "for", FOR; 
                         "if", IF;
-                        "int", TINT; (* TODO : Delete and put in lexer hack *)
+                        "int", TINT;
                         "new", NEW;
                         "NULL", NULL;
                         "public", PUBLIC;
@@ -29,9 +28,12 @@
         let keywords = Hashtbl.create 14 in
         List.iter (fun (s, t) -> Hashtbl.add keywords s t) keywords_tbl;
         fun s -> 
-            try Hashtbl.find keywords s with Not_found -> 
-                (*try List.assoc s !types_lexhack with Not_found ->*)
+            try Hashtbl.find keywords s with Not_found -> begin
+                if List.mem s !(Lexhack.types_lexhack) then
+                    TIDENT s
+                else
                     IDENT s
+            end
 
     let newline lexbuf =
         let pos = lexbuf.lex_curr_p in

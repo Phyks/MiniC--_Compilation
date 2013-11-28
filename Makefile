@@ -1,4 +1,4 @@
-CMO=lexer.cmo lexhack.cmo parser.cmo main.cmo
+CMO=lexhack.cmo lexer.cmo parser.cmo main.cmo
 GENERATED = lexer.ml parser.ml parser.mli
 BIN=minic++
 FLAGS=-annot

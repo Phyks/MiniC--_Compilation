@@ -29,10 +29,10 @@ fichier -> boption(INCLUDE) . list(decl) EOF [ # ]
 -- On CLASS shift to state 28
 -- On type_rule shift to state 70
 -- On proto shift to state 74
--- On list(decl) shift to state 183
--- On decl_vars shift to state 185
--- On decl_class shift to state 186
--- On decl shift to state 187
+-- On list(decl) shift to state 187
+-- On decl_vars shift to state 189
+-- On decl_class shift to state 190
+-- On decl shift to state 191
 -- On EOF reduce production list(decl) -> 
 
 State 4:
@@ -106,40 +106,14 @@ unary_times -> TIMES . [ TRUE TIMES TIDENT THIS PLUS NULL NOT NEW MINUS LPAREN I
 -- On DECR reduce production unary_times -> TIMES 
 
 State 11:
-var -> IDENT . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT COMMA ASSIGN ]
--- On WHILE reduce production var -> IDENT 
--- On VOID reduce production var -> IDENT 
--- On TRUE reduce production var -> IDENT 
--- On TINT reduce production var -> IDENT 
--- On TIMES reduce production var -> IDENT 
--- On TIDENT reduce production var -> IDENT 
--- On THIS reduce production var -> IDENT 
+var -> IDENT . [ SEMICOLON RPAREN COMMA ASSIGN ]
 -- On SEMICOLON reduce production var -> IDENT 
 -- On RPAREN reduce production var -> IDENT 
--- On RETURN reduce production var -> IDENT 
--- On RBRACE reduce production var -> IDENT 
--- On PLUS reduce production var -> IDENT 
--- On NULL reduce production var -> IDENT 
--- On NOT reduce production var -> IDENT 
--- On NEW reduce production var -> IDENT 
--- On MINUS reduce production var -> IDENT 
--- On LPAREN reduce production var -> IDENT 
--- On LBRACE reduce production var -> IDENT 
--- On INT reduce production var -> IDENT 
--- On INCR reduce production var -> IDENT 
--- On IF reduce production var -> IDENT 
--- On IDENT reduce production var -> IDENT 
--- On FOR reduce production var -> IDENT 
--- On FALSE reduce production var -> IDENT 
--- On ELSE reduce production var -> IDENT 
--- On ECOMM reduce production var -> IDENT 
--- On DECR reduce production var -> IDENT 
--- On COUT reduce production var -> IDENT 
 -- On COMMA reduce production var -> IDENT 
 -- On ASSIGN reduce production var -> IDENT 
 
 State 12:
-var -> ECOMM . var [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT COMMA ASSIGN ]
+var -> ECOMM . var [ SEMICOLON RPAREN COMMA ASSIGN ]
 -- On TIMES shift to state 10
 -- On IDENT shift to state 11
 -- On ECOMM shift to state 12
@@ -147,40 +121,14 @@ var -> ECOMM . var [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RET
 -- On unary_times shift to state 14
 
 State 13:
-var -> ECOMM var . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT COMMA ASSIGN ]
--- On WHILE reduce production var -> ECOMM var 
--- On VOID reduce production var -> ECOMM var 
--- On TRUE reduce production var -> ECOMM var 
--- On TINT reduce production var -> ECOMM var 
--- On TIMES reduce production var -> ECOMM var 
--- On TIDENT reduce production var -> ECOMM var 
--- On THIS reduce production var -> ECOMM var 
+var -> ECOMM var . [ SEMICOLON RPAREN COMMA ASSIGN ]
 -- On SEMICOLON reduce production var -> ECOMM var 
 -- On RPAREN reduce production var -> ECOMM var 
--- On RETURN reduce production var -> ECOMM var 
--- On RBRACE reduce production var -> ECOMM var 
--- On PLUS reduce production var -> ECOMM var 
--- On NULL reduce production var -> ECOMM var 
--- On NOT reduce production var -> ECOMM var 
--- On NEW reduce production var -> ECOMM var 
--- On MINUS reduce production var -> ECOMM var 
--- On LPAREN reduce production var -> ECOMM var 
--- On LBRACE reduce production var -> ECOMM var 
--- On INT reduce production var -> ECOMM var 
--- On INCR reduce production var -> ECOMM var 
--- On IF reduce production var -> ECOMM var 
--- On IDENT reduce production var -> ECOMM var 
--- On FOR reduce production var -> ECOMM var 
--- On FALSE reduce production var -> ECOMM var 
--- On ELSE reduce production var -> ECOMM var 
--- On ECOMM reduce production var -> ECOMM var 
--- On DECR reduce production var -> ECOMM var 
--- On COUT reduce production var -> ECOMM var 
 -- On COMMA reduce production var -> ECOMM var 
 -- On ASSIGN reduce production var -> ECOMM var 
 
 State 14:
-var -> unary_times . var [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT COMMA ASSIGN ]
+var -> unary_times . var [ SEMICOLON RPAREN COMMA ASSIGN ]
 -- On TIMES shift to state 10
 -- On IDENT shift to state 11
 -- On ECOMM shift to state 12
@@ -188,35 +136,9 @@ var -> unary_times . var [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAR
 -- On unary_times shift to state 14
 
 State 15:
-var -> unary_times var . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT COMMA ASSIGN ]
--- On WHILE reduce production var -> unary_times var 
--- On VOID reduce production var -> unary_times var 
--- On TRUE reduce production var -> unary_times var 
--- On TINT reduce production var -> unary_times var 
--- On TIMES reduce production var -> unary_times var 
--- On TIDENT reduce production var -> unary_times var 
--- On THIS reduce production var -> unary_times var 
+var -> unary_times var . [ SEMICOLON RPAREN COMMA ASSIGN ]
 -- On SEMICOLON reduce production var -> unary_times var 
 -- On RPAREN reduce production var -> unary_times var 
--- On RETURN reduce production var -> unary_times var 
--- On RBRACE reduce production var -> unary_times var 
--- On PLUS reduce production var -> unary_times var 
--- On NULL reduce production var -> unary_times var 
--- On NOT reduce production var -> unary_times var 
--- On NEW reduce production var -> unary_times var 
--- On MINUS reduce production var -> unary_times var 
--- On LPAREN reduce production var -> unary_times var 
--- On LBRACE reduce production var -> unary_times var 
--- On INT reduce production var -> unary_times var 
--- On INCR reduce production var -> unary_times var 
--- On IF reduce production var -> unary_times var 
--- On IDENT reduce production var -> unary_times var 
--- On FOR reduce production var -> unary_times var 
--- On FALSE reduce production var -> unary_times var 
--- On ELSE reduce production var -> unary_times var 
--- On ECOMM reduce production var -> unary_times var 
--- On DECR reduce production var -> unary_times var 
--- On COUT reduce production var -> unary_times var 
 -- On COMMA reduce production var -> unary_times var 
 -- On ASSIGN reduce production var -> unary_times var 
 
@@ -449,104 +371,64 @@ proto -> type_rule . qvar paren(separated_list(COMMA,argument)) [ SEMICOLON ]
 -- On qident shift to state 61
 
 State 53:
-qident -> TIDENT . COLON COLON IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+qident -> TIDENT . COLON COLON IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On COLON shift to state 54
 
 State 54:
-qident -> TIDENT COLON . COLON IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+qident -> TIDENT COLON . COLON IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On COLON shift to state 55
 
 State 55:
-qident -> TIDENT COLON COLON . IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+qident -> TIDENT COLON COLON . IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On IDENT shift to state 56
 
 State 56:
-qident -> TIDENT COLON COLON IDENT . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production qident -> TIDENT COLON COLON IDENT 
--- On VOID reduce production qident -> TIDENT COLON COLON IDENT 
--- On TRUE reduce production qident -> TIDENT COLON COLON IDENT 
--- On TINT reduce production qident -> TIDENT COLON COLON IDENT 
+qident -> TIDENT COLON COLON IDENT . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production qident -> TIDENT COLON COLON IDENT 
--- On TIDENT reduce production qident -> TIDENT COLON COLON IDENT 
--- On THIS reduce production qident -> TIDENT COLON COLON IDENT 
 -- On SEMICOLON reduce production qident -> TIDENT COLON COLON IDENT 
 -- On RPAREN reduce production qident -> TIDENT COLON COLON IDENT 
--- On RETURN reduce production qident -> TIDENT COLON COLON IDENT 
--- On RBRACE reduce production qident -> TIDENT COLON COLON IDENT 
 -- On PLUS reduce production qident -> TIDENT COLON COLON IDENT 
 -- On OR reduce production qident -> TIDENT COLON COLON IDENT 
--- On NULL reduce production qident -> TIDENT COLON COLON IDENT 
--- On NOT reduce production qident -> TIDENT COLON COLON IDENT 
--- On NEW reduce production qident -> TIDENT COLON COLON IDENT 
 -- On NEQ reduce production qident -> TIDENT COLON COLON IDENT 
 -- On MOD reduce production qident -> TIDENT COLON COLON IDENT 
 -- On MINUS reduce production qident -> TIDENT COLON COLON IDENT 
 -- On LT reduce production qident -> TIDENT COLON COLON IDENT 
 -- On LPAREN reduce production qident -> TIDENT COLON COLON IDENT 
 -- On LEQ reduce production qident -> TIDENT COLON COLON IDENT 
--- On LBRACE reduce production qident -> TIDENT COLON COLON IDENT 
--- On INT reduce production qident -> TIDENT COLON COLON IDENT 
 -- On INCR reduce production qident -> TIDENT COLON COLON IDENT 
 -- On IN reduce production qident -> TIDENT COLON COLON IDENT 
--- On IF reduce production qident -> TIDENT COLON COLON IDENT 
--- On IDENT reduce production qident -> TIDENT COLON COLON IDENT 
 -- On GT reduce production qident -> TIDENT COLON COLON IDENT 
 -- On GEQ reduce production qident -> TIDENT COLON COLON IDENT 
--- On FOR reduce production qident -> TIDENT COLON COLON IDENT 
--- On FALSE reduce production qident -> TIDENT COLON COLON IDENT 
 -- On EQ reduce production qident -> TIDENT COLON COLON IDENT 
--- On ELSE reduce production qident -> TIDENT COLON COLON IDENT 
--- On ECOMM reduce production qident -> TIDENT COLON COLON IDENT 
 -- On DOT reduce production qident -> TIDENT COLON COLON IDENT 
 -- On DIV reduce production qident -> TIDENT COLON COLON IDENT 
 -- On DECR reduce production qident -> TIDENT COLON COLON IDENT 
--- On COUT reduce production qident -> TIDENT COLON COLON IDENT 
 -- On COMMA reduce production qident -> TIDENT COLON COLON IDENT 
 -- On ASSIGN reduce production qident -> TIDENT COLON COLON IDENT 
 -- On ARROW reduce production qident -> TIDENT COLON COLON IDENT 
 -- On AND reduce production qident -> TIDENT COLON COLON IDENT 
 
 State 57:
-qident -> IDENT . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production qident -> IDENT 
--- On VOID reduce production qident -> IDENT 
--- On TRUE reduce production qident -> IDENT 
--- On TINT reduce production qident -> IDENT 
+qident -> IDENT . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production qident -> IDENT 
--- On TIDENT reduce production qident -> IDENT 
--- On THIS reduce production qident -> IDENT 
 -- On SEMICOLON reduce production qident -> IDENT 
 -- On RPAREN reduce production qident -> IDENT 
--- On RETURN reduce production qident -> IDENT 
--- On RBRACE reduce production qident -> IDENT 
 -- On PLUS reduce production qident -> IDENT 
 -- On OR reduce production qident -> IDENT 
--- On NULL reduce production qident -> IDENT 
--- On NOT reduce production qident -> IDENT 
--- On NEW reduce production qident -> IDENT 
 -- On NEQ reduce production qident -> IDENT 
 -- On MOD reduce production qident -> IDENT 
 -- On MINUS reduce production qident -> IDENT 
 -- On LT reduce production qident -> IDENT 
 -- On LPAREN reduce production qident -> IDENT 
 -- On LEQ reduce production qident -> IDENT 
--- On LBRACE reduce production qident -> IDENT 
--- On INT reduce production qident -> IDENT 
 -- On INCR reduce production qident -> IDENT 
 -- On IN reduce production qident -> IDENT 
--- On IF reduce production qident -> IDENT 
--- On IDENT reduce production qident -> IDENT 
 -- On GT reduce production qident -> IDENT 
 -- On GEQ reduce production qident -> IDENT 
--- On FOR reduce production qident -> IDENT 
--- On FALSE reduce production qident -> IDENT 
 -- On EQ reduce production qident -> IDENT 
--- On ELSE reduce production qident -> IDENT 
--- On ECOMM reduce production qident -> IDENT 
 -- On DOT reduce production qident -> IDENT 
 -- On DIV reduce production qident -> IDENT 
 -- On DECR reduce production qident -> IDENT 
--- On COUT reduce production qident -> IDENT 
 -- On COMMA reduce production qident -> IDENT 
 -- On ASSIGN reduce production qident -> IDENT 
 -- On ARROW reduce production qident -> IDENT 
@@ -669,7 +551,7 @@ var -> unary_times . var [ SEMICOLON COMMA ]
 State 74:
 decl -> proto . bloc [ VOID TINT TIDENT EOF CLASS ]
 -- On LBRACE shift to state 75
--- On bloc shift to state 182
+-- On bloc shift to state 186
 
 State 75:
 bloc -> LBRACE . list(instruction) RBRACE [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE EOF ELSE ECOMM DECR COUT CLASS ]
@@ -701,13 +583,13 @@ bloc -> LBRACE . list(instruction) RBRACE [ WHILE VOID TRUE TINT TIMES TIDENT TH
 -- On unary_times shift to state 92
 -- On unary_plus shift to state 93
 -- On unary_minus shift to state 94
--- On type_rule shift to state 161
+-- On type_rule shift to state 162
 -- On qident shift to state 95
 -- On paren(expr) shift to state 96
--- On list(instruction) shift to state 178
--- On instruction shift to state 180
--- On expr shift to state 171
--- On bloc shift to state 173
+-- On list(instruction) shift to state 182
+-- On instruction shift to state 184
+-- On expr shift to state 175
+-- On bloc shift to state 177
 -- On RBRACE reduce production list(instruction) -> 
 
 State 76:
@@ -716,7 +598,7 @@ instruction -> WHILE . paren(expr) instruction [ WHILE VOID TRUE TINT TIMES TIDE
 -- On paren(expr) shift to state 137
 
 State 77:
-paren(expr) -> LPAREN . expr RPAREN [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+paren(expr) -> LPAREN . expr RPAREN [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -741,92 +623,52 @@ paren(expr) -> LPAREN . expr RPAREN [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEM
 -- On expr shift to state 135
 
 State 78:
-expr -> TRUE . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> TRUE 
--- On VOID reduce production expr -> TRUE 
--- On TRUE reduce production expr -> TRUE 
--- On TINT reduce production expr -> TRUE 
+expr -> TRUE . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> TRUE 
--- On TIDENT reduce production expr -> TRUE 
--- On THIS reduce production expr -> TRUE 
 -- On SEMICOLON reduce production expr -> TRUE 
 -- On RPAREN reduce production expr -> TRUE 
--- On RETURN reduce production expr -> TRUE 
--- On RBRACE reduce production expr -> TRUE 
 -- On PLUS reduce production expr -> TRUE 
 -- On OR reduce production expr -> TRUE 
--- On NULL reduce production expr -> TRUE 
--- On NOT reduce production expr -> TRUE 
--- On NEW reduce production expr -> TRUE 
 -- On NEQ reduce production expr -> TRUE 
 -- On MOD reduce production expr -> TRUE 
 -- On MINUS reduce production expr -> TRUE 
 -- On LT reduce production expr -> TRUE 
 -- On LPAREN reduce production expr -> TRUE 
 -- On LEQ reduce production expr -> TRUE 
--- On LBRACE reduce production expr -> TRUE 
--- On INT reduce production expr -> TRUE 
 -- On INCR reduce production expr -> TRUE 
 -- On IN reduce production expr -> TRUE 
--- On IF reduce production expr -> TRUE 
--- On IDENT reduce production expr -> TRUE 
 -- On GT reduce production expr -> TRUE 
 -- On GEQ reduce production expr -> TRUE 
--- On FOR reduce production expr -> TRUE 
--- On FALSE reduce production expr -> TRUE 
 -- On EQ reduce production expr -> TRUE 
--- On ELSE reduce production expr -> TRUE 
--- On ECOMM reduce production expr -> TRUE 
 -- On DOT reduce production expr -> TRUE 
 -- On DIV reduce production expr -> TRUE 
 -- On DECR reduce production expr -> TRUE 
--- On COUT reduce production expr -> TRUE 
 -- On COMMA reduce production expr -> TRUE 
 -- On ASSIGN reduce production expr -> TRUE 
 -- On ARROW reduce production expr -> TRUE 
 -- On AND reduce production expr -> TRUE 
 
 State 79:
-expr -> THIS . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> THIS 
--- On VOID reduce production expr -> THIS 
--- On TRUE reduce production expr -> THIS 
--- On TINT reduce production expr -> THIS 
+expr -> THIS . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> THIS 
--- On TIDENT reduce production expr -> THIS 
--- On THIS reduce production expr -> THIS 
 -- On SEMICOLON reduce production expr -> THIS 
 -- On RPAREN reduce production expr -> THIS 
--- On RETURN reduce production expr -> THIS 
--- On RBRACE reduce production expr -> THIS 
 -- On PLUS reduce production expr -> THIS 
 -- On OR reduce production expr -> THIS 
--- On NULL reduce production expr -> THIS 
--- On NOT reduce production expr -> THIS 
--- On NEW reduce production expr -> THIS 
 -- On NEQ reduce production expr -> THIS 
 -- On MOD reduce production expr -> THIS 
 -- On MINUS reduce production expr -> THIS 
 -- On LT reduce production expr -> THIS 
 -- On LPAREN reduce production expr -> THIS 
 -- On LEQ reduce production expr -> THIS 
--- On LBRACE reduce production expr -> THIS 
--- On INT reduce production expr -> THIS 
 -- On INCR reduce production expr -> THIS 
 -- On IN reduce production expr -> THIS 
--- On IF reduce production expr -> THIS 
--- On IDENT reduce production expr -> THIS 
 -- On GT reduce production expr -> THIS 
 -- On GEQ reduce production expr -> THIS 
--- On FOR reduce production expr -> THIS 
--- On FALSE reduce production expr -> THIS 
 -- On EQ reduce production expr -> THIS 
--- On ELSE reduce production expr -> THIS 
--- On ECOMM reduce production expr -> THIS 
 -- On DOT reduce production expr -> THIS 
 -- On DIV reduce production expr -> THIS 
 -- On DECR reduce production expr -> THIS 
--- On COUT reduce production expr -> THIS 
 -- On COMMA reduce production expr -> THIS 
 -- On ASSIGN reduce production expr -> THIS 
 -- On ARROW reduce production expr -> THIS 
@@ -852,53 +694,33 @@ unary_plus -> PLUS . [ TRUE TIMES TIDENT THIS PLUS NULL NOT NEW MINUS LPAREN INT
 -- On DECR reduce production unary_plus -> PLUS 
 
 State 81:
-expr -> NULL . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> NULL 
--- On VOID reduce production expr -> NULL 
--- On TRUE reduce production expr -> NULL 
--- On TINT reduce production expr -> NULL 
+expr -> NULL . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> NULL 
--- On TIDENT reduce production expr -> NULL 
--- On THIS reduce production expr -> NULL 
 -- On SEMICOLON reduce production expr -> NULL 
 -- On RPAREN reduce production expr -> NULL 
--- On RETURN reduce production expr -> NULL 
--- On RBRACE reduce production expr -> NULL 
 -- On PLUS reduce production expr -> NULL 
 -- On OR reduce production expr -> NULL 
--- On NULL reduce production expr -> NULL 
--- On NOT reduce production expr -> NULL 
--- On NEW reduce production expr -> NULL 
 -- On NEQ reduce production expr -> NULL 
 -- On MOD reduce production expr -> NULL 
 -- On MINUS reduce production expr -> NULL 
 -- On LT reduce production expr -> NULL 
 -- On LPAREN reduce production expr -> NULL 
 -- On LEQ reduce production expr -> NULL 
--- On LBRACE reduce production expr -> NULL 
--- On INT reduce production expr -> NULL 
 -- On INCR reduce production expr -> NULL 
 -- On IN reduce production expr -> NULL 
--- On IF reduce production expr -> NULL 
--- On IDENT reduce production expr -> NULL 
 -- On GT reduce production expr -> NULL 
 -- On GEQ reduce production expr -> NULL 
--- On FOR reduce production expr -> NULL 
--- On FALSE reduce production expr -> NULL 
 -- On EQ reduce production expr -> NULL 
--- On ELSE reduce production expr -> NULL 
--- On ECOMM reduce production expr -> NULL 
 -- On DOT reduce production expr -> NULL 
 -- On DIV reduce production expr -> NULL 
 -- On DECR reduce production expr -> NULL 
--- On COUT reduce production expr -> NULL 
 -- On COMMA reduce production expr -> NULL 
 -- On ASSIGN reduce production expr -> NULL 
 -- On ARROW reduce production expr -> NULL 
 -- On AND reduce production expr -> NULL 
 
 State 82:
-expr -> NOT . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> NOT . expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -923,16 +745,16 @@ expr -> NOT . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RET
 -- On expr shift to state 134
 
 State 83:
-expr -> NEW . TIDENT paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> NEW . TIDENT paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIDENT shift to state 84
 
 State 84:
-expr -> NEW TIDENT . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> NEW TIDENT . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On LPAREN shift to state 85
 -- On paren(separated_list(COMMA,expr)) shift to state 133
 
 State 85:
-paren(separated_list(COMMA,expr)) -> LPAREN . loption(separated_nonempty_list(COMMA,expr)) RPAREN [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+paren(separated_list(COMMA,expr)) -> LPAREN . loption(separated_nonempty_list(COMMA,expr)) RPAREN [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -979,53 +801,33 @@ unary_minus -> MINUS . [ TRUE TIMES TIDENT THIS PLUS NULL NOT NEW MINUS LPAREN I
 -- On DECR reduce production unary_minus -> MINUS 
 
 State 87:
-expr -> INT . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> INT 
--- On VOID reduce production expr -> INT 
--- On TRUE reduce production expr -> INT 
--- On TINT reduce production expr -> INT 
+expr -> INT . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> INT 
--- On TIDENT reduce production expr -> INT 
--- On THIS reduce production expr -> INT 
 -- On SEMICOLON reduce production expr -> INT 
 -- On RPAREN reduce production expr -> INT 
--- On RETURN reduce production expr -> INT 
--- On RBRACE reduce production expr -> INT 
 -- On PLUS reduce production expr -> INT 
 -- On OR reduce production expr -> INT 
--- On NULL reduce production expr -> INT 
--- On NOT reduce production expr -> INT 
--- On NEW reduce production expr -> INT 
 -- On NEQ reduce production expr -> INT 
 -- On MOD reduce production expr -> INT 
 -- On MINUS reduce production expr -> INT 
 -- On LT reduce production expr -> INT 
 -- On LPAREN reduce production expr -> INT 
 -- On LEQ reduce production expr -> INT 
--- On LBRACE reduce production expr -> INT 
--- On INT reduce production expr -> INT 
 -- On INCR reduce production expr -> INT 
 -- On IN reduce production expr -> INT 
--- On IF reduce production expr -> INT 
--- On IDENT reduce production expr -> INT 
 -- On GT reduce production expr -> INT 
 -- On GEQ reduce production expr -> INT 
--- On FOR reduce production expr -> INT 
--- On FALSE reduce production expr -> INT 
 -- On EQ reduce production expr -> INT 
--- On ELSE reduce production expr -> INT 
--- On ECOMM reduce production expr -> INT 
 -- On DOT reduce production expr -> INT 
 -- On DIV reduce production expr -> INT 
 -- On DECR reduce production expr -> INT 
--- On COUT reduce production expr -> INT 
 -- On COMMA reduce production expr -> INT 
 -- On ASSIGN reduce production expr -> INT 
 -- On ARROW reduce production expr -> INT 
 -- On AND reduce production expr -> INT 
 
 State 88:
-expr -> INCR . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> INCR . expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -1050,53 +852,33 @@ expr -> INCR . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RE
 -- On expr shift to state 126
 
 State 89:
-expr -> FALSE . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> FALSE 
--- On VOID reduce production expr -> FALSE 
--- On TRUE reduce production expr -> FALSE 
--- On TINT reduce production expr -> FALSE 
+expr -> FALSE . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> FALSE 
--- On TIDENT reduce production expr -> FALSE 
--- On THIS reduce production expr -> FALSE 
 -- On SEMICOLON reduce production expr -> FALSE 
 -- On RPAREN reduce production expr -> FALSE 
--- On RETURN reduce production expr -> FALSE 
--- On RBRACE reduce production expr -> FALSE 
 -- On PLUS reduce production expr -> FALSE 
 -- On OR reduce production expr -> FALSE 
--- On NULL reduce production expr -> FALSE 
--- On NOT reduce production expr -> FALSE 
--- On NEW reduce production expr -> FALSE 
 -- On NEQ reduce production expr -> FALSE 
 -- On MOD reduce production expr -> FALSE 
 -- On MINUS reduce production expr -> FALSE 
 -- On LT reduce production expr -> FALSE 
 -- On LPAREN reduce production expr -> FALSE 
 -- On LEQ reduce production expr -> FALSE 
--- On LBRACE reduce production expr -> FALSE 
--- On INT reduce production expr -> FALSE 
 -- On INCR reduce production expr -> FALSE 
 -- On IN reduce production expr -> FALSE 
--- On IF reduce production expr -> FALSE 
--- On IDENT reduce production expr -> FALSE 
 -- On GT reduce production expr -> FALSE 
 -- On GEQ reduce production expr -> FALSE 
--- On FOR reduce production expr -> FALSE 
--- On FALSE reduce production expr -> FALSE 
 -- On EQ reduce production expr -> FALSE 
--- On ELSE reduce production expr -> FALSE 
--- On ECOMM reduce production expr -> FALSE 
 -- On DOT reduce production expr -> FALSE 
 -- On DIV reduce production expr -> FALSE 
 -- On DECR reduce production expr -> FALSE 
--- On COUT reduce production expr -> FALSE 
 -- On COMMA reduce production expr -> FALSE 
 -- On ASSIGN reduce production expr -> FALSE 
 -- On ARROW reduce production expr -> FALSE 
 -- On AND reduce production expr -> FALSE 
 
 State 90:
-expr -> ECOMM . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> ECOMM . expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -1121,7 +903,7 @@ expr -> ECOMM . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN R
 -- On expr shift to state 125
 
 State 91:
-expr -> DECR . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> DECR . expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -1146,7 +928,7 @@ expr -> DECR . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RE
 -- On expr shift to state 124
 
 State 92:
-expr -> unary_times . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> unary_times . expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -1171,7 +953,7 @@ expr -> unary_times . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RP
 -- On expr shift to state 123
 
 State 93:
-expr -> unary_plus . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> unary_plus . expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -1196,7 +978,7 @@ expr -> unary_plus . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPA
 -- On expr shift to state 122
 
 State 94:
-expr -> unary_minus . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> unary_minus . expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -1221,106 +1003,66 @@ expr -> unary_minus . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RP
 -- On expr shift to state 97
 
 State 95:
-expr -> qident . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> qident 
--- On VOID reduce production expr -> qident 
--- On TRUE reduce production expr -> qident 
--- On TINT reduce production expr -> qident 
+expr -> qident . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> qident 
--- On TIDENT reduce production expr -> qident 
--- On THIS reduce production expr -> qident 
 -- On SEMICOLON reduce production expr -> qident 
 -- On RPAREN reduce production expr -> qident 
--- On RETURN reduce production expr -> qident 
--- On RBRACE reduce production expr -> qident 
 -- On PLUS reduce production expr -> qident 
 -- On OR reduce production expr -> qident 
--- On NULL reduce production expr -> qident 
--- On NOT reduce production expr -> qident 
--- On NEW reduce production expr -> qident 
 -- On NEQ reduce production expr -> qident 
 -- On MOD reduce production expr -> qident 
 -- On MINUS reduce production expr -> qident 
 -- On LT reduce production expr -> qident 
 -- On LPAREN reduce production expr -> qident 
 -- On LEQ reduce production expr -> qident 
--- On LBRACE reduce production expr -> qident 
--- On INT reduce production expr -> qident 
 -- On INCR reduce production expr -> qident 
 -- On IN reduce production expr -> qident 
--- On IF reduce production expr -> qident 
--- On IDENT reduce production expr -> qident 
 -- On GT reduce production expr -> qident 
 -- On GEQ reduce production expr -> qident 
--- On FOR reduce production expr -> qident 
--- On FALSE reduce production expr -> qident 
 -- On EQ reduce production expr -> qident 
--- On ELSE reduce production expr -> qident 
--- On ECOMM reduce production expr -> qident 
 -- On DOT reduce production expr -> qident 
 -- On DIV reduce production expr -> qident 
 -- On DECR reduce production expr -> qident 
--- On COUT reduce production expr -> qident 
 -- On COMMA reduce production expr -> qident 
 -- On ASSIGN reduce production expr -> qident 
 -- On ARROW reduce production expr -> qident 
 -- On AND reduce production expr -> qident 
 
 State 96:
-expr -> paren(expr) . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> paren(expr) 
--- On VOID reduce production expr -> paren(expr) 
--- On TRUE reduce production expr -> paren(expr) 
--- On TINT reduce production expr -> paren(expr) 
+expr -> paren(expr) . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> paren(expr) 
--- On TIDENT reduce production expr -> paren(expr) 
--- On THIS reduce production expr -> paren(expr) 
 -- On SEMICOLON reduce production expr -> paren(expr) 
 -- On RPAREN reduce production expr -> paren(expr) 
--- On RETURN reduce production expr -> paren(expr) 
--- On RBRACE reduce production expr -> paren(expr) 
 -- On PLUS reduce production expr -> paren(expr) 
 -- On OR reduce production expr -> paren(expr) 
--- On NULL reduce production expr -> paren(expr) 
--- On NOT reduce production expr -> paren(expr) 
--- On NEW reduce production expr -> paren(expr) 
 -- On NEQ reduce production expr -> paren(expr) 
 -- On MOD reduce production expr -> paren(expr) 
 -- On MINUS reduce production expr -> paren(expr) 
 -- On LT reduce production expr -> paren(expr) 
 -- On LPAREN reduce production expr -> paren(expr) 
 -- On LEQ reduce production expr -> paren(expr) 
--- On LBRACE reduce production expr -> paren(expr) 
--- On INT reduce production expr -> paren(expr) 
 -- On INCR reduce production expr -> paren(expr) 
 -- On IN reduce production expr -> paren(expr) 
--- On IF reduce production expr -> paren(expr) 
--- On IDENT reduce production expr -> paren(expr) 
 -- On GT reduce production expr -> paren(expr) 
 -- On GEQ reduce production expr -> paren(expr) 
--- On FOR reduce production expr -> paren(expr) 
--- On FALSE reduce production expr -> paren(expr) 
 -- On EQ reduce production expr -> paren(expr) 
--- On ELSE reduce production expr -> paren(expr) 
--- On ECOMM reduce production expr -> paren(expr) 
 -- On DOT reduce production expr -> paren(expr) 
 -- On DIV reduce production expr -> paren(expr) 
 -- On DECR reduce production expr -> paren(expr) 
--- On COUT reduce production expr -> paren(expr) 
 -- On COMMA reduce production expr -> paren(expr) 
 -- On ASSIGN reduce production expr -> paren(expr) 
 -- On ARROW reduce production expr -> paren(expr) 
 -- On AND reduce production expr -> paren(expr) 
 
 State 97:
-expr -> expr . DOT IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ARROW IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . INCR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . DECR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> unary_minus expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr . DOT IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ARROW IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ASSIGN expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . INCR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . DECR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> unary_minus expr . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . operateur expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES shift to state 98
 -- On PLUS shift to state 99
 -- On OR shift to state 100
@@ -1342,45 +1084,25 @@ expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 -- On AND shift to state 118
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
--- On WHILE reduce production expr -> unary_minus expr 
--- On VOID reduce production expr -> unary_minus expr 
--- On TRUE reduce production expr -> unary_minus expr 
--- On TINT reduce production expr -> unary_minus expr 
 -- On TIMES reduce production expr -> unary_minus expr 
--- On TIDENT reduce production expr -> unary_minus expr 
--- On THIS reduce production expr -> unary_minus expr 
 -- On SEMICOLON reduce production expr -> unary_minus expr 
 -- On RPAREN reduce production expr -> unary_minus expr 
--- On RETURN reduce production expr -> unary_minus expr 
--- On RBRACE reduce production expr -> unary_minus expr 
 -- On PLUS reduce production expr -> unary_minus expr 
 -- On OR reduce production expr -> unary_minus expr 
--- On NULL reduce production expr -> unary_minus expr 
--- On NOT reduce production expr -> unary_minus expr 
--- On NEW reduce production expr -> unary_minus expr 
 -- On NEQ reduce production expr -> unary_minus expr 
 -- On MOD reduce production expr -> unary_minus expr 
 -- On MINUS reduce production expr -> unary_minus expr 
 -- On LT reduce production expr -> unary_minus expr 
 -- On LPAREN reduce production expr -> unary_minus expr 
 -- On LEQ reduce production expr -> unary_minus expr 
--- On LBRACE reduce production expr -> unary_minus expr 
--- On INT reduce production expr -> unary_minus expr 
 -- On INCR reduce production expr -> unary_minus expr 
 -- On IN reduce production expr -> unary_minus expr 
--- On IF reduce production expr -> unary_minus expr 
--- On IDENT reduce production expr -> unary_minus expr 
 -- On GT reduce production expr -> unary_minus expr 
 -- On GEQ reduce production expr -> unary_minus expr 
--- On FOR reduce production expr -> unary_minus expr 
--- On FALSE reduce production expr -> unary_minus expr 
 -- On EQ reduce production expr -> unary_minus expr 
--- On ELSE reduce production expr -> unary_minus expr 
--- On ECOMM reduce production expr -> unary_minus expr 
 -- On DOT reduce production expr -> unary_minus expr 
 -- On DIV reduce production expr -> unary_minus expr 
 -- On DECR reduce production expr -> unary_minus expr 
--- On COUT reduce production expr -> unary_minus expr 
 -- On COMMA reduce production expr -> unary_minus expr 
 -- On ASSIGN reduce production expr -> unary_minus expr 
 -- On ARROW reduce production expr -> unary_minus expr 
@@ -1540,46 +1262,26 @@ operateur -> LEQ . [ TRUE TIMES TIDENT THIS PLUS NULL NOT NEW MINUS LPAREN INT I
 -- On DECR reduce production operateur -> LEQ 
 
 State 106:
-expr -> expr INCR . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> expr INCR 
--- On VOID reduce production expr -> expr INCR 
--- On TRUE reduce production expr -> expr INCR 
--- On TINT reduce production expr -> expr INCR 
+expr -> expr INCR . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> expr INCR 
--- On TIDENT reduce production expr -> expr INCR 
--- On THIS reduce production expr -> expr INCR 
 -- On SEMICOLON reduce production expr -> expr INCR 
 -- On RPAREN reduce production expr -> expr INCR 
--- On RETURN reduce production expr -> expr INCR 
--- On RBRACE reduce production expr -> expr INCR 
 -- On PLUS reduce production expr -> expr INCR 
 -- On OR reduce production expr -> expr INCR 
--- On NULL reduce production expr -> expr INCR 
--- On NOT reduce production expr -> expr INCR 
--- On NEW reduce production expr -> expr INCR 
 -- On NEQ reduce production expr -> expr INCR 
 -- On MOD reduce production expr -> expr INCR 
 -- On MINUS reduce production expr -> expr INCR 
 -- On LT reduce production expr -> expr INCR 
 -- On LPAREN reduce production expr -> expr INCR 
 -- On LEQ reduce production expr -> expr INCR 
--- On LBRACE reduce production expr -> expr INCR 
--- On INT reduce production expr -> expr INCR 
 -- On INCR reduce production expr -> expr INCR 
 -- On IN reduce production expr -> expr INCR 
--- On IF reduce production expr -> expr INCR 
--- On IDENT reduce production expr -> expr INCR 
 -- On GT reduce production expr -> expr INCR 
 -- On GEQ reduce production expr -> expr INCR 
--- On FOR reduce production expr -> expr INCR 
--- On FALSE reduce production expr -> expr INCR 
 -- On EQ reduce production expr -> expr INCR 
--- On ELSE reduce production expr -> expr INCR 
--- On ECOMM reduce production expr -> expr INCR 
 -- On DOT reduce production expr -> expr INCR 
 -- On DIV reduce production expr -> expr INCR 
 -- On DECR reduce production expr -> expr INCR 
--- On COUT reduce production expr -> expr INCR 
 -- On COMMA reduce production expr -> expr INCR 
 -- On ASSIGN reduce production expr -> expr INCR 
 -- On ARROW reduce production expr -> expr INCR 
@@ -1643,50 +1345,30 @@ operateur -> EQ . [ TRUE TIMES TIDENT THIS PLUS NULL NOT NEW MINUS LPAREN INT IN
 -- On DECR reduce production operateur -> EQ 
 
 State 110:
-expr -> expr DOT . IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr DOT . IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On IDENT shift to state 111
 
 State 111:
-expr -> expr DOT IDENT . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> expr DOT IDENT 
--- On VOID reduce production expr -> expr DOT IDENT 
--- On TRUE reduce production expr -> expr DOT IDENT 
--- On TINT reduce production expr -> expr DOT IDENT 
+expr -> expr DOT IDENT . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> expr DOT IDENT 
--- On TIDENT reduce production expr -> expr DOT IDENT 
--- On THIS reduce production expr -> expr DOT IDENT 
 -- On SEMICOLON reduce production expr -> expr DOT IDENT 
 -- On RPAREN reduce production expr -> expr DOT IDENT 
--- On RETURN reduce production expr -> expr DOT IDENT 
--- On RBRACE reduce production expr -> expr DOT IDENT 
 -- On PLUS reduce production expr -> expr DOT IDENT 
 -- On OR reduce production expr -> expr DOT IDENT 
--- On NULL reduce production expr -> expr DOT IDENT 
--- On NOT reduce production expr -> expr DOT IDENT 
--- On NEW reduce production expr -> expr DOT IDENT 
 -- On NEQ reduce production expr -> expr DOT IDENT 
 -- On MOD reduce production expr -> expr DOT IDENT 
 -- On MINUS reduce production expr -> expr DOT IDENT 
 -- On LT reduce production expr -> expr DOT IDENT 
 -- On LPAREN reduce production expr -> expr DOT IDENT 
 -- On LEQ reduce production expr -> expr DOT IDENT 
--- On LBRACE reduce production expr -> expr DOT IDENT 
--- On INT reduce production expr -> expr DOT IDENT 
 -- On INCR reduce production expr -> expr DOT IDENT 
 -- On IN reduce production expr -> expr DOT IDENT 
--- On IF reduce production expr -> expr DOT IDENT 
--- On IDENT reduce production expr -> expr DOT IDENT 
 -- On GT reduce production expr -> expr DOT IDENT 
 -- On GEQ reduce production expr -> expr DOT IDENT 
--- On FOR reduce production expr -> expr DOT IDENT 
--- On FALSE reduce production expr -> expr DOT IDENT 
 -- On EQ reduce production expr -> expr DOT IDENT 
--- On ELSE reduce production expr -> expr DOT IDENT 
--- On ECOMM reduce production expr -> expr DOT IDENT 
 -- On DOT reduce production expr -> expr DOT IDENT 
 -- On DIV reduce production expr -> expr DOT IDENT 
 -- On DECR reduce production expr -> expr DOT IDENT 
--- On COUT reduce production expr -> expr DOT IDENT 
 -- On COMMA reduce production expr -> expr DOT IDENT 
 -- On ASSIGN reduce production expr -> expr DOT IDENT 
 -- On ARROW reduce production expr -> expr DOT IDENT 
@@ -1712,53 +1394,33 @@ operateur -> DIV . [ TRUE TIMES TIDENT THIS PLUS NULL NOT NEW MINUS LPAREN INT I
 -- On DECR reduce production operateur -> DIV 
 
 State 113:
-expr -> expr DECR . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> expr DECR 
--- On VOID reduce production expr -> expr DECR 
--- On TRUE reduce production expr -> expr DECR 
--- On TINT reduce production expr -> expr DECR 
+expr -> expr DECR . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> expr DECR 
--- On TIDENT reduce production expr -> expr DECR 
--- On THIS reduce production expr -> expr DECR 
 -- On SEMICOLON reduce production expr -> expr DECR 
 -- On RPAREN reduce production expr -> expr DECR 
--- On RETURN reduce production expr -> expr DECR 
--- On RBRACE reduce production expr -> expr DECR 
 -- On PLUS reduce production expr -> expr DECR 
 -- On OR reduce production expr -> expr DECR 
--- On NULL reduce production expr -> expr DECR 
--- On NOT reduce production expr -> expr DECR 
--- On NEW reduce production expr -> expr DECR 
 -- On NEQ reduce production expr -> expr DECR 
 -- On MOD reduce production expr -> expr DECR 
 -- On MINUS reduce production expr -> expr DECR 
 -- On LT reduce production expr -> expr DECR 
 -- On LPAREN reduce production expr -> expr DECR 
 -- On LEQ reduce production expr -> expr DECR 
--- On LBRACE reduce production expr -> expr DECR 
--- On INT reduce production expr -> expr DECR 
 -- On INCR reduce production expr -> expr DECR 
 -- On IN reduce production expr -> expr DECR 
--- On IF reduce production expr -> expr DECR 
--- On IDENT reduce production expr -> expr DECR 
 -- On GT reduce production expr -> expr DECR 
 -- On GEQ reduce production expr -> expr DECR 
--- On FOR reduce production expr -> expr DECR 
--- On FALSE reduce production expr -> expr DECR 
 -- On EQ reduce production expr -> expr DECR 
--- On ELSE reduce production expr -> expr DECR 
--- On ECOMM reduce production expr -> expr DECR 
 -- On DOT reduce production expr -> expr DECR 
 -- On DIV reduce production expr -> expr DECR 
 -- On DECR reduce production expr -> expr DECR 
--- On COUT reduce production expr -> expr DECR 
 -- On COMMA reduce production expr -> expr DECR 
 -- On ASSIGN reduce production expr -> expr DECR 
 -- On ARROW reduce production expr -> expr DECR 
 -- On AND reduce production expr -> expr DECR 
 
 State 114:
-expr -> expr ASSIGN . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr ASSIGN . expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -1783,14 +1445,14 @@ expr -> expr ASSIGN . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RP
 -- On expr shift to state 115
 
 State 115:
-expr -> expr . DOT IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ARROW IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr ASSIGN expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . INCR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . DECR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr . DOT IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ARROW IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ASSIGN expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr ASSIGN expr . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . INCR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . DECR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . operateur expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES shift to state 98
 -- On PLUS shift to state 99
 -- On OR shift to state 100
@@ -1812,78 +1474,38 @@ expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 -- On AND shift to state 118
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
--- On WHILE reduce production expr -> expr ASSIGN expr 
--- On VOID reduce production expr -> expr ASSIGN expr 
--- On TRUE reduce production expr -> expr ASSIGN expr 
--- On TINT reduce production expr -> expr ASSIGN expr 
--- On TIDENT reduce production expr -> expr ASSIGN expr 
--- On THIS reduce production expr -> expr ASSIGN expr 
 -- On SEMICOLON reduce production expr -> expr ASSIGN expr 
 -- On RPAREN reduce production expr -> expr ASSIGN expr 
--- On RETURN reduce production expr -> expr ASSIGN expr 
--- On RBRACE reduce production expr -> expr ASSIGN expr 
--- On NULL reduce production expr -> expr ASSIGN expr 
--- On NOT reduce production expr -> expr ASSIGN expr 
--- On NEW reduce production expr -> expr ASSIGN expr 
 -- On LPAREN reduce production expr -> expr ASSIGN expr 
--- On LBRACE reduce production expr -> expr ASSIGN expr 
--- On INT reduce production expr -> expr ASSIGN expr 
 -- On IN reduce production expr -> expr ASSIGN expr 
--- On IF reduce production expr -> expr ASSIGN expr 
--- On IDENT reduce production expr -> expr ASSIGN expr 
--- On FOR reduce production expr -> expr ASSIGN expr 
--- On FALSE reduce production expr -> expr ASSIGN expr 
--- On ELSE reduce production expr -> expr ASSIGN expr 
--- On ECOMM reduce production expr -> expr ASSIGN expr 
--- On COUT reduce production expr -> expr ASSIGN expr 
 -- On COMMA reduce production expr -> expr ASSIGN expr 
 ** Conflict on LPAREN
 
 State 116:
-expr -> expr ARROW . IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr ARROW . IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On IDENT shift to state 117
 
 State 117:
-expr -> expr ARROW IDENT . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> expr ARROW IDENT 
--- On VOID reduce production expr -> expr ARROW IDENT 
--- On TRUE reduce production expr -> expr ARROW IDENT 
--- On TINT reduce production expr -> expr ARROW IDENT 
+expr -> expr ARROW IDENT . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> expr ARROW IDENT 
--- On TIDENT reduce production expr -> expr ARROW IDENT 
--- On THIS reduce production expr -> expr ARROW IDENT 
 -- On SEMICOLON reduce production expr -> expr ARROW IDENT 
 -- On RPAREN reduce production expr -> expr ARROW IDENT 
--- On RETURN reduce production expr -> expr ARROW IDENT 
--- On RBRACE reduce production expr -> expr ARROW IDENT 
 -- On PLUS reduce production expr -> expr ARROW IDENT 
 -- On OR reduce production expr -> expr ARROW IDENT 
--- On NULL reduce production expr -> expr ARROW IDENT 
--- On NOT reduce production expr -> expr ARROW IDENT 
--- On NEW reduce production expr -> expr ARROW IDENT 
 -- On NEQ reduce production expr -> expr ARROW IDENT 
 -- On MOD reduce production expr -> expr ARROW IDENT 
 -- On MINUS reduce production expr -> expr ARROW IDENT 
 -- On LT reduce production expr -> expr ARROW IDENT 
 -- On LPAREN reduce production expr -> expr ARROW IDENT 
 -- On LEQ reduce production expr -> expr ARROW IDENT 
--- On LBRACE reduce production expr -> expr ARROW IDENT 
--- On INT reduce production expr -> expr ARROW IDENT 
 -- On INCR reduce production expr -> expr ARROW IDENT 
 -- On IN reduce production expr -> expr ARROW IDENT 
--- On IF reduce production expr -> expr ARROW IDENT 
--- On IDENT reduce production expr -> expr ARROW IDENT 
 -- On GT reduce production expr -> expr ARROW IDENT 
 -- On GEQ reduce production expr -> expr ARROW IDENT 
--- On FOR reduce production expr -> expr ARROW IDENT 
--- On FALSE reduce production expr -> expr ARROW IDENT 
 -- On EQ reduce production expr -> expr ARROW IDENT 
--- On ELSE reduce production expr -> expr ARROW IDENT 
--- On ECOMM reduce production expr -> expr ARROW IDENT 
 -- On DOT reduce production expr -> expr ARROW IDENT 
 -- On DIV reduce production expr -> expr ARROW IDENT 
 -- On DECR reduce production expr -> expr ARROW IDENT 
--- On COUT reduce production expr -> expr ARROW IDENT 
 -- On COMMA reduce production expr -> expr ARROW IDENT 
 -- On ASSIGN reduce production expr -> expr ARROW IDENT 
 -- On ARROW reduce production expr -> expr ARROW IDENT 
@@ -1909,53 +1531,33 @@ operateur -> AND . [ TRUE TIMES TIDENT THIS PLUS NULL NOT NEW MINUS LPAREN INT I
 -- On DECR reduce production operateur -> AND 
 
 State 119:
-expr -> expr paren(separated_list(COMMA,expr)) . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On VOID reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On TRUE reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On TINT reduce production expr -> expr paren(separated_list(COMMA,expr)) 
+expr -> expr paren(separated_list(COMMA,expr)) . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On TIDENT reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On THIS reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On SEMICOLON reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On RPAREN reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On RETURN reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On RBRACE reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On PLUS reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On OR reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On NULL reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On NOT reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On NEW reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On NEQ reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On MOD reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On MINUS reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On LT reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On LPAREN reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On LEQ reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On LBRACE reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On INT reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On INCR reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On IN reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On IF reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On IDENT reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On GT reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On GEQ reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On FOR reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On FALSE reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On EQ reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On ELSE reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On ECOMM reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On DOT reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On DIV reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On DECR reduce production expr -> expr paren(separated_list(COMMA,expr)) 
--- On COUT reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On COMMA reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On ASSIGN reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On ARROW reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 -- On AND reduce production expr -> expr paren(separated_list(COMMA,expr)) 
 
 State 120:
-expr -> expr operateur . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr operateur . expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -1980,14 +1582,14 @@ expr -> expr operateur . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 -- On expr shift to state 121
 
 State 121:
-expr -> expr . DOT IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ARROW IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . INCR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . DECR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr operateur expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr . DOT IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ARROW IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ASSIGN expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . INCR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . DECR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . operateur expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr operateur expr . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES shift to state 98
 -- On PLUS shift to state 99
 -- On OR shift to state 100
@@ -2009,45 +1611,25 @@ expr -> expr operateur expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 -- On AND shift to state 118
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
--- On WHILE reduce production expr -> expr operateur expr 
--- On VOID reduce production expr -> expr operateur expr 
--- On TRUE reduce production expr -> expr operateur expr 
--- On TINT reduce production expr -> expr operateur expr 
 -- On TIMES reduce production expr -> expr operateur expr 
--- On TIDENT reduce production expr -> expr operateur expr 
--- On THIS reduce production expr -> expr operateur expr 
 -- On SEMICOLON reduce production expr -> expr operateur expr 
 -- On RPAREN reduce production expr -> expr operateur expr 
--- On RETURN reduce production expr -> expr operateur expr 
--- On RBRACE reduce production expr -> expr operateur expr 
 -- On PLUS reduce production expr -> expr operateur expr 
 -- On OR reduce production expr -> expr operateur expr 
--- On NULL reduce production expr -> expr operateur expr 
--- On NOT reduce production expr -> expr operateur expr 
--- On NEW reduce production expr -> expr operateur expr 
 -- On NEQ reduce production expr -> expr operateur expr 
 -- On MOD reduce production expr -> expr operateur expr 
 -- On MINUS reduce production expr -> expr operateur expr 
 -- On LT reduce production expr -> expr operateur expr 
 -- On LPAREN reduce production expr -> expr operateur expr 
 -- On LEQ reduce production expr -> expr operateur expr 
--- On LBRACE reduce production expr -> expr operateur expr 
--- On INT reduce production expr -> expr operateur expr 
 -- On INCR reduce production expr -> expr operateur expr 
 -- On IN reduce production expr -> expr operateur expr 
--- On IF reduce production expr -> expr operateur expr 
--- On IDENT reduce production expr -> expr operateur expr 
 -- On GT reduce production expr -> expr operateur expr 
 -- On GEQ reduce production expr -> expr operateur expr 
--- On FOR reduce production expr -> expr operateur expr 
--- On FALSE reduce production expr -> expr operateur expr 
 -- On EQ reduce production expr -> expr operateur expr 
--- On ELSE reduce production expr -> expr operateur expr 
--- On ECOMM reduce production expr -> expr operateur expr 
 -- On DOT reduce production expr -> expr operateur expr 
 -- On DIV reduce production expr -> expr operateur expr 
 -- On DECR reduce production expr -> expr operateur expr 
--- On COUT reduce production expr -> expr operateur expr 
 -- On COMMA reduce production expr -> expr operateur expr 
 -- On ASSIGN reduce production expr -> expr operateur expr 
 -- On ARROW reduce production expr -> expr operateur expr 
@@ -2055,14 +1637,14 @@ expr -> expr operateur expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 ** Conflict on TIMES PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND
 
 State 122:
-expr -> expr . DOT IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ARROW IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . INCR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . DECR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> unary_plus expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr . DOT IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ARROW IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ASSIGN expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . INCR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . DECR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> unary_plus expr . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . operateur expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES shift to state 98
 -- On PLUS shift to state 99
 -- On OR shift to state 100
@@ -2084,45 +1666,25 @@ expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 -- On AND shift to state 118
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
--- On WHILE reduce production expr -> unary_plus expr 
--- On VOID reduce production expr -> unary_plus expr 
--- On TRUE reduce production expr -> unary_plus expr 
--- On TINT reduce production expr -> unary_plus expr 
 -- On TIMES reduce production expr -> unary_plus expr 
--- On TIDENT reduce production expr -> unary_plus expr 
--- On THIS reduce production expr -> unary_plus expr 
 -- On SEMICOLON reduce production expr -> unary_plus expr 
 -- On RPAREN reduce production expr -> unary_plus expr 
--- On RETURN reduce production expr -> unary_plus expr 
--- On RBRACE reduce production expr -> unary_plus expr 
 -- On PLUS reduce production expr -> unary_plus expr 
 -- On OR reduce production expr -> unary_plus expr 
--- On NULL reduce production expr -> unary_plus expr 
--- On NOT reduce production expr -> unary_plus expr 
--- On NEW reduce production expr -> unary_plus expr 
 -- On NEQ reduce production expr -> unary_plus expr 
 -- On MOD reduce production expr -> unary_plus expr 
 -- On MINUS reduce production expr -> unary_plus expr 
 -- On LT reduce production expr -> unary_plus expr 
 -- On LPAREN reduce production expr -> unary_plus expr 
 -- On LEQ reduce production expr -> unary_plus expr 
--- On LBRACE reduce production expr -> unary_plus expr 
--- On INT reduce production expr -> unary_plus expr 
 -- On INCR reduce production expr -> unary_plus expr 
 -- On IN reduce production expr -> unary_plus expr 
--- On IF reduce production expr -> unary_plus expr 
--- On IDENT reduce production expr -> unary_plus expr 
 -- On GT reduce production expr -> unary_plus expr 
 -- On GEQ reduce production expr -> unary_plus expr 
--- On FOR reduce production expr -> unary_plus expr 
--- On FALSE reduce production expr -> unary_plus expr 
 -- On EQ reduce production expr -> unary_plus expr 
--- On ELSE reduce production expr -> unary_plus expr 
--- On ECOMM reduce production expr -> unary_plus expr 
 -- On DOT reduce production expr -> unary_plus expr 
 -- On DIV reduce production expr -> unary_plus expr 
 -- On DECR reduce production expr -> unary_plus expr 
--- On COUT reduce production expr -> unary_plus expr 
 -- On COMMA reduce production expr -> unary_plus expr 
 -- On ASSIGN reduce production expr -> unary_plus expr 
 -- On ARROW reduce production expr -> unary_plus expr 
@@ -2130,14 +1692,14 @@ expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 ** Conflict on TIMES PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND
 
 State 123:
-expr -> unary_times expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . DOT IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ARROW IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . INCR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . DECR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> unary_times expr . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . DOT IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ARROW IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ASSIGN expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . INCR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . DECR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . operateur expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES shift to state 98
 -- On PLUS shift to state 99
 -- On OR shift to state 100
@@ -2159,45 +1721,25 @@ expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 -- On AND shift to state 118
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
--- On WHILE reduce production expr -> unary_times expr 
--- On VOID reduce production expr -> unary_times expr 
--- On TRUE reduce production expr -> unary_times expr 
--- On TINT reduce production expr -> unary_times expr 
 -- On TIMES reduce production expr -> unary_times expr 
--- On TIDENT reduce production expr -> unary_times expr 
--- On THIS reduce production expr -> unary_times expr 
 -- On SEMICOLON reduce production expr -> unary_times expr 
 -- On RPAREN reduce production expr -> unary_times expr 
--- On RETURN reduce production expr -> unary_times expr 
--- On RBRACE reduce production expr -> unary_times expr 
 -- On PLUS reduce production expr -> unary_times expr 
 -- On OR reduce production expr -> unary_times expr 
--- On NULL reduce production expr -> unary_times expr 
--- On NOT reduce production expr -> unary_times expr 
--- On NEW reduce production expr -> unary_times expr 
 -- On NEQ reduce production expr -> unary_times expr 
 -- On MOD reduce production expr -> unary_times expr 
 -- On MINUS reduce production expr -> unary_times expr 
 -- On LT reduce production expr -> unary_times expr 
 -- On LPAREN reduce production expr -> unary_times expr 
 -- On LEQ reduce production expr -> unary_times expr 
--- On LBRACE reduce production expr -> unary_times expr 
--- On INT reduce production expr -> unary_times expr 
 -- On INCR reduce production expr -> unary_times expr 
 -- On IN reduce production expr -> unary_times expr 
--- On IF reduce production expr -> unary_times expr 
--- On IDENT reduce production expr -> unary_times expr 
 -- On GT reduce production expr -> unary_times expr 
 -- On GEQ reduce production expr -> unary_times expr 
--- On FOR reduce production expr -> unary_times expr 
--- On FALSE reduce production expr -> unary_times expr 
 -- On EQ reduce production expr -> unary_times expr 
--- On ELSE reduce production expr -> unary_times expr 
--- On ECOMM reduce production expr -> unary_times expr 
 -- On DOT reduce production expr -> unary_times expr 
 -- On DIV reduce production expr -> unary_times expr 
 -- On DECR reduce production expr -> unary_times expr 
--- On COUT reduce production expr -> unary_times expr 
 -- On COMMA reduce production expr -> unary_times expr 
 -- On ASSIGN reduce production expr -> unary_times expr 
 -- On ARROW reduce production expr -> unary_times expr 
@@ -2205,14 +1747,14 @@ expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 ** Conflict on TIMES PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND
 
 State 124:
-expr -> expr . DOT IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ARROW IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> DECR expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . INCR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . DECR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr . DOT IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ARROW IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ASSIGN expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> DECR expr . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . INCR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . DECR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . operateur expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On LPAREN shift to state 85
 -- On INCR shift to state 106
 -- On DOT shift to state 110
@@ -2220,56 +1762,36 @@ expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 -- On ARROW shift to state 116
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
--- On WHILE reduce production expr -> DECR expr 
--- On VOID reduce production expr -> DECR expr 
--- On TRUE reduce production expr -> DECR expr 
--- On TINT reduce production expr -> DECR expr 
 -- On TIMES reduce production expr -> DECR expr 
--- On TIDENT reduce production expr -> DECR expr 
--- On THIS reduce production expr -> DECR expr 
 -- On SEMICOLON reduce production expr -> DECR expr 
 -- On RPAREN reduce production expr -> DECR expr 
--- On RETURN reduce production expr -> DECR expr 
--- On RBRACE reduce production expr -> DECR expr 
 -- On PLUS reduce production expr -> DECR expr 
 -- On OR reduce production expr -> DECR expr 
--- On NULL reduce production expr -> DECR expr 
--- On NOT reduce production expr -> DECR expr 
--- On NEW reduce production expr -> DECR expr 
 -- On NEQ reduce production expr -> DECR expr 
 -- On MOD reduce production expr -> DECR expr 
 -- On MINUS reduce production expr -> DECR expr 
 -- On LT reduce production expr -> DECR expr 
 -- On LPAREN reduce production expr -> DECR expr 
 -- On LEQ reduce production expr -> DECR expr 
--- On LBRACE reduce production expr -> DECR expr 
--- On INT reduce production expr -> DECR expr 
 -- On IN reduce production expr -> DECR expr 
--- On IF reduce production expr -> DECR expr 
--- On IDENT reduce production expr -> DECR expr 
 -- On GT reduce production expr -> DECR expr 
 -- On GEQ reduce production expr -> DECR expr 
--- On FOR reduce production expr -> DECR expr 
--- On FALSE reduce production expr -> DECR expr 
 -- On EQ reduce production expr -> DECR expr 
--- On ELSE reduce production expr -> DECR expr 
--- On ECOMM reduce production expr -> DECR expr 
 -- On DIV reduce production expr -> DECR expr 
--- On COUT reduce production expr -> DECR expr 
 -- On COMMA reduce production expr -> DECR expr 
 -- On ASSIGN reduce production expr -> DECR expr 
 -- On AND reduce production expr -> DECR expr 
 ** Conflict on LPAREN
 
 State 125:
-expr -> expr . DOT IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ARROW IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . INCR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . DECR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> ECOMM expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr . DOT IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ARROW IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ASSIGN expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . INCR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . DECR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> ECOMM expr . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . operateur expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On LPAREN shift to state 85
 -- On INCR shift to state 106
 -- On DOT shift to state 110
@@ -2277,56 +1799,36 @@ expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 -- On ARROW shift to state 116
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
--- On WHILE reduce production expr -> ECOMM expr 
--- On VOID reduce production expr -> ECOMM expr 
--- On TRUE reduce production expr -> ECOMM expr 
--- On TINT reduce production expr -> ECOMM expr 
 -- On TIMES reduce production expr -> ECOMM expr 
--- On TIDENT reduce production expr -> ECOMM expr 
--- On THIS reduce production expr -> ECOMM expr 
 -- On SEMICOLON reduce production expr -> ECOMM expr 
 -- On RPAREN reduce production expr -> ECOMM expr 
--- On RETURN reduce production expr -> ECOMM expr 
--- On RBRACE reduce production expr -> ECOMM expr 
 -- On PLUS reduce production expr -> ECOMM expr 
 -- On OR reduce production expr -> ECOMM expr 
--- On NULL reduce production expr -> ECOMM expr 
--- On NOT reduce production expr -> ECOMM expr 
--- On NEW reduce production expr -> ECOMM expr 
 -- On NEQ reduce production expr -> ECOMM expr 
 -- On MOD reduce production expr -> ECOMM expr 
 -- On MINUS reduce production expr -> ECOMM expr 
 -- On LT reduce production expr -> ECOMM expr 
 -- On LPAREN reduce production expr -> ECOMM expr 
 -- On LEQ reduce production expr -> ECOMM expr 
--- On LBRACE reduce production expr -> ECOMM expr 
--- On INT reduce production expr -> ECOMM expr 
 -- On IN reduce production expr -> ECOMM expr 
--- On IF reduce production expr -> ECOMM expr 
--- On IDENT reduce production expr -> ECOMM expr 
 -- On GT reduce production expr -> ECOMM expr 
 -- On GEQ reduce production expr -> ECOMM expr 
--- On FOR reduce production expr -> ECOMM expr 
--- On FALSE reduce production expr -> ECOMM expr 
 -- On EQ reduce production expr -> ECOMM expr 
--- On ELSE reduce production expr -> ECOMM expr 
--- On ECOMM reduce production expr -> ECOMM expr 
 -- On DIV reduce production expr -> ECOMM expr 
--- On COUT reduce production expr -> ECOMM expr 
 -- On COMMA reduce production expr -> ECOMM expr 
 -- On ASSIGN reduce production expr -> ECOMM expr 
 -- On AND reduce production expr -> ECOMM expr 
 ** Conflict on LPAREN
 
 State 126:
-expr -> expr . DOT IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ARROW IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> INCR expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . INCR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . DECR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr . DOT IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ARROW IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ASSIGN expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> INCR expr . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . INCR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . DECR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . operateur expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On LPAREN shift to state 85
 -- On INCR shift to state 106
 -- On DOT shift to state 110
@@ -2334,42 +1836,22 @@ expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 -- On ARROW shift to state 116
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
--- On WHILE reduce production expr -> INCR expr 
--- On VOID reduce production expr -> INCR expr 
--- On TRUE reduce production expr -> INCR expr 
--- On TINT reduce production expr -> INCR expr 
 -- On TIMES reduce production expr -> INCR expr 
--- On TIDENT reduce production expr -> INCR expr 
--- On THIS reduce production expr -> INCR expr 
 -- On SEMICOLON reduce production expr -> INCR expr 
 -- On RPAREN reduce production expr -> INCR expr 
--- On RETURN reduce production expr -> INCR expr 
--- On RBRACE reduce production expr -> INCR expr 
 -- On PLUS reduce production expr -> INCR expr 
 -- On OR reduce production expr -> INCR expr 
--- On NULL reduce production expr -> INCR expr 
--- On NOT reduce production expr -> INCR expr 
--- On NEW reduce production expr -> INCR expr 
 -- On NEQ reduce production expr -> INCR expr 
 -- On MOD reduce production expr -> INCR expr 
 -- On MINUS reduce production expr -> INCR expr 
 -- On LT reduce production expr -> INCR expr 
 -- On LPAREN reduce production expr -> INCR expr 
 -- On LEQ reduce production expr -> INCR expr 
--- On LBRACE reduce production expr -> INCR expr 
--- On INT reduce production expr -> INCR expr 
 -- On IN reduce production expr -> INCR expr 
--- On IF reduce production expr -> INCR expr 
--- On IDENT reduce production expr -> INCR expr 
 -- On GT reduce production expr -> INCR expr 
 -- On GEQ reduce production expr -> INCR expr 
--- On FOR reduce production expr -> INCR expr 
--- On FALSE reduce production expr -> INCR expr 
 -- On EQ reduce production expr -> INCR expr 
--- On ELSE reduce production expr -> INCR expr 
--- On ECOMM reduce production expr -> INCR expr 
 -- On DIV reduce production expr -> INCR expr 
--- On COUT reduce production expr -> INCR expr 
 -- On COMMA reduce production expr -> INCR expr 
 -- On ASSIGN reduce production expr -> INCR expr 
 -- On AND reduce production expr -> INCR expr 
@@ -2381,50 +1863,30 @@ loption(separated_nonempty_list(COMMA,expr)) -> separated_nonempty_list(COMMA,ex
 -- On RPAREN reduce production loption(separated_nonempty_list(COMMA,expr)) -> separated_nonempty_list(COMMA,expr) 
 
 State 128:
-paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) . RPAREN [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) . RPAREN [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On RPAREN shift to state 129
 
 State 129:
-paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On VOID reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On TRUE reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On TINT reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
+paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On TIDENT reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On THIS reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On SEMICOLON reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On RPAREN reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On RETURN reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On RBRACE reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On PLUS reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On OR reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On NULL reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On NOT reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On NEW reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On NEQ reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On MOD reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On MINUS reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On LT reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On LPAREN reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On LEQ reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On LBRACE reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On INT reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On INCR reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On IN reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On IF reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On IDENT reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On GT reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On GEQ reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On FOR reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On FALSE reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On EQ reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On ELSE reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On ECOMM reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On DOT reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On DIV reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On DECR reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
--- On COUT reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On COMMA reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On ASSIGN reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
 -- On ARROW reduce production paren(separated_list(COMMA,expr)) -> LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
@@ -2497,60 +1959,40 @@ separated_nonempty_list(COMMA,expr) -> expr COMMA separated_nonempty_list(COMMA,
 -- On RPAREN reduce production separated_nonempty_list(COMMA,expr) -> expr COMMA separated_nonempty_list(COMMA,expr) 
 
 State 133:
-expr -> NEW TIDENT paren(separated_list(COMMA,expr)) . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
--- On WHILE reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On VOID reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On TRUE reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On TINT reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
+expr -> NEW TIDENT paren(separated_list(COMMA,expr)) . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On TIMES reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On TIDENT reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On THIS reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On SEMICOLON reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On RPAREN reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On RETURN reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On RBRACE reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On PLUS reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On OR reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On NULL reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On NOT reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On NEW reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On NEQ reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On MOD reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On MINUS reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On LT reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On LPAREN reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On LEQ reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On LBRACE reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On INT reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On INCR reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On IN reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On IF reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On IDENT reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On GT reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On GEQ reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On FOR reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On FALSE reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On EQ reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On ELSE reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On ECOMM reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On DOT reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On DIV reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On DECR reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
--- On COUT reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On COMMA reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On ASSIGN reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On ARROW reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 -- On AND reduce production expr -> NEW TIDENT paren(separated_list(COMMA,expr)) 
 
 State 134:
-expr -> expr . DOT IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ARROW IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . INCR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . DECR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> NOT expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
-expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+expr -> expr . DOT IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ARROW IDENT [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . ASSIGN expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . INCR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . DECR [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> NOT expr . [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
+expr -> expr . operateur expr [ TIMES SEMICOLON RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR COMMA ASSIGN ARROW AND ]
 -- On LPAREN shift to state 85
 -- On INCR shift to state 106
 -- On DOT shift to state 110
@@ -2558,42 +2000,22 @@ expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON
 -- On ARROW shift to state 116
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
--- On WHILE reduce production expr -> NOT expr 
--- On VOID reduce production expr -> NOT expr 
--- On TRUE reduce production expr -> NOT expr 
--- On TINT reduce production expr -> NOT expr 
 -- On TIMES reduce production expr -> NOT expr 
--- On TIDENT reduce production expr -> NOT expr 
--- On THIS reduce production expr -> NOT expr 
 -- On SEMICOLON reduce production expr -> NOT expr 
 -- On RPAREN reduce production expr -> NOT expr 
--- On RETURN reduce production expr -> NOT expr 
--- On RBRACE reduce production expr -> NOT expr 
 -- On PLUS reduce production expr -> NOT expr 
 -- On OR reduce production expr -> NOT expr 
--- On NULL reduce production expr -> NOT expr 
--- On NOT reduce production expr -> NOT expr 
--- On NEW reduce production expr -> NOT expr 
 -- On NEQ reduce production expr -> NOT expr 
 -- On MOD reduce production expr -> NOT expr 
 -- On MINUS reduce production expr -> NOT expr 
 -- On LT reduce production expr -> NOT expr 
 -- On LPAREN reduce production expr -> NOT expr 
 -- On LEQ reduce production expr -> NOT expr 
--- On LBRACE reduce production expr -> NOT expr 
--- On INT reduce production expr -> NOT expr 
 -- On IN reduce production expr -> NOT expr 
--- On IF reduce production expr -> NOT expr 
--- On IDENT reduce production expr -> NOT expr 
 -- On GT reduce production expr -> NOT expr 
 -- On GEQ reduce production expr -> NOT expr 
--- On FOR reduce production expr -> NOT expr 
--- On FALSE reduce production expr -> NOT expr 
 -- On EQ reduce production expr -> NOT expr 
--- On ELSE reduce production expr -> NOT expr 
--- On ECOMM reduce production expr -> NOT expr 
 -- On DIV reduce production expr -> NOT expr 
--- On COUT reduce production expr -> NOT expr 
 -- On COMMA reduce production expr -> NOT expr 
 -- On ASSIGN reduce production expr -> NOT expr 
 -- On AND reduce production expr -> NOT expr 
@@ -2607,7 +2029,7 @@ expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES RPAREN PLUS OR NEQ MOD 
 expr -> expr . INCR [ TIMES RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
 expr -> expr . DECR [ TIMES RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
 expr -> expr . operateur expr [ TIMES RPAREN PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
-paren(expr) -> LPAREN expr . RPAREN [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+paren(expr) -> LPAREN expr . RPAREN [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
 -- On TIMES shift to state 98
 -- On RPAREN shift to state 136
 -- On PLUS shift to state 99
@@ -2632,7 +2054,7 @@ paren(expr) -> LPAREN expr . RPAREN [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEM
 -- On operateur shift to state 120
 
 State 136:
-paren(expr) -> LPAREN expr RPAREN . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
+paren(expr) -> LPAREN expr RPAREN . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RPAREN RETURN PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ECOMM DOT DIV DECR COUT COMMA ASSIGN ARROW AND ]
 -- On WHILE reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On VOID reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On TRUE reduce production paren(expr) -> LPAREN expr RPAREN 
@@ -2643,7 +2065,6 @@ paren(expr) -> LPAREN expr RPAREN . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEM
 -- On SEMICOLON reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On RPAREN reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On RETURN reduce production paren(expr) -> LPAREN expr RPAREN 
--- On RBRACE reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On PLUS reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On OR reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On NULL reduce production paren(expr) -> LPAREN expr RPAREN 
@@ -2666,7 +2087,6 @@ paren(expr) -> LPAREN expr RPAREN . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEM
 -- On FOR reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On FALSE reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On EQ reduce production paren(expr) -> LPAREN expr RPAREN 
--- On ELSE reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On ECOMM reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On DOT reduce production paren(expr) -> LPAREN expr RPAREN 
 -- On DIV reduce production paren(expr) -> LPAREN expr RPAREN 
@@ -2707,12 +2127,12 @@ instruction -> WHILE paren(expr) . instruction [ WHILE VOID TRUE TINT TIMES TIDE
 -- On unary_times shift to state 92
 -- On unary_plus shift to state 93
 -- On unary_minus shift to state 94
--- On type_rule shift to state 161
+-- On type_rule shift to state 162
 -- On qident shift to state 95
 -- On paren(expr) shift to state 96
--- On instruction shift to state 177
--- On expr shift to state 171
--- On bloc shift to state 173
+-- On instruction shift to state 181
+-- On expr shift to state 175
+-- On bloc shift to state 177
 
 State 138:
 qident -> TIDENT . COLON COLON IDENT [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
@@ -2882,12 +2302,12 @@ instruction -> IF paren(expr) . instruction [ WHILE VOID TRUE TINT TIMES TIDENT 
 -- On unary_times shift to state 92
 -- On unary_plus shift to state 93
 -- On unary_minus shift to state 94
--- On type_rule shift to state 161
+-- On type_rule shift to state 162
 -- On qident shift to state 95
 -- On paren(expr) shift to state 96
--- On instruction shift to state 174
--- On expr shift to state 171
--- On bloc shift to state 173
+-- On instruction shift to state 178
+-- On expr shift to state 175
+-- On bloc shift to state 177
 
 State 146:
 instruction -> FOR . LPAREN loption(separated_nonempty_list(COMMA,expr)) SEMICOLON option(expr) SEMICOLON loption(separated_nonempty_list(COMMA,expr)) RPAREN instruction [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
@@ -3018,21 +2438,21 @@ instruction -> FOR LPAREN loption(separated_nonempty_list(COMMA,expr)) SEMICOLON
 -- On unary_times shift to state 92
 -- On unary_plus shift to state 93
 -- On unary_minus shift to state 94
--- On type_rule shift to state 161
+-- On type_rule shift to state 162
 -- On qident shift to state 95
 -- On paren(expr) shift to state 96
--- On instruction shift to state 170
--- On expr shift to state 171
--- On bloc shift to state 173
+-- On instruction shift to state 174
+-- On expr shift to state 175
+-- On bloc shift to state 177
 
 State 154:
-instruction -> COUT . nonempty_list(preceded(IN,expr_str)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+instruction -> COUT . nonempty_list(preceded(IN,expr_str)) SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 -- On IN shift to state 155
 -- On nonempty_list(preceded(IN,expr_str)) shift to state 160
 
 State 155:
-nonempty_list(preceded(IN,expr_str)) -> IN . expr_str [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
-nonempty_list(preceded(IN,expr_str)) -> IN . expr_str nonempty_list(preceded(IN,expr_str)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+nonempty_list(preceded(IN,expr_str)) -> IN . expr_str [ SEMICOLON ]
+nonempty_list(preceded(IN,expr_str)) -> IN . expr_str nonempty_list(preceded(IN,expr_str)) [ SEMICOLON ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -3059,108 +2479,30 @@ nonempty_list(preceded(IN,expr_str)) -> IN . expr_str nonempty_list(preceded(IN,
 -- On expr shift to state 159
 
 State 156:
-expr_str -> STRING . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IN IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
--- On WHILE reduce production expr_str -> STRING 
--- On VOID reduce production expr_str -> STRING 
--- On TRUE reduce production expr_str -> STRING 
--- On TINT reduce production expr_str -> STRING 
--- On TIMES reduce production expr_str -> STRING 
--- On TIDENT reduce production expr_str -> STRING 
--- On THIS reduce production expr_str -> STRING 
+expr_str -> STRING . [ SEMICOLON IN ]
 -- On SEMICOLON reduce production expr_str -> STRING 
--- On RETURN reduce production expr_str -> STRING 
--- On RBRACE reduce production expr_str -> STRING 
--- On PLUS reduce production expr_str -> STRING 
--- On NULL reduce production expr_str -> STRING 
--- On NOT reduce production expr_str -> STRING 
--- On NEW reduce production expr_str -> STRING 
--- On MINUS reduce production expr_str -> STRING 
--- On LPAREN reduce production expr_str -> STRING 
--- On LBRACE reduce production expr_str -> STRING 
--- On INT reduce production expr_str -> STRING 
--- On INCR reduce production expr_str -> STRING 
 -- On IN reduce production expr_str -> STRING 
--- On IF reduce production expr_str -> STRING 
--- On IDENT reduce production expr_str -> STRING 
--- On FOR reduce production expr_str -> STRING 
--- On FALSE reduce production expr_str -> STRING 
--- On ELSE reduce production expr_str -> STRING 
--- On ECOMM reduce production expr_str -> STRING 
--- On DECR reduce production expr_str -> STRING 
--- On COUT reduce production expr_str -> STRING 
 
 State 157:
-nonempty_list(preceded(IN,expr_str)) -> IN expr_str . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
-nonempty_list(preceded(IN,expr_str)) -> IN expr_str . nonempty_list(preceded(IN,expr_str)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+nonempty_list(preceded(IN,expr_str)) -> IN expr_str . [ SEMICOLON ]
+nonempty_list(preceded(IN,expr_str)) -> IN expr_str . nonempty_list(preceded(IN,expr_str)) [ SEMICOLON ]
 -- On IN shift to state 155
 -- On nonempty_list(preceded(IN,expr_str)) shift to state 158
--- On WHILE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On VOID reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On TRUE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On TINT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On TIMES reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On TIDENT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On THIS reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
 -- On SEMICOLON reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On RETURN reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On RBRACE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On PLUS reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On NULL reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On NOT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On NEW reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On MINUS reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On LPAREN reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On LBRACE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On INT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On INCR reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On IF reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On IDENT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On FOR reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On FALSE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On ELSE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On ECOMM reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On DECR reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
--- On COUT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str 
 
 State 158:
-nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
--- On WHILE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On VOID reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On TRUE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On TINT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On TIMES reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On TIDENT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On THIS reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
+nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) . [ SEMICOLON ]
 -- On SEMICOLON reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On RETURN reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On RBRACE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On PLUS reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On NULL reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On NOT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On NEW reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On MINUS reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On LPAREN reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On LBRACE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On INT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On INCR reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On IF reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On IDENT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On FOR reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On FALSE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On ELSE reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On ECOMM reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On DECR reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
--- On COUT reduce production nonempty_list(preceded(IN,expr_str)) -> IN expr_str nonempty_list(preceded(IN,expr_str)) 
 
 State 159:
-expr -> expr . DOT IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . ARROW IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . INCR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . DECR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IN IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr_str -> expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IN IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+expr -> expr . DOT IDENT [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . ARROW IDENT [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . ASSIGN expr [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . INCR [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . DECR [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . operateur expr [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR IN GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr_str -> expr . [ SEMICOLON IN ]
 -- On TIMES shift to state 98
 -- On PLUS shift to state 99
 -- On OR shift to state 100
@@ -3182,115 +2524,96 @@ expr_str -> expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBR
 -- On AND shift to state 118
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
--- On WHILE reduce production expr_str -> expr 
--- On VOID reduce production expr_str -> expr 
--- On TRUE reduce production expr_str -> expr 
--- On TINT reduce production expr_str -> expr 
--- On TIMES reduce production expr_str -> expr 
--- On TIDENT reduce production expr_str -> expr 
--- On THIS reduce production expr_str -> expr 
 -- On SEMICOLON reduce production expr_str -> expr 
--- On RETURN reduce production expr_str -> expr 
--- On RBRACE reduce production expr_str -> expr 
--- On PLUS reduce production expr_str -> expr 
--- On NULL reduce production expr_str -> expr 
--- On NOT reduce production expr_str -> expr 
--- On NEW reduce production expr_str -> expr 
--- On MINUS reduce production expr_str -> expr 
--- On LPAREN reduce production expr_str -> expr 
--- On LBRACE reduce production expr_str -> expr 
--- On INT reduce production expr_str -> expr 
--- On INCR reduce production expr_str -> expr 
 -- On IN reduce production expr_str -> expr 
--- On IF reduce production expr_str -> expr 
--- On IDENT reduce production expr_str -> expr 
--- On FOR reduce production expr_str -> expr 
--- On FALSE reduce production expr_str -> expr 
--- On ELSE reduce production expr_str -> expr 
--- On ECOMM reduce production expr_str -> expr 
--- On DECR reduce production expr_str -> expr 
--- On COUT reduce production expr_str -> expr 
-** Conflict on TIMES PLUS MINUS LPAREN INCR DECR
 
 State 160:
-instruction -> COUT nonempty_list(preceded(IN,expr_str)) . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
--- On WHILE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On VOID reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On TRUE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On TINT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On TIMES reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On TIDENT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On THIS reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On SEMICOLON reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On RETURN reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On RBRACE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On PLUS reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On NULL reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On NOT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On NEW reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On MINUS reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On LPAREN reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On LBRACE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On INT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On INCR reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On IF reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On IDENT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On FOR reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On FALSE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On ELSE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On ECOMM reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On DECR reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
--- On COUT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) 
+instruction -> COUT nonempty_list(preceded(IN,expr_str)) . SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+-- On SEMICOLON shift to state 161
 
 State 161:
-instruction -> type_rule . var [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
-instruction -> type_rule . var ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
-instruction -> type_rule . var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+-- On WHILE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On VOID reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On TRUE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On TINT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On TIMES reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On TIDENT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On THIS reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On SEMICOLON reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On RETURN reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On RBRACE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On PLUS reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On NULL reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On NOT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On NEW reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On MINUS reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On LPAREN reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On LBRACE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On INT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On INCR reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On IF reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On IDENT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On FOR reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On FALSE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On ELSE reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On ECOMM reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On DECR reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+-- On COUT reduce production instruction -> COUT nonempty_list(preceded(IN,expr_str)) SEMICOLON 
+
+State 162:
+instruction -> type_rule . var SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+instruction -> type_rule . var ASSIGN expr SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+instruction -> type_rule . var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 -- On TIMES shift to state 10
 -- On IDENT shift to state 11
 -- On ECOMM shift to state 12
--- On var shift to state 162
+-- On var shift to state 163
 -- On unary_times shift to state 14
 
-State 162:
-instruction -> type_rule var . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
-instruction -> type_rule var . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
-instruction -> type_rule var . ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
--- On ASSIGN shift to state 163
--- On WHILE reduce production instruction -> type_rule var 
--- On VOID reduce production instruction -> type_rule var 
--- On TRUE reduce production instruction -> type_rule var 
--- On TINT reduce production instruction -> type_rule var 
--- On TIMES reduce production instruction -> type_rule var 
--- On TIDENT reduce production instruction -> type_rule var 
--- On THIS reduce production instruction -> type_rule var 
--- On SEMICOLON reduce production instruction -> type_rule var 
--- On RETURN reduce production instruction -> type_rule var 
--- On RBRACE reduce production instruction -> type_rule var 
--- On PLUS reduce production instruction -> type_rule var 
--- On NULL reduce production instruction -> type_rule var 
--- On NOT reduce production instruction -> type_rule var 
--- On NEW reduce production instruction -> type_rule var 
--- On MINUS reduce production instruction -> type_rule var 
--- On LPAREN reduce production instruction -> type_rule var 
--- On LBRACE reduce production instruction -> type_rule var 
--- On INT reduce production instruction -> type_rule var 
--- On INCR reduce production instruction -> type_rule var 
--- On IF reduce production instruction -> type_rule var 
--- On IDENT reduce production instruction -> type_rule var 
--- On FOR reduce production instruction -> type_rule var 
--- On FALSE reduce production instruction -> type_rule var 
--- On ELSE reduce production instruction -> type_rule var 
--- On ECOMM reduce production instruction -> type_rule var 
--- On DECR reduce production instruction -> type_rule var 
--- On COUT reduce production instruction -> type_rule var 
-
 State 163:
-instruction -> type_rule var ASSIGN . expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
-instruction -> type_rule var ASSIGN . TIDENT paren(separated_nonempty_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+instruction -> type_rule var . SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+instruction -> type_rule var . ASSIGN expr SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+instruction -> type_rule var . ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+-- On SEMICOLON shift to state 164
+-- On ASSIGN shift to state 165
+
+State 164:
+instruction -> type_rule var SEMICOLON . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+-- On WHILE reduce production instruction -> type_rule var SEMICOLON 
+-- On VOID reduce production instruction -> type_rule var SEMICOLON 
+-- On TRUE reduce production instruction -> type_rule var SEMICOLON 
+-- On TINT reduce production instruction -> type_rule var SEMICOLON 
+-- On TIMES reduce production instruction -> type_rule var SEMICOLON 
+-- On TIDENT reduce production instruction -> type_rule var SEMICOLON 
+-- On THIS reduce production instruction -> type_rule var SEMICOLON 
+-- On SEMICOLON reduce production instruction -> type_rule var SEMICOLON 
+-- On RETURN reduce production instruction -> type_rule var SEMICOLON 
+-- On RBRACE reduce production instruction -> type_rule var SEMICOLON 
+-- On PLUS reduce production instruction -> type_rule var SEMICOLON 
+-- On NULL reduce production instruction -> type_rule var SEMICOLON 
+-- On NOT reduce production instruction -> type_rule var SEMICOLON 
+-- On NEW reduce production instruction -> type_rule var SEMICOLON 
+-- On MINUS reduce production instruction -> type_rule var SEMICOLON 
+-- On LPAREN reduce production instruction -> type_rule var SEMICOLON 
+-- On LBRACE reduce production instruction -> type_rule var SEMICOLON 
+-- On INT reduce production instruction -> type_rule var SEMICOLON 
+-- On INCR reduce production instruction -> type_rule var SEMICOLON 
+-- On IF reduce production instruction -> type_rule var SEMICOLON 
+-- On IDENT reduce production instruction -> type_rule var SEMICOLON 
+-- On FOR reduce production instruction -> type_rule var SEMICOLON 
+-- On FALSE reduce production instruction -> type_rule var SEMICOLON 
+-- On ELSE reduce production instruction -> type_rule var SEMICOLON 
+-- On ECOMM reduce production instruction -> type_rule var SEMICOLON 
+-- On DECR reduce production instruction -> type_rule var SEMICOLON 
+-- On COUT reduce production instruction -> type_rule var SEMICOLON 
+
+State 165:
+instruction -> type_rule var ASSIGN . expr SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+instruction -> type_rule var ASSIGN . TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
--- On TIDENT shift to state 164
+-- On TIDENT shift to state 166
 -- On THIS shift to state 79
 -- On PLUS shift to state 80
 -- On NULL shift to state 81
@@ -3309,17 +2632,17 @@ instruction -> type_rule var ASSIGN . TIDENT paren(separated_nonempty_list(COMMA
 -- On unary_minus shift to state 94
 -- On qident shift to state 95
 -- On paren(expr) shift to state 96
--- On expr shift to state 169
+-- On expr shift to state 172
 
-State 164:
-instruction -> type_rule var ASSIGN TIDENT . paren(separated_nonempty_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
-qident -> TIDENT . COLON COLON IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
--- On LPAREN shift to state 165
+State 166:
+instruction -> type_rule var ASSIGN TIDENT . paren(separated_nonempty_list(COMMA,expr)) SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+qident -> TIDENT . COLON COLON IDENT [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+-- On LPAREN shift to state 167
 -- On COLON shift to state 54
--- On paren(separated_nonempty_list(COMMA,expr)) shift to state 168
+-- On paren(separated_nonempty_list(COMMA,expr)) shift to state 170
 
-State 165:
-paren(separated_nonempty_list(COMMA,expr)) -> LPAREN . separated_nonempty_list(COMMA,expr) RPAREN [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+State 167:
+paren(separated_nonempty_list(COMMA,expr)) -> LPAREN . separated_nonempty_list(COMMA,expr) RPAREN [ SEMICOLON ]
 -- On TRUE shift to state 78
 -- On TIMES shift to state 10
 -- On TIDENT shift to state 53
@@ -3339,85 +2662,64 @@ paren(separated_nonempty_list(COMMA,expr)) -> LPAREN . separated_nonempty_list(C
 -- On unary_times shift to state 92
 -- On unary_plus shift to state 93
 -- On unary_minus shift to state 94
--- On separated_nonempty_list(COMMA,expr) shift to state 166
+-- On separated_nonempty_list(COMMA,expr) shift to state 168
 -- On qident shift to state 95
 -- On paren(expr) shift to state 96
 -- On expr shift to state 130
 
-State 166:
-paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) . RPAREN [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
--- On RPAREN shift to state 167
-
-State 167:
-paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
--- On WHILE reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On VOID reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On TRUE reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On TINT reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On TIMES reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On TIDENT reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On THIS reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On SEMICOLON reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On RETURN reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On RBRACE reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On PLUS reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On NULL reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On NOT reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On NEW reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On MINUS reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On LPAREN reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On LBRACE reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On INT reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On INCR reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On IF reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On IDENT reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On FOR reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On FALSE reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On ELSE reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On ECOMM reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On DECR reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
--- On COUT reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
-
 State 168:
-instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
--- On WHILE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On VOID reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On TRUE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On TINT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On TIMES reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On TIDENT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On THIS reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On SEMICOLON reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On RETURN reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On RBRACE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On PLUS reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On NULL reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On NOT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On NEW reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On MINUS reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On LPAREN reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On LBRACE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On INT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On INCR reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On IF reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On IDENT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On FOR reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On FALSE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On ELSE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On ECOMM reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On DECR reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
--- On COUT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) 
+paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) . RPAREN [ SEMICOLON ]
+-- On RPAREN shift to state 169
 
 State 169:
-expr -> expr . DOT IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . ARROW IDENT [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . ASSIGN expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . paren(separated_list(COMMA,expr)) [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . INCR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . DECR [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-expr -> expr . operateur expr [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS OR NULL NOT NEW NEQ MOD MINUS LT LPAREN LEQ LBRACE INT INCR IF IDENT GT GEQ FOR FALSE EQ ELSE ECOMM DOT DIV DECR COUT ASSIGN ARROW AND ]
-instruction -> type_rule var ASSIGN expr . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN . [ SEMICOLON ]
+-- On SEMICOLON reduce production paren(separated_nonempty_list(COMMA,expr)) -> LPAREN separated_nonempty_list(COMMA,expr) RPAREN 
+
+State 170:
+instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) . SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+-- On SEMICOLON shift to state 171
+
+State 171:
+instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+-- On WHILE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On VOID reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On TRUE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On TINT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On TIMES reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On TIDENT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On THIS reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On SEMICOLON reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On RETURN reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On RBRACE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On PLUS reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On NULL reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On NOT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On NEW reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On MINUS reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On LPAREN reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On LBRACE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On INT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On INCR reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On IF reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On IDENT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On FOR reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On FALSE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On ELSE reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On ECOMM reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On DECR reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+-- On COUT reduce production instruction -> type_rule var ASSIGN TIDENT paren(separated_nonempty_list(COMMA,expr)) SEMICOLON 
+
+State 172:
+expr -> expr . DOT IDENT [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . ARROW IDENT [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . ASSIGN expr [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . paren(separated_list(COMMA,expr)) [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . INCR [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . DECR [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+expr -> expr . operateur expr [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
+instruction -> type_rule var ASSIGN expr . SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 -- On TIMES shift to state 98
+-- On SEMICOLON shift to state 173
 -- On PLUS shift to state 99
 -- On OR shift to state 100
 -- On NEQ shift to state 101
@@ -3438,31 +2740,38 @@ instruction -> type_rule var ASSIGN expr . [ WHILE VOID TRUE TINT TIMES TIDENT T
 -- On AND shift to state 118
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
--- On WHILE reduce production instruction -> type_rule var ASSIGN expr 
--- On VOID reduce production instruction -> type_rule var ASSIGN expr 
--- On TRUE reduce production instruction -> type_rule var ASSIGN expr 
--- On TINT reduce production instruction -> type_rule var ASSIGN expr 
--- On TIDENT reduce production instruction -> type_rule var ASSIGN expr 
--- On THIS reduce production instruction -> type_rule var ASSIGN expr 
--- On SEMICOLON reduce production instruction -> type_rule var ASSIGN expr 
--- On RETURN reduce production instruction -> type_rule var ASSIGN expr 
--- On RBRACE reduce production instruction -> type_rule var ASSIGN expr 
--- On NULL reduce production instruction -> type_rule var ASSIGN expr 
--- On NOT reduce production instruction -> type_rule var ASSIGN expr 
--- On NEW reduce production instruction -> type_rule var ASSIGN expr 
--- On LPAREN reduce production instruction -> type_rule var ASSIGN expr 
--- On LBRACE reduce production instruction -> type_rule var ASSIGN expr 
--- On INT reduce production instruction -> type_rule var ASSIGN expr 
--- On IF reduce production instruction -> type_rule var ASSIGN expr 
--- On IDENT reduce production instruction -> type_rule var ASSIGN expr 
--- On FOR reduce production instruction -> type_rule var ASSIGN expr 
--- On FALSE reduce production instruction -> type_rule var ASSIGN expr 
--- On ELSE reduce production instruction -> type_rule var ASSIGN expr 
--- On ECOMM reduce production instruction -> type_rule var ASSIGN expr 
--- On COUT reduce production instruction -> type_rule var ASSIGN expr 
-** Conflict on LPAREN
 
-State 170:
+State 173:
+instruction -> type_rule var ASSIGN expr SEMICOLON . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
+-- On WHILE reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On VOID reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On TRUE reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On TINT reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On TIMES reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On TIDENT reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On THIS reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On SEMICOLON reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On RETURN reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On RBRACE reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On PLUS reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On NULL reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On NOT reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On NEW reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On MINUS reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On LPAREN reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On LBRACE reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On INT reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On INCR reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On IF reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On IDENT reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On FOR reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On FALSE reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On ELSE reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On ECOMM reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On DECR reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+-- On COUT reduce production instruction -> type_rule var ASSIGN expr SEMICOLON 
+
+State 174:
 instruction -> FOR LPAREN loption(separated_nonempty_list(COMMA,expr)) SEMICOLON option(expr) SEMICOLON loption(separated_nonempty_list(COMMA,expr)) RPAREN instruction . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 -- On WHILE reduce production instruction -> FOR LPAREN loption(separated_nonempty_list(COMMA,expr)) SEMICOLON option(expr) SEMICOLON loption(separated_nonempty_list(COMMA,expr)) RPAREN instruction 
 -- On VOID reduce production instruction -> FOR LPAREN loption(separated_nonempty_list(COMMA,expr)) SEMICOLON option(expr) SEMICOLON loption(separated_nonempty_list(COMMA,expr)) RPAREN instruction 
@@ -3492,7 +2801,7 @@ instruction -> FOR LPAREN loption(separated_nonempty_list(COMMA,expr)) SEMICOLON
 -- On DECR reduce production instruction -> FOR LPAREN loption(separated_nonempty_list(COMMA,expr)) SEMICOLON option(expr) SEMICOLON loption(separated_nonempty_list(COMMA,expr)) RPAREN instruction 
 -- On COUT reduce production instruction -> FOR LPAREN loption(separated_nonempty_list(COMMA,expr)) SEMICOLON option(expr) SEMICOLON loption(separated_nonempty_list(COMMA,expr)) RPAREN instruction 
 
-State 171:
+State 175:
 expr -> expr . DOT IDENT [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
 expr -> expr . ARROW IDENT [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
 expr -> expr . ASSIGN expr [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
@@ -3502,7 +2811,7 @@ expr -> expr . DECR [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR G
 expr -> expr . operateur expr [ TIMES SEMICOLON PLUS OR NEQ MOD MINUS LT LPAREN LEQ INCR GT GEQ EQ DOT DIV DECR ASSIGN ARROW AND ]
 instruction -> expr . SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 -- On TIMES shift to state 98
--- On SEMICOLON shift to state 172
+-- On SEMICOLON shift to state 176
 -- On PLUS shift to state 99
 -- On OR shift to state 100
 -- On NEQ shift to state 101
@@ -3524,7 +2833,7 @@ instruction -> expr . SEMICOLON [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOL
 -- On paren(separated_list(COMMA,expr)) shift to state 119
 -- On operateur shift to state 120
 
-State 172:
+State 176:
 instruction -> expr SEMICOLON . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 -- On WHILE reduce production instruction -> expr SEMICOLON 
 -- On VOID reduce production instruction -> expr SEMICOLON 
@@ -3554,7 +2863,7 @@ instruction -> expr SEMICOLON . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOL
 -- On DECR reduce production instruction -> expr SEMICOLON 
 -- On COUT reduce production instruction -> expr SEMICOLON 
 
-State 173:
+State 177:
 instruction -> bloc . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 -- On WHILE reduce production instruction -> bloc 
 -- On VOID reduce production instruction -> bloc 
@@ -3584,10 +2893,10 @@ instruction -> bloc . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN 
 -- On DECR reduce production instruction -> bloc 
 -- On COUT reduce production instruction -> bloc 
 
-State 174:
+State 178:
 instruction -> IF paren(expr) instruction . ELSE instruction [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 instruction -> IF paren(expr) instruction . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
--- On ELSE shift to state 175
+-- On ELSE shift to state 179
 -- On WHILE reduce production instruction -> IF paren(expr) instruction 
 -- On VOID reduce production instruction -> IF paren(expr) instruction 
 -- On TRUE reduce production instruction -> IF paren(expr) instruction 
@@ -3617,7 +2926,7 @@ instruction -> IF paren(expr) instruction . [ WHILE VOID TRUE TINT TIMES TIDENT 
 -- On COUT reduce production instruction -> IF paren(expr) instruction 
 ** Conflict on ELSE
 
-State 175:
+State 179:
 instruction -> IF paren(expr) instruction ELSE . instruction [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 -- On WHILE shift to state 76
 -- On VOID shift to state 4
@@ -3647,14 +2956,14 @@ instruction -> IF paren(expr) instruction ELSE . instruction [ WHILE VOID TRUE T
 -- On unary_times shift to state 92
 -- On unary_plus shift to state 93
 -- On unary_minus shift to state 94
--- On type_rule shift to state 161
+-- On type_rule shift to state 162
 -- On qident shift to state 95
 -- On paren(expr) shift to state 96
--- On instruction shift to state 176
--- On expr shift to state 171
--- On bloc shift to state 173
+-- On instruction shift to state 180
+-- On expr shift to state 175
+-- On bloc shift to state 177
 
-State 176:
+State 180:
 instruction -> IF paren(expr) instruction ELSE instruction . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 -- On WHILE reduce production instruction -> IF paren(expr) instruction ELSE instruction 
 -- On VOID reduce production instruction -> IF paren(expr) instruction ELSE instruction 
@@ -3684,7 +2993,7 @@ instruction -> IF paren(expr) instruction ELSE instruction . [ WHILE VOID TRUE T
 -- On DECR reduce production instruction -> IF paren(expr) instruction ELSE instruction 
 -- On COUT reduce production instruction -> IF paren(expr) instruction ELSE instruction 
 
-State 177:
+State 181:
 instruction -> WHILE paren(expr) instruction . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE ELSE ECOMM DECR COUT ]
 -- On WHILE reduce production instruction -> WHILE paren(expr) instruction 
 -- On VOID reduce production instruction -> WHILE paren(expr) instruction 
@@ -3714,11 +3023,11 @@ instruction -> WHILE paren(expr) instruction . [ WHILE VOID TRUE TINT TIMES TIDE
 -- On DECR reduce production instruction -> WHILE paren(expr) instruction 
 -- On COUT reduce production instruction -> WHILE paren(expr) instruction 
 
-State 178:
+State 182:
 bloc -> LBRACE list(instruction) . RBRACE [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE EOF ELSE ECOMM DECR COUT CLASS ]
--- On RBRACE shift to state 179
+-- On RBRACE shift to state 183
 
-State 179:
+State 183:
 bloc -> LBRACE list(instruction) RBRACE . [ WHILE VOID TRUE TINT TIMES TIDENT THIS SEMICOLON RETURN RBRACE PLUS NULL NOT NEW MINUS LPAREN LBRACE INT INCR IF IDENT FOR FALSE EOF ELSE ECOMM DECR COUT CLASS ]
 -- On WHILE reduce production bloc -> LBRACE list(instruction) RBRACE 
 -- On VOID reduce production bloc -> LBRACE list(instruction) RBRACE 
@@ -3750,7 +3059,7 @@ bloc -> LBRACE list(instruction) RBRACE . [ WHILE VOID TRUE TINT TIMES TIDENT TH
 -- On COUT reduce production bloc -> LBRACE list(instruction) RBRACE 
 -- On CLASS reduce production bloc -> LBRACE list(instruction) RBRACE 
 
-State 180:
+State 184:
 list(instruction) -> instruction . list(instruction) [ RBRACE ]
 -- On WHILE shift to state 76
 -- On VOID shift to state 4
@@ -3780,20 +3089,20 @@ list(instruction) -> instruction . list(instruction) [ RBRACE ]
 -- On unary_times shift to state 92
 -- On unary_plus shift to state 93
 -- On unary_minus shift to state 94
--- On type_rule shift to state 161
+-- On type_rule shift to state 162
 -- On qident shift to state 95
 -- On paren(expr) shift to state 96
--- On list(instruction) shift to state 181
--- On instruction shift to state 180
--- On expr shift to state 171
--- On bloc shift to state 173
+-- On list(instruction) shift to state 185
+-- On instruction shift to state 184
+-- On expr shift to state 175
+-- On bloc shift to state 177
 -- On RBRACE reduce production list(instruction) -> 
 
-State 181:
+State 185:
 list(instruction) -> instruction list(instruction) . [ RBRACE ]
 -- On RBRACE reduce production list(instruction) -> instruction list(instruction) 
 
-State 182:
+State 186:
 decl -> proto bloc . [ VOID TINT TIDENT EOF CLASS ]
 -- On VOID reduce production decl -> proto bloc 
 -- On TINT reduce production decl -> proto bloc 
@@ -3801,15 +3110,15 @@ decl -> proto bloc . [ VOID TINT TIDENT EOF CLASS ]
 -- On EOF reduce production decl -> proto bloc 
 -- On CLASS reduce production decl -> proto bloc 
 
-State 183:
+State 187:
 fichier -> boption(INCLUDE) list(decl) . EOF [ # ]
--- On EOF shift to state 184
+-- On EOF shift to state 188
 
-State 184:
+State 188:
 fichier -> boption(INCLUDE) list(decl) EOF . [ # ]
 -- On # reduce production fichier -> boption(INCLUDE) list(decl) EOF 
 
-State 185:
+State 189:
 decl -> decl_vars . [ VOID TINT TIDENT EOF CLASS ]
 -- On VOID reduce production decl -> decl_vars 
 -- On TINT reduce production decl -> decl_vars 
@@ -3817,7 +3126,7 @@ decl -> decl_vars . [ VOID TINT TIDENT EOF CLASS ]
 -- On EOF reduce production decl -> decl_vars 
 -- On CLASS reduce production decl -> decl_vars 
 
-State 186:
+State 190:
 decl -> decl_class . [ VOID TINT TIDENT EOF CLASS ]
 -- On VOID reduce production decl -> decl_class 
 -- On TINT reduce production decl -> decl_class 
@@ -3825,7 +3134,7 @@ decl -> decl_class . [ VOID TINT TIDENT EOF CLASS ]
 -- On EOF reduce production decl -> decl_class 
 -- On CLASS reduce production decl -> decl_class 
 
-State 187:
+State 191:
 list(decl) -> decl . list(decl) [ EOF ]
 -- On VOID shift to state 4
 -- On TINT shift to state 5
@@ -3833,13 +3142,13 @@ list(decl) -> decl . list(decl) [ EOF ]
 -- On CLASS shift to state 28
 -- On type_rule shift to state 70
 -- On proto shift to state 74
--- On list(decl) shift to state 188
--- On decl_vars shift to state 185
--- On decl_class shift to state 186
--- On decl shift to state 187
+-- On list(decl) shift to state 192
+-- On decl_vars shift to state 189
+-- On decl_class shift to state 190
+-- On decl shift to state 191
 -- On EOF reduce production list(decl) -> 
 
-State 188:
+State 192:
 list(decl) -> decl list(decl) . [ EOF ]
 -- On EOF reduce production list(decl) -> decl list(decl) 
 

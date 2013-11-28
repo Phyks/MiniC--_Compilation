@@ -1,5 +1,5 @@
 
-** Conflict (shift/reduce) in state 174.
+** Conflict (shift/reduce) in state 178.
 ** Token involved: ELSE
 ** This state is reached from fichier after reading:
 
@@ -16,85 +16,18 @@ boption(INCLUDE) list(decl) EOF
                               instruction list(instruction) 
                               (?)
 
-** In state 174, looking ahead at ELSE, shifting is permitted
+** In state 178, looking ahead at ELSE, shifting is permitted
 ** because of the following sub-derivation:
 
 IF paren(expr) instruction ELSE instruction 
                IF paren(expr) instruction . ELSE instruction 
 
-** In state 174, looking ahead at ELSE, reducing production
+** In state 178, looking ahead at ELSE, reducing production
 ** instruction -> IF paren(expr) instruction 
 ** is permitted because of the following sub-derivation:
 
 IF paren(expr) instruction ELSE instruction // lookahead token appears
                IF paren(expr) instruction . 
-
-** Conflict (shift/reduce) in state 169.
-** Token involved: LPAREN
-** This state is reached from fichier after reading:
-
-boption(INCLUDE) proto LBRACE type_rule var ASSIGN expr 
-
-** The derivations that appear below have the following common factor:
-** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
-
-fichier 
-boption(INCLUDE) list(decl) EOF 
-                 decl list(decl) 
-                 proto bloc 
-                       LBRACE list(instruction) RBRACE 
-                              (?)
-
-** In state 169, looking ahead at LPAREN, reducing production
-** instruction -> type_rule var ASSIGN expr 
-** is permitted because of the following sub-derivation:
-
-instruction list(instruction) // lookahead token appears because list(instruction) can begin with LPAREN
-type_rule var ASSIGN expr . 
-
-** In state 169, looking ahead at LPAREN, shifting is permitted
-** because of the following sub-derivation:
-
-instruction list(instruction) 
-type_rule var ASSIGN expr 
-                     expr paren(separated_list(COMMA,expr)) 
-                          . LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN 
-
-** Conflict (shift/reduce) in state 159.
-** Tokens involved: TIMES PLUS MINUS LPAREN INCR DECR
-** The following explanations concentrate on token TIMES.
-** This state is reached from fichier after reading:
-
-boption(INCLUDE) proto LBRACE COUT IN expr 
-
-** The derivations that appear below have the following common factor:
-** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
-
-fichier 
-boption(INCLUDE) list(decl) EOF 
-                 decl list(decl) 
-                 proto bloc 
-                       LBRACE list(instruction) RBRACE 
-                              (?)
-
-** In state 159, looking ahead at TIMES, reducing production
-** expr_str -> expr 
-** is permitted because of the following sub-derivation:
-
-instruction list(instruction) // lookahead token appears because list(instruction) can begin with TIMES
-COUT nonempty_list(preceded(IN,expr_str)) // lookahead token is inherited
-     IN expr_str // lookahead token is inherited
-        expr . 
-
-** In state 159, looking ahead at TIMES, shifting is permitted
-** because of the following sub-derivation:
-
-instruction list(instruction) 
-COUT nonempty_list(preceded(IN,expr_str)) 
-     IN expr_str 
-        expr 
-        expr operateur expr 
-             . TIMES 
 
 ** Conflict (shift/reduce) in state 134.
 ** Token involved: LPAREN

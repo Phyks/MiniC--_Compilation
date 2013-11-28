@@ -1,9 +1,8 @@
 /* Analyseur syntaxique pour MiniC++ */
 
-/*%parameter <Lexhack : sig type t end>*/
-
 %{
     open Ast
+    open Lexhack
 %}
 
 %token <int> INT
@@ -69,7 +68,10 @@ decl_vars:
 
 decl_class:
     CLASS x=IDENT y=supers? LBRACE PUBLIC COLON z=member* RBRACE SEMICOLON
-    { (x, y, z) }
+    {
+        Lexhack.types_lexhack := x :: !(Lexhack.types_lexhack);
+        (x, y, z)
+    }
 
 supers:
     COLON x=separated_nonempty_list(COMMA, preceded(PUBLIC, TIDENT))
@@ -154,7 +156,6 @@ expr:
     | x=expr y=paren(separated_list(COMMA, expr)) { Apply (x, y) }
     | NEW t=TIDENT x=paren(separated_list(COMMA, expr))
         { 
-            (*Lexhack.types_lexhack := !Lexhack.types_lexhack :: (t, TIDENT t);*)
             Instance (t, x)
         }
     | INCR x=expr { Incr (IncrL, x) }
@@ -186,16 +187,16 @@ operateur:
 instruction:
     SEMICOLON { Nop }
     | x=expr SEMICOLON { IExpr x }
-    | x=type_rule y=var { IVar (x, y, NoAssign) }
-    | x=type_rule y=var z=preceded(ASSIGN, expr) { IVar (x, y, SAExpr z) }
-    | x=type_rule y=var z=preceded(ASSIGN, TIDENT) t=paren(separated_nonempty_list(COMMA, expr))
+    | x=type_rule y=var SEMICOLON { IVar (x, y, NoAssign) }
+    | x=type_rule y=var z=preceded(ASSIGN, expr) SEMICOLON { IVar (x, y, SAExpr z) }
+    | x=type_rule y=var z=preceded(ASSIGN, TIDENT) t=paren(separated_nonempty_list(COMMA, expr)) SEMICOLON
         { let tid = Tident (z, t) in IVar (x, y, tid) }
     | IF x=paren(expr) y=instruction ELSE z=instruction { IfElse (x, y, z) }
     | IF x=paren(expr) y=instruction { If (x, y) }
     | WHILE x=paren(expr) y=instruction { While (x, y) }
     | FOR LPAREN x=separated_list(COMMA, expr) SEMICOLON y=expr? SEMICOLON z=separated_list(COMMA, expr) RPAREN t=instruction { For (x, y, z, t) }
     | x=bloc { IBloc x }
-    | COUT x=nonempty_list(preceded(IN, expr_str)) { Cout x }
+    | COUT x=nonempty_list(preceded(IN, expr_str)) SEMICOLON { Cout x }
     | RETURN x=expr? SEMICOLON { Return x }
 
 expr_str:

@@ -1,3 +1,1 @@
-open Parser
-
-let types_lexhack = ref ["int", TINT]
+let types_lexhack : string list ref = ref []
