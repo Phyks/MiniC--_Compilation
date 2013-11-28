@@ -4,6 +4,9 @@ type token =
   | WHILE
   | VOID
   | VIRTUAL
+  | UTIMES
+  | UPLUS
+  | UMINUS
   | TRUE
   | TINT
   | TIMES

@@ -27,6 +27,7 @@
 %token NOT INCR DECR ECOMM
 %token ARROW DOT
 %token LPAREN RPAREN
+%token UPLUS UMINUS UTIMES
 %token CLASS ELSE FALSE FOR IF TINT NEW NULL PUBLIC RETURN THIS TRUE VIRTUAL VOID WHILE
 
 /* Priorités et associativités des tokens */
@@ -38,7 +39,15 @@
 %left PLUS MINUS
 %left TIMES DIV MOD
 %right NOT INCR DECR ECOMM
+%right UPLUS UMINUS UTIMES
 %left ARROW DOT
+
+(* Conflicts solving *)
+%nonassoc IF
+%nonassoc ELSE
+
+%left LPAREN
+(* ==== *)
 
 /* Point d'entrée de la grammaire */
 %start fichier
@@ -79,9 +88,13 @@ supers:
 
 member:
       x = decl_vars { MVar x }
-    | x=boption(VIRTUAL) y=proto SEMICOLON 
+    | VIRTUAL y=proto SEMICOLON 
         { 
-            Proto (x, y)
+            Proto (true, y)
+        }
+    | y=proto SEMICOLON 
+        { 
+            Proto (false, y)
         }
 
 proto:
@@ -107,17 +120,8 @@ proto:
             }
         }
 
-unary_plus:
-    PLUS {} %prec INCR
-
-unary_minus:
-    MINUS {} %prec INCR
-
-unary_times:
-    TIMES {} %prec INCR
-
 paren(X):
-    LPAREN x=X RPAREN { x } %prec ARROW
+    LPAREN x=X RPAREN { x }
 
 type_rule:
       VOID { Void }
@@ -130,12 +134,12 @@ argument:
 
 var:
       x=IDENT { Ident x }
-    | unary_times x=var { VUTimes x }
+    | TIMES x=var { VUTimes x } %prec UTIMES
     | ECOMM x=var { VEComm x }
 
 qvar:
       x=qident { Qident x }
-    | unary_times x=qvar { QUTimes x }
+    | TIMES x=qvar { QUTimes x } %prec UTIMES
     | ECOMM x=qvar { QEComm x }
 
 qident:
@@ -149,7 +153,7 @@ expr:
     | TRUE { ETrue }
     | NULL { ENull }
     | x=qident { EQident x }
-    | unary_times x=expr { UOp (UTimes, x) }
+    | TIMES x=expr { UOp (UTimes, x) } %prec UTIMES
     | x=expr DOT y=IDENT { Dot (x, y) }
     | x=expr ARROW y=IDENT { Arrow (x, y)}
     | x=expr ASSIGN y=expr { Assign (x, y) }
@@ -164,12 +168,12 @@ expr:
     | x=expr DECR { Incr (DecrR, x) }
     | ECOMM x=expr { UOp (EComm, x) }
     | NOT x=expr { UOp (Not, x) }
-    | unary_minus x=expr { UOp (UMinus, x) }
-    | unary_plus x=expr { UOp (UPlus, x) }
+    | MINUS x=expr { UOp (UMinus, x) } %prec UMINUS
+    | PLUS x=expr { UOp (UPlus, x) } %prec UPLUS
     | x=expr y=operateur z=expr { Op (y, x, z) }
     | x=paren(expr) { x }
 
-operateur:
+%inline operateur:
       EQ { Eq }
     | NEQ { Neq }
     | LT { Lt }
