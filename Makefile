@@ -3,9 +3,6 @@ GENERATED = lexer.ml parser.ml parser.mli
 BIN=minic++
 FLAGS=-annot
 
-all: $(BIN)
-	./$(BIN) test.cpp
-
 $(BIN):$(CMO)
 	ocamlc $(FLAGS) -o $(BIN) $(CMO)
 
