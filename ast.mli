@@ -1,5 +1,7 @@
 (* Syntaxe abstraite pour mini-C++ *)
 
+type loc = Lexing.position * Lexing.position
+
 (* Opérateurs binaires *)
 type operateur = Eq | Neq | Lt | Leq | Gt | Geq | Plus | Minus | Times | Div | Mod | And | Or
 (* Opérateurs unaires *)
@@ -36,7 +38,7 @@ type expr_string = Expr of expr | String of string
 type some_expr = expr option
 type some_assign = NoAssign | SAExpr of expr | Tident of tident * (expr list)
 
-type instruction = Nop
+type instruction_content = Nop
                    | IExpr of expr
                    | IVar of ast_type * var * some_assign
                    | If of expr * instruction
@@ -47,7 +49,11 @@ type instruction = Nop
                    | Cout of expr_string list
                    | Return of some_expr
                and
-               bloc = Bloc of instruction list
+               bloc_content = Bloc_content of instruction list
+               and
+               instruction = { instruction_content : instruction_content; instruction_loc : loc }
+               and
+               bloc = { bloc_content : bloc_content; bloc_loc : loc }
 
 type argument = ast_type * var
 
@@ -55,16 +61,18 @@ type proto_ident = Qvar of ast_type * qvar | Type of tident | Herit of tident * 
 type proto = {
     ident : proto_ident; 
     args : argument list;
+    proto_loc : loc
 }
 
-type decl_vars = ast_type * (var list)
+type decl_vars = { decl_vars_content : ast_type * (var list); decl_vars_loc : loc }
 type member = MVar of decl_vars | Proto of bool * proto
 type supers = (tident list) option
-type decl_class = ident * supers * (member list)
-type fonction = proto * bloc
+type decl_class = { decl_class_content : ident * supers * (member list); decl_class_loc : loc }
+type fonction = { fonction_content : proto * bloc; fonction_loc : loc }
 type decl = DVar of decl_vars | Class of decl_class | Fonction of fonction
 
 type program = {
     includes : bool;
     program : decl list;
+    program_loc : loc;
 }

@@ -64,17 +64,18 @@ fichier:
         {
             includes = x;
             program = main;
+            program_loc = $startpos, $endpos;
         }
     }
 
 decl:
       x=decl_vars { DVar x }
     | x=decl_class { Class x }
-    | x=proto y=bloc { Fonction (x, y) }
+    | x=proto y=bloc { Fonction { fonction_content = (x, y); fonction_loc = $startpos, $endpos } }
 
 decl_vars:
     x=type_rule y=separated_nonempty_list(COMMA, var) SEMICOLON
-    { (x, y) }
+    { { decl_vars_content = (x, y); decl_vars_loc = $startpos,$endpos } }
 
 lexhack_class:
     CLASS x=IDENT y=supers?
@@ -86,7 +87,7 @@ lexhack_class:
 decl_class:
     x=lexhack_class LBRACE PUBLIC COLON z=member* RBRACE SEMICOLON
     {
-        (fst x, snd x, z)
+        { decl_class_content = (fst x, snd x, z); decl_class_loc = $startpos,$endpos }
     }
 
 supers:
@@ -110,6 +111,7 @@ proto:
             { 
                 ident = Qvar (x, y);
                 args = z;
+                proto_loc = $startpos, $endpos;
             }
         }
     | x=TIDENT y=paren(separated_list(COMMA, argument))
@@ -117,6 +119,7 @@ proto:
             {
                 ident = Type x;
                 args = y;
+                proto_loc = $startpos, $endpos;
             }
         }
     | x=TIDENT COLON COLON y=TIDENT z=paren(separated_list(COMMA, argument))
@@ -124,6 +127,7 @@ proto:
             {
                 ident = Herit (x, y);
                 args = z;
+                proto_loc = $startpos, $endpos;
             }
         }
 
@@ -196,20 +200,20 @@ expr:
     | OR { Or }
 
 instruction:
-    SEMICOLON { Nop }
-    | x=expr SEMICOLON { IExpr x }
-    | x=type_rule y=var SEMICOLON { IVar (x, y, NoAssign) }
-    | x=type_rule y=var z=preceded(ASSIGN, expr) SEMICOLON { IVar (x, y, SAExpr z) }
+    SEMICOLON { {instruction_content = Nop; instruction_loc = $startpos, $endpos} }
+    | x=expr SEMICOLON { {instruction_content = IExpr x ; instruction_loc = $startpos, $endpos} }
+    | x=type_rule y=var SEMICOLON { {instruction_content = IVar (x, y, NoAssign) ; instruction_loc = $startpos, $endpos} }
+    | x=type_rule y=var z=preceded(ASSIGN, expr) SEMICOLON { {instruction_content = IVar (x, y, SAExpr z) ; instruction_loc = $startpos, $endpos} }
     | x=type_rule y=var z=preceded(ASSIGN, TIDENT) t=paren(separated_nonempty_list(COMMA, expr)) SEMICOLON
-        { let tid = Tident (z, t) in IVar (x, y, tid) }
-    | IF x=paren(expr) y=instruction ELSE z=instruction { IfElse (x, y, z) }
-    | IF x=paren(expr) y=instruction { If (x, y) }
-    | WHILE x=paren(expr) y=instruction { While (x, y) }
-    | FOR LPAREN x=separated_list(COMMA, expr) SEMICOLON y=expr? SEMICOLON z=separated_list(COMMA, expr) RPAREN t=instruction { For (x, y, z, t) }
-    | x=bloc { IBloc x }
+        { let tid = Tident (z, t) in {instruction_content = IVar (x, y, tid) ; instruction_loc = $startpos, $endpos} }
+    | IF x=paren(expr) y=instruction ELSE z=instruction { {instruction_content = IfElse (x, y, z) ; instruction_loc = $startpos, $endpos} }
+    | IF x=paren(expr) y=instruction { {instruction_content = If (x, y) ; instruction_loc = $startpos, $endpos} }
+    | WHILE x=paren(expr) y=instruction { {instruction_content = While (x, y) ; instruction_loc = $startpos, $endpos} }
+    | FOR LPAREN x=separated_list(COMMA, expr) SEMICOLON y=expr? SEMICOLON z=separated_list(COMMA, expr) RPAREN t=instruction { {instruction_content = For (x, y, z, t) ; instruction_loc = $startpos, $endpos} }
+    | x=bloc { {instruction_content = IBloc x ; instruction_loc = $startpos, $endpos} }
     | COUT x=nonempty_list(preceded(IN, expr_str)) SEMICOLON 
-        { Cout x }
-    | RETURN x=expr? SEMICOLON { Return x }
+        { {instruction_content = Cout x ; instruction_loc = $startpos, $endpos} }
+    | RETURN x=expr? SEMICOLON { {instruction_content = Return x ; instruction_loc = $startpos, $endpos} }
 
 expr_str:
       x=expr { Expr x }
@@ -217,4 +221,4 @@ expr_str:
     | ENDL { String "\n" }
 
 bloc:
-     LBRACE x=instruction* RBRACE { Bloc x }
+    LBRACE x=instruction* RBRACE { { bloc_content = Bloc_content x; bloc_loc = $startpos, $endpos} }
