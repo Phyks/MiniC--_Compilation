@@ -7,8 +7,7 @@
 
     exception Lexing_error of string
 
-    let keywords_tbl = ["std::cout", COUT;
-                        "class", CLASS;
+    let keywords_tbl = ["class", CLASS;
                         "else", ELSE;
                         "false", FALSE;
                         "for", FOR; 
@@ -54,7 +53,7 @@ let entier = '0'
              | '0' 'x' chiffre_hexa+
 
 let caractere = ['\032'-'\033' '\035'-'\091' '\093'-'\127']
-                | '\\' '\\' | '\\' '\"' | '\\' '\n' | '\\' '\t'
+                | '\\' '\\' | '\\' '\"' | '\\' 'n' | '\\' 't'
                 | '\\' 'x' chiffre_hexa chiffre_hexa
 let chaine = '\"' caractere* '\"'
 
@@ -64,7 +63,10 @@ rule token = parse
     | "#include <iostream>" { INCLUDE }
     | '\n' { newline lexbuf ; token lexbuf }
     | space+  { token lexbuf }
-    | "/*" { comment lexbuf}
+    | "std::cout" { COUT }
+    | "std::endl" { ENDL }
+    | "/*" { comment lexbuf }
+    | "//" { comment_inline lexbuf }
     | "||" { OR }
     | "&&" { AND }
     | "==" { EQ }
@@ -104,3 +106,7 @@ and comment = parse
     | "*/" { token lexbuf }
     | _ { comment lexbuf }
     | eof { raise (Lexing_error "Commentaire non terminé.") }
+
+and comment_inline = parse
+    | '\n' { token lexbuf }
+    | _ { comment_inline lexbuf }

@@ -11,15 +11,16 @@ error = 0
 error_list = list()
 FNULL = open(os.devnull, 'w')
 
-files = os.listdir(sys.argv[1])
+files = [i for i in os.listdir(sys.argv[1]) if i.endswith(".cpp")]
 
 for i in files:
     try:
         subprocess.check_call(["./minic++",
                                "--parse-only",
                                sys.argv[1]+"/"+i],
-                              stdout=FNULL,
-                              stderr=FNULL)
+                              #stdout=FNULL,
+                              #stderr=FNULL)
+                             )
     except subprocess.CalledProcessError:
         error += 1
         error_list.append(i)

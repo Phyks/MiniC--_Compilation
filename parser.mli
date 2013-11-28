@@ -42,6 +42,7 @@ type token =
   | FALSE
   | EQ
   | EOF
+  | ENDL
   | ELSE
   | ECOMM
   | DOT

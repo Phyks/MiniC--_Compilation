@@ -13,6 +13,7 @@
 %token INCLUDE
 
 %token COUT
+%token ENDL
 %token IN /* << */
 
 %token COLON COMMA SEMICOLON LBRACE RBRACE
@@ -75,11 +76,17 @@ decl_vars:
     x=type_rule y=separated_nonempty_list(COMMA, var) SEMICOLON
     { (x, y) }
 
-decl_class:
-    CLASS x=IDENT y=supers? LBRACE PUBLIC COLON z=member* RBRACE SEMICOLON
+lexhack_class:
+    CLASS x=IDENT y=supers?
     {
         Lexhack.types_lexhack := x :: !(Lexhack.types_lexhack);
-        (x, y, z)
+        (x,y)
+    }
+
+decl_class:
+    x=lexhack_class LBRACE PUBLIC COLON z=member* RBRACE SEMICOLON
+    {
+        (fst x, snd x, z)
     }
 
 supers:
@@ -200,12 +207,14 @@ instruction:
     | WHILE x=paren(expr) y=instruction { While (x, y) }
     | FOR LPAREN x=separated_list(COMMA, expr) SEMICOLON y=expr? SEMICOLON z=separated_list(COMMA, expr) RPAREN t=instruction { For (x, y, z, t) }
     | x=bloc { IBloc x }
-    | COUT x=nonempty_list(preceded(IN, expr_str)) SEMICOLON { Cout x }
+    | COUT x=nonempty_list(preceded(IN, expr_str)) SEMICOLON 
+        { Cout x }
     | RETURN x=expr? SEMICOLON { Return x }
 
 expr_str:
       x=expr { Expr x }
     | x=STRING { String x }
+    | ENDL { String "\n" }
 
 bloc:
      LBRACE x=instruction* RBRACE { Bloc x }
