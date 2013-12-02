@@ -29,6 +29,8 @@ lexhack.cmo:
 clean:
 	rm -f *.cm[io] *.o *~ $(BIN) $(GENERATED)
 	rm -f *.annot
+	rm -f *.automaton
+	rm -f *.conflicts
 
 .depend depend:$(GENERATED)
 	rm -f .depend

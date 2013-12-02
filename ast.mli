@@ -13,9 +13,9 @@ type ident = string
 type tident = string
 type qident = Ident of ident | Tident of tident * ident
 
-type ast_type = Void | Int | Tident of tident
+type ast_type = Void | Int | ASTTident of tident
 
-type var = Ident of ident | VUTimes of var | VEComm of var
+type var = VIdent of ident | VUTimes of var | VEComm of var
 type qvar = Qident of qident | QUTimes of qvar | QEComm of qvar
 
 type expr = EInt of int 
@@ -36,7 +36,7 @@ type expr = EInt of int
 type expr_string = Expr of expr | String of string
 
 type some_expr = expr option
-type some_assign = NoAssign | SAExpr of expr | Tident of tident * (expr list)
+type some_assign = NoAssign | SAExpr of expr | SATident of tident * (expr list)
 
 type instruction_content = Nop
                    | IExpr of expr

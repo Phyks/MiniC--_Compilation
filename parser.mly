@@ -137,14 +137,14 @@ paren(X):
 type_rule:
       VOID { Void }
     | TINT { Int }
-    | x=TIDENT { Tident x }
+    | x=TIDENT { ASTTident x }
 
 argument:
     x=type_rule y=var
     { (x, y) }
 
 var:
-      x=IDENT { Ident x }
+      x=IDENT { VIdent x }
     | TIMES x=var { VUTimes x } %prec UTIMES
     | ECOMM x=var { VEComm x }
 
@@ -205,7 +205,7 @@ instruction:
     | x=type_rule y=var SEMICOLON { {instruction_content = IVar (x, y, NoAssign) ; instruction_loc = $startpos, $endpos} }
     | x=type_rule y=var z=preceded(ASSIGN, expr) SEMICOLON { {instruction_content = IVar (x, y, SAExpr z) ; instruction_loc = $startpos, $endpos} }
     | x=type_rule y=var z=preceded(ASSIGN, TIDENT) t=paren(separated_nonempty_list(COMMA, expr)) SEMICOLON
-        { let tid = Tident (z, t) in {instruction_content = IVar (x, y, tid) ; instruction_loc = $startpos, $endpos} }
+        { let tid = SATident (z, t) in {instruction_content = IVar (x, y, tid) ; instruction_loc = $startpos, $endpos} }
     | IF x=paren(expr) y=instruction ELSE z=instruction { {instruction_content = IfElse (x, y, z) ; instruction_loc = $startpos, $endpos} }
     | IF x=paren(expr) y=instruction { {instruction_content = If (x, y) ; instruction_loc = $startpos, $endpos} }
     | WHILE x=paren(expr) y=instruction { {instruction_content = While (x, y) ; instruction_loc = $startpos, $endpos} }
