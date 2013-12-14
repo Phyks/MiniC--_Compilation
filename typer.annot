@@ -1,0 +1,931 @@
+"typer.ml" 7 79 83 "typer.ml" 7 79 91
+type(
+  bool ref
+)
+ident(
+  def includes "typer.ml" 8 104 104 "typer.ml" 1 0 -1
+)
+"typer.ml" 7 79 94 "typer.ml" 7 79 97
+type(
+  bool -> bool ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"typer.ml" 7 79 98 "typer.ml" 7 79 103
+type(
+  bool
+)
+"typer.ml" 7 79 94 "typer.ml" 7 79 103
+type(
+  bool ref
+)
+"typer.ml" 8 104 108 "typer.ml" 8 104 120
+type(
+  bool ref
+)
+ident(
+  def is_main_here "typer.ml" 11 135 135 "typer.ml" 1 0 -1
+)
+"typer.ml" 8 104 123 "typer.ml" 8 104 126
+type(
+  bool -> bool ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"typer.ml" 8 104 127 "typer.ml" 8 104 132
+type(
+  bool
+)
+"typer.ml" 8 104 123 "typer.ml" 8 104 132
+type(
+  bool ref
+)
+"typer.ml" 11 135 139 "typer.ml" 11 135 157
+type(
+  Ast.ast_type -> Ast_typing.at_ast_type
+)
+ident(
+  def types_ast_to_atast "typer.ml" 16 233 233 "typer.ml" 1 0 -1
+)
+"typer.ml" 12 169 171 "typer.ml" 12 169 175
+type(
+  Ast.ast_type
+)
+"typer.ml" 12 169 179 "typer.ml" 12 169 185
+type(
+  Ast_typing.at_ast_type
+)
+"typer.ml" 13 186 188 "typer.ml" 13 186 191
+type(
+  Ast.ast_type
+)
+"typer.ml" 13 186 195 "typer.ml" 13 186 200
+type(
+  Ast_typing.at_ast_type
+)
+"typer.ml" 14 201 213 "typer.ml" 14 201 214
+type(
+  Ast.tident
+)
+ident(
+  def y "typer.ml" 14 201 218 "typer.ml" 14 201 231
+)
+"typer.ml" 14 201 203 "typer.ml" 14 201 214
+type(
+  Ast.ast_type
+)
+"typer.ml" 14 201 230 "typer.ml" 14 201 231
+type(
+  Ast.tident
+)
+ident(
+  int_ref y "typer.ml" 14 201 213 "typer.ml" 14 201 214
+)
+"typer.ml" 14 201 218 "typer.ml" 14 201 231
+type(
+  Ast_typing.at_ast_type
+)
+"typer.ml" 11 135 160 "typer.ml" 14 201 231
+type(
+  Ast.ast_type -> Ast_typing.at_ast_type
+)
+"typer.ml" 16 233 237 "typer.ml" 16 233 248
+type(
+  Ast.qident -> Ast_typing.at_qident
+)
+ident(
+  def type_qident "typer.ml" 21 327 327 "typer.ml" 1 0 -1
+)
+"typer.ml" 17 260 272 "typer.ml" 17 260 273
+type(
+  Ast.ident
+)
+ident(
+  def x "typer.ml" 17 260 277 "typer.ml" 17 260 286
+)
+"typer.ml" 17 260 266 "typer.ml" 17 260 273
+type(
+  Ast.qident
+)
+"typer.ml" 17 260 285 "typer.ml" 17 260 286
+type(
+  Ast.ident
+)
+ident(
+  int_ref x "typer.ml" 17 260 272 "typer.ml" 17 260 273
+)
+"typer.ml" 17 260 277 "typer.ml" 17 260 286
+type(
+  Ast_typing.at_qident
+)
+"typer.ml" 18 287 293 "typer.ml" 18 287 294
+type(
+  Ast.qident
+)
+"typer.ml" 18 287 298 "typer.ml" 18 287 310
+type(
+  Ast_typing.at_qident
+)
+"typer.ml" 16 233 251 "typer.ml" 18 287 310
+type(
+  Ast.qident -> Ast_typing.at_qident
+)
+"typer.ml" 21 327 331 "typer.ml" 21 327 339
+type(
+  'a -> 'b
+)
+ident(
+  def type_var "typer.ml" 25 378 378 "typer.ml" 1 0 -1
+)
+"typer.ml" 21 327 340 "typer.ml" 21 327 341
+type(
+  'a
+)
+ident(
+  def x "typer.ml" 22 345 349 "typer.ml" 22 345 361
+)
+"typer.ml" 22 345 349 "typer.ml" 22 345 361
+type(
+  'b
+)
+"typer.ml" 25 378 382 "typer.ml" 25 378 391
+type(
+  Ast.qvar -> Ast_typing.at_qvar
+)
+ident(
+  def type_qvar "typer.ml" 30 486 486 "typer.ml" 1 0 -1
+)
+"typer.ml" 26 403 416 "typer.ml" 26 403 417
+type(
+  Ast.qident
+)
+ident(
+  def x "typer.ml" 26 403 421 "typer.ml" 26 403 445
+)
+"typer.ml" 26 403 409 "typer.ml" 26 403 417
+type(
+  Ast.qvar
+)
+"typer.ml" 26 403 431 "typer.ml" 26 403 442
+type(
+  Ast.qident -> Ast_typing.at_qident
+)
+ident(
+  int_ref type_qident "typer.ml" 16 233 237 "typer.ml" 16 233 248
+)
+"typer.ml" 26 403 443 "typer.ml" 26 403 444
+type(
+  Ast.qident
+)
+ident(
+  int_ref x "typer.ml" 26 403 416 "typer.ml" 26 403 417
+)
+"typer.ml" 26 403 430 "typer.ml" 26 403 445
+call(
+  stack
+)
+type(
+  Ast_typing.at_qident
+)
+"typer.ml" 26 403 421 "typer.ml" 26 403 445
+type(
+  Ast_typing.at_qvar
+)
+"typer.ml" 27 446 452 "typer.ml" 27 446 453
+type(
+  Ast.qvar
+)
+"typer.ml" 27 446 457 "typer.ml" 27 446 469
+type(
+  Ast_typing.at_qvar
+)
+"typer.ml" 25 378 394 "typer.ml" 27 446 469
+type(
+  Ast.qvar -> Ast_typing.at_qvar
+)
+"typer.ml" 30 486 490 "typer.ml" 30 486 514
+type(
+  Ast.instruction_content -> Ast_typing.at_instruction_content
+)
+ident(
+  def type_instruction_content "typer.ml" 35 585 585 "typer.ml" 1 0 -1
+)
+"typer.ml" 31 526 532 "typer.ml" 31 526 535
+type(
+  Ast.instruction_content
+)
+"typer.ml" 31 526 539 "typer.ml" 31 526 544
+type(
+  Ast_typing.at_instruction_content
+)
+"typer.ml" 32 545 551 "typer.ml" 32 545 552
+type(
+  Ast.instruction_content
+)
+"typer.ml" 32 545 556 "typer.ml" 32 545 568
+type(
+  Ast_typing.at_instruction_content
+)
+"typer.ml" 30 486 517 "typer.ml" 32 545 568
+type(
+  Ast.instruction_content -> Ast_typing.at_instruction_content
+)
+"typer.ml" 35 585 589 "typer.ml" 35 585 605
+type(
+  Ast.instruction -> Ast_typing.at_instruction
+)
+ident(
+  def type_instruction "typer.ml" 41 752 752 "typer.ml" 1 0 -1
+)
+"typer.ml" 35 585 606 "typer.ml" 35 585 607
+type(
+  Ast.instruction
+)
+ident(
+  def x "typer.ml" 36 611 615 "typer.ml" 39 745 750
+)
+"typer.ml" 37 617 650 "typer.ml" 37 617 674
+type(
+  Ast.instruction_content -> Ast_typing.at_instruction_content
+)
+ident(
+  int_ref type_instruction_content "typer.ml" 30 486 490 "typer.ml" 30 486 514
+)
+"typer.ml" 37 617 675 "typer.ml" 37 617 676
+type(
+  Ast.instruction
+)
+ident(
+  int_ref x "typer.ml" 35 585 606 "typer.ml" 35 585 607
+)
+"typer.ml" 37 617 675 "typer.ml" 37 617 696
+type(
+  Ast.instruction_content
+)
+"typer.ml" 37 617 650 "typer.ml" 37 617 696
+call(
+  stack
+)
+type(
+  Ast_typing.at_instruction_content
+)
+"typer.ml" 38 698 727 "typer.ml" 38 698 728
+type(
+  Ast.instruction
+)
+ident(
+  int_ref x "typer.ml" 35 585 606 "typer.ml" 35 585 607
+)
+"typer.ml" 38 698 727 "typer.ml" 38 698 744
+type(
+  Ast.loc
+)
+"typer.ml" 36 611 615 "typer.ml" 39 745 750
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 41 752 756 "typer.ml" 41 752 772
+type(
+  Ast.proto_ident -> Ast_typing.at_proto_ident
+)
+ident(
+  def type_proto_ident "typer.ml" 46 888 888 "typer.ml" 1 0 -1
+)
+"typer.ml" 42 784 796 "typer.ml" 42 784 797
+type(
+  Ast.ast_type
+)
+ident(
+  def x "typer.ml" 42 784 805 "typer.ml" 42 784 847
+)
+"typer.ml" 42 784 799 "typer.ml" 42 784 800
+type(
+  Ast.qvar
+)
+ident(
+  def y "typer.ml" 42 784 805 "typer.ml" 42 784 847
+)
+"typer.ml" 42 784 790 "typer.ml" 42 784 801
+type(
+  Ast.proto_ident
+)
+"typer.ml" 42 784 813 "typer.ml" 42 784 831
+type(
+  Ast.ast_type -> Ast_typing.at_ast_type
+)
+ident(
+  int_ref types_ast_to_atast "typer.ml" 11 135 139 "typer.ml" 11 135 157
+)
+"typer.ml" 42 784 832 "typer.ml" 42 784 833
+type(
+  Ast.ast_type
+)
+ident(
+  int_ref x "typer.ml" 42 784 796 "typer.ml" 42 784 797
+)
+"typer.ml" 42 784 813 "typer.ml" 42 784 833
+call(
+  stack
+)
+type(
+  Ast_typing.at_ast_type
+)
+"typer.ml" 42 784 835 "typer.ml" 42 784 844
+type(
+  Ast.qvar -> Ast_typing.at_qvar
+)
+ident(
+  int_ref type_qvar "typer.ml" 25 378 382 "typer.ml" 25 378 391
+)
+"typer.ml" 42 784 845 "typer.ml" 42 784 846
+type(
+  Ast.qvar
+)
+ident(
+  int_ref y "typer.ml" 42 784 799 "typer.ml" 42 784 800
+)
+"typer.ml" 42 784 835 "typer.ml" 42 784 846
+call(
+  stack
+)
+type(
+  Ast_typing.at_qvar
+)
+"typer.ml" 42 784 805 "typer.ml" 42 784 847
+type(
+  Ast_typing.at_proto_ident
+)
+"typer.ml" 43 848 854 "typer.ml" 43 848 855
+type(
+  Ast.proto_ident
+)
+"typer.ml" 43 848 859 "typer.ml" 43 848 871
+type(
+  Ast_typing.at_proto_ident
+)
+"typer.ml" 41 752 775 "typer.ml" 43 848 871
+type(
+  Ast.proto_ident -> Ast_typing.at_proto_ident
+)
+"typer.ml" 46 888 892 "typer.ml" 46 888 901
+type(
+  Ast.ast_type * 'a -> Ast_typing.at_ast_type * 'b
+)
+ident(
+  def type_args "typer.ml" 49 958 958 "typer.ml" 1 0 -1
+)
+"typer.ml" 46 888 902 "typer.ml" 46 888 903
+type(
+  Ast.ast_type * 'a
+)
+ident(
+  def x "typer.ml" 47 906 910 "typer.ml" 47 906 956
+)
+"typer.ml" 47 906 911 "typer.ml" 47 906 929
+type(
+  Ast.ast_type -> Ast_typing.at_ast_type
+)
+ident(
+  int_ref types_ast_to_atast "typer.ml" 11 135 139 "typer.ml" 11 135 157
+)
+"typer.ml" 47 906 931 "typer.ml" 47 906 934
+type(
+  Ast.ast_type * 'a -> Ast.ast_type
+)
+ident(
+  ext_ref Pervasives.fst
+)
+"typer.ml" 47 906 935 "typer.ml" 47 906 936
+type(
+  Ast.ast_type * 'a
+)
+ident(
+  int_ref x "typer.ml" 46 888 902 "typer.ml" 46 888 903
+)
+"typer.ml" 47 906 930 "typer.ml" 47 906 937
+type(
+  Ast.ast_type
+)
+"typer.ml" 47 906 910 "typer.ml" 47 906 938
+call(
+  stack
+)
+type(
+  Ast_typing.at_ast_type
+)
+"typer.ml" 47 906 940 "typer.ml" 47 906 948
+type(
+  'a -> 'b
+)
+ident(
+  int_ref type_var "typer.ml" 21 327 331 "typer.ml" 21 327 339
+)
+"typer.ml" 47 906 950 "typer.ml" 47 906 953
+type(
+  Ast.ast_type * 'a -> 'a
+)
+ident(
+  ext_ref Pervasives.snd
+)
+"typer.ml" 47 906 954 "typer.ml" 47 906 955
+type(
+  Ast.ast_type * 'a
+)
+ident(
+  int_ref x "typer.ml" 46 888 902 "typer.ml" 46 888 903
+)
+"typer.ml" 47 906 949 "typer.ml" 47 906 956
+type(
+  'a
+)
+"typer.ml" 47 906 940 "typer.ml" 47 906 956
+call(
+  stack
+)
+type(
+  'b
+)
+"typer.ml" 47 906 910 "typer.ml" 47 906 956
+type(
+  Ast_typing.at_ast_type * 'b
+)
+"typer.ml" 49 958 962 "typer.ml" 49 958 972
+type(
+  Ast.proto -> Ast_typing.at_proto
+)
+ident(
+  def type_proto "typer.ml" 56 1116 1116 "typer.ml" 1 0 -1
+)
+"typer.ml" 49 958 973 "typer.ml" 49 958 974
+type(
+  Ast.proto
+)
+ident(
+  def x "typer.ml" 50 977 981 "typer.ml" 54 1109 1114
+)
+"typer.ml" 51 983 1002 "typer.ml" 51 983 1018
+type(
+  Ast.proto_ident -> Ast_typing.at_proto_ident
+)
+ident(
+  int_ref type_proto_ident "typer.ml" 41 752 756 "typer.ml" 41 752 772
+)
+"typer.ml" 51 983 1019 "typer.ml" 51 983 1020
+type(
+  Ast.proto
+)
+ident(
+  int_ref x "typer.ml" 49 958 973 "typer.ml" 49 958 974
+)
+"typer.ml" 51 983 1019 "typer.ml" 51 983 1026
+type(
+  Ast.proto_ident
+)
+"typer.ml" 51 983 1002 "typer.ml" 51 983 1026
+call(
+  stack
+)
+type(
+  Ast_typing.at_proto_ident
+)
+"typer.ml" 52 1028 1046 "typer.ml" 52 1028 1054
+type(
+  (Ast.argument -> Ast_typing.at_argument) ->
+  Ast.argument list -> Ast_typing.at_argument list
+)
+ident(
+  ext_ref List.map
+)
+"typer.ml" 52 1028 1055 "typer.ml" 52 1028 1064
+type(
+  Ast.argument -> Ast_typing.at_argument
+)
+ident(
+  int_ref type_args "typer.ml" 46 888 892 "typer.ml" 46 888 901
+)
+"typer.ml" 52 1028 1065 "typer.ml" 52 1028 1066
+type(
+  Ast.proto
+)
+ident(
+  int_ref x "typer.ml" 49 958 973 "typer.ml" 49 958 974
+)
+"typer.ml" 52 1028 1065 "typer.ml" 52 1028 1071
+type(
+  Ast.argument list
+)
+"typer.ml" 52 1028 1046 "typer.ml" 52 1028 1071
+call(
+  stack
+)
+type(
+  Ast_typing.at_argument list
+)
+"typer.ml" 53 1073 1096 "typer.ml" 53 1073 1097
+type(
+  Ast.proto
+)
+ident(
+  int_ref x "typer.ml" 49 958 973 "typer.ml" 49 958 974
+)
+"typer.ml" 53 1073 1096 "typer.ml" 53 1073 1107
+type(
+  Ast.loc
+)
+"typer.ml" 50 977 981 "typer.ml" 54 1109 1114
+type(
+  Ast_typing.at_proto
+)
+"typer.ml" 56 1116 1120 "typer.ml" 56 1116 1129
+type(
+  Ast.bloc -> Ast_typing.at_bloc
+)
+ident(
+  def type_bloc "typer.ml" 65 1348 1348 "typer.ml" 1 0 -1
+)
+"typer.ml" 56 1116 1130 "typer.ml" 56 1116 1131
+type(
+  Ast.bloc
+)
+ident(
+  def x "typer.ml" 57 1134 1138 "typer.ml" 63 1341 1346
+)
+"typer.ml" 57 1134 1142 "typer.ml" 57 1134 1154
+type(
+  Ast.instruction list
+)
+ident(
+  def bloc_content "typer.ml" 60 1218 1222 "typer.ml" 63 1341 1346
+)
+"typer.ml" 57 1134 1163 "typer.ml" 57 1134 1164
+type(
+  Ast.bloc
+)
+ident(
+  int_ref x "typer.ml" 56 1116 1130 "typer.ml" 56 1116 1131
+)
+"typer.ml" 57 1134 1163 "typer.ml" 57 1134 1177
+type(
+  Ast.bloc_content
+)
+"typer.ml" 58 1183 1202 "typer.ml" 58 1183 1204
+type(
+  Ast.instruction list
+)
+ident(
+  def bc "typer.ml" 58 1183 1208 "typer.ml" 58 1183 1210
+)
+"typer.ml" 58 1183 1189 "typer.ml" 58 1183 1204
+type(
+  Ast.bloc_content
+)
+"typer.ml" 58 1183 1208 "typer.ml" 58 1183 1210
+type(
+  Ast.instruction list
+)
+ident(
+  int_ref bc "typer.ml" 58 1183 1202 "typer.ml" 58 1183 1204
+)
+"typer.ml" 57 1134 1157 "typer.ml" 58 1183 1210
+type(
+  Ast.instruction list
+)
+"typer.ml" 61 1224 1266 "typer.ml" 61 1224 1274
+type(
+  (Ast.instruction -> Ast_typing.at_instruction) ->
+  Ast.instruction list -> Ast_typing.at_instruction list
+)
+ident(
+  ext_ref List.map
+)
+"typer.ml" 61 1224 1275 "typer.ml" 61 1224 1291
+type(
+  Ast.instruction -> Ast_typing.at_instruction
+)
+ident(
+  int_ref type_instruction "typer.ml" 35 585 589 "typer.ml" 35 585 605
+)
+"typer.ml" 61 1224 1292 "typer.ml" 61 1224 1304
+type(
+  Ast.instruction list
+)
+ident(
+  int_ref bloc_content "typer.ml" 57 1134 1142 "typer.ml" 57 1134 1154
+)
+"typer.ml" 61 1224 1265 "typer.ml" 61 1224 1305
+call(
+  stack
+)
+type(
+  Ast_typing.at_instruction list
+)
+"typer.ml" 61 1224 1250 "typer.ml" 61 1224 1305
+type(
+  Ast_typing.at_bloc_content
+)
+"typer.ml" 62 1307 1329 "typer.ml" 62 1307 1330
+type(
+  Ast.bloc
+)
+ident(
+  int_ref x "typer.ml" 56 1116 1130 "typer.ml" 56 1116 1131
+)
+"typer.ml" 62 1307 1329 "typer.ml" 62 1307 1339
+type(
+  Ast.loc
+)
+"typer.ml" 60 1218 1222 "typer.ml" 63 1341 1346
+type(
+  Ast_typing.at_bloc
+)
+"typer.ml" 57 1134 1138 "typer.ml" 63 1341 1346
+type(
+  Ast_typing.at_bloc
+)
+"typer.ml" 65 1348 1352 "typer.ml" 65 1348 1365
+type(
+  Ast.fonction -> Ast_typing.at_fonction
+)
+ident(
+  def type_fonction "typer.ml" 71 1528 1528 "typer.ml" 1 0 -1
+)
+"typer.ml" 65 1348 1366 "typer.ml" 65 1348 1367
+type(
+  Ast.fonction
+)
+ident(
+  def x "typer.ml" 66 1370 1374 "typer.ml" 69 1521 1526
+)
+"typer.ml" 67 1376 1406 "typer.ml" 67 1376 1416
+type(
+  Ast.proto -> Ast_typing.at_proto
+)
+ident(
+  int_ref type_proto "typer.ml" 49 958 962 "typer.ml" 49 958 972
+)
+"typer.ml" 67 1376 1418 "typer.ml" 67 1376 1421
+type(
+  Ast.proto * Ast.bloc -> Ast.proto
+)
+ident(
+  ext_ref Pervasives.fst
+)
+"typer.ml" 67 1376 1422 "typer.ml" 67 1376 1423
+type(
+  Ast.fonction
+)
+ident(
+  int_ref x "typer.ml" 65 1348 1366 "typer.ml" 65 1348 1367
+)
+"typer.ml" 67 1376 1422 "typer.ml" 67 1376 1440
+type(
+  Ast.proto * Ast.bloc
+)
+"typer.ml" 67 1376 1417 "typer.ml" 67 1376 1441
+type(
+  Ast.proto
+)
+"typer.ml" 67 1376 1406 "typer.ml" 67 1376 1441
+call(
+  stack
+)
+type(
+  Ast_typing.at_proto
+)
+"typer.ml" 67 1376 1443 "typer.ml" 67 1376 1452
+type(
+  Ast.bloc -> Ast_typing.at_bloc
+)
+ident(
+  int_ref type_bloc "typer.ml" 56 1116 1120 "typer.ml" 56 1116 1129
+)
+"typer.ml" 67 1376 1454 "typer.ml" 67 1376 1457
+type(
+  Ast.proto * Ast.bloc -> Ast.bloc
+)
+ident(
+  ext_ref Pervasives.snd
+)
+"typer.ml" 67 1376 1458 "typer.ml" 67 1376 1459
+type(
+  Ast.fonction
+)
+ident(
+  int_ref x "typer.ml" 65 1348 1366 "typer.ml" 65 1348 1367
+)
+"typer.ml" 67 1376 1458 "typer.ml" 67 1376 1476
+type(
+  Ast.proto * Ast.bloc
+)
+"typer.ml" 67 1376 1453 "typer.ml" 67 1376 1477
+type(
+  Ast.bloc
+)
+"typer.ml" 67 1376 1443 "typer.ml" 67 1376 1477
+call(
+  stack
+)
+type(
+  Ast_typing.at_bloc
+)
+"typer.ml" 67 1376 1406 "typer.ml" 67 1376 1477
+type(
+  Ast_typing.at_proto * Ast_typing.at_bloc
+)
+"typer.ml" 68 1479 1505 "typer.ml" 68 1479 1506
+type(
+  Ast.fonction
+)
+ident(
+  int_ref x "typer.ml" 65 1348 1366 "typer.ml" 65 1348 1367
+)
+"typer.ml" 68 1479 1505 "typer.ml" 68 1479 1519
+type(
+  Ast.loc
+)
+"typer.ml" 66 1370 1374 "typer.ml" 69 1521 1526
+type(
+  Ast_typing.at_fonction
+)
+"typer.ml" 71 1528 1532 "typer.ml" 71 1528 1541
+type(
+  Ast.decl -> Ast_typing.at_decl
+)
+ident(
+  def type_decl "typer.ml" 76 1663 1663 "typer.ml" 1 0 -1
+)
+"typer.ml" 72 1553 1564 "typer.ml" 72 1553 1565
+type(
+  Ast.decl_vars
+)
+ident(
+  def x "typer.ml" 72 1553 1569 "typer.ml" 72 1553 1581
+)
+"typer.ml" 72 1553 1559 "typer.ml" 72 1553 1565
+type(
+  Ast.decl
+)
+"typer.ml" 72 1553 1569 "typer.ml" 72 1553 1581
+type(
+  Ast_typing.at_decl
+)
+"typer.ml" 73 1582 1594 "typer.ml" 73 1582 1595
+type(
+  Ast.decl_class
+)
+ident(
+  def x "typer.ml" 73 1582 1599 "typer.ml" 73 1582 1611
+)
+"typer.ml" 73 1582 1588 "typer.ml" 73 1582 1595
+type(
+  Ast.decl
+)
+"typer.ml" 73 1582 1599 "typer.ml" 73 1582 1611
+type(
+  Ast_typing.at_decl
+)
+"typer.ml" 74 1612 1627 "typer.ml" 74 1612 1628
+type(
+  Ast.fonction
+)
+ident(
+  def x "typer.ml" 74 1612 1632 "typer.ml" 74 1612 1661
+)
+"typer.ml" 74 1612 1618 "typer.ml" 74 1612 1628
+type(
+  Ast.decl
+)
+"typer.ml" 74 1612 1645 "typer.ml" 74 1612 1658
+type(
+  Ast.fonction -> Ast_typing.at_fonction
+)
+ident(
+  int_ref type_fonction "typer.ml" 65 1348 1352 "typer.ml" 65 1348 1365
+)
+"typer.ml" 74 1612 1659 "typer.ml" 74 1612 1660
+type(
+  Ast.fonction
+)
+ident(
+  int_ref x "typer.ml" 74 1612 1627 "typer.ml" 74 1612 1628
+)
+"typer.ml" 74 1612 1644 "typer.ml" 74 1612 1661
+call(
+  stack
+)
+type(
+  Ast_typing.at_fonction
+)
+"typer.ml" 74 1612 1632 "typer.ml" 74 1612 1661
+type(
+  Ast_typing.at_decl
+)
+"typer.ml" 71 1528 1544 "typer.ml" 74 1612 1661
+type(
+  Ast.decl -> Ast_typing.at_decl
+)
+"typer.ml" 76 1663 1671 "typer.ml" 76 1663 1679
+type(
+  Ast.program -> Ast_typing.at_program
+)
+ident(
+  def type_ast "typer.ml" 76 1663 1663 "typer.ml" 1 0 -1
+)
+"typer.ml" 76 1663 1680 "typer.ml" 76 1663 1681
+type(
+  Ast.program
+)
+ident(
+  def p "typer.ml" 77 1685 1689 "typer.ml" 82 1824 1829
+)
+"typer.ml" 77 1685 1692 "typer.ml" 77 1685 1693
+type(
+  Ast.program
+)
+ident(
+  int_ref p "typer.ml" 76 1663 1680 "typer.ml" 76 1663 1681
+)
+"typer.ml" 77 1685 1692 "typer.ml" 77 1685 1702
+type(
+  bool
+)
+"typer.ml" 77 1685 1708 "typer.ml" 77 1685 1716
+type(
+  bool ref
+)
+ident(
+  int_ref includes "typer.ml" 7 79 83 "typer.ml" 7 79 91
+)
+"typer.ml" 77 1685 1717 "typer.ml" 77 1685 1719
+type(
+  bool ref -> bool -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"typer.ml" 77 1685 1720 "typer.ml" 77 1685 1724
+type(
+  bool
+)
+"typer.ml" 77 1685 1708 "typer.ml" 77 1685 1724
+type(
+  unit
+)
+"typer.ml" 77 1685 1689 "typer.ml" 77 1685 1724
+type(
+  unit
+)
+"typer.ml" 80 1733 1754 "typer.ml" 80 1733 1762
+type(
+  (Ast.decl -> Ast_typing.at_decl) ->
+  Ast.decl list -> Ast_typing.at_decl list
+)
+ident(
+  ext_ref List.map
+)
+"typer.ml" 80 1733 1763 "typer.ml" 80 1733 1772
+type(
+  Ast.decl -> Ast_typing.at_decl
+)
+ident(
+  int_ref type_decl "typer.ml" 71 1528 1532 "typer.ml" 71 1528 1541
+)
+"typer.ml" 80 1733 1773 "typer.ml" 80 1733 1774
+type(
+  Ast.program
+)
+ident(
+  int_ref p "typer.ml" 76 1663 1680 "typer.ml" 76 1663 1681
+)
+"typer.ml" 80 1733 1773 "typer.ml" 80 1733 1782
+type(
+  Ast.decl list
+)
+"typer.ml" 80 1733 1754 "typer.ml" 80 1733 1782
+call(
+  stack
+)
+type(
+  Ast_typing.at_decl list
+)
+"typer.ml" 81 1784 1809 "typer.ml" 81 1784 1810
+type(
+  Ast.program
+)
+ident(
+  int_ref p "typer.ml" 76 1663 1680 "typer.ml" 76 1663 1681
+)
+"typer.ml" 81 1784 1809 "typer.ml" 81 1784 1822
+type(
+  Ast.loc
+)
+"typer.ml" 79 1727 1731 "typer.ml" 82 1824 1829
+type(
+  Ast_typing.at_program
+)
+"typer.ml" 77 1685 1689 "typer.ml" 82 1824 1829
+type(
+  Ast_typing.at_program
+)

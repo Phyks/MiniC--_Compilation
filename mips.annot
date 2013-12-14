@@ -1,0 +1,4911 @@
+"mips.ml" 10 171 175 "mips.ml" 10 171 177
+type(
+  register
+)
+ident(
+  def v0 "mips.ml" 11 197 197 "mips.ml" 1 0 -1
+)
+"mips.ml" 10 171 191 "mips.ml" 10 171 196
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 11 197 201 "mips.ml" 11 197 203
+type(
+  register
+)
+ident(
+  def v1 "mips.ml" 12 223 223 "mips.ml" 1 0 -1
+)
+"mips.ml" 11 197 217 "mips.ml" 11 197 222
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 12 223 227 "mips.ml" 12 223 229
+type(
+  register
+)
+ident(
+  def a0 "mips.ml" 13 249 249 "mips.ml" 1 0 -1
+)
+"mips.ml" 12 223 243 "mips.ml" 12 223 248
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 13 249 253 "mips.ml" 13 249 255
+type(
+  register
+)
+ident(
+  def a1 "mips.ml" 14 275 275 "mips.ml" 1 0 -1
+)
+"mips.ml" 13 249 269 "mips.ml" 13 249 274
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 14 275 279 "mips.ml" 14 275 281
+type(
+  register
+)
+ident(
+  def a2 "mips.ml" 15 301 301 "mips.ml" 1 0 -1
+)
+"mips.ml" 14 275 295 "mips.ml" 14 275 300
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 15 301 305 "mips.ml" 15 301 307
+type(
+  register
+)
+ident(
+  def a3 "mips.ml" 16 327 327 "mips.ml" 1 0 -1
+)
+"mips.ml" 15 301 321 "mips.ml" 15 301 326
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 16 327 331 "mips.ml" 16 327 333
+type(
+  register
+)
+ident(
+  def t0 "mips.ml" 17 353 353 "mips.ml" 1 0 -1
+)
+"mips.ml" 16 327 347 "mips.ml" 16 327 352
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 17 353 357 "mips.ml" 17 353 359
+type(
+  register
+)
+ident(
+  def t1 "mips.ml" 18 379 379 "mips.ml" 1 0 -1
+)
+"mips.ml" 17 353 373 "mips.ml" 17 353 378
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 18 379 383 "mips.ml" 18 379 385
+type(
+  register
+)
+ident(
+  def t2 "mips.ml" 19 405 405 "mips.ml" 1 0 -1
+)
+"mips.ml" 18 379 399 "mips.ml" 18 379 404
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 19 405 409 "mips.ml" 19 405 411
+type(
+  register
+)
+ident(
+  def t3 "mips.ml" 20 431 431 "mips.ml" 1 0 -1
+)
+"mips.ml" 19 405 425 "mips.ml" 19 405 430
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 20 431 435 "mips.ml" 20 431 437
+type(
+  register
+)
+ident(
+  def s0 "mips.ml" 21 457 457 "mips.ml" 1 0 -1
+)
+"mips.ml" 20 431 451 "mips.ml" 20 431 456
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 21 457 461 "mips.ml" 21 457 463
+type(
+  register
+)
+ident(
+  def s1 "mips.ml" 22 483 483 "mips.ml" 1 0 -1
+)
+"mips.ml" 21 457 477 "mips.ml" 21 457 482
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 22 483 487 "mips.ml" 22 483 489
+type(
+  register
+)
+ident(
+  def ra "mips.ml" 23 509 509 "mips.ml" 1 0 -1
+)
+"mips.ml" 22 483 503 "mips.ml" 22 483 508
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 23 509 513 "mips.ml" 23 509 515
+type(
+  register
+)
+ident(
+  def sp "mips.ml" 24 535 535 "mips.ml" 1 0 -1
+)
+"mips.ml" 23 509 529 "mips.ml" 23 509 534
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 24 535 539 "mips.ml" 24 535 541
+type(
+  register
+)
+ident(
+  def fp "mips.ml" 25 561 561 "mips.ml" 1 0 -1
+)
+"mips.ml" 24 535 555 "mips.ml" 24 535 560
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 25 561 565 "mips.ml" 25 561 567
+type(
+  register
+)
+ident(
+  def gp "mips.ml" 26 587 587 "mips.ml" 1 0 -1
+)
+"mips.ml" 25 561 581 "mips.ml" 25 561 586
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 26 587 591 "mips.ml" 26 587 595
+type(
+  register
+)
+ident(
+  def zero "mips.ml" 28 618 618 "mips.ml" 1 0 -1
+)
+"mips.ml" 26 587 609 "mips.ml" 26 587 616
+type(
+  register
+)
+type(
+  register
+)
+"mips.ml" 30 680 684 "mips.ml" 30 680 688
+type(
+  label address
+)
+ident(
+  def alab "mips.ml" 31 750 750 "mips.ml" 1 0 -1
+)
+"mips.ml" 30 680 711 "mips.ml" 30 680 714
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 30 680 716 "mips.ml" 30 680 749
+)
+"mips.ml" 30 680 717 "mips.ml" 30 680 718
+type(
+  label
+)
+ident(
+  def s "mips.ml" 30 680 731 "mips.ml" 30 680 749
+)
+"mips.ml" 30 680 731 "mips.ml" 30 680 738
+type(
+  Format.formatter ->
+  (label -> unit, Format.formatter, unit) format -> label -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 30 680 739 "mips.ml" 30 680 742
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 30 680 711 "mips.ml" 30 680 714
+)
+"mips.ml" 30 680 743 "mips.ml" 30 680 747
+type(
+  (label -> unit, Format.formatter, unit) format
+)
+"mips.ml" 30 680 748 "mips.ml" 30 680 749
+type(
+  label
+)
+ident(
+  int_ref s "mips.ml" 30 680 717 "mips.ml" 30 680 718
+)
+"mips.ml" 30 680 731 "mips.ml" 30 680 749
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 30 680 707 "mips.ml" 30 680 749
+type(
+  label address
+)
+type(
+  label address
+)
+"mips.ml" 31 750 754 "mips.ml" 31 750 758
+type(
+  (int * register) address
+)
+ident(
+  def areg "mips.ml" 32 831 831 "mips.ml" 1 0 -1
+)
+"mips.ml" 31 750 792 "mips.ml" 31 750 795
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 31 750 796 "mips.ml" 31 750 830
+)
+"mips.ml" 31 750 797 "mips.ml" 31 750 798
+type(
+  int
+)
+ident(
+  def x "mips.ml" 31 750 806 "mips.ml" 31 750 830
+)
+"mips.ml" 31 750 800 "mips.ml" 31 750 801
+type(
+  register
+)
+ident(
+  def y "mips.ml" 31 750 806 "mips.ml" 31 750 830
+)
+"mips.ml" 31 750 796 "mips.ml" 31 750 802
+type(
+  int * register
+)
+"mips.ml" 31 750 806 "mips.ml" 31 750 813
+type(
+  Format.formatter ->
+  (int -> register -> unit, Format.formatter, unit) format ->
+  int -> register -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 31 750 814 "mips.ml" 31 750 817
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 31 750 792 "mips.ml" 31 750 795
+)
+"mips.ml" 31 750 818 "mips.ml" 31 750 826
+type(
+  (int -> register -> unit, Format.formatter, unit) format
+)
+"mips.ml" 31 750 827 "mips.ml" 31 750 828
+type(
+  int
+)
+ident(
+  int_ref x "mips.ml" 31 750 797 "mips.ml" 31 750 798
+)
+"mips.ml" 31 750 829 "mips.ml" 31 750 830
+type(
+  register
+)
+ident(
+  int_ref y "mips.ml" 31 750 800 "mips.ml" 31 750 801
+)
+"mips.ml" 31 750 806 "mips.ml" 31 750 830
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 31 750 788 "mips.ml" 31 750 830
+type(
+  (int * register) address
+)
+type(
+  (int * register) address
+)
+"mips.ml" 33 873 877 "mips.ml" 33 873 881
+type(
+  register operand
+)
+ident(
+  def oreg "mips.ml" 34 948 948 "mips.ml" 1 0 -1
+)
+"mips.ml" 33 873 907 "mips.ml" 33 873 910
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 33 873 911 "mips.ml" 33 873 947
+)
+"mips.ml" 33 873 912 "mips.ml" 33 873 913
+type(
+  register
+)
+ident(
+  def r "mips.ml" 33 873 929 "mips.ml" 33 873 947
+)
+"mips.ml" 33 873 929 "mips.ml" 33 873 936
+type(
+  Format.formatter ->
+  (register -> unit, Format.formatter, unit) format -> register -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 33 873 937 "mips.ml" 33 873 940
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 33 873 907 "mips.ml" 33 873 910
+)
+"mips.ml" 33 873 941 "mips.ml" 33 873 945
+type(
+  (register -> unit, Format.formatter, unit) format
+)
+"mips.ml" 33 873 946 "mips.ml" 33 873 947
+type(
+  register
+)
+ident(
+  int_ref r "mips.ml" 33 873 912 "mips.ml" 33 873 913
+)
+"mips.ml" 33 873 929 "mips.ml" 33 873 947
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 33 873 903 "mips.ml" 33 873 947
+type(
+  register operand
+)
+type(
+  register operand
+)
+"mips.ml" 34 948 952 "mips.ml" 34 948 954
+type(
+  int operand
+)
+ident(
+  def oi "mips.ml" 35 1003 1003 "mips.ml" 1 0 -1
+)
+"mips.ml" 34 948 975 "mips.ml" 34 948 978
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 34 948 979 "mips.ml" 34 948 1002
+)
+"mips.ml" 34 948 979 "mips.ml" 34 948 980
+type(
+  int
+)
+ident(
+  def i "mips.ml" 34 948 984 "mips.ml" 34 948 1002
+)
+"mips.ml" 34 948 984 "mips.ml" 34 948 991
+type(
+  Format.formatter ->
+  (int -> unit, Format.formatter, unit) format -> int -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 34 948 992 "mips.ml" 34 948 995
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 34 948 975 "mips.ml" 34 948 978
+)
+"mips.ml" 34 948 996 "mips.ml" 34 948 1000
+type(
+  (int -> unit, Format.formatter, unit) format
+)
+"mips.ml" 34 948 1001 "mips.ml" 34 948 1002
+type(
+  int
+)
+ident(
+  int_ref i "mips.ml" 34 948 979 "mips.ml" 34 948 980
+)
+"mips.ml" 34 948 984 "mips.ml" 34 948 1002
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 34 948 971 "mips.ml" 34 948 1002
+type(
+  int operand
+)
+type(
+  int operand
+)
+"mips.ml" 35 1003 1007 "mips.ml" 35 1003 1011
+type(
+  int32 operand
+)
+ident(
+  def oi32 "mips.ml" 37 1064 1064 "mips.ml" 1 0 -1
+)
+"mips.ml" 35 1003 1034 "mips.ml" 35 1003 1037
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 35 1003 1038 "mips.ml" 35 1003 1062
+)
+"mips.ml" 35 1003 1038 "mips.ml" 35 1003 1039
+type(
+  int32
+)
+ident(
+  def i "mips.ml" 35 1003 1043 "mips.ml" 35 1003 1062
+)
+"mips.ml" 35 1003 1043 "mips.ml" 35 1003 1050
+type(
+  Format.formatter ->
+  (int32 -> unit, Format.formatter, unit) format -> int32 -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 35 1003 1051 "mips.ml" 35 1003 1054
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 35 1003 1034 "mips.ml" 35 1003 1037
+)
+"mips.ml" 35 1003 1055 "mips.ml" 35 1003 1060
+type(
+  (int32 -> unit, Format.formatter, unit) format
+)
+"mips.ml" 35 1003 1061 "mips.ml" 35 1003 1062
+type(
+  int32
+)
+ident(
+  int_ref i "mips.ml" 35 1003 1038 "mips.ml" 35 1003 1039
+)
+"mips.ml" 35 1003 1043 "mips.ml" 35 1003 1062
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 35 1003 1030 "mips.ml" 35 1003 1062
+type(
+  int32 operand
+)
+type(
+  int32 operand
+)
+"mips.ml" 45 1181 1185 "mips.ml" 45 1181 1188
+type(
+  Buffer.t
+)
+ident(
+  def buf "mips.ml" 46 1208 1208 "mips.ml" 1 0 -1
+)
+"mips.ml" 45 1181 1191 "mips.ml" 45 1181 1204
+type(
+  int -> Buffer.t
+)
+ident(
+  ext_ref Buffer.create
+)
+"mips.ml" 45 1181 1205 "mips.ml" 45 1181 1207
+type(
+  int
+)
+"mips.ml" 45 1181 1191 "mips.ml" 45 1181 1207
+call(
+  stack
+)
+type(
+  Buffer.t
+)
+"mips.ml" 46 1208 1212 "mips.ml" 46 1208 1215
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 47 1242 1242 "mips.ml" 1 0 -1
+)
+"mips.ml" 46 1208 1218 "mips.ml" 46 1208 1237
+type(
+  Buffer.t -> Format.formatter
+)
+ident(
+  ext_ref Format.formatter_of_buffer
+)
+"mips.ml" 46 1208 1238 "mips.ml" 46 1208 1241
+type(
+  Buffer.t
+)
+ident(
+  int_ref buf "mips.ml" 45 1181 1185 "mips.ml" 45 1181 1188
+)
+"mips.ml" 46 1208 1218 "mips.ml" 46 1208 1241
+call(
+  stack
+)
+type(
+  Format.formatter
+)
+"mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+type(
+  ('a, Format.formatter, unit, 'b asm) format4 -> 'a
+)
+ident(
+  def ins "mips.ml" 57 1430 1430 "mips.ml" 1 0 -1
+)
+"mips.ml" 47 1242 1250 "mips.ml" 47 1242 1251
+type(
+  ('a, Format.formatter, unit, 'b asm) format4
+)
+ident(
+  def x "mips.ml" 48 1254 1256 "mips.ml" 55 1419 1428
+)
+"mips.ml" 48 1254 1256 "mips.ml" 48 1254 1271
+type(
+  Buffer.t -> char -> unit
+)
+ident(
+  ext_ref Buffer.add_char
+)
+"mips.ml" 48 1254 1272 "mips.ml" 48 1254 1275
+type(
+  Buffer.t
+)
+ident(
+  int_ref buf "mips.ml" 45 1181 1185 "mips.ml" 45 1181 1188
+)
+"mips.ml" 48 1254 1276 "mips.ml" 48 1254 1280
+type(
+  char
+)
+"mips.ml" 48 1254 1256 "mips.ml" 48 1254 1280
+call(
+  stack
+)
+type(
+  unit
+)
+"mips.ml" 49 1282 1284 "mips.ml" 49 1282 1292
+type(
+  (Format.formatter -> 'b asm) ->
+  Format.formatter -> ('a, Format.formatter, unit, 'b asm) format4 -> 'a
+)
+ident(
+  ext_ref Format.kfprintf
+)
+"mips.ml" 49 1282 1298 "mips.ml" 49 1282 1301
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 50 1305 1309 "mips.ml" 54 1411 1418
+)
+"mips.ml" 50 1305 1309 "mips.ml" 50 1305 1316
+type(
+  Format.formatter -> (unit, Format.formatter, unit) format -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 50 1305 1317 "mips.ml" 50 1305 1320
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 49 1282 1298 "mips.ml" 49 1282 1301
+)
+"mips.ml" 50 1305 1321 "mips.ml" 50 1305 1325
+type(
+  (unit, Format.formatter, unit) format
+)
+"mips.ml" 50 1305 1309 "mips.ml" 50 1305 1325
+call(
+  stack
+)
+type(
+  unit
+)
+"mips.ml" 51 1327 1331 "mips.ml" 51 1327 1345
+type(
+  Format.formatter -> unit -> unit
+)
+ident(
+  ext_ref Format.pp_print_flush
+)
+"mips.ml" 51 1327 1346 "mips.ml" 51 1327 1349
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 49 1282 1298 "mips.ml" 49 1282 1301
+)
+"mips.ml" 51 1327 1350 "mips.ml" 51 1327 1352
+type(
+  unit
+)
+"mips.ml" 51 1327 1331 "mips.ml" 51 1327 1352
+call(
+  stack
+)
+type(
+  unit
+)
+"mips.ml" 52 1354 1362 "mips.ml" 52 1354 1363
+type(
+  string
+)
+ident(
+  def s "mips.ml" 53 1389 1393 "mips.ml" 54 1411 1418
+)
+"mips.ml" 52 1354 1366 "mips.ml" 52 1354 1381
+type(
+  Buffer.t -> string
+)
+ident(
+  ext_ref Buffer.contents
+)
+"mips.ml" 52 1354 1382 "mips.ml" 52 1354 1385
+type(
+  Buffer.t
+)
+ident(
+  int_ref buf "mips.ml" 45 1181 1185 "mips.ml" 45 1181 1188
+)
+"mips.ml" 52 1354 1366 "mips.ml" 52 1354 1385
+call(
+  stack
+)
+type(
+  string
+)
+"mips.ml" 53 1389 1393 "mips.ml" 53 1389 1405
+type(
+  Buffer.t -> unit
+)
+ident(
+  ext_ref Buffer.clear
+)
+"mips.ml" 53 1389 1406 "mips.ml" 53 1389 1409
+type(
+  Buffer.t
+)
+ident(
+  int_ref buf "mips.ml" 45 1181 1185 "mips.ml" 45 1181 1188
+)
+"mips.ml" 53 1389 1393 "mips.ml" 53 1389 1409
+call(
+  stack
+)
+type(
+  unit
+)
+"mips.ml" 54 1411 1417 "mips.ml" 54 1411 1418
+type(
+  string
+)
+ident(
+  int_ref s "mips.ml" 52 1354 1362 "mips.ml" 52 1354 1363
+)
+"mips.ml" 54 1411 1415 "mips.ml" 54 1411 1418
+type(
+  'b asm
+)
+"mips.ml" 53 1389 1393 "mips.ml" 54 1411 1418
+type(
+  'b asm
+)
+"mips.ml" 52 1354 1358 "mips.ml" 54 1411 1418
+type(
+  'b asm
+)
+"mips.ml" 51 1327 1331 "mips.ml" 54 1411 1418
+type(
+  'b asm
+)
+"mips.ml" 50 1305 1309 "mips.ml" 54 1411 1418
+type(
+  'b asm
+)
+"mips.ml" 49 1282 1293 "mips.ml" 55 1419 1422
+type(
+  Format.formatter -> 'b asm
+)
+"mips.ml" 55 1419 1423 "mips.ml" 55 1419 1426
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 46 1208 1212 "mips.ml" 46 1208 1215
+)
+"mips.ml" 55 1419 1427 "mips.ml" 55 1419 1428
+type(
+  ('a, Format.formatter, unit, 'b asm) format4
+)
+ident(
+  int_ref x "mips.ml" 47 1242 1250 "mips.ml" 47 1242 1251
+)
+"mips.ml" 49 1282 1284 "mips.ml" 55 1419 1428
+call(
+  tail
+)
+type(
+  'a
+)
+"mips.ml" 48 1254 1256 "mips.ml" 55 1419 1428
+type(
+  'a
+)
+"mips.ml" 57 1430 1434 "mips.ml" 57 1430 1441
+type(
+  Format.formatter -> (Format.formatter -> 'a -> unit) -> 'a list -> unit
+)
+ident(
+  def pr_list "mips.ml" 62 1576 1576 "mips.ml" 1 0 -1
+)
+"mips.ml" 57 1430 1442 "mips.ml" 57 1430 1445
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 57 1430 1446 "mips.ml" 60 1502 1574
+)
+"mips.ml" 57 1430 1446 "mips.ml" 57 1430 1448
+type(
+  Format.formatter -> 'a -> unit
+)
+ident(
+  def pr "mips.ml" 57 1430 1451 "mips.ml" 60 1502 1574
+)
+"mips.ml" 58 1460 1464 "mips.ml" 58 1460 1466
+type(
+  'a list
+)
+"mips.ml" 58 1460 1475 "mips.ml" 58 1460 1477
+type(
+  unit
+)
+"mips.ml" 59 1478 1483 "mips.ml" 59 1478 1484
+type(
+  'a
+)
+ident(
+  def i "mips.ml" 59 1478 1493 "mips.ml" 59 1478 1501
+)
+"mips.ml" 59 1478 1482 "mips.ml" 59 1478 1485
+type(
+  'a list
+)
+"mips.ml" 59 1478 1493 "mips.ml" 59 1478 1495
+type(
+  Format.formatter -> 'a -> unit
+)
+ident(
+  int_ref pr "mips.ml" 57 1430 1446 "mips.ml" 57 1430 1448
+)
+"mips.ml" 59 1478 1496 "mips.ml" 59 1478 1499
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 57 1430 1442 "mips.ml" 57 1430 1445
+)
+"mips.ml" 59 1478 1500 "mips.ml" 59 1478 1501
+type(
+  'a
+)
+ident(
+  int_ref i "mips.ml" 59 1478 1483 "mips.ml" 59 1478 1484
+)
+"mips.ml" 59 1478 1493 "mips.ml" 59 1478 1501
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 60 1502 1506 "mips.ml" 60 1502 1507
+type(
+  'a
+)
+ident(
+  def i "mips.ml" 60 1502 1517 "mips.ml" 60 1502 1574
+)
+"mips.ml" 60 1502 1511 "mips.ml" 60 1502 1513
+type(
+  'a list
+)
+ident(
+  def ll "mips.ml" 60 1502 1517 "mips.ml" 60 1502 1574
+)
+"mips.ml" 60 1502 1506 "mips.ml" 60 1502 1513
+type(
+  'a list
+)
+"mips.ml" 60 1502 1517 "mips.ml" 60 1502 1519
+type(
+  Format.formatter -> 'a -> unit
+)
+ident(
+  int_ref pr "mips.ml" 57 1430 1446 "mips.ml" 57 1430 1448
+)
+"mips.ml" 60 1502 1520 "mips.ml" 60 1502 1523
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 57 1430 1442 "mips.ml" 57 1430 1445
+)
+"mips.ml" 60 1502 1524 "mips.ml" 60 1502 1525
+type(
+  'a
+)
+ident(
+  int_ref i "mips.ml" 60 1502 1506 "mips.ml" 60 1502 1507
+)
+"mips.ml" 60 1502 1517 "mips.ml" 60 1502 1525
+call(
+  stack
+)
+type(
+  unit
+)
+"mips.ml" 60 1502 1527 "mips.ml" 60 1502 1536
+type(
+  ('a -> unit) -> 'a list -> unit
+)
+ident(
+  ext_ref List.iter
+)
+"mips.ml" 60 1502 1542 "mips.ml" 60 1502 1543
+type(
+  'a
+)
+ident(
+  def i "mips.ml" 60 1502 1547 "mips.ml" 60 1502 1570
+)
+"mips.ml" 60 1502 1547 "mips.ml" 60 1502 1554
+type(
+  Format.formatter ->
+  ((Format.formatter -> 'a -> unit) -> 'a -> unit, Format.formatter, unit)
+  format -> (Format.formatter -> 'a -> unit) -> 'a -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 60 1502 1555 "mips.ml" 60 1502 1558
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 57 1430 1442 "mips.ml" 57 1430 1445
+)
+"mips.ml" 60 1502 1559 "mips.ml" 60 1502 1565
+type(
+  ((Format.formatter -> 'a -> unit) -> 'a -> unit, Format.formatter, unit)
+  format
+)
+"mips.ml" 60 1502 1566 "mips.ml" 60 1502 1568
+type(
+  Format.formatter -> 'a -> unit
+)
+ident(
+  int_ref pr "mips.ml" 57 1430 1446 "mips.ml" 57 1430 1448
+)
+"mips.ml" 60 1502 1569 "mips.ml" 60 1502 1570
+type(
+  'a
+)
+ident(
+  int_ref i "mips.ml" 60 1502 1542 "mips.ml" 60 1502 1543
+)
+"mips.ml" 60 1502 1547 "mips.ml" 60 1502 1570
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 60 1502 1537 "mips.ml" 60 1502 1571
+type(
+  'a -> unit
+)
+"mips.ml" 60 1502 1572 "mips.ml" 60 1502 1574
+type(
+  'a list
+)
+ident(
+  int_ref ll "mips.ml" 60 1502 1511 "mips.ml" 60 1502 1513
+)
+"mips.ml" 60 1502 1527 "mips.ml" 60 1502 1574
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 60 1502 1517 "mips.ml" 60 1502 1574
+type(
+  unit
+)
+"mips.ml" 57 1430 1451 "mips.ml" 60 1502 1574
+type(
+  'a list -> unit
+)
+"mips.ml" 62 1576 1580 "mips.ml" 62 1576 1588
+type(
+  Format.formatter -> int list -> unit
+)
+ident(
+  def pr_ilist "mips.ml" 65 1648 1648 "mips.ml" 1 0 -1
+)
+"mips.ml" 62 1576 1589 "mips.ml" 62 1576 1592
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 62 1576 1593 "mips.ml" 63 1597 1646
+)
+"mips.ml" 62 1576 1593 "mips.ml" 62 1576 1594
+type(
+  int list
+)
+ident(
+  def l "mips.ml" 63 1597 1599 "mips.ml" 63 1597 1646
+)
+"mips.ml" 63 1597 1599 "mips.ml" 63 1597 1606
+type(
+  Format.formatter -> (Format.formatter -> int -> unit) -> int list -> unit
+)
+ident(
+  int_ref pr_list "mips.ml" 57 1430 1434 "mips.ml" 57 1430 1441
+)
+"mips.ml" 63 1597 1607 "mips.ml" 63 1597 1610
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 62 1576 1589 "mips.ml" 62 1576 1592
+)
+"mips.ml" 63 1597 1616 "mips.ml" 63 1597 1619
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 63 1597 1620 "mips.ml" 63 1597 1643
+)
+"mips.ml" 63 1597 1620 "mips.ml" 63 1597 1621
+type(
+  int
+)
+ident(
+  def i "mips.ml" 63 1597 1625 "mips.ml" 63 1597 1643
+)
+"mips.ml" 63 1597 1625 "mips.ml" 63 1597 1632
+type(
+  Format.formatter ->
+  (int -> unit, Format.formatter, unit) format -> int -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 63 1597 1633 "mips.ml" 63 1597 1636
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 63 1597 1616 "mips.ml" 63 1597 1619
+)
+"mips.ml" 63 1597 1637 "mips.ml" 63 1597 1641
+type(
+  (int -> unit, Format.formatter, unit) format
+)
+"mips.ml" 63 1597 1642 "mips.ml" 63 1597 1643
+type(
+  int
+)
+ident(
+  int_ref i "mips.ml" 63 1597 1620 "mips.ml" 63 1597 1621
+)
+"mips.ml" 63 1597 1625 "mips.ml" 63 1597 1643
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 63 1597 1611 "mips.ml" 63 1597 1644
+type(
+  Format.formatter -> int -> unit
+)
+"mips.ml" 63 1597 1645 "mips.ml" 63 1597 1646
+type(
+  int list
+)
+ident(
+  int_ref l "mips.ml" 62 1576 1593 "mips.ml" 62 1576 1594
+)
+"mips.ml" 63 1597 1599 "mips.ml" 63 1597 1646
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 65 1648 1652 "mips.ml" 65 1648 1660
+type(
+  Format.formatter -> label list -> unit
+)
+ident(
+  def pr_alist "mips.ml" 68 1730 1730 "mips.ml" 1 0 -1
+)
+"mips.ml" 65 1648 1661 "mips.ml" 65 1648 1664
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 65 1648 1665 "mips.ml" 66 1669 1728
+)
+"mips.ml" 65 1648 1665 "mips.ml" 65 1648 1666
+type(
+  label list
+)
+ident(
+  def l "mips.ml" 66 1669 1671 "mips.ml" 66 1669 1728
+)
+"mips.ml" 66 1669 1671 "mips.ml" 66 1669 1678
+type(
+  Format.formatter ->
+  (Format.formatter -> label -> unit) -> label list -> unit
+)
+ident(
+  int_ref pr_list "mips.ml" 57 1430 1434 "mips.ml" 57 1430 1441
+)
+"mips.ml" 66 1669 1679 "mips.ml" 66 1669 1682
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 65 1648 1661 "mips.ml" 65 1648 1664
+)
+"mips.ml" 66 1669 1688 "mips.ml" 66 1669 1691
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 66 1669 1692 "mips.ml" 66 1669 1725
+)
+"mips.ml" 66 1669 1693 "mips.ml" 66 1669 1694
+type(
+  label
+)
+ident(
+  def a "mips.ml" 66 1669 1707 "mips.ml" 66 1669 1725
+)
+"mips.ml" 66 1669 1707 "mips.ml" 66 1669 1714
+type(
+  Format.formatter ->
+  (label -> unit, Format.formatter, unit) format -> label -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 66 1669 1715 "mips.ml" 66 1669 1718
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 66 1669 1688 "mips.ml" 66 1669 1691
+)
+"mips.ml" 66 1669 1719 "mips.ml" 66 1669 1723
+type(
+  (label -> unit, Format.formatter, unit) format
+)
+"mips.ml" 66 1669 1724 "mips.ml" 66 1669 1725
+type(
+  label
+)
+ident(
+  int_ref a "mips.ml" 66 1669 1693 "mips.ml" 66 1669 1694
+)
+"mips.ml" 66 1669 1707 "mips.ml" 66 1669 1725
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 66 1669 1683 "mips.ml" 66 1669 1726
+type(
+  Format.formatter -> label -> unit
+)
+"mips.ml" 66 1669 1727 "mips.ml" 66 1669 1728
+type(
+  label list
+)
+ident(
+  int_ref l "mips.ml" 65 1648 1665 "mips.ml" 65 1648 1666
+)
+"mips.ml" 66 1669 1671 "mips.ml" 66 1669 1728
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 68 1730 1734 "mips.ml" 68 1730 1737
+type(
+  string -> string -> 'a asm
+)
+ident(
+  def abs "mips.ml" 69 1765 1765 "mips.ml" 1 0 -1
+)
+"mips.ml" 68 1730 1738 "mips.ml" 68 1730 1739
+type(
+  string
+)
+ident(
+  def a "mips.ml" 68 1730 1740 "mips.ml" 68 1730 1764
+)
+"mips.ml" 68 1730 1740 "mips.ml" 68 1730 1741
+type(
+  string
+)
+ident(
+  def b "mips.ml" 68 1730 1744 "mips.ml" 68 1730 1764
+)
+"mips.ml" 68 1730 1744 "mips.ml" 68 1730 1747
+type(
+  (string -> string -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 68 1730 1748 "mips.ml" 68 1730 1760
+type(
+  (string -> string -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 68 1730 1761 "mips.ml" 68 1730 1762
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 68 1730 1738 "mips.ml" 68 1730 1739
+)
+"mips.ml" 68 1730 1763 "mips.ml" 68 1730 1764
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 68 1730 1740 "mips.ml" 68 1730 1741
+)
+"mips.ml" 68 1730 1744 "mips.ml" 68 1730 1764
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 69 1765 1769 "mips.ml" 69 1765 1772
+type(
+  string -> string -> 'a operand -> 'a -> 'b asm
+)
+ident(
+  def add "mips.ml" 70 1827 1827 "mips.ml" 1 0 -1
+)
+"mips.ml" 69 1765 1773 "mips.ml" 69 1765 1774
+type(
+  string
+)
+ident(
+  def a "mips.ml" 69 1765 1775 "mips.ml" 69 1765 1826
+)
+"mips.ml" 69 1765 1775 "mips.ml" 69 1765 1776
+type(
+  string
+)
+ident(
+  def b "mips.ml" 69 1765 1777 "mips.ml" 69 1765 1826
+)
+"mips.ml" 69 1765 1778 "mips.ml" 69 1765 1779
+type(
+  'a operand
+)
+ident(
+  def o "mips.ml" 69 1765 1794 "mips.ml" 69 1765 1826
+)
+"mips.ml" 69 1765 1794 "mips.ml" 69 1765 1795
+type(
+  'a
+)
+ident(
+  def x "mips.ml" 69 1765 1798 "mips.ml" 69 1765 1826
+)
+"mips.ml" 69 1765 1798 "mips.ml" 69 1765 1801
+type(
+  (string -> string -> 'a operand -> 'a -> 'b asm, Format.formatter, 
+   unit, 'b asm)
+  format4 -> string -> string -> 'a operand -> 'a -> 'b asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 69 1765 1802 "mips.ml" 69 1765 1818
+type(
+  (string -> string -> 'a operand -> 'a -> 'b asm, Format.formatter, 
+   unit, 'b asm)
+  format4
+)
+"mips.ml" 69 1765 1819 "mips.ml" 69 1765 1820
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 69 1765 1773 "mips.ml" 69 1765 1774
+)
+"mips.ml" 69 1765 1821 "mips.ml" 69 1765 1822
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 69 1765 1775 "mips.ml" 69 1765 1776
+)
+"mips.ml" 69 1765 1823 "mips.ml" 69 1765 1824
+type(
+  'a operand
+)
+ident(
+  int_ref o "mips.ml" 69 1765 1778 "mips.ml" 69 1765 1779
+)
+"mips.ml" 69 1765 1825 "mips.ml" 69 1765 1826
+type(
+  'a
+)
+ident(
+  int_ref x "mips.ml" 69 1765 1794 "mips.ml" 69 1765 1795
+)
+"mips.ml" 69 1765 1798 "mips.ml" 69 1765 1826
+call(
+  tail
+)
+type(
+  'b asm
+)
+"mips.ml" 70 1827 1831 "mips.ml" 70 1827 1834
+type(
+  string -> string -> 'a asm
+)
+ident(
+  def clz "mips.ml" 71 1862 1862 "mips.ml" 1 0 -1
+)
+"mips.ml" 70 1827 1835 "mips.ml" 70 1827 1836
+type(
+  string
+)
+ident(
+  def a "mips.ml" 70 1827 1837 "mips.ml" 70 1827 1861
+)
+"mips.ml" 70 1827 1837 "mips.ml" 70 1827 1838
+type(
+  string
+)
+ident(
+  def b "mips.ml" 70 1827 1841 "mips.ml" 70 1827 1861
+)
+"mips.ml" 70 1827 1841 "mips.ml" 70 1827 1844
+type(
+  (string -> string -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 70 1827 1845 "mips.ml" 70 1827 1857
+type(
+  (string -> string -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 70 1827 1858 "mips.ml" 70 1827 1859
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 70 1827 1835 "mips.ml" 70 1827 1836
+)
+"mips.ml" 70 1827 1860 "mips.ml" 70 1827 1861
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 70 1827 1837 "mips.ml" 70 1827 1838
+)
+"mips.ml" 70 1827 1841 "mips.ml" 70 1827 1861
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 71 1862 1866 "mips.ml" 71 1862 1870
+type(
+  string -> string -> string -> 'a asm
+)
+ident(
+  def and_ "mips.ml" 72 1906 1906 "mips.ml" 1 0 -1
+)
+"mips.ml" 71 1862 1871 "mips.ml" 71 1862 1872
+type(
+  string
+)
+ident(
+  def a "mips.ml" 71 1862 1873 "mips.ml" 71 1862 1905
+)
+"mips.ml" 71 1862 1873 "mips.ml" 71 1862 1874
+type(
+  string
+)
+ident(
+  def b "mips.ml" 71 1862 1875 "mips.ml" 71 1862 1905
+)
+"mips.ml" 71 1862 1875 "mips.ml" 71 1862 1876
+type(
+  string
+)
+ident(
+  def c "mips.ml" 71 1862 1879 "mips.ml" 71 1862 1905
+)
+"mips.ml" 71 1862 1879 "mips.ml" 71 1862 1882
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 71 1862 1883 "mips.ml" 71 1862 1899
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 71 1862 1900 "mips.ml" 71 1862 1901
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 71 1862 1871 "mips.ml" 71 1862 1872
+)
+"mips.ml" 71 1862 1902 "mips.ml" 71 1862 1903
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 71 1862 1873 "mips.ml" 71 1862 1874
+)
+"mips.ml" 71 1862 1904 "mips.ml" 71 1862 1905
+type(
+  string
+)
+ident(
+  int_ref c "mips.ml" 71 1862 1875 "mips.ml" 71 1862 1876
+)
+"mips.ml" 71 1862 1879 "mips.ml" 71 1862 1905
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 72 1906 1910 "mips.ml" 72 1906 1913
+type(
+  string -> string -> 'a operand -> 'a -> 'b asm
+)
+ident(
+  def div "mips.ml" 73 1968 1968 "mips.ml" 1 0 -1
+)
+"mips.ml" 72 1906 1914 "mips.ml" 72 1906 1915
+type(
+  string
+)
+ident(
+  def a "mips.ml" 72 1906 1916 "mips.ml" 72 1906 1967
+)
+"mips.ml" 72 1906 1916 "mips.ml" 72 1906 1917
+type(
+  string
+)
+ident(
+  def b "mips.ml" 72 1906 1918 "mips.ml" 72 1906 1967
+)
+"mips.ml" 72 1906 1919 "mips.ml" 72 1906 1920
+type(
+  'a operand
+)
+ident(
+  def o "mips.ml" 72 1906 1935 "mips.ml" 72 1906 1967
+)
+"mips.ml" 72 1906 1935 "mips.ml" 72 1906 1936
+type(
+  'a
+)
+ident(
+  def x "mips.ml" 72 1906 1939 "mips.ml" 72 1906 1967
+)
+"mips.ml" 72 1906 1939 "mips.ml" 72 1906 1942
+type(
+  (string -> string -> 'a operand -> 'a -> 'b asm, Format.formatter, 
+   unit, 'b asm)
+  format4 -> string -> string -> 'a operand -> 'a -> 'b asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 72 1906 1943 "mips.ml" 72 1906 1959
+type(
+  (string -> string -> 'a operand -> 'a -> 'b asm, Format.formatter, 
+   unit, 'b asm)
+  format4
+)
+"mips.ml" 72 1906 1960 "mips.ml" 72 1906 1961
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 72 1906 1914 "mips.ml" 72 1906 1915
+)
+"mips.ml" 72 1906 1962 "mips.ml" 72 1906 1963
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 72 1906 1916 "mips.ml" 72 1906 1917
+)
+"mips.ml" 72 1906 1964 "mips.ml" 72 1906 1965
+type(
+  'a operand
+)
+ident(
+  int_ref o "mips.ml" 72 1906 1919 "mips.ml" 72 1906 1920
+)
+"mips.ml" 72 1906 1966 "mips.ml" 72 1906 1967
+type(
+  'a
+)
+ident(
+  int_ref x "mips.ml" 72 1906 1935 "mips.ml" 72 1906 1936
+)
+"mips.ml" 72 1906 1939 "mips.ml" 72 1906 1967
+call(
+  tail
+)
+type(
+  'b asm
+)
+"mips.ml" 73 1968 1972 "mips.ml" 73 1968 1975
+type(
+  string -> string -> 'a operand -> 'a -> 'b asm
+)
+ident(
+  def mul "mips.ml" 74 2030 2030 "mips.ml" 1 0 -1
+)
+"mips.ml" 73 1968 1976 "mips.ml" 73 1968 1977
+type(
+  string
+)
+ident(
+  def a "mips.ml" 73 1968 1978 "mips.ml" 73 1968 2029
+)
+"mips.ml" 73 1968 1978 "mips.ml" 73 1968 1979
+type(
+  string
+)
+ident(
+  def b "mips.ml" 73 1968 1980 "mips.ml" 73 1968 2029
+)
+"mips.ml" 73 1968 1981 "mips.ml" 73 1968 1982
+type(
+  'a operand
+)
+ident(
+  def o "mips.ml" 73 1968 1997 "mips.ml" 73 1968 2029
+)
+"mips.ml" 73 1968 1997 "mips.ml" 73 1968 1998
+type(
+  'a
+)
+ident(
+  def x "mips.ml" 73 1968 2001 "mips.ml" 73 1968 2029
+)
+"mips.ml" 73 1968 2001 "mips.ml" 73 1968 2004
+type(
+  (string -> string -> 'a operand -> 'a -> 'b asm, Format.formatter, 
+   unit, 'b asm)
+  format4 -> string -> string -> 'a operand -> 'a -> 'b asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 73 1968 2005 "mips.ml" 73 1968 2021
+type(
+  (string -> string -> 'a operand -> 'a -> 'b asm, Format.formatter, 
+   unit, 'b asm)
+  format4
+)
+"mips.ml" 73 1968 2022 "mips.ml" 73 1968 2023
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 73 1968 1976 "mips.ml" 73 1968 1977
+)
+"mips.ml" 73 1968 2024 "mips.ml" 73 1968 2025
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 73 1968 1978 "mips.ml" 73 1968 1979
+)
+"mips.ml" 73 1968 2026 "mips.ml" 73 1968 2027
+type(
+  'a operand
+)
+ident(
+  int_ref o "mips.ml" 73 1968 1981 "mips.ml" 73 1968 1982
+)
+"mips.ml" 73 1968 2028 "mips.ml" 73 1968 2029
+type(
+  'a
+)
+ident(
+  int_ref x "mips.ml" 73 1968 1997 "mips.ml" 73 1968 1998
+)
+"mips.ml" 73 1968 2001 "mips.ml" 73 1968 2029
+call(
+  tail
+)
+type(
+  'b asm
+)
+"mips.ml" 74 2030 2034 "mips.ml" 74 2030 2037
+type(
+  string -> string -> string -> 'a asm
+)
+ident(
+  def or_ "mips.ml" 75 2072 2072 "mips.ml" 1 0 -1
+)
+"mips.ml" 74 2030 2038 "mips.ml" 74 2030 2039
+type(
+  string
+)
+ident(
+  def a "mips.ml" 74 2030 2040 "mips.ml" 74 2030 2071
+)
+"mips.ml" 74 2030 2040 "mips.ml" 74 2030 2041
+type(
+  string
+)
+ident(
+  def b "mips.ml" 74 2030 2042 "mips.ml" 74 2030 2071
+)
+"mips.ml" 74 2030 2042 "mips.ml" 74 2030 2043
+type(
+  string
+)
+ident(
+  def c "mips.ml" 74 2030 2046 "mips.ml" 74 2030 2071
+)
+"mips.ml" 74 2030 2046 "mips.ml" 74 2030 2049
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 74 2030 2050 "mips.ml" 74 2030 2065
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 74 2030 2066 "mips.ml" 74 2030 2067
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 74 2030 2038 "mips.ml" 74 2030 2039
+)
+"mips.ml" 74 2030 2068 "mips.ml" 74 2030 2069
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 74 2030 2040 "mips.ml" 74 2030 2041
+)
+"mips.ml" 74 2030 2070 "mips.ml" 74 2030 2071
+type(
+  string
+)
+ident(
+  int_ref c "mips.ml" 74 2030 2042 "mips.ml" 74 2030 2043
+)
+"mips.ml" 74 2030 2046 "mips.ml" 74 2030 2071
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 75 2072 2076 "mips.ml" 75 2072 2080
+type(
+  string -> string -> 'a asm
+)
+ident(
+  def not_ "mips.ml" 76 2108 2108 "mips.ml" 1 0 -1
+)
+"mips.ml" 75 2072 2081 "mips.ml" 75 2072 2082
+type(
+  string
+)
+ident(
+  def a "mips.ml" 75 2072 2083 "mips.ml" 75 2072 2107
+)
+"mips.ml" 75 2072 2083 "mips.ml" 75 2072 2084
+type(
+  string
+)
+ident(
+  def b "mips.ml" 75 2072 2087 "mips.ml" 75 2072 2107
+)
+"mips.ml" 75 2072 2087 "mips.ml" 75 2072 2090
+type(
+  (string -> string -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 75 2072 2091 "mips.ml" 75 2072 2103
+type(
+  (string -> string -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 75 2072 2104 "mips.ml" 75 2072 2105
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 75 2072 2081 "mips.ml" 75 2072 2082
+)
+"mips.ml" 75 2072 2106 "mips.ml" 75 2072 2107
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 75 2072 2083 "mips.ml" 75 2072 2084
+)
+"mips.ml" 75 2072 2087 "mips.ml" 75 2072 2107
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 76 2108 2112 "mips.ml" 76 2108 2115
+type(
+  string -> string -> 'a operand -> 'a -> 'b asm
+)
+ident(
+  def rem "mips.ml" 77 2170 2170 "mips.ml" 1 0 -1
+)
+"mips.ml" 76 2108 2116 "mips.ml" 76 2108 2117
+type(
+  string
+)
+ident(
+  def a "mips.ml" 76 2108 2118 "mips.ml" 76 2108 2169
+)
+"mips.ml" 76 2108 2118 "mips.ml" 76 2108 2119
+type(
+  string
+)
+ident(
+  def b "mips.ml" 76 2108 2120 "mips.ml" 76 2108 2169
+)
+"mips.ml" 76 2108 2121 "mips.ml" 76 2108 2122
+type(
+  'a operand
+)
+ident(
+  def o "mips.ml" 76 2108 2137 "mips.ml" 76 2108 2169
+)
+"mips.ml" 76 2108 2137 "mips.ml" 76 2108 2138
+type(
+  'a
+)
+ident(
+  def x "mips.ml" 76 2108 2141 "mips.ml" 76 2108 2169
+)
+"mips.ml" 76 2108 2141 "mips.ml" 76 2108 2144
+type(
+  (string -> string -> 'a operand -> 'a -> 'b asm, Format.formatter, 
+   unit, 'b asm)
+  format4 -> string -> string -> 'a operand -> 'a -> 'b asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 76 2108 2145 "mips.ml" 76 2108 2161
+type(
+  (string -> string -> 'a operand -> 'a -> 'b asm, Format.formatter, 
+   unit, 'b asm)
+  format4
+)
+"mips.ml" 76 2108 2162 "mips.ml" 76 2108 2163
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 76 2108 2116 "mips.ml" 76 2108 2117
+)
+"mips.ml" 76 2108 2164 "mips.ml" 76 2108 2165
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 76 2108 2118 "mips.ml" 76 2108 2119
+)
+"mips.ml" 76 2108 2166 "mips.ml" 76 2108 2167
+type(
+  'a operand
+)
+ident(
+  int_ref o "mips.ml" 76 2108 2121 "mips.ml" 76 2108 2122
+)
+"mips.ml" 76 2108 2168 "mips.ml" 76 2108 2169
+type(
+  'a
+)
+ident(
+  int_ref x "mips.ml" 76 2108 2137 "mips.ml" 76 2108 2138
+)
+"mips.ml" 76 2108 2141 "mips.ml" 76 2108 2169
+call(
+  tail
+)
+type(
+  'b asm
+)
+"mips.ml" 77 2170 2174 "mips.ml" 77 2170 2177
+type(
+  string -> string -> 'a asm
+)
+ident(
+  def neg "mips.ml" 78 2205 2205 "mips.ml" 1 0 -1
+)
+"mips.ml" 77 2170 2178 "mips.ml" 77 2170 2179
+type(
+  string
+)
+ident(
+  def a "mips.ml" 77 2170 2180 "mips.ml" 77 2170 2204
+)
+"mips.ml" 77 2170 2180 "mips.ml" 77 2170 2181
+type(
+  string
+)
+ident(
+  def b "mips.ml" 77 2170 2184 "mips.ml" 77 2170 2204
+)
+"mips.ml" 77 2170 2184 "mips.ml" 77 2170 2187
+type(
+  (string -> string -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 77 2170 2188 "mips.ml" 77 2170 2200
+type(
+  (string -> string -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 77 2170 2201 "mips.ml" 77 2170 2202
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 77 2170 2178 "mips.ml" 77 2170 2179
+)
+"mips.ml" 77 2170 2203 "mips.ml" 77 2170 2204
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 77 2170 2180 "mips.ml" 77 2170 2181
+)
+"mips.ml" 77 2170 2184 "mips.ml" 77 2170 2204
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 78 2205 2209 "mips.ml" 78 2205 2212
+type(
+  string -> string -> 'a operand -> 'a -> 'b asm
+)
+ident(
+  def sub "mips.ml" 79 2263 2263 "mips.ml" 1 0 -1
+)
+"mips.ml" 78 2205 2213 "mips.ml" 78 2205 2214
+type(
+  string
+)
+ident(
+  def a "mips.ml" 78 2205 2215 "mips.ml" 78 2205 2262
+)
+"mips.ml" 78 2205 2215 "mips.ml" 78 2205 2216
+type(
+  string
+)
+ident(
+  def b "mips.ml" 78 2205 2217 "mips.ml" 78 2205 2262
+)
+"mips.ml" 78 2205 2218 "mips.ml" 78 2205 2219
+type(
+  'a operand
+)
+ident(
+  def o "mips.ml" 78 2205 2236 "mips.ml" 78 2205 2262
+)
+"mips.ml" 78 2205 2236 "mips.ml" 78 2205 2239
+type(
+  (string -> string -> 'a operand -> 'a -> 'b asm, Format.formatter, 
+   unit, 'b asm)
+  format4 -> string -> string -> 'a operand -> 'a -> 'b asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 78 2205 2240 "mips.ml" 78 2205 2256
+type(
+  (string -> string -> 'a operand -> 'a -> 'b asm, Format.formatter, 
+   unit, 'b asm)
+  format4
+)
+"mips.ml" 78 2205 2257 "mips.ml" 78 2205 2258
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 78 2205 2213 "mips.ml" 78 2205 2214
+)
+"mips.ml" 78 2205 2259 "mips.ml" 78 2205 2260
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 78 2205 2215 "mips.ml" 78 2205 2216
+)
+"mips.ml" 78 2205 2261 "mips.ml" 78 2205 2262
+type(
+  'a operand
+)
+ident(
+  int_ref o "mips.ml" 78 2205 2218 "mips.ml" 78 2205 2219
+)
+"mips.ml" 78 2205 2236 "mips.ml" 78 2205 2262
+call(
+  tail
+)
+type(
+  'a -> 'b asm
+)
+"mips.ml" 79 2263 2267 "mips.ml" 79 2263 2269
+type(
+  string -> int -> 'a asm
+)
+ident(
+  def li "mips.ml" 80 2296 2296 "mips.ml" 1 0 -1
+)
+"mips.ml" 79 2263 2270 "mips.ml" 79 2263 2271
+type(
+  string
+)
+ident(
+  def a "mips.ml" 79 2263 2272 "mips.ml" 79 2263 2295
+)
+"mips.ml" 79 2263 2272 "mips.ml" 79 2263 2273
+type(
+  int
+)
+ident(
+  def b "mips.ml" 79 2263 2276 "mips.ml" 79 2263 2295
+)
+"mips.ml" 79 2263 2276 "mips.ml" 79 2263 2279
+type(
+  (string -> int -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> int -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 79 2263 2280 "mips.ml" 79 2263 2291
+type(
+  (string -> int -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 79 2263 2292 "mips.ml" 79 2263 2293
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 79 2263 2270 "mips.ml" 79 2263 2271
+)
+"mips.ml" 79 2263 2294 "mips.ml" 79 2263 2295
+type(
+  int
+)
+ident(
+  int_ref b "mips.ml" 79 2263 2272 "mips.ml" 79 2263 2273
+)
+"mips.ml" 79 2263 2276 "mips.ml" 79 2263 2295
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 80 2296 2300 "mips.ml" 80 2296 2304
+type(
+  string -> int32 -> 'a asm
+)
+ident(
+  def li32 "mips.ml" 81 2332 2332 "mips.ml" 1 0 -1
+)
+"mips.ml" 80 2296 2305 "mips.ml" 80 2296 2306
+type(
+  string
+)
+ident(
+  def a "mips.ml" 80 2296 2307 "mips.ml" 80 2296 2331
+)
+"mips.ml" 80 2296 2307 "mips.ml" 80 2296 2308
+type(
+  int32
+)
+ident(
+  def b "mips.ml" 80 2296 2311 "mips.ml" 80 2296 2331
+)
+"mips.ml" 80 2296 2311 "mips.ml" 80 2296 2314
+type(
+  (string -> int32 -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> int32 -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 80 2296 2315 "mips.ml" 80 2296 2327
+type(
+  (string -> int32 -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 80 2296 2328 "mips.ml" 80 2296 2329
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 80 2296 2305 "mips.ml" 80 2296 2306
+)
+"mips.ml" 80 2296 2330 "mips.ml" 80 2296 2331
+type(
+  int32
+)
+ident(
+  int_ref b "mips.ml" 80 2296 2307 "mips.ml" 80 2296 2308
+)
+"mips.ml" 80 2296 2311 "mips.ml" 80 2296 2331
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 81 2332 2336 "mips.ml" 81 2332 2339
+type(
+  string -> string -> string -> 'a asm
+)
+ident(
+  def seq "mips.ml" 82 2375 2375 "mips.ml" 1 0 -1
+)
+"mips.ml" 81 2332 2340 "mips.ml" 81 2332 2341
+type(
+  string
+)
+ident(
+  def a "mips.ml" 81 2332 2342 "mips.ml" 81 2332 2374
+)
+"mips.ml" 81 2332 2342 "mips.ml" 81 2332 2343
+type(
+  string
+)
+ident(
+  def b "mips.ml" 81 2332 2344 "mips.ml" 81 2332 2374
+)
+"mips.ml" 81 2332 2344 "mips.ml" 81 2332 2345
+type(
+  string
+)
+ident(
+  def c "mips.ml" 81 2332 2348 "mips.ml" 81 2332 2374
+)
+"mips.ml" 81 2332 2348 "mips.ml" 81 2332 2351
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 81 2332 2352 "mips.ml" 81 2332 2368
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 81 2332 2369 "mips.ml" 81 2332 2370
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 81 2332 2340 "mips.ml" 81 2332 2341
+)
+"mips.ml" 81 2332 2371 "mips.ml" 81 2332 2372
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 81 2332 2342 "mips.ml" 81 2332 2343
+)
+"mips.ml" 81 2332 2373 "mips.ml" 81 2332 2374
+type(
+  string
+)
+ident(
+  int_ref c "mips.ml" 81 2332 2344 "mips.ml" 81 2332 2345
+)
+"mips.ml" 81 2332 2348 "mips.ml" 81 2332 2374
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 82 2375 2379 "mips.ml" 82 2375 2382
+type(
+  string -> string -> string -> 'a asm
+)
+ident(
+  def sge "mips.ml" 83 2418 2418 "mips.ml" 1 0 -1
+)
+"mips.ml" 82 2375 2383 "mips.ml" 82 2375 2384
+type(
+  string
+)
+ident(
+  def a "mips.ml" 82 2375 2385 "mips.ml" 82 2375 2417
+)
+"mips.ml" 82 2375 2385 "mips.ml" 82 2375 2386
+type(
+  string
+)
+ident(
+  def b "mips.ml" 82 2375 2387 "mips.ml" 82 2375 2417
+)
+"mips.ml" 82 2375 2387 "mips.ml" 82 2375 2388
+type(
+  string
+)
+ident(
+  def c "mips.ml" 82 2375 2391 "mips.ml" 82 2375 2417
+)
+"mips.ml" 82 2375 2391 "mips.ml" 82 2375 2394
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 82 2375 2395 "mips.ml" 82 2375 2411
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 82 2375 2412 "mips.ml" 82 2375 2413
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 82 2375 2383 "mips.ml" 82 2375 2384
+)
+"mips.ml" 82 2375 2414 "mips.ml" 82 2375 2415
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 82 2375 2385 "mips.ml" 82 2375 2386
+)
+"mips.ml" 82 2375 2416 "mips.ml" 82 2375 2417
+type(
+  string
+)
+ident(
+  int_ref c "mips.ml" 82 2375 2387 "mips.ml" 82 2375 2388
+)
+"mips.ml" 82 2375 2391 "mips.ml" 82 2375 2417
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 83 2418 2422 "mips.ml" 83 2418 2425
+type(
+  string -> string -> string -> 'a asm
+)
+ident(
+  def sgt "mips.ml" 84 2461 2461 "mips.ml" 1 0 -1
+)
+"mips.ml" 83 2418 2426 "mips.ml" 83 2418 2427
+type(
+  string
+)
+ident(
+  def a "mips.ml" 83 2418 2428 "mips.ml" 83 2418 2460
+)
+"mips.ml" 83 2418 2428 "mips.ml" 83 2418 2429
+type(
+  string
+)
+ident(
+  def b "mips.ml" 83 2418 2430 "mips.ml" 83 2418 2460
+)
+"mips.ml" 83 2418 2430 "mips.ml" 83 2418 2431
+type(
+  string
+)
+ident(
+  def c "mips.ml" 83 2418 2434 "mips.ml" 83 2418 2460
+)
+"mips.ml" 83 2418 2434 "mips.ml" 83 2418 2437
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 83 2418 2438 "mips.ml" 83 2418 2454
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 83 2418 2455 "mips.ml" 83 2418 2456
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 83 2418 2426 "mips.ml" 83 2418 2427
+)
+"mips.ml" 83 2418 2457 "mips.ml" 83 2418 2458
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 83 2418 2428 "mips.ml" 83 2418 2429
+)
+"mips.ml" 83 2418 2459 "mips.ml" 83 2418 2460
+type(
+  string
+)
+ident(
+  int_ref c "mips.ml" 83 2418 2430 "mips.ml" 83 2418 2431
+)
+"mips.ml" 83 2418 2434 "mips.ml" 83 2418 2460
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 84 2461 2465 "mips.ml" 84 2461 2468
+type(
+  string -> string -> string -> 'a asm
+)
+ident(
+  def sle "mips.ml" 85 2504 2504 "mips.ml" 1 0 -1
+)
+"mips.ml" 84 2461 2469 "mips.ml" 84 2461 2470
+type(
+  string
+)
+ident(
+  def a "mips.ml" 84 2461 2471 "mips.ml" 84 2461 2503
+)
+"mips.ml" 84 2461 2471 "mips.ml" 84 2461 2472
+type(
+  string
+)
+ident(
+  def b "mips.ml" 84 2461 2473 "mips.ml" 84 2461 2503
+)
+"mips.ml" 84 2461 2473 "mips.ml" 84 2461 2474
+type(
+  string
+)
+ident(
+  def c "mips.ml" 84 2461 2477 "mips.ml" 84 2461 2503
+)
+"mips.ml" 84 2461 2477 "mips.ml" 84 2461 2480
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 84 2461 2481 "mips.ml" 84 2461 2497
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 84 2461 2498 "mips.ml" 84 2461 2499
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 84 2461 2469 "mips.ml" 84 2461 2470
+)
+"mips.ml" 84 2461 2500 "mips.ml" 84 2461 2501
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 84 2461 2471 "mips.ml" 84 2461 2472
+)
+"mips.ml" 84 2461 2502 "mips.ml" 84 2461 2503
+type(
+  string
+)
+ident(
+  int_ref c "mips.ml" 84 2461 2473 "mips.ml" 84 2461 2474
+)
+"mips.ml" 84 2461 2477 "mips.ml" 84 2461 2503
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 85 2504 2508 "mips.ml" 85 2504 2511
+type(
+  string -> string -> string -> 'a asm
+)
+ident(
+  def slt "mips.ml" 86 2547 2547 "mips.ml" 1 0 -1
+)
+"mips.ml" 85 2504 2512 "mips.ml" 85 2504 2513
+type(
+  string
+)
+ident(
+  def a "mips.ml" 85 2504 2514 "mips.ml" 85 2504 2546
+)
+"mips.ml" 85 2504 2514 "mips.ml" 85 2504 2515
+type(
+  string
+)
+ident(
+  def b "mips.ml" 85 2504 2516 "mips.ml" 85 2504 2546
+)
+"mips.ml" 85 2504 2516 "mips.ml" 85 2504 2517
+type(
+  string
+)
+ident(
+  def c "mips.ml" 85 2504 2520 "mips.ml" 85 2504 2546
+)
+"mips.ml" 85 2504 2520 "mips.ml" 85 2504 2523
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 85 2504 2524 "mips.ml" 85 2504 2540
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 85 2504 2541 "mips.ml" 85 2504 2542
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 85 2504 2512 "mips.ml" 85 2504 2513
+)
+"mips.ml" 85 2504 2543 "mips.ml" 85 2504 2544
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 85 2504 2514 "mips.ml" 85 2504 2515
+)
+"mips.ml" 85 2504 2545 "mips.ml" 85 2504 2546
+type(
+  string
+)
+ident(
+  int_ref c "mips.ml" 85 2504 2516 "mips.ml" 85 2504 2517
+)
+"mips.ml" 85 2504 2520 "mips.ml" 85 2504 2546
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 86 2547 2551 "mips.ml" 86 2547 2554
+type(
+  string -> string -> string -> 'a asm
+)
+ident(
+  def sne "mips.ml" 87 2590 2590 "mips.ml" 1 0 -1
+)
+"mips.ml" 86 2547 2555 "mips.ml" 86 2547 2556
+type(
+  string
+)
+ident(
+  def a "mips.ml" 86 2547 2557 "mips.ml" 86 2547 2589
+)
+"mips.ml" 86 2547 2557 "mips.ml" 86 2547 2558
+type(
+  string
+)
+ident(
+  def b "mips.ml" 86 2547 2559 "mips.ml" 86 2547 2589
+)
+"mips.ml" 86 2547 2559 "mips.ml" 86 2547 2560
+type(
+  string
+)
+ident(
+  def c "mips.ml" 86 2547 2563 "mips.ml" 86 2547 2589
+)
+"mips.ml" 86 2547 2563 "mips.ml" 86 2547 2566
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 86 2547 2567 "mips.ml" 86 2547 2583
+type(
+  (string -> string -> string -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 86 2547 2584 "mips.ml" 86 2547 2585
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 86 2547 2555 "mips.ml" 86 2547 2556
+)
+"mips.ml" 86 2547 2586 "mips.ml" 86 2547 2587
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 86 2547 2557 "mips.ml" 86 2547 2558
+)
+"mips.ml" 86 2547 2588 "mips.ml" 86 2547 2589
+type(
+  string
+)
+ident(
+  int_ref c "mips.ml" 86 2547 2559 "mips.ml" 86 2547 2560
+)
+"mips.ml" 86 2547 2563 "mips.ml" 86 2547 2589
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 87 2590 2594 "mips.ml" 87 2590 2595
+type(
+  label -> 'a asm
+)
+ident(
+  def b "mips.ml" 88 2623 2623 "mips.ml" 1 0 -1
+)
+"mips.ml" 87 2590 2597 "mips.ml" 87 2590 2598
+type(
+  label
+)
+ident(
+  def z "mips.ml" 87 2590 2610 "mips.ml" 87 2590 2622
+)
+"mips.ml" 87 2590 2610 "mips.ml" 87 2590 2613
+type(
+  (label -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 87 2590 2614 "mips.ml" 87 2590 2620
+type(
+  (label -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 87 2590 2621 "mips.ml" 87 2590 2622
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 87 2590 2597 "mips.ml" 87 2590 2598
+)
+"mips.ml" 87 2590 2610 "mips.ml" 87 2590 2622
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 88 2623 2627 "mips.ml" 88 2623 2630
+type(
+  string -> string -> label -> 'a asm
+)
+ident(
+  def beq "mips.ml" 89 2676 2676 "mips.ml" 1 0 -1
+)
+"mips.ml" 88 2623 2631 "mips.ml" 88 2623 2632
+type(
+  string
+)
+ident(
+  def x "mips.ml" 88 2623 2633 "mips.ml" 88 2623 2675
+)
+"mips.ml" 88 2623 2633 "mips.ml" 88 2623 2634
+type(
+  string
+)
+ident(
+  def y "mips.ml" 88 2623 2635 "mips.ml" 88 2623 2675
+)
+"mips.ml" 88 2623 2636 "mips.ml" 88 2623 2637
+type(
+  label
+)
+ident(
+  def z "mips.ml" 88 2623 2649 "mips.ml" 88 2623 2675
+)
+"mips.ml" 88 2623 2649 "mips.ml" 88 2623 2652
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 88 2623 2653 "mips.ml" 88 2623 2669
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 88 2623 2670 "mips.ml" 88 2623 2671
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 88 2623 2631 "mips.ml" 88 2623 2632
+)
+"mips.ml" 88 2623 2672 "mips.ml" 88 2623 2673
+type(
+  string
+)
+ident(
+  int_ref y "mips.ml" 88 2623 2633 "mips.ml" 88 2623 2634
+)
+"mips.ml" 88 2623 2674 "mips.ml" 88 2623 2675
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 88 2623 2636 "mips.ml" 88 2623 2637
+)
+"mips.ml" 88 2623 2649 "mips.ml" 88 2623 2675
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 89 2676 2680 "mips.ml" 89 2676 2683
+type(
+  string -> string -> label -> 'a asm
+)
+ident(
+  def bne "mips.ml" 90 2729 2729 "mips.ml" 1 0 -1
+)
+"mips.ml" 89 2676 2684 "mips.ml" 89 2676 2685
+type(
+  string
+)
+ident(
+  def x "mips.ml" 89 2676 2686 "mips.ml" 89 2676 2728
+)
+"mips.ml" 89 2676 2686 "mips.ml" 89 2676 2687
+type(
+  string
+)
+ident(
+  def y "mips.ml" 89 2676 2688 "mips.ml" 89 2676 2728
+)
+"mips.ml" 89 2676 2689 "mips.ml" 89 2676 2690
+type(
+  label
+)
+ident(
+  def z "mips.ml" 89 2676 2702 "mips.ml" 89 2676 2728
+)
+"mips.ml" 89 2676 2702 "mips.ml" 89 2676 2705
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 89 2676 2706 "mips.ml" 89 2676 2722
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 89 2676 2723 "mips.ml" 89 2676 2724
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 89 2676 2684 "mips.ml" 89 2676 2685
+)
+"mips.ml" 89 2676 2725 "mips.ml" 89 2676 2726
+type(
+  string
+)
+ident(
+  int_ref y "mips.ml" 89 2676 2686 "mips.ml" 89 2676 2687
+)
+"mips.ml" 89 2676 2727 "mips.ml" 89 2676 2728
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 89 2676 2689 "mips.ml" 89 2676 2690
+)
+"mips.ml" 89 2676 2702 "mips.ml" 89 2676 2728
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 90 2729 2733 "mips.ml" 90 2729 2736
+type(
+  string -> string -> label -> 'a asm
+)
+ident(
+  def bge "mips.ml" 91 2782 2782 "mips.ml" 1 0 -1
+)
+"mips.ml" 90 2729 2737 "mips.ml" 90 2729 2738
+type(
+  string
+)
+ident(
+  def x "mips.ml" 90 2729 2739 "mips.ml" 90 2729 2781
+)
+"mips.ml" 90 2729 2739 "mips.ml" 90 2729 2740
+type(
+  string
+)
+ident(
+  def y "mips.ml" 90 2729 2741 "mips.ml" 90 2729 2781
+)
+"mips.ml" 90 2729 2742 "mips.ml" 90 2729 2743
+type(
+  label
+)
+ident(
+  def z "mips.ml" 90 2729 2755 "mips.ml" 90 2729 2781
+)
+"mips.ml" 90 2729 2755 "mips.ml" 90 2729 2758
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 90 2729 2759 "mips.ml" 90 2729 2775
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 90 2729 2776 "mips.ml" 90 2729 2777
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 90 2729 2737 "mips.ml" 90 2729 2738
+)
+"mips.ml" 90 2729 2778 "mips.ml" 90 2729 2779
+type(
+  string
+)
+ident(
+  int_ref y "mips.ml" 90 2729 2739 "mips.ml" 90 2729 2740
+)
+"mips.ml" 90 2729 2780 "mips.ml" 90 2729 2781
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 90 2729 2742 "mips.ml" 90 2729 2743
+)
+"mips.ml" 90 2729 2755 "mips.ml" 90 2729 2781
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 91 2782 2786 "mips.ml" 91 2782 2789
+type(
+  string -> string -> label -> 'a asm
+)
+ident(
+  def bgt "mips.ml" 92 2835 2835 "mips.ml" 1 0 -1
+)
+"mips.ml" 91 2782 2790 "mips.ml" 91 2782 2791
+type(
+  string
+)
+ident(
+  def x "mips.ml" 91 2782 2792 "mips.ml" 91 2782 2834
+)
+"mips.ml" 91 2782 2792 "mips.ml" 91 2782 2793
+type(
+  string
+)
+ident(
+  def y "mips.ml" 91 2782 2794 "mips.ml" 91 2782 2834
+)
+"mips.ml" 91 2782 2795 "mips.ml" 91 2782 2796
+type(
+  label
+)
+ident(
+  def z "mips.ml" 91 2782 2808 "mips.ml" 91 2782 2834
+)
+"mips.ml" 91 2782 2808 "mips.ml" 91 2782 2811
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 91 2782 2812 "mips.ml" 91 2782 2828
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 91 2782 2829 "mips.ml" 91 2782 2830
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 91 2782 2790 "mips.ml" 91 2782 2791
+)
+"mips.ml" 91 2782 2831 "mips.ml" 91 2782 2832
+type(
+  string
+)
+ident(
+  int_ref y "mips.ml" 91 2782 2792 "mips.ml" 91 2782 2793
+)
+"mips.ml" 91 2782 2833 "mips.ml" 91 2782 2834
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 91 2782 2795 "mips.ml" 91 2782 2796
+)
+"mips.ml" 91 2782 2808 "mips.ml" 91 2782 2834
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 92 2835 2839 "mips.ml" 92 2835 2842
+type(
+  string -> string -> label -> 'a asm
+)
+ident(
+  def ble "mips.ml" 93 2888 2888 "mips.ml" 1 0 -1
+)
+"mips.ml" 92 2835 2843 "mips.ml" 92 2835 2844
+type(
+  string
+)
+ident(
+  def x "mips.ml" 92 2835 2845 "mips.ml" 92 2835 2887
+)
+"mips.ml" 92 2835 2845 "mips.ml" 92 2835 2846
+type(
+  string
+)
+ident(
+  def y "mips.ml" 92 2835 2847 "mips.ml" 92 2835 2887
+)
+"mips.ml" 92 2835 2848 "mips.ml" 92 2835 2849
+type(
+  label
+)
+ident(
+  def z "mips.ml" 92 2835 2861 "mips.ml" 92 2835 2887
+)
+"mips.ml" 92 2835 2861 "mips.ml" 92 2835 2864
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 92 2835 2865 "mips.ml" 92 2835 2881
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 92 2835 2882 "mips.ml" 92 2835 2883
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 92 2835 2843 "mips.ml" 92 2835 2844
+)
+"mips.ml" 92 2835 2884 "mips.ml" 92 2835 2885
+type(
+  string
+)
+ident(
+  int_ref y "mips.ml" 92 2835 2845 "mips.ml" 92 2835 2846
+)
+"mips.ml" 92 2835 2886 "mips.ml" 92 2835 2887
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 92 2835 2848 "mips.ml" 92 2835 2849
+)
+"mips.ml" 92 2835 2861 "mips.ml" 92 2835 2887
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 93 2888 2892 "mips.ml" 93 2888 2895
+type(
+  string -> string -> label -> 'a asm
+)
+ident(
+  def blt "mips.ml" 95 2942 2942 "mips.ml" 1 0 -1
+)
+"mips.ml" 93 2888 2896 "mips.ml" 93 2888 2897
+type(
+  string
+)
+ident(
+  def x "mips.ml" 93 2888 2898 "mips.ml" 93 2888 2940
+)
+"mips.ml" 93 2888 2898 "mips.ml" 93 2888 2899
+type(
+  string
+)
+ident(
+  def y "mips.ml" 93 2888 2900 "mips.ml" 93 2888 2940
+)
+"mips.ml" 93 2888 2901 "mips.ml" 93 2888 2902
+type(
+  label
+)
+ident(
+  def z "mips.ml" 93 2888 2914 "mips.ml" 93 2888 2940
+)
+"mips.ml" 93 2888 2914 "mips.ml" 93 2888 2917
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4 -> string -> string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 93 2888 2918 "mips.ml" 93 2888 2934
+type(
+  (string -> string -> label -> 'a asm, Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 93 2888 2935 "mips.ml" 93 2888 2936
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 93 2888 2896 "mips.ml" 93 2888 2897
+)
+"mips.ml" 93 2888 2937 "mips.ml" 93 2888 2938
+type(
+  string
+)
+ident(
+  int_ref y "mips.ml" 93 2888 2898 "mips.ml" 93 2888 2899
+)
+"mips.ml" 93 2888 2939 "mips.ml" 93 2888 2940
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 93 2888 2901 "mips.ml" 93 2888 2902
+)
+"mips.ml" 93 2888 2914 "mips.ml" 93 2888 2940
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 95 2942 2946 "mips.ml" 95 2942 2950
+type(
+  string -> label -> 'a asm
+)
+ident(
+  def beqz "mips.ml" 96 2989 2989 "mips.ml" 1 0 -1
+)
+"mips.ml" 95 2942 2951 "mips.ml" 95 2942 2952
+type(
+  string
+)
+ident(
+  def x "mips.ml" 95 2942 2953 "mips.ml" 95 2942 2988
+)
+"mips.ml" 95 2942 2954 "mips.ml" 95 2942 2955
+type(
+  label
+)
+ident(
+  def z "mips.ml" 95 2942 2967 "mips.ml" 95 2942 2988
+)
+"mips.ml" 95 2942 2967 "mips.ml" 95 2942 2970
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 95 2942 2971 "mips.ml" 95 2942 2984
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 95 2942 2985 "mips.ml" 95 2942 2986
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 95 2942 2951 "mips.ml" 95 2942 2952
+)
+"mips.ml" 95 2942 2987 "mips.ml" 95 2942 2988
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 95 2942 2954 "mips.ml" 95 2942 2955
+)
+"mips.ml" 95 2942 2967 "mips.ml" 95 2942 2988
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 96 2989 2993 "mips.ml" 96 2989 2997
+type(
+  string -> label -> 'a asm
+)
+ident(
+  def bnez "mips.ml" 97 3036 3036 "mips.ml" 1 0 -1
+)
+"mips.ml" 96 2989 2998 "mips.ml" 96 2989 2999
+type(
+  string
+)
+ident(
+  def x "mips.ml" 96 2989 3000 "mips.ml" 96 2989 3035
+)
+"mips.ml" 96 2989 3001 "mips.ml" 96 2989 3002
+type(
+  label
+)
+ident(
+  def z "mips.ml" 96 2989 3014 "mips.ml" 96 2989 3035
+)
+"mips.ml" 96 2989 3014 "mips.ml" 96 2989 3017
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 96 2989 3018 "mips.ml" 96 2989 3031
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 96 2989 3032 "mips.ml" 96 2989 3033
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 96 2989 2998 "mips.ml" 96 2989 2999
+)
+"mips.ml" 96 2989 3034 "mips.ml" 96 2989 3035
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 96 2989 3001 "mips.ml" 96 2989 3002
+)
+"mips.ml" 96 2989 3014 "mips.ml" 96 2989 3035
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 97 3036 3040 "mips.ml" 97 3036 3044
+type(
+  string -> label -> 'a asm
+)
+ident(
+  def bgez "mips.ml" 98 3083 3083 "mips.ml" 1 0 -1
+)
+"mips.ml" 97 3036 3045 "mips.ml" 97 3036 3046
+type(
+  string
+)
+ident(
+  def x "mips.ml" 97 3036 3047 "mips.ml" 97 3036 3082
+)
+"mips.ml" 97 3036 3048 "mips.ml" 97 3036 3049
+type(
+  label
+)
+ident(
+  def z "mips.ml" 97 3036 3061 "mips.ml" 97 3036 3082
+)
+"mips.ml" 97 3036 3061 "mips.ml" 97 3036 3064
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 97 3036 3065 "mips.ml" 97 3036 3078
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 97 3036 3079 "mips.ml" 97 3036 3080
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 97 3036 3045 "mips.ml" 97 3036 3046
+)
+"mips.ml" 97 3036 3081 "mips.ml" 97 3036 3082
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 97 3036 3048 "mips.ml" 97 3036 3049
+)
+"mips.ml" 97 3036 3061 "mips.ml" 97 3036 3082
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 98 3083 3087 "mips.ml" 98 3083 3091
+type(
+  string -> label -> 'a asm
+)
+ident(
+  def bgtz "mips.ml" 99 3130 3130 "mips.ml" 1 0 -1
+)
+"mips.ml" 98 3083 3092 "mips.ml" 98 3083 3093
+type(
+  string
+)
+ident(
+  def x "mips.ml" 98 3083 3094 "mips.ml" 98 3083 3129
+)
+"mips.ml" 98 3083 3095 "mips.ml" 98 3083 3096
+type(
+  label
+)
+ident(
+  def z "mips.ml" 98 3083 3108 "mips.ml" 98 3083 3129
+)
+"mips.ml" 98 3083 3108 "mips.ml" 98 3083 3111
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 98 3083 3112 "mips.ml" 98 3083 3125
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 98 3083 3126 "mips.ml" 98 3083 3127
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 98 3083 3092 "mips.ml" 98 3083 3093
+)
+"mips.ml" 98 3083 3128 "mips.ml" 98 3083 3129
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 98 3083 3095 "mips.ml" 98 3083 3096
+)
+"mips.ml" 98 3083 3108 "mips.ml" 98 3083 3129
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 99 3130 3134 "mips.ml" 99 3130 3138
+type(
+  string -> label -> 'a asm
+)
+ident(
+  def blez "mips.ml" 100 3177 3177 "mips.ml" 1 0 -1
+)
+"mips.ml" 99 3130 3139 "mips.ml" 99 3130 3140
+type(
+  string
+)
+ident(
+  def x "mips.ml" 99 3130 3141 "mips.ml" 99 3130 3176
+)
+"mips.ml" 99 3130 3142 "mips.ml" 99 3130 3143
+type(
+  label
+)
+ident(
+  def z "mips.ml" 99 3130 3155 "mips.ml" 99 3130 3176
+)
+"mips.ml" 99 3130 3155 "mips.ml" 99 3130 3158
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 99 3130 3159 "mips.ml" 99 3130 3172
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 99 3130 3173 "mips.ml" 99 3130 3174
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 99 3130 3139 "mips.ml" 99 3130 3140
+)
+"mips.ml" 99 3130 3175 "mips.ml" 99 3130 3176
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 99 3130 3142 "mips.ml" 99 3130 3143
+)
+"mips.ml" 99 3130 3155 "mips.ml" 99 3130 3176
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 100 3177 3181 "mips.ml" 100 3177 3185
+type(
+  string -> label -> 'a asm
+)
+ident(
+  def bltz "mips.ml" 102 3225 3225 "mips.ml" 1 0 -1
+)
+"mips.ml" 100 3177 3186 "mips.ml" 100 3177 3187
+type(
+  string
+)
+ident(
+  def x "mips.ml" 100 3177 3188 "mips.ml" 100 3177 3223
+)
+"mips.ml" 100 3177 3189 "mips.ml" 100 3177 3190
+type(
+  label
+)
+ident(
+  def z "mips.ml" 100 3177 3202 "mips.ml" 100 3177 3223
+)
+"mips.ml" 100 3177 3202 "mips.ml" 100 3177 3205
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 100 3177 3206 "mips.ml" 100 3177 3219
+type(
+  (string -> label -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 100 3177 3220 "mips.ml" 100 3177 3221
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 100 3177 3186 "mips.ml" 100 3177 3187
+)
+"mips.ml" 100 3177 3222 "mips.ml" 100 3177 3223
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 100 3177 3189 "mips.ml" 100 3177 3190
+)
+"mips.ml" 100 3177 3202 "mips.ml" 100 3177 3223
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 102 3225 3229 "mips.ml" 102 3225 3231
+type(
+  string -> 'a asm
+)
+ident(
+  def jr "mips.ml" 103 3250 3250 "mips.ml" 1 0 -1
+)
+"mips.ml" 102 3225 3232 "mips.ml" 102 3225 3233
+type(
+  string
+)
+ident(
+  def a "mips.ml" 102 3225 3236 "mips.ml" 102 3225 3249
+)
+"mips.ml" 102 3225 3236 "mips.ml" 102 3225 3239
+type(
+  (string -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 102 3225 3240 "mips.ml" 102 3225 3247
+type(
+  (string -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 102 3225 3248 "mips.ml" 102 3225 3249
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 102 3225 3232 "mips.ml" 102 3225 3233
+)
+"mips.ml" 102 3225 3236 "mips.ml" 102 3225 3249
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 103 3250 3254 "mips.ml" 103 3250 3257
+type(
+  label -> 'a asm
+)
+ident(
+  def jal "mips.ml" 104 3287 3287 "mips.ml" 1 0 -1
+)
+"mips.ml" 103 3250 3259 "mips.ml" 103 3250 3260
+type(
+  label
+)
+ident(
+  def z "mips.ml" 103 3250 3272 "mips.ml" 103 3250 3286
+)
+"mips.ml" 103 3250 3272 "mips.ml" 103 3250 3275
+type(
+  (label -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  label -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 103 3250 3276 "mips.ml" 103 3250 3284
+type(
+  (label -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 103 3250 3285 "mips.ml" 103 3250 3286
+type(
+  label
+)
+ident(
+  int_ref z "mips.ml" 103 3250 3259 "mips.ml" 103 3250 3260
+)
+"mips.ml" 103 3250 3272 "mips.ml" 103 3250 3286
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 104 3287 3291 "mips.ml" 104 3287 3295
+type(
+  register -> 'a asm
+)
+ident(
+  def jalr "mips.ml" 105 3329 3329 "mips.ml" 1 0 -1
+)
+"mips.ml" 104 3287 3297 "mips.ml" 104 3287 3298
+type(
+  register
+)
+ident(
+  def z "mips.ml" 104 3287 3313 "mips.ml" 104 3287 3328
+)
+"mips.ml" 104 3287 3313 "mips.ml" 104 3287 3316
+type(
+  (register -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  register -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 104 3287 3317 "mips.ml" 104 3287 3326
+type(
+  (register -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 104 3287 3327 "mips.ml" 104 3287 3328
+type(
+  register
+)
+ident(
+  int_ref z "mips.ml" 104 3287 3297 "mips.ml" 104 3287 3298
+)
+"mips.ml" 104 3287 3313 "mips.ml" 104 3287 3328
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 105 3329 3333 "mips.ml" 105 3329 3335
+type(
+  string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  def la "mips.ml" 106 3378 3378 "mips.ml" 1 0 -1
+)
+"mips.ml" 105 3329 3336 "mips.ml" 105 3329 3337
+type(
+  string
+)
+ident(
+  def x "mips.ml" 105 3329 3338 "mips.ml" 105 3329 3377
+)
+"mips.ml" 105 3329 3339 "mips.ml" 105 3329 3340
+type(
+  'a address
+)
+ident(
+  def p "mips.ml" 105 3329 3358 "mips.ml" 105 3329 3377
+)
+"mips.ml" 105 3329 3358 "mips.ml" 105 3329 3361
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4 -> string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 105 3329 3362 "mips.ml" 105 3329 3373
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4
+)
+"mips.ml" 105 3329 3374 "mips.ml" 105 3329 3375
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 105 3329 3336 "mips.ml" 105 3329 3337
+)
+"mips.ml" 105 3329 3376 "mips.ml" 105 3329 3377
+type(
+  'a address
+)
+ident(
+  int_ref p "mips.ml" 105 3329 3339 "mips.ml" 105 3329 3340
+)
+"mips.ml" 105 3329 3358 "mips.ml" 105 3329 3377
+call(
+  tail
+)
+type(
+  'a -> 'b asm
+)
+"mips.ml" 106 3378 3382 "mips.ml" 106 3378 3384
+type(
+  string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  def lb "mips.ml" 107 3426 3426 "mips.ml" 1 0 -1
+)
+"mips.ml" 106 3378 3385 "mips.ml" 106 3378 3386
+type(
+  string
+)
+ident(
+  def x "mips.ml" 106 3378 3387 "mips.ml" 106 3378 3425
+)
+"mips.ml" 106 3378 3388 "mips.ml" 106 3378 3389
+type(
+  'a address
+)
+ident(
+  def p "mips.ml" 106 3378 3406 "mips.ml" 106 3378 3425
+)
+"mips.ml" 106 3378 3406 "mips.ml" 106 3378 3409
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4 -> string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 106 3378 3410 "mips.ml" 106 3378 3421
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4
+)
+"mips.ml" 106 3378 3422 "mips.ml" 106 3378 3423
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 106 3378 3385 "mips.ml" 106 3378 3386
+)
+"mips.ml" 106 3378 3424 "mips.ml" 106 3378 3425
+type(
+  'a address
+)
+ident(
+  int_ref p "mips.ml" 106 3378 3388 "mips.ml" 106 3378 3389
+)
+"mips.ml" 106 3378 3406 "mips.ml" 106 3378 3425
+call(
+  tail
+)
+type(
+  'a -> 'b asm
+)
+"mips.ml" 107 3426 3430 "mips.ml" 107 3426 3433
+type(
+  string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  def lbu "mips.ml" 108 3476 3476 "mips.ml" 1 0 -1
+)
+"mips.ml" 107 3426 3434 "mips.ml" 107 3426 3435
+type(
+  string
+)
+ident(
+  def x "mips.ml" 107 3426 3436 "mips.ml" 107 3426 3475
+)
+"mips.ml" 107 3426 3437 "mips.ml" 107 3426 3438
+type(
+  'a address
+)
+ident(
+  def p "mips.ml" 107 3426 3455 "mips.ml" 107 3426 3475
+)
+"mips.ml" 107 3426 3455 "mips.ml" 107 3426 3458
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4 -> string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 107 3426 3459 "mips.ml" 107 3426 3471
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4
+)
+"mips.ml" 107 3426 3472 "mips.ml" 107 3426 3473
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 107 3426 3434 "mips.ml" 107 3426 3435
+)
+"mips.ml" 107 3426 3474 "mips.ml" 107 3426 3475
+type(
+  'a address
+)
+ident(
+  int_ref p "mips.ml" 107 3426 3437 "mips.ml" 107 3426 3438
+)
+"mips.ml" 107 3426 3455 "mips.ml" 107 3426 3475
+call(
+  tail
+)
+type(
+  'a -> 'b asm
+)
+"mips.ml" 108 3476 3480 "mips.ml" 108 3476 3482
+type(
+  string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  def lw "mips.ml" 109 3524 3524 "mips.ml" 1 0 -1
+)
+"mips.ml" 108 3476 3483 "mips.ml" 108 3476 3484
+type(
+  string
+)
+ident(
+  def x "mips.ml" 108 3476 3485 "mips.ml" 108 3476 3523
+)
+"mips.ml" 108 3476 3486 "mips.ml" 108 3476 3487
+type(
+  'a address
+)
+ident(
+  def p "mips.ml" 108 3476 3504 "mips.ml" 108 3476 3523
+)
+"mips.ml" 108 3476 3504 "mips.ml" 108 3476 3507
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4 -> string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 108 3476 3508 "mips.ml" 108 3476 3519
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4
+)
+"mips.ml" 108 3476 3520 "mips.ml" 108 3476 3521
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 108 3476 3483 "mips.ml" 108 3476 3484
+)
+"mips.ml" 108 3476 3522 "mips.ml" 108 3476 3523
+type(
+  'a address
+)
+ident(
+  int_ref p "mips.ml" 108 3476 3486 "mips.ml" 108 3476 3487
+)
+"mips.ml" 108 3476 3504 "mips.ml" 108 3476 3523
+call(
+  tail
+)
+type(
+  'a -> 'b asm
+)
+"mips.ml" 109 3524 3528 "mips.ml" 109 3524 3530
+type(
+  string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  def sb "mips.ml" 110 3572 3572 "mips.ml" 1 0 -1
+)
+"mips.ml" 109 3524 3531 "mips.ml" 109 3524 3532
+type(
+  string
+)
+ident(
+  def x "mips.ml" 109 3524 3533 "mips.ml" 109 3524 3571
+)
+"mips.ml" 109 3524 3534 "mips.ml" 109 3524 3535
+type(
+  'a address
+)
+ident(
+  def p "mips.ml" 109 3524 3552 "mips.ml" 109 3524 3571
+)
+"mips.ml" 109 3524 3552 "mips.ml" 109 3524 3555
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4 -> string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 109 3524 3556 "mips.ml" 109 3524 3567
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4
+)
+"mips.ml" 109 3524 3568 "mips.ml" 109 3524 3569
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 109 3524 3531 "mips.ml" 109 3524 3532
+)
+"mips.ml" 109 3524 3570 "mips.ml" 109 3524 3571
+type(
+  'a address
+)
+ident(
+  int_ref p "mips.ml" 109 3524 3534 "mips.ml" 109 3524 3535
+)
+"mips.ml" 109 3524 3552 "mips.ml" 109 3524 3571
+call(
+  tail
+)
+type(
+  'a -> 'b asm
+)
+"mips.ml" 110 3572 3576 "mips.ml" 110 3572 3578
+type(
+  string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  def sw "mips.ml" 111 3620 3620 "mips.ml" 1 0 -1
+)
+"mips.ml" 110 3572 3579 "mips.ml" 110 3572 3580
+type(
+  string
+)
+ident(
+  def x "mips.ml" 110 3572 3581 "mips.ml" 110 3572 3619
+)
+"mips.ml" 110 3572 3582 "mips.ml" 110 3572 3583
+type(
+  'a address
+)
+ident(
+  def p "mips.ml" 110 3572 3600 "mips.ml" 110 3572 3619
+)
+"mips.ml" 110 3572 3600 "mips.ml" 110 3572 3603
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4 -> string -> 'a address -> 'a -> 'b asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 110 3572 3604 "mips.ml" 110 3572 3615
+type(
+  (string -> 'a address -> 'a -> 'b asm, Format.formatter, unit, 'b asm)
+  format4
+)
+"mips.ml" 110 3572 3616 "mips.ml" 110 3572 3617
+type(
+  string
+)
+ident(
+  int_ref x "mips.ml" 110 3572 3579 "mips.ml" 110 3572 3580
+)
+"mips.ml" 110 3572 3618 "mips.ml" 110 3572 3619
+type(
+  'a address
+)
+ident(
+  int_ref p "mips.ml" 110 3572 3582 "mips.ml" 110 3572 3583
+)
+"mips.ml" 110 3572 3600 "mips.ml" 110 3572 3619
+call(
+  tail
+)
+type(
+  'a -> 'b asm
+)
+"mips.ml" 111 3620 3624 "mips.ml" 111 3620 3628
+type(
+  string -> string -> 'a asm
+)
+ident(
+  def move "mips.ml" 112 3657 3657 "mips.ml" 1 0 -1
+)
+"mips.ml" 111 3620 3629 "mips.ml" 111 3620 3630
+type(
+  string
+)
+ident(
+  def a "mips.ml" 111 3620 3631 "mips.ml" 111 3620 3656
+)
+"mips.ml" 111 3620 3631 "mips.ml" 111 3620 3632
+type(
+  string
+)
+ident(
+  def b "mips.ml" 111 3620 3635 "mips.ml" 111 3620 3656
+)
+"mips.ml" 111 3620 3635 "mips.ml" 111 3620 3638
+type(
+  (string -> string -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 111 3620 3639 "mips.ml" 111 3620 3652
+type(
+  (string -> string -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 111 3620 3653 "mips.ml" 111 3620 3654
+type(
+  string
+)
+ident(
+  int_ref a "mips.ml" 111 3620 3629 "mips.ml" 111 3620 3630
+)
+"mips.ml" 111 3620 3655 "mips.ml" 111 3620 3656
+type(
+  string
+)
+ident(
+  int_ref b "mips.ml" 111 3620 3631 "mips.ml" 111 3620 3632
+)
+"mips.ml" 111 3620 3635 "mips.ml" 111 3620 3656
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 112 3657 3661 "mips.ml" 112 3657 3664
+type(
+  'a asm
+)
+ident(
+  def nop "mips.ml" 113 3671 3671 "mips.ml" 1 0 -1
+)
+"mips.ml" 112 3657 3667 "mips.ml" 112 3657 3670
+type(
+  'a asm
+)
+"mips.ml" 113 3671 3675 "mips.ml" 113 3671 3680
+type(
+  label -> 'a asm
+)
+ident(
+  def label "mips.ml" 114 3709 3709 "mips.ml" 1 0 -1
+)
+"mips.ml" 113 3671 3682 "mips.ml" 113 3671 3683
+type(
+  label
+)
+ident(
+  def s "mips.ml" 113 3671 3695 "mips.ml" 113 3671 3708
+)
+"mips.ml" 113 3671 3698 "mips.ml" 113 3671 3699
+type(
+  label
+)
+ident(
+  int_ref s "mips.ml" 113 3671 3682 "mips.ml" 113 3671 3683
+)
+"mips.ml" 113 3671 3700 "mips.ml" 113 3671 3701
+type(
+  label -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"mips.ml" 113 3671 3702 "mips.ml" 113 3671 3707
+type(
+  string
+)
+"mips.ml" 113 3671 3697 "mips.ml" 113 3671 3708
+call(
+  stack
+)
+type(
+  string
+)
+"mips.ml" 113 3671 3695 "mips.ml" 113 3671 3708
+type(
+  'a asm
+)
+"mips.ml" 114 3709 3713 "mips.ml" 114 3709 3720
+type(
+  'a asm
+)
+ident(
+  def syscall "mips.ml" 115 3739 3739 "mips.ml" 1 0 -1
+)
+"mips.ml" 114 3709 3725 "mips.ml" 114 3709 3738
+type(
+  string
+)
+"mips.ml" 114 3709 3723 "mips.ml" 114 3709 3738
+type(
+  'a asm
+)
+"mips.ml" 115 3739 3743 "mips.ml" 115 3739 3750
+type(
+  string -> 'a asm
+)
+ident(
+  def comment "mips.ml" 116 3774 3774 "mips.ml" 1 0 -1
+)
+"mips.ml" 115 3739 3751 "mips.ml" 115 3739 3752
+type(
+  string
+)
+ident(
+  def s "mips.ml" 115 3739 3755 "mips.ml" 115 3739 3773
+)
+"mips.ml" 115 3739 3758 "mips.ml" 115 3739 3761
+type(
+  string
+)
+"mips.ml" 115 3739 3762 "mips.ml" 115 3739 3763
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"mips.ml" 115 3739 3764 "mips.ml" 115 3739 3765
+type(
+  string
+)
+ident(
+  int_ref s "mips.ml" 115 3739 3751 "mips.ml" 115 3739 3752
+)
+"mips.ml" 115 3739 3766 "mips.ml" 115 3739 3767
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"mips.ml" 115 3739 3768 "mips.ml" 115 3739 3772
+type(
+  string
+)
+"mips.ml" 115 3739 3764 "mips.ml" 115 3739 3772
+call(
+  stack
+)
+type(
+  string
+)
+"mips.ml" 115 3739 3757 "mips.ml" 115 3739 3773
+call(
+  stack
+)
+type(
+  string
+)
+"mips.ml" 115 3739 3755 "mips.ml" 115 3739 3773
+type(
+  'a asm
+)
+"mips.ml" 116 3774 3778 "mips.ml" 116 3774 3783
+type(
+  int -> 'a asm
+)
+ident(
+  def align "mips.ml" 117 3806 3806 "mips.ml" 1 0 -1
+)
+"mips.ml" 116 3774 3784 "mips.ml" 116 3774 3785
+type(
+  int
+)
+ident(
+  def n "mips.ml" 116 3774 3788 "mips.ml" 116 3774 3805
+)
+"mips.ml" 116 3774 3788 "mips.ml" 116 3774 3791
+type(
+  (int -> 'a asm, Format.formatter, unit, 'a asm) format4 -> int -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 116 3774 3792 "mips.ml" 116 3774 3803
+type(
+  (int -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 116 3774 3804 "mips.ml" 116 3774 3805
+type(
+  int
+)
+ident(
+  int_ref n "mips.ml" 116 3774 3784 "mips.ml" 116 3774 3785
+)
+"mips.ml" 116 3774 3788 "mips.ml" 116 3774 3805
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 117 3806 3810 "mips.ml" 117 3806 3816
+type(
+  string -> 'a asm
+)
+ident(
+  def asciiz "mips.ml" 118 3840 3840 "mips.ml" 1 0 -1
+)
+"mips.ml" 117 3806 3817 "mips.ml" 117 3806 3818
+type(
+  string
+)
+ident(
+  def s "mips.ml" 117 3806 3821 "mips.ml" 117 3806 3839
+)
+"mips.ml" 117 3806 3821 "mips.ml" 117 3806 3824
+type(
+  (string -> 'a asm, Format.formatter, unit, 'a asm) format4 ->
+  string -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 117 3806 3825 "mips.ml" 117 3806 3837
+type(
+  (string -> 'a asm, Format.formatter, unit, 'a asm) format4
+)
+"mips.ml" 117 3806 3838 "mips.ml" 117 3806 3839
+type(
+  string
+)
+ident(
+  int_ref s "mips.ml" 117 3806 3817 "mips.ml" 117 3806 3818
+)
+"mips.ml" 117 3806 3821 "mips.ml" 117 3806 3839
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 118 3840 3844 "mips.ml" 118 3840 3849
+type(
+  int list -> 'a asm
+)
+ident(
+  def dword "mips.ml" 119 3880 3880 "mips.ml" 1 0 -1
+)
+"mips.ml" 118 3840 3850 "mips.ml" 118 3840 3851
+type(
+  int list
+)
+ident(
+  def l "mips.ml" 118 3840 3854 "mips.ml" 118 3840 3879
+)
+"mips.ml" 118 3840 3854 "mips.ml" 118 3840 3857
+type(
+  ((Format.formatter -> int list -> unit) -> int list -> 'a asm,
+   Format.formatter, unit, 'a asm)
+  format4 -> (Format.formatter -> int list -> unit) -> int list -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 118 3840 3858 "mips.ml" 118 3840 3868
+type(
+  ((Format.formatter -> int list -> unit) -> int list -> 'a asm,
+   Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 118 3840 3869 "mips.ml" 118 3840 3877
+type(
+  Format.formatter -> int list -> unit
+)
+ident(
+  int_ref pr_ilist "mips.ml" 62 1576 1580 "mips.ml" 62 1576 1588
+)
+"mips.ml" 118 3840 3878 "mips.ml" 118 3840 3879
+type(
+  int list
+)
+ident(
+  int_ref l "mips.ml" 118 3840 3850 "mips.ml" 118 3840 3851
+)
+"mips.ml" 118 3840 3854 "mips.ml" 118 3840 3879
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 119 3880 3884 "mips.ml" 119 3880 3891
+type(
+  label list -> 'a asm
+)
+ident(
+  def address "mips.ml" 120 3922 3922 "mips.ml" 1 0 -1
+)
+"mips.ml" 119 3880 3892 "mips.ml" 119 3880 3893
+type(
+  label list
+)
+ident(
+  def l "mips.ml" 119 3880 3896 "mips.ml" 119 3880 3921
+)
+"mips.ml" 119 3880 3896 "mips.ml" 119 3880 3899
+type(
+  ((Format.formatter -> label list -> unit) -> label list -> 'a asm,
+   Format.formatter, unit, 'a asm)
+  format4 -> (Format.formatter -> label list -> unit) -> label list -> 'a asm
+)
+ident(
+  int_ref ins "mips.ml" 47 1242 1246 "mips.ml" 47 1242 1249
+)
+"mips.ml" 119 3880 3900 "mips.ml" 119 3880 3910
+type(
+  ((Format.formatter -> label list -> unit) -> label list -> 'a asm,
+   Format.formatter, unit, 'a asm)
+  format4
+)
+"mips.ml" 119 3880 3911 "mips.ml" 119 3880 3919
+type(
+  Format.formatter -> label list -> unit
+)
+ident(
+  int_ref pr_alist "mips.ml" 65 1648 1652 "mips.ml" 65 1648 1660
+)
+"mips.ml" 119 3880 3920 "mips.ml" 119 3880 3921
+type(
+  label list
+)
+ident(
+  int_ref l "mips.ml" 119 3880 3892 "mips.ml" 119 3880 3893
+)
+"mips.ml" 119 3880 3896 "mips.ml" 119 3880 3921
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 120 3922 3926 "mips.ml" 120 3922 3930
+type(
+  'a asm -> 'a asm -> 'a asm
+)
+ident(
+  def ++ "mips.ml" 123 3950 3950 "mips.ml" 1 0 -1
+)
+"mips.ml" 120 3922 3931 "mips.ml" 120 3922 3932
+type(
+  'a asm
+)
+ident(
+  def x "mips.ml" 120 3922 3933 "mips.ml" 120 3922 3947
+)
+"mips.ml" 120 3922 3933 "mips.ml" 120 3922 3934
+type(
+  'a asm
+)
+ident(
+  def y "mips.ml" 120 3922 3937 "mips.ml" 120 3922 3947
+)
+"mips.ml" 120 3922 3942 "mips.ml" 120 3922 3943
+type(
+  'a asm
+)
+ident(
+  int_ref x "mips.ml" 120 3922 3931 "mips.ml" 120 3922 3932
+)
+"mips.ml" 120 3922 3945 "mips.ml" 120 3922 3946
+type(
+  'a asm
+)
+ident(
+  int_ref y "mips.ml" 120 3922 3933 "mips.ml" 120 3922 3934
+)
+"mips.ml" 120 3922 3937 "mips.ml" 120 3922 3947
+type(
+  'a asm
+)
+"mips.ml" 123 3950 3954 "mips.ml" 123 3950 3958
+type(
+  string -> 'a asm
+)
+ident(
+  def push "mips.ml" 127 4004 4004 "mips.ml" 1 0 -1
+)
+"mips.ml" 123 3950 3959 "mips.ml" 123 3950 3960
+type(
+  string
+)
+ident(
+  def r "mips.ml" 124 3963 3965 "mips.ml" 125 3983 4002
+)
+"mips.ml" 124 3963 3965 "mips.ml" 124 3963 3968
+type(
+  register -> register -> int operand -> int -> 'a asm
+)
+ident(
+  int_ref sub "mips.ml" 78 2205 2209 "mips.ml" 78 2205 2212
+)
+"mips.ml" 124 3963 3969 "mips.ml" 124 3963 3971
+type(
+  register
+)
+ident(
+  int_ref sp "mips.ml" 23 509 513 "mips.ml" 23 509 515
+)
+"mips.ml" 124 3963 3972 "mips.ml" 124 3963 3974
+type(
+  register
+)
+ident(
+  int_ref sp "mips.ml" 23 509 513 "mips.ml" 23 509 515
+)
+"mips.ml" 124 3963 3975 "mips.ml" 124 3963 3977
+type(
+  int operand
+)
+ident(
+  int_ref oi "mips.ml" 34 948 952 "mips.ml" 34 948 954
+)
+"mips.ml" 124 3963 3978 "mips.ml" 124 3963 3979
+type(
+  int
+)
+"mips.ml" 124 3963 3965 "mips.ml" 124 3963 3979
+call(
+  stack
+)
+type(
+  'a asm
+)
+"mips.ml" 124 3963 3980 "mips.ml" 124 3963 3982
+type(
+  'a asm -> 'a asm -> 'a asm
+)
+ident(
+  int_ref ++ "mips.ml" 120 3922 3926 "mips.ml" 120 3922 3930
+)
+"mips.ml" 125 3983 3985 "mips.ml" 125 3983 3987
+type(
+  string -> (int * register) address -> int * register -> 'a asm
+)
+ident(
+  int_ref sw "mips.ml" 110 3572 3576 "mips.ml" 110 3572 3578
+)
+"mips.ml" 125 3983 3988 "mips.ml" 125 3983 3989
+type(
+  string
+)
+ident(
+  int_ref r "mips.ml" 123 3950 3959 "mips.ml" 123 3950 3960
+)
+"mips.ml" 125 3983 3990 "mips.ml" 125 3983 3994
+type(
+  (int * register) address
+)
+ident(
+  int_ref areg "mips.ml" 31 750 754 "mips.ml" 31 750 758
+)
+"mips.ml" 125 3983 3996 "mips.ml" 125 3983 3997
+type(
+  int
+)
+"mips.ml" 125 3983 3999 "mips.ml" 125 3983 4001
+type(
+  register
+)
+ident(
+  int_ref sp "mips.ml" 23 509 513 "mips.ml" 23 509 515
+)
+"mips.ml" 125 3983 3995 "mips.ml" 125 3983 4002
+type(
+  int * register
+)
+"mips.ml" 125 3983 3985 "mips.ml" 125 3983 4002
+call(
+  stack
+)
+type(
+  'a asm
+)
+"mips.ml" 124 3963 3965 "mips.ml" 125 3983 4002
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 127 4004 4008 "mips.ml" 127 4004 4012
+type(
+  string -> 'a asm
+)
+ident(
+  def peek "mips.ml" 130 4038 4038 "mips.ml" 1 0 -1
+)
+"mips.ml" 127 4004 4013 "mips.ml" 127 4004 4014
+type(
+  string
+)
+ident(
+  def r "mips.ml" 128 4017 4019 "mips.ml" 128 4017 4036
+)
+"mips.ml" 128 4017 4019 "mips.ml" 128 4017 4021
+type(
+  string -> (int * register) address -> int * register -> 'a asm
+)
+ident(
+  int_ref lw "mips.ml" 108 3476 3480 "mips.ml" 108 3476 3482
+)
+"mips.ml" 128 4017 4022 "mips.ml" 128 4017 4023
+type(
+  string
+)
+ident(
+  int_ref r "mips.ml" 127 4004 4013 "mips.ml" 127 4004 4014
+)
+"mips.ml" 128 4017 4024 "mips.ml" 128 4017 4028
+type(
+  (int * register) address
+)
+ident(
+  int_ref areg "mips.ml" 31 750 754 "mips.ml" 31 750 758
+)
+"mips.ml" 128 4017 4030 "mips.ml" 128 4017 4031
+type(
+  int
+)
+"mips.ml" 128 4017 4033 "mips.ml" 128 4017 4035
+type(
+  register
+)
+ident(
+  int_ref sp "mips.ml" 23 509 513 "mips.ml" 23 509 515
+)
+"mips.ml" 128 4017 4029 "mips.ml" 128 4017 4036
+type(
+  int * register
+)
+"mips.ml" 128 4017 4019 "mips.ml" 128 4017 4036
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 130 4038 4042 "mips.ml" 130 4038 4045
+type(
+  string -> 'a asm
+)
+ident(
+  def pop "mips.ml" 134 4080 4080 "mips.ml" 1 0 -1
+)
+"mips.ml" 130 4038 4046 "mips.ml" 130 4038 4047
+type(
+  string
+)
+ident(
+  def r "mips.ml" 131 4050 4052 "mips.ml" 132 4062 4078
+)
+"mips.ml" 131 4050 4052 "mips.ml" 131 4050 4056
+type(
+  string -> 'a asm
+)
+ident(
+  int_ref peek "mips.ml" 127 4004 4008 "mips.ml" 127 4004 4012
+)
+"mips.ml" 131 4050 4057 "mips.ml" 131 4050 4058
+type(
+  string
+)
+ident(
+  int_ref r "mips.ml" 130 4038 4046 "mips.ml" 130 4038 4047
+)
+"mips.ml" 131 4050 4052 "mips.ml" 131 4050 4058
+call(
+  stack
+)
+type(
+  'a asm
+)
+"mips.ml" 131 4050 4059 "mips.ml" 131 4050 4061
+type(
+  'a asm -> 'a asm -> 'a asm
+)
+ident(
+  int_ref ++ "mips.ml" 120 3922 3926 "mips.ml" 120 3922 3930
+)
+"mips.ml" 132 4062 4064 "mips.ml" 132 4062 4067
+type(
+  register -> register -> int operand -> int -> 'a asm
+)
+ident(
+  int_ref add "mips.ml" 69 1765 1769 "mips.ml" 69 1765 1772
+)
+"mips.ml" 132 4062 4068 "mips.ml" 132 4062 4070
+type(
+  register
+)
+ident(
+  int_ref sp "mips.ml" 23 509 513 "mips.ml" 23 509 515
+)
+"mips.ml" 132 4062 4071 "mips.ml" 132 4062 4073
+type(
+  register
+)
+ident(
+  int_ref sp "mips.ml" 23 509 513 "mips.ml" 23 509 515
+)
+"mips.ml" 132 4062 4074 "mips.ml" 132 4062 4076
+type(
+  int operand
+)
+ident(
+  int_ref oi "mips.ml" 34 948 952 "mips.ml" 34 948 954
+)
+"mips.ml" 132 4062 4077 "mips.ml" 132 4062 4078
+type(
+  int
+)
+"mips.ml" 132 4062 4064 "mips.ml" 132 4062 4078
+call(
+  stack
+)
+type(
+  'a asm
+)
+"mips.ml" 131 4050 4052 "mips.ml" 132 4062 4078
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 134 4080 4084 "mips.ml" 134 4080 4088
+type(
+  int -> 'a asm
+)
+ident(
+  def popn "mips.ml" 137 4111 4111 "mips.ml" 1 0 -1
+)
+"mips.ml" 134 4080 4089 "mips.ml" 134 4080 4090
+type(
+  int
+)
+ident(
+  def n "mips.ml" 135 4093 4095 "mips.ml" 135 4093 4109
+)
+"mips.ml" 135 4093 4095 "mips.ml" 135 4093 4098
+type(
+  register -> register -> int operand -> int -> 'a asm
+)
+ident(
+  int_ref add "mips.ml" 69 1765 1769 "mips.ml" 69 1765 1772
+)
+"mips.ml" 135 4093 4099 "mips.ml" 135 4093 4101
+type(
+  register
+)
+ident(
+  int_ref sp "mips.ml" 23 509 513 "mips.ml" 23 509 515
+)
+"mips.ml" 135 4093 4102 "mips.ml" 135 4093 4104
+type(
+  register
+)
+ident(
+  int_ref sp "mips.ml" 23 509 513 "mips.ml" 23 509 515
+)
+"mips.ml" 135 4093 4105 "mips.ml" 135 4093 4107
+type(
+  int operand
+)
+ident(
+  int_ref oi "mips.ml" 34 948 952 "mips.ml" 34 948 954
+)
+"mips.ml" 135 4093 4108 "mips.ml" 135 4093 4109
+type(
+  int
+)
+ident(
+  int_ref n "mips.ml" 134 4080 4089 "mips.ml" 134 4080 4090
+)
+"mips.ml" 135 4093 4095 "mips.ml" 135 4093 4109
+call(
+  tail
+)
+type(
+  'a asm
+)
+"mips.ml" 142 4179 4187 "mips.ml" 142 4179 4193
+type(
+  Format.formatter -> 'a asm -> unit
+)
+ident(
+  def pr_asm "mips.ml" 142 4179 4179 "mips.ml" 1 0 -1
+)
+"mips.ml" 142 4179 4194 "mips.ml" 142 4179 4197
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 142 4179 4200 "mips.ml" 145 4271 4319
+)
+"mips.ml" 143 4209 4213 "mips.ml" 143 4209 4216
+type(
+  'a asm
+)
+"mips.ml" 143 4209 4229 "mips.ml" 143 4209 4231
+type(
+  unit
+)
+"mips.ml" 144 4232 4238 "mips.ml" 144 4232 4239
+type(
+  string
+)
+ident(
+  def s "mips.ml" 144 4232 4252 "mips.ml" 144 4232 4270
+)
+"mips.ml" 144 4232 4236 "mips.ml" 144 4232 4239
+type(
+  'a asm
+)
+"mips.ml" 144 4232 4252 "mips.ml" 144 4232 4259
+type(
+  Format.formatter ->
+  (string -> unit, Format.formatter, unit) format -> string -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 144 4232 4260 "mips.ml" 144 4232 4263
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 142 4179 4194 "mips.ml" 142 4179 4197
+)
+"mips.ml" 144 4232 4264 "mips.ml" 144 4232 4268
+type(
+  (string -> unit, Format.formatter, unit) format
+)
+"mips.ml" 144 4232 4269 "mips.ml" 144 4232 4270
+type(
+  string
+)
+ident(
+  int_ref s "mips.ml" 144 4232 4238 "mips.ml" 144 4232 4239
+)
+"mips.ml" 144 4232 4252 "mips.ml" 144 4232 4270
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 145 4271 4280 "mips.ml" 145 4271 4282
+type(
+  'a asm
+)
+ident(
+  def a1 "mips.ml" 145 4271 4291 "mips.ml" 145 4271 4319
+)
+"mips.ml" 145 4271 4284 "mips.ml" 145 4271 4286
+type(
+  'a asm
+)
+ident(
+  def a2 "mips.ml" 145 4271 4291 "mips.ml" 145 4271 4319
+)
+"mips.ml" 145 4271 4275 "mips.ml" 145 4271 4287
+type(
+  'a asm
+)
+"mips.ml" 145 4271 4291 "mips.ml" 145 4271 4297
+type(
+  Format.formatter -> 'a asm -> unit
+)
+ident(
+  int_ref pr_asm "mips.ml" 142 4179 4187 "mips.ml" 142 4179 4193
+)
+"mips.ml" 145 4271 4298 "mips.ml" 145 4271 4301
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 142 4179 4194 "mips.ml" 142 4179 4197
+)
+"mips.ml" 145 4271 4302 "mips.ml" 145 4271 4304
+type(
+  'a asm
+)
+ident(
+  int_ref a1 "mips.ml" 145 4271 4280 "mips.ml" 145 4271 4282
+)
+"mips.ml" 145 4271 4291 "mips.ml" 145 4271 4304
+call(
+  stack
+)
+type(
+  unit
+)
+"mips.ml" 145 4271 4306 "mips.ml" 145 4271 4312
+type(
+  Format.formatter -> 'a asm -> unit
+)
+ident(
+  int_ref pr_asm "mips.ml" 142 4179 4187 "mips.ml" 142 4179 4193
+)
+"mips.ml" 145 4271 4313 "mips.ml" 145 4271 4316
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 142 4179 4194 "mips.ml" 142 4179 4197
+)
+"mips.ml" 145 4271 4317 "mips.ml" 145 4271 4319
+type(
+  'a asm
+)
+ident(
+  int_ref a2 "mips.ml" 145 4271 4284 "mips.ml" 145 4271 4286
+)
+"mips.ml" 145 4271 4306 "mips.ml" 145 4271 4319
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 145 4271 4291 "mips.ml" 145 4271 4319
+type(
+  unit
+)
+"mips.ml" 142 4179 4200 "mips.ml" 145 4271 4319
+type(
+  'a asm -> unit
+)
+"mips.ml" 147 4321 4325 "mips.ml" 147 4321 4338
+type(
+  Format.formatter -> program -> unit
+)
+ident(
+  def print_program "mips.ml" 154 4464 4464 "mips.ml" 1 0 -1
+)
+"mips.ml" 147 4321 4339 "mips.ml" 147 4321 4342
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 147 4321 4343 "mips.ml" 152 4439 4462
+)
+"mips.ml" 147 4321 4343 "mips.ml" 147 4321 4344
+type(
+  program
+)
+ident(
+  def p "mips.ml" 148 4347 4349 "mips.ml" 152 4439 4462
+)
+"mips.ml" 148 4347 4349 "mips.ml" 148 4347 4356
+type(
+  Format.formatter -> (unit, Format.formatter, unit) format -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 148 4347 4357 "mips.ml" 148 4347 4360
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 147 4321 4339 "mips.ml" 147 4321 4342
+)
+"mips.ml" 148 4347 4361 "mips.ml" 148 4347 4370
+type(
+  (unit, Format.formatter, unit) format
+)
+"mips.ml" 148 4347 4349 "mips.ml" 148 4347 4370
+call(
+  stack
+)
+type(
+  unit
+)
+"mips.ml" 149 4372 4374 "mips.ml" 149 4372 4380
+type(
+  Format.formatter -> [ `text ] asm -> unit
+)
+ident(
+  int_ref pr_asm "mips.ml" 142 4179 4187 "mips.ml" 142 4179 4193
+)
+"mips.ml" 149 4372 4381 "mips.ml" 149 4372 4384
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 147 4321 4339 "mips.ml" 147 4321 4342
+)
+"mips.ml" 149 4372 4385 "mips.ml" 149 4372 4386
+type(
+  program
+)
+ident(
+  int_ref p "mips.ml" 147 4321 4343 "mips.ml" 147 4321 4344
+)
+"mips.ml" 149 4372 4385 "mips.ml" 149 4372 4391
+type(
+  [ `text ] asm
+)
+"mips.ml" 149 4372 4374 "mips.ml" 149 4372 4391
+call(
+  stack
+)
+type(
+  unit
+)
+"mips.ml" 150 4393 4395 "mips.ml" 150 4393 4402
+type(
+  Format.formatter -> (unit, Format.formatter, unit) format -> unit
+)
+ident(
+  ext_ref Format.fprintf
+)
+"mips.ml" 150 4393 4403 "mips.ml" 150 4393 4406
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 147 4321 4339 "mips.ml" 147 4321 4342
+)
+"mips.ml" 150 4393 4407 "mips.ml" 150 4393 4416
+type(
+  (unit, Format.formatter, unit) format
+)
+"mips.ml" 150 4393 4395 "mips.ml" 150 4393 4416
+call(
+  stack
+)
+type(
+  unit
+)
+"mips.ml" 151 4418 4420 "mips.ml" 151 4418 4426
+type(
+  Format.formatter -> [ `data ] asm -> unit
+)
+ident(
+  int_ref pr_asm "mips.ml" 142 4179 4187 "mips.ml" 142 4179 4193
+)
+"mips.ml" 151 4418 4427 "mips.ml" 151 4418 4430
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 147 4321 4339 "mips.ml" 147 4321 4342
+)
+"mips.ml" 151 4418 4431 "mips.ml" 151 4418 4432
+type(
+  program
+)
+ident(
+  int_ref p "mips.ml" 147 4321 4343 "mips.ml" 147 4321 4344
+)
+"mips.ml" 151 4418 4431 "mips.ml" 151 4418 4437
+type(
+  [ `data ] asm
+)
+"mips.ml" 151 4418 4420 "mips.ml" 151 4418 4437
+call(
+  stack
+)
+type(
+  unit
+)
+"mips.ml" 152 4439 4441 "mips.ml" 152 4439 4455
+type(
+  Format.formatter -> unit -> unit
+)
+ident(
+  ext_ref Format.pp_print_flush
+)
+"mips.ml" 152 4439 4456 "mips.ml" 152 4439 4459
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 147 4321 4339 "mips.ml" 147 4321 4342
+)
+"mips.ml" 152 4439 4460 "mips.ml" 152 4439 4462
+type(
+  unit
+)
+"mips.ml" 152 4439 4441 "mips.ml" 152 4439 4462
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 151 4418 4420 "mips.ml" 152 4439 4462
+type(
+  unit
+)
+"mips.ml" 150 4393 4395 "mips.ml" 152 4439 4462
+type(
+  unit
+)
+"mips.ml" 149 4372 4374 "mips.ml" 152 4439 4462
+type(
+  unit
+)
+"mips.ml" 148 4347 4349 "mips.ml" 152 4439 4462
+type(
+  unit
+)
+"mips.ml" 154 4464 4468 "mips.ml" 154 4464 4481
+type(
+  file:string -> program -> unit
+)
+ident(
+  def print_in_file "mips.ml" 158 4584 4597 "mips.ml" 1 0 -1
+)
+"mips.ml" 154 4464 4483 "mips.ml" 154 4464 4487
+type(
+  string
+)
+ident(
+  def file "mips.ml" 154 4464 4488 "mips.ml" 158 4584 4597
+)
+"mips.ml" 154 4464 4488 "mips.ml" 154 4464 4489
+type(
+  program
+)
+ident(
+  def p "mips.ml" 155 4492 4494 "mips.ml" 158 4584 4597
+)
+"mips.ml" 155 4492 4498 "mips.ml" 155 4492 4499
+type(
+  out_channel
+)
+ident(
+  def c "mips.ml" 156 4519 4521 "mips.ml" 158 4584 4597
+)
+"mips.ml" 155 4492 4502 "mips.ml" 155 4492 4510
+type(
+  string -> out_channel
+)
+ident(
+  ext_ref Pervasives.open_out
+)
+"mips.ml" 155 4492 4511 "mips.ml" 155 4492 4515
+type(
+  string
+)
+ident(
+  int_ref file "mips.ml" 154 4464 4483 "mips.ml" 154 4464 4487
+)
+"mips.ml" 155 4492 4502 "mips.ml" 155 4492 4515
+call(
+  stack
+)
+type(
+  out_channel
+)
+"mips.ml" 156 4519 4525 "mips.ml" 156 4519 4528
+type(
+  Format.formatter
+)
+ident(
+  def fmt "mips.ml" 157 4561 4563 "mips.ml" 158 4584 4597
+)
+"mips.ml" 156 4519 4531 "mips.ml" 156 4519 4555
+type(
+  out_channel -> Format.formatter
+)
+ident(
+  ext_ref Format.formatter_of_out_channel
+)
+"mips.ml" 156 4519 4556 "mips.ml" 156 4519 4557
+type(
+  out_channel
+)
+ident(
+  int_ref c "mips.ml" 155 4492 4498 "mips.ml" 155 4492 4499
+)
+"mips.ml" 156 4519 4531 "mips.ml" 156 4519 4557
+call(
+  stack
+)
+type(
+  Format.formatter
+)
+"mips.ml" 157 4561 4563 "mips.ml" 157 4561 4576
+type(
+  Format.formatter -> program -> unit
+)
+ident(
+  int_ref print_program "mips.ml" 147 4321 4325 "mips.ml" 147 4321 4338
+)
+"mips.ml" 157 4561 4577 "mips.ml" 157 4561 4580
+type(
+  Format.formatter
+)
+ident(
+  int_ref fmt "mips.ml" 156 4519 4525 "mips.ml" 156 4519 4528
+)
+"mips.ml" 157 4561 4581 "mips.ml" 157 4561 4582
+type(
+  program
+)
+ident(
+  int_ref p "mips.ml" 154 4464 4488 "mips.ml" 154 4464 4489
+)
+"mips.ml" 157 4561 4563 "mips.ml" 157 4561 4582
+call(
+  stack
+)
+type(
+  unit
+)
+"mips.ml" 158 4584 4586 "mips.ml" 158 4584 4595
+type(
+  out_channel -> unit
+)
+ident(
+  ext_ref Pervasives.close_out
+)
+"mips.ml" 158 4584 4596 "mips.ml" 158 4584 4597
+type(
+  out_channel
+)
+ident(
+  int_ref c "mips.ml" 155 4492 4498 "mips.ml" 155 4492 4499
+)
+"mips.ml" 158 4584 4586 "mips.ml" 158 4584 4597
+call(
+  tail
+)
+type(
+  unit
+)
+"mips.ml" 157 4561 4563 "mips.ml" 158 4584 4597
+type(
+  unit
+)
+"mips.ml" 156 4519 4521 "mips.ml" 158 4584 4597
+type(
+  unit
+)
+"mips.ml" 155 4492 4494 "mips.ml" 158 4584 4597
+type(
+  unit
+)

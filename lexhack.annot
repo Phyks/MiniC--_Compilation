@@ -1,0 +1,25 @@
+"lexhack.ml" 1 0 4 "lexhack.ml" 1 0 17
+type(
+  string list ref
+)
+ident(
+  def types_lexhack "lexhack.ml" 1 0 44 "lexhack.ml" 1 0 -1
+)
+"lexhack.ml" 1 0 38 "lexhack.ml" 1 0 41
+type(
+  string list -> string list ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"lexhack.ml" 1 0 42 "lexhack.ml" 1 0 44
+type(
+  string list
+)
+"lexhack.ml" 1 0 38 "lexhack.ml" 1 0 44
+type(
+  string list ref
+)
+type(
+  string list ref
+)

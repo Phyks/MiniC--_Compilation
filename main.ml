@@ -11,6 +11,7 @@ open Lexing
 
 (* Option de compilation, pour s'arrêter à l'issue du parser *)
 let parse_only = ref false
+let type_only = ref false
 
 (* Noms des fichiers source et destination *)
 let ifile = ref ""
@@ -20,8 +21,10 @@ let set_file f s = f := s
 
 (* Les options du compilateur que l'on affiche en tapant minic++ --help *)
 let options =
-  ["--parse-only", Arg.Set parse_only,
-   "  Pour ne faire que la phase d'analyse syntaxique"]
+  [("--parse-only", Arg.Set parse_only,
+                    "  Pour ne faire que la phase d'analyse syntaxique");
+   ("--type-only", Arg.Set type_only, "  Pour ne faire que la phase de typage statique")
+  ]
 
 let usage = "usage: minic++ [option] file.cpp"
 
@@ -62,16 +65,33 @@ let () =
 
       (* On s'arrête ici si on ne veut faire que le parsing *)
       if !parse_only then exit 0;
+
+      (* Typage *)
+      let p_type = Typer.type_ast p in
+
+      (* On s'arrête ici si on ne veut faire que le typage *)
+      if !type_only then exit 0;
+
+      (* Production de code *)
+      let mips = Compiler.program p_type in
+
+      Mips.print_in_file ((Filename.chop_suffix !ifile ".cpp")^".s") mips
   with
     | Lexer.Lexing_error c -> 
         (* Erreur lexicale. On récupère sa position absolue et 
            on la convertit en numéro de ligne *)
         localisation (Lexing.lexeme_start_p buf);
-        eprintf "Erreur dans l'analyse lexicale: %s@." c;
+        eprintf "Erreur dans l'analyse lexicale : %s@." c;
         exit 1
     | Parser.Error -> 
         (* Erreur syntaxique. On récupère sa position absolue et on la 
            convertit en numéro de ligne *)
         localisation (Lexing.lexeme_start_p buf);
         eprintf "Erreur dans l'analyse syntaxique@.";
+        exit 1
+    | Typer.Error  e ->
+        (* Erreur de typage. On récupère sa position absolue et on la
+         * convertir en numéro de ligne *)
+        localisation (Lexing.lexeme_start_p buf);
+        eprintf "Erreur durant le typage : %s@." e;
         exit 1

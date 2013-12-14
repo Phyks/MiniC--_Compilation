@@ -1,0 +1,75 @@
+"compiler.ml" 5 37 41 "compiler.ml" 5 37 48
+type(
+  'a -> Mips.program
+)
+ident(
+  def program "compiler.ml" 10 142 147 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 5 37 49 "compiler.ml" 5 37 50
+type(
+  'a
+)
+ident(
+  def x "compiler.ml" 6 54 58 "compiler.ml" 10 142 147
+)
+"compiler.ml" 7 60 75 "compiler.ml" 7 60 78
+type(
+  Mips.text
+)
+ident(
+  ext_ref Mips.nop
+)
+"compiler.ml" 8 80 95 "compiler.ml" 8 80 100
+type(
+  Mips.label -> Mips.data
+)
+ident(
+  ext_ref Mips.label
+)
+"compiler.ml" 8 80 101 "compiler.ml" 8 80 110
+type(
+  Mips.label
+)
+"compiler.ml" 8 80 95 "compiler.ml" 8 80 110
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 9 111 126 "compiler.ml" 9 111 128
+type(
+  Mips.data -> Mips.data -> Mips.data
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 9 111 129 "compiler.ml" 9 111 135
+type(
+  string -> Mips.data
+)
+ident(
+  ext_ref Mips.asciiz
+)
+"compiler.ml" 9 111 136 "compiler.ml" 9 111 140
+type(
+  string
+)
+"compiler.ml" 9 111 129 "compiler.ml" 9 111 140
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 8 80 95 "compiler.ml" 9 111 140
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 6 54 58 "compiler.ml" 10 142 147
+type(
+  Mips.program
+)

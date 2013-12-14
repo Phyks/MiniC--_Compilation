@@ -1,10 +1,19 @@
+ast_typing.cmo : ast.cmi
+ast_typing.cmx : ast.cmi
+compiler.cmo : mips.cmi
+compiler.cmx : mips.cmx
 lexer.cmo : parser.cmi lexhack.cmo
 lexer.cmx : parser.cmx lexhack.cmx
 lexhack.cmo :
 lexhack.cmx :
-main.cmo : parser.cmi lexer.cmo
-main.cmx : parser.cmx lexer.cmx
+main.cmo : typer.cmo parser.cmi mips.cmi lexer.cmo compiler.cmo
+main.cmx : typer.cmx parser.cmx mips.cmx lexer.cmx compiler.cmx
+mips.cmo : mips.cmi
+mips.cmx : mips.cmi
 parser.cmo : lexhack.cmo ast.cmi parser.cmi
 parser.cmx : lexhack.cmx ast.cmi parser.cmi
+typer.cmo : ast_typing.cmo ast.cmi
+typer.cmx : ast_typing.cmx ast.cmi
 ast.cmi :
+mips.cmi :
 parser.cmi : ast.cmi
