@@ -27,8 +27,14 @@ let type_qvar = function
     | _ -> assert false
     (* TODO *)
 
+let type_expr_string = function
+    | String s -> ATString s
+    | _ -> assert false
+    (* TODO *)
+
 let type_instruction_content = function
     | Nop -> ATNop
+    | Cout expr -> ATCout (List.map type_expr_string expr)
     | _ -> assert false
     (* TODO *)
 
