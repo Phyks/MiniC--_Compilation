@@ -1,75 +1,4596 @@
-"compiler.ml" 5 37 41 "compiler.ml" 5 37 48
+"compiler.ml" 6 53 57 "compiler.ml" 6 53 66
 type(
-  'a -> Mips.program
+  int ref
 )
 ident(
-  def program "compiler.ml" 10 142 147 "compiler.ml" 1 0 -1
+  def nb_string "compiler.ml" 8 76 76 "compiler.ml" 1 0 -1
 )
-"compiler.ml" 5 37 49 "compiler.ml" 5 37 50
+"compiler.ml" 6 53 69 "compiler.ml" 6 53 72
 type(
-  'a
+  int -> int ref
 )
 ident(
-  def x "compiler.ml" 6 54 58 "compiler.ml" 10 142 147
+  ext_ref Pervasives.ref
 )
-"compiler.ml" 7 60 75 "compiler.ml" 7 60 78
+"compiler.ml" 6 53 73 "compiler.ml" 6 53 74
+type(
+  int
+)
+"compiler.ml" 6 53 69 "compiler.ml" 6 53 74
+type(
+  int ref
+)
+"compiler.ml" 8 76 80 "compiler.ml" 8 76 90
+type(
+  Mips.program
+)
+ident(
+  def empty_mips "compiler.ml" 13 130 130 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 9 95 106 "compiler.ml" 9 95 109
 type(
   Mips.text
 )
 ident(
   ext_ref Mips.nop
 )
-"compiler.ml" 8 80 95 "compiler.ml" 8 80 100
+"compiler.ml" 10 111 122 "compiler.ml" 10 111 125
 type(
-  Mips.label -> Mips.data
+  Mips.data
 )
 ident(
-  ext_ref Mips.label
+  ext_ref Mips.nop
 )
-"compiler.ml" 8 80 101 "compiler.ml" 8 80 110
+"compiler.ml" 8 76 93 "compiler.ml" 11 127 128
 type(
-  Mips.label
+  Mips.program
 )
-"compiler.ml" 8 80 95 "compiler.ml" 8 80 110
+"compiler.ml" 13 130 138 "compiler.ml" 13 130 147
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_expr -> Mips.program
+)
+ident(
+  def mips_expr "compiler.ml" 13 130 130 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 13 130 148 "compiler.ml" 13 130 154
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  def locals "compiler.ml" 13 130 157 "compiler.ml" 110 3326 3362
+)
+"compiler.ml" 14 166 179 "compiler.ml" 14 166 180
+type(
+  int
+)
+ident(
+  def n "compiler.ml" 15 184 196 "compiler.ml" 18 258 271
+)
+"compiler.ml" 14 166 172 "compiler.ml" 14 166 180
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 16 198 221 "compiler.ml" 16 198 223
+type(
+  Mips.register -> int -> Mips.text
+)
+ident(
+  ext_ref Mips.li
+)
+"compiler.ml" 16 198 224 "compiler.ml" 16 198 226
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 16 198 227 "compiler.ml" 16 198 228
+type(
+  int
+)
+ident(
+  int_ref n "compiler.ml" 14 166 179 "compiler.ml" 14 166 180
+)
+"compiler.ml" 16 198 221 "compiler.ml" 16 198 228
 call(
   stack
 )
 type(
+  Mips.text
+)
+"compiler.ml" 17 230 253 "compiler.ml" 17 230 256
+type(
   Mips.data
 )
-"compiler.ml" 9 111 126 "compiler.ml" 9 111 128
+ident(
+  ext_ref Mips.nop
+)
+"compiler.ml" 15 184 196 "compiler.ml" 18 258 271
+type(
+  Mips.program
+)
+"compiler.ml" 19 272 284 "compiler.ml" 19 272 286
+type(
+  Ast_typing.at_operateur
+)
+ident(
+  def op "compiler.ml" 20 299 311 "compiler.ml" 47 1219 1232
+)
+"compiler.ml" 19 272 288 "compiler.ml" 19 272 290
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e1 "compiler.ml" 20 299 311 "compiler.ml" 47 1219 1232
+)
+"compiler.ml" 19 272 292 "compiler.ml" 19 272 294
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e2 "compiler.ml" 20 299 311 "compiler.ml" 47 1219 1232
+)
+"compiler.ml" 19 272 278 "compiler.ml" 19 272 295
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 20 299 315 "compiler.ml" 20 299 325
+type(
+  Mips.program
+)
+ident(
+  def mips_expr1 "compiler.ml" 21 351 363 "compiler.ml" 47 1219 1232
+)
+"compiler.ml" 20 299 328 "compiler.ml" 20 299 337
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_expr -> Mips.program
+)
+ident(
+  int_ref mips_expr "compiler.ml" 13 130 138 "compiler.ml" 13 130 147
+)
+"compiler.ml" 20 299 338 "compiler.ml" 20 299 344
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 13 130 148 "compiler.ml" 13 130 154
+)
+"compiler.ml" 20 299 345 "compiler.ml" 20 299 347
+type(
+  Ast_typing.at_expr
+)
+ident(
+  int_ref e1 "compiler.ml" 19 272 288 "compiler.ml" 19 272 290
+)
+"compiler.ml" 20 299 328 "compiler.ml" 20 299 347
+call(
+  stack
+)
+type(
+  Mips.program
+)
+"compiler.ml" 21 351 367 "compiler.ml" 21 351 377
+type(
+  Mips.program
+)
+ident(
+  def mips_expr2 "compiler.ml" 23 404 416 "compiler.ml" 47 1219 1232
+)
+"compiler.ml" 21 351 380 "compiler.ml" 21 351 389
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_expr -> Mips.program
+)
+ident(
+  int_ref mips_expr "compiler.ml" 13 130 138 "compiler.ml" 13 130 147
+)
+"compiler.ml" 21 351 390 "compiler.ml" 21 351 396
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 13 130 148 "compiler.ml" 13 130 154
+)
+"compiler.ml" 21 351 397 "compiler.ml" 21 351 399
+type(
+  Ast_typing.at_expr
+)
+ident(
+  int_ref e2 "compiler.ml" 19 272 292 "compiler.ml" 19 272 294
+)
+"compiler.ml" 21 351 380 "compiler.ml" 21 351 399
+call(
+  stack
+)
+type(
+  Mips.program
+)
+"compiler.ml" 23 404 420 "compiler.ml" 23 404 427
+type(
+  Mips.text
+)
+ident(
+  def mips_op "compiler.ml" 39 955 967 "compiler.ml" 47 1219 1232
+)
+"compiler.ml" 23 404 436 "compiler.ml" 23 404 438
+type(
+  Ast_typing.at_operateur
+)
+ident(
+  int_ref op "compiler.ml" 19 272 284 "compiler.ml" 19 272 286
+)
+"compiler.ml" 24 444 458 "compiler.ml" 24 444 464
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 24 444 468 "compiler.ml" 24 444 471
+type(
+  Mips.register ->
+  Mips.register -> Mips.register Mips.operand -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.add
+)
+"compiler.ml" 24 444 472 "compiler.ml" 24 444 474
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 24 444 475 "compiler.ml" 24 444 477
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 24 444 478 "compiler.ml" 24 444 482
+type(
+  Mips.register Mips.operand
+)
+ident(
+  ext_ref Mips.oreg
+)
+"compiler.ml" 24 444 483 "compiler.ml" 24 444 485
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 24 444 468 "compiler.ml" 24 444 485
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 25 486 500 "compiler.ml" 25 486 507
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 25 486 511 "compiler.ml" 25 486 514
+type(
+  Mips.register ->
+  Mips.register -> Mips.register Mips.operand -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.sub
+)
+"compiler.ml" 25 486 515 "compiler.ml" 25 486 517
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 25 486 518 "compiler.ml" 25 486 520
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 25 486 521 "compiler.ml" 25 486 525
+type(
+  Mips.register Mips.operand
+)
+ident(
+  ext_ref Mips.oreg
+)
+"compiler.ml" 25 486 526 "compiler.ml" 25 486 528
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 25 486 511 "compiler.ml" 25 486 528
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 26 529 543 "compiler.ml" 26 529 547
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 26 529 551 "compiler.ml" 26 529 554
+type(
+  Mips.register -> Mips.register -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.seq
+)
+"compiler.ml" 26 529 555 "compiler.ml" 26 529 557
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 26 529 558 "compiler.ml" 26 529 560
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 26 529 561 "compiler.ml" 26 529 563
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 26 529 551 "compiler.ml" 26 529 563
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 27 564 578 "compiler.ml" 27 564 583
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 27 564 587 "compiler.ml" 27 564 590
+type(
+  Mips.register -> Mips.register -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.sne
+)
+"compiler.ml" 27 564 591 "compiler.ml" 27 564 593
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 27 564 594 "compiler.ml" 27 564 596
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 27 564 597 "compiler.ml" 27 564 599
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 27 564 587 "compiler.ml" 27 564 599
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 28 600 614 "compiler.ml" 28 600 618
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 28 600 622 "compiler.ml" 28 600 625
+type(
+  Mips.register -> Mips.register -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.slt
+)
+"compiler.ml" 28 600 626 "compiler.ml" 28 600 628
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 28 600 629 "compiler.ml" 28 600 631
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 28 600 632 "compiler.ml" 28 600 634
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 28 600 622 "compiler.ml" 28 600 634
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 29 635 649 "compiler.ml" 29 635 654
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 29 635 658 "compiler.ml" 29 635 661
+type(
+  Mips.register -> Mips.register -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.sle
+)
+"compiler.ml" 29 635 662 "compiler.ml" 29 635 664
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 29 635 665 "compiler.ml" 29 635 667
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 29 635 668 "compiler.ml" 29 635 670
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 29 635 658 "compiler.ml" 29 635 670
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 30 671 685 "compiler.ml" 30 671 689
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 30 671 693 "compiler.ml" 30 671 696
+type(
+  Mips.register -> Mips.register -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.sgt
+)
+"compiler.ml" 30 671 697 "compiler.ml" 30 671 699
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 30 671 700 "compiler.ml" 30 671 702
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 30 671 703 "compiler.ml" 30 671 705
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 30 671 693 "compiler.ml" 30 671 705
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 31 706 720 "compiler.ml" 31 706 725
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 31 706 729 "compiler.ml" 31 706 732
+type(
+  Mips.register -> Mips.register -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.sge
+)
+"compiler.ml" 31 706 733 "compiler.ml" 31 706 735
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 31 706 736 "compiler.ml" 31 706 738
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 31 706 739 "compiler.ml" 31 706 741
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 31 706 729 "compiler.ml" 31 706 741
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 32 742 756 "compiler.ml" 32 742 763
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 32 742 767 "compiler.ml" 32 742 770
+type(
+  Mips.register ->
+  Mips.register -> Mips.register Mips.operand -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.mul
+)
+"compiler.ml" 32 742 771 "compiler.ml" 32 742 773
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 32 742 774 "compiler.ml" 32 742 776
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 32 742 777 "compiler.ml" 32 742 781
+type(
+  Mips.register Mips.operand
+)
+ident(
+  ext_ref Mips.oreg
+)
+"compiler.ml" 32 742 782 "compiler.ml" 32 742 784
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 32 742 767 "compiler.ml" 32 742 784
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 33 785 799 "compiler.ml" 33 785 804
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 33 785 808 "compiler.ml" 33 785 811
+type(
+  Mips.register ->
+  Mips.register -> Mips.register Mips.operand -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.div
+)
+"compiler.ml" 33 785 812 "compiler.ml" 33 785 814
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 33 785 815 "compiler.ml" 33 785 817
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 33 785 818 "compiler.ml" 33 785 822
+type(
+  Mips.register Mips.operand
+)
+ident(
+  ext_ref Mips.oreg
+)
+"compiler.ml" 33 785 823 "compiler.ml" 33 785 825
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 33 785 808 "compiler.ml" 33 785 825
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 34 826 840 "compiler.ml" 34 826 845
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 34 826 849 "compiler.ml" 34 826 852
+type(
+  Mips.register ->
+  Mips.register -> Mips.register Mips.operand -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.rem
+)
+"compiler.ml" 34 826 853 "compiler.ml" 34 826 855
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 34 826 856 "compiler.ml" 34 826 858
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 34 826 859 "compiler.ml" 34 826 863
+type(
+  Mips.register Mips.operand
+)
+ident(
+  ext_ref Mips.oreg
+)
+"compiler.ml" 34 826 864 "compiler.ml" 34 826 866
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 34 826 849 "compiler.ml" 34 826 866
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 35 867 881 "compiler.ml" 35 867 886
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 35 867 890 "compiler.ml" 35 867 894
+type(
+  Mips.register -> Mips.register -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.and_
+)
+"compiler.ml" 35 867 895 "compiler.ml" 35 867 897
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 35 867 898 "compiler.ml" 35 867 900
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 35 867 901 "compiler.ml" 35 867 903
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 35 867 890 "compiler.ml" 35 867 903
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 36 904 918 "compiler.ml" 36 904 922
+type(
+  Ast_typing.at_operateur
+)
+"compiler.ml" 36 904 926 "compiler.ml" 36 904 929
+type(
+  Mips.register -> Mips.register -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.or_
+)
+"compiler.ml" 36 904 930 "compiler.ml" 36 904 932
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 36 904 933 "compiler.ml" 36 904 935
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 36 904 936 "compiler.ml" 36 904 938
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 36 904 926 "compiler.ml" 36 904 938
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 23 404 430 "compiler.ml" 36 904 938
+type(
+  Mips.text
+)
+"compiler.ml" 40 969 992 "compiler.ml" 40 969 1002
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_expr1 "compiler.ml" 20 299 315 "compiler.ml" 20 299 325
+)
+"compiler.ml" 40 969 992 "compiler.ml" 40 969 1007
+type(
+  Mips.text
+)
+"compiler.ml" 41 1008 1028 "compiler.ml" 41 1008 1030
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 41 1008 1031 "compiler.ml" 41 1008 1035
+type(
+  Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.push
+)
+"compiler.ml" 41 1008 1036 "compiler.ml" 41 1008 1038
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 41 1008 1031 "compiler.ml" 41 1008 1038
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 40 969 992 "compiler.ml" 41 1008 1038
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 42 1039 1059 "compiler.ml" 42 1039 1061
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 42 1039 1062 "compiler.ml" 42 1039 1072
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_expr2 "compiler.ml" 21 351 367 "compiler.ml" 21 351 377
+)
+"compiler.ml" 42 1039 1062 "compiler.ml" 42 1039 1077
+type(
+  Mips.text
+)
+"compiler.ml" 40 969 992 "compiler.ml" 42 1039 1077
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 43 1078 1098 "compiler.ml" 43 1078 1100
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 43 1078 1101 "compiler.ml" 43 1078 1104
+type(
+  Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.pop
+)
+"compiler.ml" 43 1078 1105 "compiler.ml" 43 1078 1107
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.t1
+)
+"compiler.ml" 43 1078 1101 "compiler.ml" 43 1078 1107
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 40 969 992 "compiler.ml" 43 1078 1107
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 44 1108 1128 "compiler.ml" 44 1108 1130
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 44 1108 1131 "compiler.ml" 44 1108 1138
+type(
+  Mips.text
+)
+ident(
+  int_ref mips_op "compiler.ml" 23 404 420 "compiler.ml" 23 404 427
+)
+"compiler.ml" 40 969 992 "compiler.ml" 44 1108 1138
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 45 1140 1163 "compiler.ml" 45 1140 1173
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_expr1 "compiler.ml" 20 299 315 "compiler.ml" 20 299 325
+)
+"compiler.ml" 45 1140 1163 "compiler.ml" 45 1140 1178
+type(
+  Mips.data
+)
+"compiler.ml" 46 1179 1199 "compiler.ml" 46 1179 1201
 type(
   Mips.data -> Mips.data -> Mips.data
 )
 ident(
   ext_ref Mips.( ++ )
 )
-"compiler.ml" 9 111 129 "compiler.ml" 9 111 135
+"compiler.ml" 46 1179 1202 "compiler.ml" 46 1179 1212
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_expr2 "compiler.ml" 21 351 367 "compiler.ml" 21 351 377
+)
+"compiler.ml" 46 1179 1202 "compiler.ml" 46 1179 1217
+type(
+  Mips.data
+)
+"compiler.ml" 45 1140 1163 "compiler.ml" 46 1179 1217
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 39 955 967 "compiler.ml" 47 1219 1232
+type(
+  Mips.program
+)
+"compiler.ml" 23 404 416 "compiler.ml" 47 1219 1232
+type(
+  Mips.program
+)
+"compiler.ml" 21 351 363 "compiler.ml" 47 1219 1232
+type(
+  Mips.program
+)
+"compiler.ml" 20 299 311 "compiler.ml" 47 1219 1232
+type(
+  Mips.program
+)
+"compiler.ml" 48 1233 1239 "compiler.ml" 48 1233 1246
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 48 1233 1250 "compiler.ml" 48 1233 1262
+type(
+  Mips.program
+)
+"compiler.ml" 49 1263 1269 "compiler.ml" 49 1263 1277
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 49 1263 1281 "compiler.ml" 49 1263 1293
+type(
+  Mips.program
+)
+"compiler.ml" 50 1294 1300 "compiler.ml" 50 1294 1307
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 50 1294 1311 "compiler.ml" 50 1294 1323
+type(
+  Mips.program
+)
+"compiler.ml" 51 1324 1330 "compiler.ml" 51 1324 1337
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 51 1324 1341 "compiler.ml" 51 1324 1353
+type(
+  Mips.program
+)
+"compiler.ml" 52 1354 1370 "compiler.ml" 52 1354 1376
+type(
+  Ast_typing.at_qident
+)
+ident(
+  def qident "compiler.ml" 52 1354 1380 "compiler.ml" 61 1673 1680
+)
+"compiler.ml" 52 1354 1360 "compiler.ml" 52 1354 1376
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 53 1386 1400 "compiler.ml" 53 1386 1406
+type(
+  Ast_typing.at_qident
+)
+ident(
+  int_ref qident "compiler.ml" 52 1354 1370 "compiler.ml" 52 1354 1376
+)
+"compiler.ml" 54 1412 1430 "compiler.ml" 54 1412 1435
+type(
+  Ast_typing.at_ident
+)
+ident(
+  def ident "compiler.ml" 55 1439 1455 "compiler.ml" 59 1607 1624
+)
+"compiler.ml" 54 1412 1422 "compiler.ml" 54 1412 1435
+type(
+  Ast_typing.at_qident
+)
+"compiler.ml" 55 1439 1459 "compiler.ml" 55 1439 1462
+type(
+  int
+)
+ident(
+  def pos "compiler.ml" 56 1505 1521 "compiler.ml" 59 1607 1624
+)
+"compiler.ml" 55 1439 1465 "compiler.ml" 55 1439 1477
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_var -> int
+)
+ident(
+  ext_ref Hashtbl.find
+)
+"compiler.ml" 55 1439 1478 "compiler.ml" 55 1439 1484
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 13 130 148 "compiler.ml" 13 130 154
+)
+"compiler.ml" 55 1439 1495 "compiler.ml" 55 1439 1500
+type(
+  Ast_typing.at_ident
+)
+ident(
+  int_ref ident "compiler.ml" 54 1412 1430 "compiler.ml" 54 1412 1435
+)
+"compiler.ml" 55 1439 1485 "compiler.ml" 55 1439 1501
+type(
+  Ast_typing.at_var
+)
+"compiler.ml" 55 1439 1465 "compiler.ml" 55 1439 1501
+call(
+  stack
+)
+type(
+  int
+)
+"compiler.ml" 57 1523 1550 "compiler.ml" 57 1523 1552
+type(
+  Mips.register ->
+  (int * Mips.register) Mips.address -> int * Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.lw
+)
+"compiler.ml" 57 1523 1553 "compiler.ml" 57 1523 1555
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 57 1523 1556 "compiler.ml" 57 1523 1560
+type(
+  (int * Mips.register) Mips.address
+)
+ident(
+  ext_ref Mips.areg
+)
+"compiler.ml" 57 1523 1562 "compiler.ml" 57 1523 1563
+type(
+  int -> int
+)
+ident(
+  ext_ref Pervasives.( ~- )
+)
+"compiler.ml" 57 1523 1563 "compiler.ml" 57 1523 1566
+type(
+  int
+)
+ident(
+  int_ref pos "compiler.ml" 55 1439 1459 "compiler.ml" 55 1439 1462
+)
+"compiler.ml" 57 1523 1562 "compiler.ml" 57 1523 1566
+type(
+  int
+)
+"compiler.ml" 57 1523 1566 "compiler.ml" 57 1523 1567
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"compiler.ml" 57 1523 1567 "compiler.ml" 57 1523 1568
+type(
+  int
+)
+"compiler.ml" 57 1523 1562 "compiler.ml" 57 1523 1568
+type(
+  int
+)
+"compiler.ml" 57 1523 1570 "compiler.ml" 57 1523 1572
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.fp
+)
+"compiler.ml" 57 1523 1561 "compiler.ml" 57 1523 1573
+type(
+  int * Mips.register
+)
+"compiler.ml" 57 1523 1550 "compiler.ml" 57 1523 1573
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 58 1575 1602 "compiler.ml" 58 1575 1605
+type(
+  Mips.data
+)
+ident(
+  ext_ref Mips.nop
+)
+"compiler.ml" 56 1505 1521 "compiler.ml" 59 1607 1624
+type(
+  Mips.program
+)
+"compiler.ml" 55 1439 1455 "compiler.ml" 59 1607 1624
+type(
+  Mips.program
+)
+"compiler.ml" 60 1625 1645 "compiler.ml" 60 1625 1649
+type(
+  Ast_typing.at_tident
+)
+ident(
+  def tid1 "compiler.ml" 60 1625 1660 "compiler.ml" 60 1625 1672
+)
+"compiler.ml" 60 1625 1651 "compiler.ml" 60 1625 1655
+type(
+  Ast_typing.at_ident
+)
+ident(
+  def tid2 "compiler.ml" 60 1625 1660 "compiler.ml" 60 1625 1672
+)
+"compiler.ml" 60 1625 1635 "compiler.ml" 60 1625 1656
+type(
+  Ast_typing.at_qident
+)
+"compiler.ml" 60 1625 1660 "compiler.ml" 60 1625 1672
+type(
+  Mips.program
+)
+"compiler.ml" 52 1354 1380 "compiler.ml" 61 1673 1680
+type(
+  Mips.program
+)
+"compiler.ml" 62 1681 1694 "compiler.ml" 62 1681 1695
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e "compiler.ml" 62 1681 1707 "compiler.ml" 62 1681 1719
+)
+"compiler.ml" 62 1681 1697 "compiler.ml" 62 1681 1702
+type(
+  Ast_typing.at_ident
+)
+ident(
+  def ident "compiler.ml" 62 1681 1707 "compiler.ml" 62 1681 1719
+)
+"compiler.ml" 62 1681 1687 "compiler.ml" 62 1681 1703
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 62 1681 1707 "compiler.ml" 62 1681 1719
+type(
+  Mips.program
+)
+"compiler.ml" 63 1720 1735 "compiler.ml" 63 1720 1736
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e "compiler.ml" 63 1720 1748 "compiler.ml" 63 1720 1760
+)
+"compiler.ml" 63 1720 1738 "compiler.ml" 63 1720 1743
+type(
+  Ast_typing.at_ident
+)
+ident(
+  def ident "compiler.ml" 63 1720 1748 "compiler.ml" 63 1720 1760
+)
+"compiler.ml" 63 1720 1726 "compiler.ml" 63 1720 1744
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 63 1720 1748 "compiler.ml" 63 1720 1760
+type(
+  Mips.program
+)
+"compiler.ml" 64 1761 1796 "compiler.ml" 64 1761 1797
+type(
+  Ast_typing.at_ident
+)
+ident(
+  def i "compiler.ml" 65 1807 1819 "compiler.ml" 72 2062 2075
+)
+"compiler.ml" 64 1761 1787 "compiler.ml" 64 1761 1798
+type(
+  Ast_typing.at_qident
+)
+"compiler.ml" 64 1761 1777 "compiler.ml" 64 1761 1798
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 64 1761 1800 "compiler.ml" 64 1761 1802
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e2 "compiler.ml" 65 1807 1819 "compiler.ml" 72 2062 2075
+)
+"compiler.ml" 64 1761 1767 "compiler.ml" 64 1761 1803
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 65 1807 1823 "compiler.ml" 65 1807 1834
+type(
+  Mips.program
+)
+ident(
+  def mips_for_e2 "compiler.ml" 66 1860 1872 "compiler.ml" 72 2062 2075
+)
+"compiler.ml" 65 1807 1837 "compiler.ml" 65 1807 1846
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_expr -> Mips.program
+)
+ident(
+  int_ref mips_expr "compiler.ml" 13 130 138 "compiler.ml" 13 130 147
+)
+"compiler.ml" 65 1807 1847 "compiler.ml" 65 1807 1853
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 13 130 148 "compiler.ml" 13 130 154
+)
+"compiler.ml" 65 1807 1854 "compiler.ml" 65 1807 1856
+type(
+  Ast_typing.at_expr
+)
+ident(
+  int_ref e2 "compiler.ml" 64 1761 1800 "compiler.ml" 64 1761 1802
+)
+"compiler.ml" 65 1807 1837 "compiler.ml" 65 1807 1856
+call(
+  stack
+)
+type(
+  Mips.program
+)
+"compiler.ml" 66 1860 1876 "compiler.ml" 66 1860 1879
+type(
+  int
+)
+ident(
+  def pos "compiler.ml" 68 1919 1931 "compiler.ml" 72 2062 2075
+)
+"compiler.ml" 66 1860 1882 "compiler.ml" 66 1860 1894
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_var -> int
+)
+ident(
+  ext_ref Hashtbl.find
+)
+"compiler.ml" 66 1860 1895 "compiler.ml" 66 1860 1901
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 13 130 148 "compiler.ml" 13 130 154
+)
+"compiler.ml" 66 1860 1912 "compiler.ml" 66 1860 1913
+type(
+  Ast_typing.at_ident
+)
+ident(
+  int_ref i "compiler.ml" 64 1761 1796 "compiler.ml" 64 1761 1797
+)
+"compiler.ml" 66 1860 1902 "compiler.ml" 66 1860 1914
+type(
+  Ast_typing.at_var
+)
+"compiler.ml" 66 1860 1882 "compiler.ml" 66 1860 1914
+call(
+  stack
+)
+type(
+  int
+)
+"compiler.ml" 69 1933 1956 "compiler.ml" 69 1933 1967
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_for_e2 "compiler.ml" 65 1807 1823 "compiler.ml" 65 1807 1834
+)
+"compiler.ml" 69 1933 1956 "compiler.ml" 69 1933 1972
+type(
+  Mips.text
+)
+"compiler.ml" 70 1973 1993 "compiler.ml" 70 1973 1995
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 70 1973 1996 "compiler.ml" 70 1973 1998
+type(
+  Mips.register ->
+  (int * Mips.register) Mips.address -> int * Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.sw
+)
+"compiler.ml" 70 1973 1999 "compiler.ml" 70 1973 2001
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 70 1973 2002 "compiler.ml" 70 1973 2006
+type(
+  (int * Mips.register) Mips.address
+)
+ident(
+  ext_ref Mips.areg
+)
+"compiler.ml" 70 1973 2008 "compiler.ml" 70 1973 2009
+type(
+  int -> int
+)
+ident(
+  ext_ref Pervasives.( ~- )
+)
+"compiler.ml" 70 1973 2009 "compiler.ml" 70 1973 2012
+type(
+  int
+)
+ident(
+  int_ref pos "compiler.ml" 66 1860 1876 "compiler.ml" 66 1860 1879
+)
+"compiler.ml" 70 1973 2008 "compiler.ml" 70 1973 2012
+type(
+  int
+)
+"compiler.ml" 70 1973 2012 "compiler.ml" 70 1973 2013
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"compiler.ml" 70 1973 2013 "compiler.ml" 70 1973 2014
+type(
+  int
+)
+"compiler.ml" 70 1973 2008 "compiler.ml" 70 1973 2014
+type(
+  int
+)
+"compiler.ml" 70 1973 2016 "compiler.ml" 70 1973 2018
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.fp
+)
+"compiler.ml" 70 1973 2007 "compiler.ml" 70 1973 2019
+type(
+  int * Mips.register
+)
+"compiler.ml" 70 1973 1996 "compiler.ml" 70 1973 2019
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 69 1933 1956 "compiler.ml" 70 1973 2019
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 71 2021 2044 "compiler.ml" 71 2021 2055
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_for_e2 "compiler.ml" 65 1807 1823 "compiler.ml" 65 1807 1834
+)
+"compiler.ml" 71 2021 2044 "compiler.ml" 71 2021 2060
+type(
+  Mips.data
+)
+"compiler.ml" 68 1919 1931 "compiler.ml" 72 2062 2075
+type(
+  Mips.program
+)
+"compiler.ml" 66 1860 1872 "compiler.ml" 72 2062 2075
+type(
+  Mips.program
+)
+"compiler.ml" 65 1807 1819 "compiler.ml" 72 2062 2075
+type(
+  Mips.program
+)
+"compiler.ml" 73 2076 2092 "compiler.ml" 73 2076 2094
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e1 "compiler.ml" 73 2076 2103 "compiler.ml" 73 2076 2115
+)
+"compiler.ml" 73 2076 2096 "compiler.ml" 73 2076 2098
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e2 "compiler.ml" 73 2076 2103 "compiler.ml" 73 2076 2115
+)
+"compiler.ml" 73 2076 2082 "compiler.ml" 73 2076 2099
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 73 2076 2103 "compiler.ml" 73 2076 2115
+type(
+  Mips.program
+)
+"compiler.ml" 74 2127 2142 "compiler.ml" 74 2127 2143
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e "compiler.ml" 74 2127 2151 "compiler.ml" 74 2127 2163
+)
+"compiler.ml" 74 2127 2145 "compiler.ml" 74 2127 2146
+type(
+  Ast_typing.at_expr list
+)
+ident(
+  def l "compiler.ml" 74 2127 2151 "compiler.ml" 74 2127 2163
+)
+"compiler.ml" 74 2127 2133 "compiler.ml" 74 2127 2147
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 74 2127 2151 "compiler.ml" 74 2127 2163
+type(
+  Mips.program
+)
+"compiler.ml" 75 2164 2182 "compiler.ml" 75 2164 2188
+type(
+  Ast_typing.at_tident
+)
+ident(
+  def tident "compiler.ml" 75 2164 2196 "compiler.ml" 75 2164 2208
+)
+"compiler.ml" 75 2164 2190 "compiler.ml" 75 2164 2191
+type(
+  Ast_typing.at_expr list
+)
+ident(
+  def l "compiler.ml" 75 2164 2196 "compiler.ml" 75 2164 2208
+)
+"compiler.ml" 75 2164 2170 "compiler.ml" 75 2164 2192
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 75 2164 2196 "compiler.ml" 75 2164 2208
+type(
+  Mips.program
+)
+"compiler.ml" 76 2209 2223 "compiler.ml" 76 2209 2227
+type(
+  Ast_typing.at_incr
+)
+ident(
+  def incr "compiler.ml" 76 2209 2255 "compiler.ml" 108 3268 3275
+)
+"compiler.ml" 76 2209 2248 "compiler.ml" 76 2209 2249
+type(
+  Ast_typing.at_ident
+)
+ident(
+  def i "compiler.ml" 76 2209 2255 "compiler.ml" 108 3268 3275
+)
+"compiler.ml" 76 2209 2239 "compiler.ml" 76 2209 2250
+type(
+  Ast_typing.at_qident
+)
+"compiler.ml" 76 2209 2229 "compiler.ml" 76 2209 2250
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 76 2209 2215 "compiler.ml" 76 2209 2251
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 77 2261 2273 "compiler.ml" 77 2261 2276
+type(
+  int
+)
+ident(
+  def pos "compiler.ml" 79 2316 2324 "compiler.ml" 107 3250 3267
+)
+"compiler.ml" 77 2261 2279 "compiler.ml" 77 2261 2291
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_var -> int
+)
+ident(
+  ext_ref Hashtbl.find
+)
+"compiler.ml" 77 2261 2292 "compiler.ml" 77 2261 2298
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 13 130 148 "compiler.ml" 13 130 154
+)
+"compiler.ml" 77 2261 2309 "compiler.ml" 77 2261 2310
+type(
+  Ast_typing.at_ident
+)
+ident(
+  int_ref i "compiler.ml" 76 2209 2248 "compiler.ml" 76 2209 2249
+)
+"compiler.ml" 77 2261 2299 "compiler.ml" 77 2261 2311
+type(
+  Ast_typing.at_var
+)
+"compiler.ml" 77 2261 2279 "compiler.ml" 77 2261 2311
+call(
+  stack
+)
+type(
+  int
+)
+"compiler.ml" 79 2316 2330 "compiler.ml" 79 2316 2334
+type(
+  Ast_typing.at_incr
+)
+ident(
+  int_ref incr "compiler.ml" 76 2209 2223 "compiler.ml" 76 2209 2227
+)
+"compiler.ml" 80 2340 2350 "compiler.ml" 80 2340 2357
+type(
+  Ast_typing.at_incr
+)
+"compiler.ml" 82 2379 2406 "compiler.ml" 82 2379 2408
+type(
+  Mips.register ->
+  (int * Mips.register) Mips.address -> int * Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.lw
+)
+"compiler.ml" 82 2379 2409 "compiler.ml" 82 2379 2411
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 82 2379 2412 "compiler.ml" 82 2379 2416
+type(
+  (int * Mips.register) Mips.address
+)
+ident(
+  ext_ref Mips.areg
+)
+"compiler.ml" 82 2379 2417 "compiler.ml" 82 2379 2418
+type(
+  int -> int
+)
+ident(
+  ext_ref Pervasives.( ~- )
+)
+"compiler.ml" 82 2379 2418 "compiler.ml" 82 2379 2421
+type(
+  int
+)
+ident(
+  int_ref pos "compiler.ml" 77 2261 2273 "compiler.ml" 77 2261 2276
+)
+"compiler.ml" 82 2379 2417 "compiler.ml" 82 2379 2421
+type(
+  int
+)
+"compiler.ml" 82 2379 2421 "compiler.ml" 82 2379 2422
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"compiler.ml" 82 2379 2422 "compiler.ml" 82 2379 2423
+type(
+  int
+)
+"compiler.ml" 82 2379 2417 "compiler.ml" 82 2379 2423
+type(
+  int
+)
+"compiler.ml" 82 2379 2425 "compiler.ml" 82 2379 2427
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.fp
+)
+"compiler.ml" 82 2379 2416 "compiler.ml" 82 2379 2428
+type(
+  int * Mips.register
+)
+"compiler.ml" 82 2379 2406 "compiler.ml" 82 2379 2428
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 83 2429 2453 "compiler.ml" 83 2429 2455
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 83 2429 2456 "compiler.ml" 83 2429 2459
+type(
+  Mips.register -> Mips.register -> int Mips.operand -> int -> Mips.text
+)
+ident(
+  ext_ref Mips.add
+)
+"compiler.ml" 83 2429 2460 "compiler.ml" 83 2429 2462
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 83 2429 2463 "compiler.ml" 83 2429 2465
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 83 2429 2466 "compiler.ml" 83 2429 2468
+type(
+  int Mips.operand
+)
+ident(
+  ext_ref Mips.oi
+)
+"compiler.ml" 83 2429 2469 "compiler.ml" 83 2429 2470
+type(
+  int
+)
+"compiler.ml" 83 2429 2456 "compiler.ml" 83 2429 2470
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 82 2379 2406 "compiler.ml" 83 2429 2470
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 84 2471 2495 "compiler.ml" 84 2471 2497
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 84 2471 2498 "compiler.ml" 84 2471 2500
+type(
+  Mips.register ->
+  (int * Mips.register) Mips.address -> int * Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.sw
+)
+"compiler.ml" 84 2471 2501 "compiler.ml" 84 2471 2503
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 84 2471 2504 "compiler.ml" 84 2471 2508
+type(
+  (int * Mips.register) Mips.address
+)
+ident(
+  ext_ref Mips.areg
+)
+"compiler.ml" 84 2471 2509 "compiler.ml" 84 2471 2510
+type(
+  int -> int
+)
+ident(
+  ext_ref Pervasives.( ~- )
+)
+"compiler.ml" 84 2471 2510 "compiler.ml" 84 2471 2513
+type(
+  int
+)
+ident(
+  int_ref pos "compiler.ml" 77 2261 2273 "compiler.ml" 77 2261 2276
+)
+"compiler.ml" 84 2471 2509 "compiler.ml" 84 2471 2513
+type(
+  int
+)
+"compiler.ml" 84 2471 2513 "compiler.ml" 84 2471 2514
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"compiler.ml" 84 2471 2514 "compiler.ml" 84 2471 2515
+type(
+  int
+)
+"compiler.ml" 84 2471 2509 "compiler.ml" 84 2471 2515
+type(
+  int
+)
+"compiler.ml" 84 2471 2517 "compiler.ml" 84 2471 2519
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.fp
+)
+"compiler.ml" 84 2471 2508 "compiler.ml" 84 2471 2520
+type(
+  int * Mips.register
+)
+"compiler.ml" 84 2471 2498 "compiler.ml" 84 2471 2520
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 82 2379 2406 "compiler.ml" 84 2471 2520
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 85 2522 2549 "compiler.ml" 85 2522 2552
+type(
+  Mips.data
+)
+ident(
+  ext_ref Mips.nop
+)
+"compiler.ml" 81 2361 2377 "compiler.ml" 86 2554 2571
+type(
+  Mips.program
+)
+"compiler.ml" 87 2572 2582 "compiler.ml" 87 2572 2589
+type(
+  Ast_typing.at_incr
+)
+"compiler.ml" 89 2611 2638 "compiler.ml" 89 2611 2640
+type(
+  Mips.register ->
+  (int * Mips.register) Mips.address -> int * Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.lw
+)
+"compiler.ml" 89 2611 2641 "compiler.ml" 89 2611 2643
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 89 2611 2644 "compiler.ml" 89 2611 2648
+type(
+  (int * Mips.register) Mips.address
+)
+ident(
+  ext_ref Mips.areg
+)
+"compiler.ml" 89 2611 2649 "compiler.ml" 89 2611 2650
+type(
+  int -> int
+)
+ident(
+  ext_ref Pervasives.( ~- )
+)
+"compiler.ml" 89 2611 2650 "compiler.ml" 89 2611 2653
+type(
+  int
+)
+ident(
+  int_ref pos "compiler.ml" 77 2261 2273 "compiler.ml" 77 2261 2276
+)
+"compiler.ml" 89 2611 2649 "compiler.ml" 89 2611 2653
+type(
+  int
+)
+"compiler.ml" 89 2611 2653 "compiler.ml" 89 2611 2654
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"compiler.ml" 89 2611 2654 "compiler.ml" 89 2611 2655
+type(
+  int
+)
+"compiler.ml" 89 2611 2649 "compiler.ml" 89 2611 2655
+type(
+  int
+)
+"compiler.ml" 89 2611 2657 "compiler.ml" 89 2611 2659
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.fp
+)
+"compiler.ml" 89 2611 2648 "compiler.ml" 89 2611 2660
+type(
+  int * Mips.register
+)
+"compiler.ml" 89 2611 2638 "compiler.ml" 89 2611 2660
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 90 2661 2685 "compiler.ml" 90 2661 2687
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 90 2661 2688 "compiler.ml" 90 2661 2691
+type(
+  Mips.register -> Mips.register -> int Mips.operand -> int -> Mips.text
+)
+ident(
+  ext_ref Mips.add
+)
+"compiler.ml" 90 2661 2692 "compiler.ml" 90 2661 2694
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a1
+)
+"compiler.ml" 90 2661 2695 "compiler.ml" 90 2661 2697
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 90 2661 2698 "compiler.ml" 90 2661 2700
+type(
+  int Mips.operand
+)
+ident(
+  ext_ref Mips.oi
+)
+"compiler.ml" 90 2661 2701 "compiler.ml" 90 2661 2702
+type(
+  int
+)
+"compiler.ml" 90 2661 2688 "compiler.ml" 90 2661 2702
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 89 2611 2638 "compiler.ml" 90 2661 2702
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 91 2703 2727 "compiler.ml" 91 2703 2729
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 91 2703 2730 "compiler.ml" 91 2703 2732
+type(
+  Mips.register ->
+  (int * Mips.register) Mips.address -> int * Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.sw
+)
+"compiler.ml" 91 2703 2733 "compiler.ml" 91 2703 2735
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a1
+)
+"compiler.ml" 91 2703 2736 "compiler.ml" 91 2703 2740
+type(
+  (int * Mips.register) Mips.address
+)
+ident(
+  ext_ref Mips.areg
+)
+"compiler.ml" 91 2703 2741 "compiler.ml" 91 2703 2742
+type(
+  int -> int
+)
+ident(
+  ext_ref Pervasives.( ~- )
+)
+"compiler.ml" 91 2703 2742 "compiler.ml" 91 2703 2745
+type(
+  int
+)
+ident(
+  int_ref pos "compiler.ml" 77 2261 2273 "compiler.ml" 77 2261 2276
+)
+"compiler.ml" 91 2703 2741 "compiler.ml" 91 2703 2745
+type(
+  int
+)
+"compiler.ml" 91 2703 2745 "compiler.ml" 91 2703 2746
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"compiler.ml" 91 2703 2746 "compiler.ml" 91 2703 2747
+type(
+  int
+)
+"compiler.ml" 91 2703 2741 "compiler.ml" 91 2703 2747
+type(
+  int
+)
+"compiler.ml" 91 2703 2749 "compiler.ml" 91 2703 2751
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.fp
+)
+"compiler.ml" 91 2703 2740 "compiler.ml" 91 2703 2752
+type(
+  int * Mips.register
+)
+"compiler.ml" 91 2703 2730 "compiler.ml" 91 2703 2752
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 89 2611 2638 "compiler.ml" 91 2703 2752
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 92 2754 2781 "compiler.ml" 92 2754 2784
+type(
+  Mips.data
+)
+ident(
+  ext_ref Mips.nop
+)
+"compiler.ml" 88 2593 2609 "compiler.ml" 93 2786 2803
+type(
+  Mips.program
+)
+"compiler.ml" 94 2804 2814 "compiler.ml" 94 2804 2821
+type(
+  Ast_typing.at_incr
+)
+"compiler.ml" 96 2843 2870 "compiler.ml" 96 2843 2872
+type(
+  Mips.register ->
+  (int * Mips.register) Mips.address -> int * Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.lw
+)
+"compiler.ml" 96 2843 2873 "compiler.ml" 96 2843 2875
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 96 2843 2876 "compiler.ml" 96 2843 2880
+type(
+  (int * Mips.register) Mips.address
+)
+ident(
+  ext_ref Mips.areg
+)
+"compiler.ml" 96 2843 2881 "compiler.ml" 96 2843 2882
+type(
+  int -> int
+)
+ident(
+  ext_ref Pervasives.( ~- )
+)
+"compiler.ml" 96 2843 2882 "compiler.ml" 96 2843 2885
+type(
+  int
+)
+ident(
+  int_ref pos "compiler.ml" 77 2261 2273 "compiler.ml" 77 2261 2276
+)
+"compiler.ml" 96 2843 2881 "compiler.ml" 96 2843 2885
+type(
+  int
+)
+"compiler.ml" 96 2843 2885 "compiler.ml" 96 2843 2886
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"compiler.ml" 96 2843 2886 "compiler.ml" 96 2843 2887
+type(
+  int
+)
+"compiler.ml" 96 2843 2881 "compiler.ml" 96 2843 2887
+type(
+  int
+)
+"compiler.ml" 96 2843 2889 "compiler.ml" 96 2843 2891
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.fp
+)
+"compiler.ml" 96 2843 2880 "compiler.ml" 96 2843 2892
+type(
+  int * Mips.register
+)
+"compiler.ml" 96 2843 2870 "compiler.ml" 96 2843 2892
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 97 2893 2917 "compiler.ml" 97 2893 2919
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 97 2893 2920 "compiler.ml" 97 2893 2923
+type(
+  Mips.register -> Mips.register -> int Mips.operand -> int -> Mips.text
+)
+ident(
+  ext_ref Mips.sub
+)
+"compiler.ml" 97 2893 2924 "compiler.ml" 97 2893 2926
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 97 2893 2927 "compiler.ml" 97 2893 2929
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 97 2893 2930 "compiler.ml" 97 2893 2932
+type(
+  int Mips.operand
+)
+ident(
+  ext_ref Mips.oi
+)
+"compiler.ml" 97 2893 2933 "compiler.ml" 97 2893 2934
+type(
+  int
+)
+"compiler.ml" 97 2893 2920 "compiler.ml" 97 2893 2934
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 96 2843 2870 "compiler.ml" 97 2893 2934
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 98 2935 2959 "compiler.ml" 98 2935 2961
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 98 2935 2962 "compiler.ml" 98 2935 2964
+type(
+  Mips.register ->
+  (int * Mips.register) Mips.address -> int * Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.sw
+)
+"compiler.ml" 98 2935 2965 "compiler.ml" 98 2935 2967
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 98 2935 2968 "compiler.ml" 98 2935 2972
+type(
+  (int * Mips.register) Mips.address
+)
+ident(
+  ext_ref Mips.areg
+)
+"compiler.ml" 98 2935 2973 "compiler.ml" 98 2935 2974
+type(
+  int -> int
+)
+ident(
+  ext_ref Pervasives.( ~- )
+)
+"compiler.ml" 98 2935 2974 "compiler.ml" 98 2935 2977
+type(
+  int
+)
+ident(
+  int_ref pos "compiler.ml" 77 2261 2273 "compiler.ml" 77 2261 2276
+)
+"compiler.ml" 98 2935 2973 "compiler.ml" 98 2935 2977
+type(
+  int
+)
+"compiler.ml" 98 2935 2977 "compiler.ml" 98 2935 2978
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"compiler.ml" 98 2935 2978 "compiler.ml" 98 2935 2979
+type(
+  int
+)
+"compiler.ml" 98 2935 2973 "compiler.ml" 98 2935 2979
+type(
+  int
+)
+"compiler.ml" 98 2935 2981 "compiler.ml" 98 2935 2983
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.fp
+)
+"compiler.ml" 98 2935 2972 "compiler.ml" 98 2935 2984
+type(
+  int * Mips.register
+)
+"compiler.ml" 98 2935 2962 "compiler.ml" 98 2935 2984
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 96 2843 2870 "compiler.ml" 98 2935 2984
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 99 2986 3013 "compiler.ml" 99 2986 3016
+type(
+  Mips.data
+)
+ident(
+  ext_ref Mips.nop
+)
+"compiler.ml" 95 2825 2841 "compiler.ml" 100 3018 3035
+type(
+  Mips.program
+)
+"compiler.ml" 101 3036 3046 "compiler.ml" 101 3036 3053
+type(
+  Ast_typing.at_incr
+)
+"compiler.ml" 103 3075 3102 "compiler.ml" 103 3075 3104
+type(
+  Mips.register ->
+  (int * Mips.register) Mips.address -> int * Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.lw
+)
+"compiler.ml" 103 3075 3105 "compiler.ml" 103 3075 3107
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 103 3075 3108 "compiler.ml" 103 3075 3112
+type(
+  (int * Mips.register) Mips.address
+)
+ident(
+  ext_ref Mips.areg
+)
+"compiler.ml" 103 3075 3113 "compiler.ml" 103 3075 3114
+type(
+  int -> int
+)
+ident(
+  ext_ref Pervasives.( ~- )
+)
+"compiler.ml" 103 3075 3114 "compiler.ml" 103 3075 3117
+type(
+  int
+)
+ident(
+  int_ref pos "compiler.ml" 77 2261 2273 "compiler.ml" 77 2261 2276
+)
+"compiler.ml" 103 3075 3113 "compiler.ml" 103 3075 3117
+type(
+  int
+)
+"compiler.ml" 103 3075 3117 "compiler.ml" 103 3075 3118
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"compiler.ml" 103 3075 3118 "compiler.ml" 103 3075 3119
+type(
+  int
+)
+"compiler.ml" 103 3075 3113 "compiler.ml" 103 3075 3119
+type(
+  int
+)
+"compiler.ml" 103 3075 3121 "compiler.ml" 103 3075 3123
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.fp
+)
+"compiler.ml" 103 3075 3112 "compiler.ml" 103 3075 3124
+type(
+  int * Mips.register
+)
+"compiler.ml" 103 3075 3102 "compiler.ml" 103 3075 3124
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 104 3125 3149 "compiler.ml" 104 3125 3151
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 104 3125 3152 "compiler.ml" 104 3125 3155
+type(
+  Mips.register -> Mips.register -> int Mips.operand -> int -> Mips.text
+)
+ident(
+  ext_ref Mips.sub
+)
+"compiler.ml" 104 3125 3156 "compiler.ml" 104 3125 3158
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a1
+)
+"compiler.ml" 104 3125 3159 "compiler.ml" 104 3125 3161
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 104 3125 3162 "compiler.ml" 104 3125 3164
+type(
+  int Mips.operand
+)
+ident(
+  ext_ref Mips.oi
+)
+"compiler.ml" 104 3125 3165 "compiler.ml" 104 3125 3166
+type(
+  int
+)
+"compiler.ml" 104 3125 3152 "compiler.ml" 104 3125 3166
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 103 3075 3102 "compiler.ml" 104 3125 3166
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 105 3167 3191 "compiler.ml" 105 3167 3193
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 105 3167 3194 "compiler.ml" 105 3167 3196
+type(
+  Mips.register ->
+  (int * Mips.register) Mips.address -> int * Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.sw
+)
+"compiler.ml" 105 3167 3197 "compiler.ml" 105 3167 3199
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a1
+)
+"compiler.ml" 105 3167 3200 "compiler.ml" 105 3167 3204
+type(
+  (int * Mips.register) Mips.address
+)
+ident(
+  ext_ref Mips.areg
+)
+"compiler.ml" 105 3167 3205 "compiler.ml" 105 3167 3206
+type(
+  int -> int
+)
+ident(
+  ext_ref Pervasives.( ~- )
+)
+"compiler.ml" 105 3167 3206 "compiler.ml" 105 3167 3209
+type(
+  int
+)
+ident(
+  int_ref pos "compiler.ml" 77 2261 2273 "compiler.ml" 77 2261 2276
+)
+"compiler.ml" 105 3167 3205 "compiler.ml" 105 3167 3209
+type(
+  int
+)
+"compiler.ml" 105 3167 3209 "compiler.ml" 105 3167 3210
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"compiler.ml" 105 3167 3210 "compiler.ml" 105 3167 3211
+type(
+  int
+)
+"compiler.ml" 105 3167 3205 "compiler.ml" 105 3167 3211
+type(
+  int
+)
+"compiler.ml" 105 3167 3213 "compiler.ml" 105 3167 3215
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.fp
+)
+"compiler.ml" 105 3167 3204 "compiler.ml" 105 3167 3216
+type(
+  int * Mips.register
+)
+"compiler.ml" 105 3167 3194 "compiler.ml" 105 3167 3216
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 103 3075 3102 "compiler.ml" 105 3167 3216
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 106 3218 3245 "compiler.ml" 106 3218 3248
+type(
+  Mips.data
+)
+ident(
+  ext_ref Mips.nop
+)
+"compiler.ml" 102 3057 3073 "compiler.ml" 107 3250 3267
+type(
+  Mips.program
+)
+"compiler.ml" 79 2316 2324 "compiler.ml" 107 3250 3267
+type(
+  Mips.program
+)
+"compiler.ml" 76 2209 2255 "compiler.ml" 108 3268 3275
+type(
+  Mips.program
+)
+"compiler.ml" 109 3276 3290 "compiler.ml" 109 3276 3294
+type(
+  Ast_typing.at_incr
+)
+ident(
+  def incr "compiler.ml" 109 3276 3302 "compiler.ml" 109 3276 3314
+)
+"compiler.ml" 109 3276 3296 "compiler.ml" 109 3276 3297
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e "compiler.ml" 109 3276 3302 "compiler.ml" 109 3276 3314
+)
+"compiler.ml" 109 3276 3282 "compiler.ml" 109 3276 3298
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 109 3276 3302 "compiler.ml" 109 3276 3314
+type(
+  Mips.program
+)
+"compiler.ml" 110 3326 3339 "compiler.ml" 110 3326 3342
+type(
+  Ast_typing.at_uoperateur
+)
+ident(
+  def uop "compiler.ml" 110 3326 3350 "compiler.ml" 110 3326 3362
+)
+"compiler.ml" 110 3326 3344 "compiler.ml" 110 3326 3345
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e "compiler.ml" 110 3326 3350 "compiler.ml" 110 3326 3362
+)
+"compiler.ml" 110 3326 3332 "compiler.ml" 110 3326 3346
+type(
+  Ast_typing.at_expr
+)
+"compiler.ml" 110 3326 3350 "compiler.ml" 110 3326 3362
+type(
+  Mips.program
+)
+"compiler.ml" 13 130 157 "compiler.ml" 110 3326 3362
+type(
+  Ast_typing.at_expr -> Mips.program
+)
+"compiler.ml" 113 3379 3383 "compiler.ml" 113 3379 3399
+type(
+  (Ast_typing.at_var, int) Hashtbl.t ->
+  Mips.program -> Ast_typing.at_expr_string -> Mips.program
+)
+ident(
+  def mips_expr_string "compiler.ml" 135 4102 4102 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 113 3379 3400 "compiler.ml" 113 3379 3406
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  def locals "compiler.ml" 113 3379 3407 "compiler.ml" 133 4087 4100
+)
+"compiler.ml" 113 3379 3407 "compiler.ml" 113 3379 3408
+type(
+  Mips.program
+)
+ident(
+  def x "compiler.ml" 113 3379 3409 "compiler.ml" 133 4087 4100
+)
+"compiler.ml" 113 3379 3409 "compiler.ml" 113 3379 3410
+type(
+  Ast_typing.at_expr_string
+)
+ident(
+  def y "compiler.ml" 113 3379 3413 "compiler.ml" 133 4087 4100
+)
+"compiler.ml" 113 3379 3419 "compiler.ml" 113 3379 3420
+type(
+  Ast_typing.at_expr_string
+)
+ident(
+  int_ref y "compiler.ml" 113 3379 3409 "compiler.ml" 113 3379 3410
+)
+"compiler.ml" 114 3426 3441 "compiler.ml" 114 3426 3442
+type(
+  string
+)
+ident(
+  def s "compiler.ml" 115 3447 3459 "compiler.ml" 123 3779 3792
+)
+"compiler.ml" 114 3426 3432 "compiler.ml" 114 3426 3442
+type(
+  Ast_typing.at_expr_string
+)
+"compiler.ml" 115 3447 3459 "compiler.ml" 115 3447 3468
+type(
+  int ref
+)
+ident(
+  int_ref nb_string "compiler.ml" 6 53 57 "compiler.ml" 6 53 66
+)
+"compiler.ml" 115 3447 3469 "compiler.ml" 115 3447 3471
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"compiler.ml" 115 3447 3472 "compiler.ml" 115 3447 3473
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"compiler.ml" 115 3447 3473 "compiler.ml" 115 3447 3482
+type(
+  int ref
+)
+ident(
+  int_ref nb_string "compiler.ml" 6 53 57 "compiler.ml" 6 53 66
+)
+"compiler.ml" 115 3447 3472 "compiler.ml" 115 3447 3482
+type(
+  int
+)
+"compiler.ml" 115 3447 3483 "compiler.ml" 115 3447 3484
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"compiler.ml" 115 3447 3485 "compiler.ml" 115 3447 3486
+type(
+  int
+)
+"compiler.ml" 115 3447 3472 "compiler.ml" 115 3447 3486
+type(
+  int
+)
+"compiler.ml" 115 3447 3459 "compiler.ml" 115 3447 3486
+type(
+  unit
+)
+"compiler.ml" 117 3502 3525 "compiler.ml" 117 3502 3526
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 113 3379 3407 "compiler.ml" 113 3379 3408
+)
+"compiler.ml" 117 3502 3525 "compiler.ml" 117 3502 3531
+type(
+  Mips.text
+)
+"compiler.ml" 118 3532 3552 "compiler.ml" 118 3532 3554
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 118 3532 3555 "compiler.ml" 118 3532 3557
+type(
+  Mips.register -> Mips.label Mips.address -> Mips.label -> Mips.text
+)
+ident(
+  ext_ref Mips.la
+)
+"compiler.ml" 118 3532 3558 "compiler.ml" 118 3532 3560
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 118 3532 3561 "compiler.ml" 118 3532 3565
+type(
+  Mips.label Mips.address
+)
+ident(
+  ext_ref Mips.alab
+)
+"compiler.ml" 118 3532 3567 "compiler.ml" 118 3532 3576
+type(
+  string
+)
+"compiler.ml" 118 3532 3576 "compiler.ml" 118 3532 3577
+type(
+  string -> string -> Mips.label
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"compiler.ml" 118 3532 3578 "compiler.ml" 118 3532 3591
+type(
+  int -> string
+)
+ident(
+  ext_ref Pervasives.string_of_int
+)
+"compiler.ml" 118 3532 3592 "compiler.ml" 118 3532 3593
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"compiler.ml" 118 3532 3593 "compiler.ml" 118 3532 3602
+type(
+  int ref
+)
+ident(
+  int_ref nb_string "compiler.ml" 6 53 57 "compiler.ml" 6 53 66
+)
+"compiler.ml" 118 3532 3592 "compiler.ml" 118 3532 3602
+type(
+  int
+)
+"compiler.ml" 118 3532 3577 "compiler.ml" 118 3532 3603
+call(
+  stack
+)
+type(
+  string
+)
+"compiler.ml" 118 3532 3566 "compiler.ml" 118 3532 3604
+call(
+  stack
+)
+type(
+  Mips.label
+)
+"compiler.ml" 118 3532 3555 "compiler.ml" 118 3532 3604
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 117 3502 3525 "compiler.ml" 118 3532 3604
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 119 3605 3625 "compiler.ml" 119 3605 3627
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 119 3605 3628 "compiler.ml" 119 3605 3630
+type(
+  Mips.register -> int -> Mips.text
+)
+ident(
+  ext_ref Mips.li
+)
+"compiler.ml" 119 3605 3631 "compiler.ml" 119 3605 3633
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.v0
+)
+"compiler.ml" 119 3605 3634 "compiler.ml" 119 3605 3635
+type(
+  int
+)
+"compiler.ml" 119 3605 3628 "compiler.ml" 119 3605 3635
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 117 3502 3525 "compiler.ml" 119 3605 3635
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 120 3636 3656 "compiler.ml" 120 3636 3658
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 120 3636 3659 "compiler.ml" 120 3636 3666
+type(
+  Mips.text
+)
+ident(
+  ext_ref Mips.syscall
+)
+"compiler.ml" 117 3502 3525 "compiler.ml" 120 3636 3666
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 121 3668 3691 "compiler.ml" 121 3668 3692
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 113 3379 3407 "compiler.ml" 113 3379 3408
+)
+"compiler.ml" 121 3668 3691 "compiler.ml" 121 3668 3697
+type(
+  Mips.data
+)
+"compiler.ml" 122 3698 3718 "compiler.ml" 122 3698 3720
+type(
+  Mips.data -> Mips.data -> Mips.data
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 122 3698 3721 "compiler.ml" 122 3698 3726
+type(
+  Mips.label -> Mips.data
+)
+ident(
+  ext_ref Mips.label
+)
+"compiler.ml" 122 3698 3728 "compiler.ml" 122 3698 3737
+type(
+  string
+)
+"compiler.ml" 122 3698 3737 "compiler.ml" 122 3698 3738
+type(
+  string -> string -> Mips.label
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"compiler.ml" 122 3698 3739 "compiler.ml" 122 3698 3752
+type(
+  int -> string
+)
+ident(
+  ext_ref Pervasives.string_of_int
+)
+"compiler.ml" 122 3698 3753 "compiler.ml" 122 3698 3754
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"compiler.ml" 122 3698 3754 "compiler.ml" 122 3698 3763
+type(
+  int ref
+)
+ident(
+  int_ref nb_string "compiler.ml" 6 53 57 "compiler.ml" 6 53 66
+)
+"compiler.ml" 122 3698 3753 "compiler.ml" 122 3698 3763
+type(
+  int
+)
+"compiler.ml" 122 3698 3738 "compiler.ml" 122 3698 3764
+call(
+  stack
+)
+type(
+  string
+)
+"compiler.ml" 122 3698 3727 "compiler.ml" 122 3698 3765
+call(
+  stack
+)
+type(
+  Mips.label
+)
+"compiler.ml" 122 3698 3721 "compiler.ml" 122 3698 3765
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 121 3668 3691 "compiler.ml" 122 3698 3765
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 122 3698 3766 "compiler.ml" 122 3698 3768
+type(
+  Mips.data -> Mips.data -> Mips.data
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 122 3698 3769 "compiler.ml" 122 3698 3775
 type(
   string -> Mips.data
 )
 ident(
   ext_ref Mips.asciiz
 )
-"compiler.ml" 9 111 136 "compiler.ml" 9 111 140
+"compiler.ml" 122 3698 3776 "compiler.ml" 122 3698 3777
 type(
   string
 )
-"compiler.ml" 9 111 129 "compiler.ml" 9 111 140
+ident(
+  int_ref s "compiler.ml" 114 3426 3441 "compiler.ml" 114 3426 3442
+)
+"compiler.ml" 122 3698 3769 "compiler.ml" 122 3698 3777
 call(
   stack
 )
 type(
   Mips.data
 )
-"compiler.ml" 8 80 95 "compiler.ml" 9 111 140
+"compiler.ml" 121 3668 3691 "compiler.ml" 122 3698 3777
 call(
   stack
 )
 type(
   Mips.data
 )
-"compiler.ml" 6 54 58 "compiler.ml" 10 142 147
+"compiler.ml" 116 3488 3500 "compiler.ml" 123 3779 3792
+type(
+  Mips.program
+)
+"compiler.ml" 115 3447 3459 "compiler.ml" 123 3779 3792
+type(
+  Mips.program
+)
+"compiler.ml" 124 3793 3806 "compiler.ml" 124 3793 3807
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e "compiler.ml" 125 3811 3823 "compiler.ml" 133 4087 4100
+)
+"compiler.ml" 124 3793 3799 "compiler.ml" 124 3793 3807
+type(
+  Ast_typing.at_expr_string
+)
+"compiler.ml" 125 3811 3827 "compiler.ml" 125 3811 3840
+type(
+  Mips.program
+)
+ident(
+  def mips_for_expr "compiler.ml" 126 3865 3877 "compiler.ml" 133 4087 4100
+)
+"compiler.ml" 125 3811 3843 "compiler.ml" 125 3811 3852
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_expr -> Mips.program
+)
+ident(
+  int_ref mips_expr "compiler.ml" 13 130 138 "compiler.ml" 13 130 147
+)
+"compiler.ml" 125 3811 3853 "compiler.ml" 125 3811 3859
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 113 3379 3400 "compiler.ml" 113 3379 3406
+)
+"compiler.ml" 125 3811 3860 "compiler.ml" 125 3811 3861
+type(
+  Ast_typing.at_expr
+)
+ident(
+  int_ref e "compiler.ml" 124 3793 3806 "compiler.ml" 124 3793 3807
+)
+"compiler.ml" 125 3811 3843 "compiler.ml" 125 3811 3861
+call(
+  stack
+)
+type(
+  Mips.program
+)
+"compiler.ml" 127 3879 3902 "compiler.ml" 127 3879 3903
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 113 3379 3407 "compiler.ml" 113 3379 3408
+)
+"compiler.ml" 127 3879 3902 "compiler.ml" 127 3879 3908
+type(
+  Mips.text
+)
+"compiler.ml" 128 3909 3929 "compiler.ml" 128 3909 3931
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 128 3909 3932 "compiler.ml" 128 3909 3945
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_for_expr "compiler.ml" 125 3811 3827 "compiler.ml" 125 3811 3840
+)
+"compiler.ml" 128 3909 3932 "compiler.ml" 128 3909 3950
+type(
+  Mips.text
+)
+"compiler.ml" 127 3879 3902 "compiler.ml" 128 3909 3950
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 129 3951 3971 "compiler.ml" 129 3951 3973
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 129 3951 3974 "compiler.ml" 129 3951 3976
+type(
+  Mips.register -> int -> Mips.text
+)
+ident(
+  ext_ref Mips.li
+)
+"compiler.ml" 129 3951 3977 "compiler.ml" 129 3951 3979
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.v0
+)
+"compiler.ml" 129 3951 3980 "compiler.ml" 129 3951 3981
+type(
+  int
+)
+"compiler.ml" 129 3951 3974 "compiler.ml" 129 3951 3981
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 127 3879 3902 "compiler.ml" 129 3951 3981
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 130 3982 4002 "compiler.ml" 130 3982 4004
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 130 3982 4005 "compiler.ml" 130 3982 4012
+type(
+  Mips.text
+)
+ident(
+  ext_ref Mips.syscall
+)
+"compiler.ml" 127 3879 3902 "compiler.ml" 130 3982 4012
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 131 4014 4037 "compiler.ml" 131 4014 4038
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 113 3379 3407 "compiler.ml" 113 3379 3408
+)
+"compiler.ml" 131 4014 4037 "compiler.ml" 131 4014 4043
+type(
+  Mips.data
+)
+"compiler.ml" 132 4044 4064 "compiler.ml" 132 4044 4066
+type(
+  Mips.data -> Mips.data -> Mips.data
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 132 4044 4067 "compiler.ml" 132 4044 4080
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_for_expr "compiler.ml" 125 3811 3827 "compiler.ml" 125 3811 3840
+)
+"compiler.ml" 132 4044 4067 "compiler.ml" 132 4044 4085
+type(
+  Mips.data
+)
+"compiler.ml" 131 4014 4037 "compiler.ml" 132 4044 4085
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 126 3865 3877 "compiler.ml" 133 4087 4100
+type(
+  Mips.program
+)
+"compiler.ml" 125 3811 3823 "compiler.ml" 133 4087 4100
+type(
+  Mips.program
+)
+"compiler.ml" 113 3379 3413 "compiler.ml" 133 4087 4100
+type(
+  Mips.program
+)
+"compiler.ml" 135 4102 4106 "compiler.ml" 135 4102 4122
+type(
+  (Ast_typing.at_var, int) Hashtbl.t ->
+  Mips.program -> Ast_typing.at_instruction -> Mips.program
+)
+ident(
+  def mips_instruction "compiler.ml" 190 6074 6074 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 135 4102 4123 "compiler.ml" 135 4102 4129
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  def locals "compiler.ml" 135 4102 4130 "compiler.ml" 186 5991 6004
+)
+"compiler.ml" 135 4102 4130 "compiler.ml" 135 4102 4131
+type(
+  Mips.program
+)
+ident(
+  def x "compiler.ml" 135 4102 4132 "compiler.ml" 186 5991 6004
+)
+"compiler.ml" 135 4102 4132 "compiler.ml" 135 4102 4133
+type(
+  Ast_typing.at_instruction
+)
+ident(
+  def y "compiler.ml" 135 4102 4136 "compiler.ml" 186 5991 6004
+)
+"compiler.ml" 135 4102 4142 "compiler.ml" 135 4102 4143
+type(
+  Ast_typing.at_instruction
+)
+ident(
+  int_ref y "compiler.ml" 135 4102 4132 "compiler.ml" 135 4102 4133
+)
+"compiler.ml" 136 4149 4155 "compiler.ml" 136 4149 4160
+type(
+  Ast_typing.at_instruction
+)
+"compiler.ml" 136 4149 4173 "compiler.ml" 136 4149 4174
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 135 4102 4130 "compiler.ml" 135 4102 4131
+)
+"compiler.ml" 136 4149 4173 "compiler.ml" 136 4149 4179
+type(
+  Mips.text
+)
+"compiler.ml" 136 4149 4188 "compiler.ml" 136 4149 4189
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 135 4102 4130 "compiler.ml" 135 4102 4131
+)
+"compiler.ml" 136 4149 4188 "compiler.ml" 136 4149 4194
+type(
+  Mips.data
+)
+"compiler.ml" 136 4149 4164 "compiler.ml" 136 4149 4196
+type(
+  Mips.program
+)
+"compiler.ml" 137 4197 4210 "compiler.ml" 137 4197 4221
+type(
+  Ast_typing.at_expr_string list
+)
+ident(
+  def expr_string "compiler.ml" 138 4225 4237 "compiler.ml" 144 4472 4485
+)
+"compiler.ml" 137 4197 4203 "compiler.ml" 137 4197 4221
+type(
+  Ast_typing.at_instruction
+)
+"compiler.ml" 138 4225 4241 "compiler.ml" 138 4225 4250
+type(
+  Mips.program
+)
+ident(
+  def cout_mips "compiler.ml" 139 4320 4332 "compiler.ml" 144 4472 4485
+)
+"compiler.ml" 138 4225 4253 "compiler.ml" 138 4225 4267
+type(
+  (Mips.program -> Ast_typing.at_expr_string -> Mips.program) ->
+  Mips.program -> Ast_typing.at_expr_string list -> Mips.program
+)
+ident(
+  ext_ref List.fold_left
+)
+"compiler.ml" 138 4225 4269 "compiler.ml" 138 4225 4285
+type(
+  (Ast_typing.at_var, int) Hashtbl.t ->
+  Mips.program -> Ast_typing.at_expr_string -> Mips.program
+)
+ident(
+  int_ref mips_expr_string "compiler.ml" 113 3379 3383 "compiler.ml" 113 3379 3399
+)
+"compiler.ml" 138 4225 4286 "compiler.ml" 138 4225 4292
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 135 4102 4123 "compiler.ml" 135 4102 4129
+)
+"compiler.ml" 138 4225 4268 "compiler.ml" 138 4225 4293
+call(
+  stack
+)
+type(
+  Mips.program -> Ast_typing.at_expr_string -> Mips.program
+)
+"compiler.ml" 138 4225 4294 "compiler.ml" 138 4225 4304
+type(
+  Mips.program
+)
+ident(
+  int_ref empty_mips "compiler.ml" 8 76 80 "compiler.ml" 8 76 90
+)
+"compiler.ml" 138 4225 4305 "compiler.ml" 138 4225 4316
+type(
+  Ast_typing.at_expr_string list
+)
+ident(
+  int_ref expr_string "compiler.ml" 137 4197 4210 "compiler.ml" 137 4197 4221
+)
+"compiler.ml" 138 4225 4253 "compiler.ml" 138 4225 4316
+call(
+  stack
+)
+type(
+  Mips.program
+)
+"compiler.ml" 140 4334 4357 "compiler.ml" 140 4334 4358
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 135 4102 4130 "compiler.ml" 135 4102 4131
+)
+"compiler.ml" 140 4334 4357 "compiler.ml" 140 4334 4363
+type(
+  Mips.text
+)
+"compiler.ml" 141 4364 4384 "compiler.ml" 141 4364 4386
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 141 4364 4387 "compiler.ml" 141 4364 4396
+type(
+  Mips.program
+)
+ident(
+  int_ref cout_mips "compiler.ml" 138 4225 4241 "compiler.ml" 138 4225 4250
+)
+"compiler.ml" 141 4364 4387 "compiler.ml" 141 4364 4401
+type(
+  Mips.text
+)
+"compiler.ml" 140 4334 4357 "compiler.ml" 141 4364 4401
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 142 4403 4426 "compiler.ml" 142 4403 4427
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 135 4102 4130 "compiler.ml" 135 4102 4131
+)
+"compiler.ml" 142 4403 4426 "compiler.ml" 142 4403 4432
+type(
+  Mips.data
+)
+"compiler.ml" 143 4433 4453 "compiler.ml" 143 4433 4455
+type(
+  Mips.data -> Mips.data -> Mips.data
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 143 4433 4456 "compiler.ml" 143 4433 4465
+type(
+  Mips.program
+)
+ident(
+  int_ref cout_mips "compiler.ml" 138 4225 4241 "compiler.ml" 138 4225 4250
+)
+"compiler.ml" 143 4433 4456 "compiler.ml" 143 4433 4470
+type(
+  Mips.data
+)
+"compiler.ml" 142 4403 4426 "compiler.ml" 143 4433 4470
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 139 4320 4332 "compiler.ml" 144 4472 4485
+type(
+  Mips.program
+)
+"compiler.ml" 138 4225 4237 "compiler.ml" 144 4472 4485
+type(
+  Mips.program
+)
+"compiler.ml" 145 4486 4500 "compiler.ml" 145 4486 4501
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e "compiler.ml" 146 4505 4517 "compiler.ml" 152 4719 4732
+)
+"compiler.ml" 145 4486 4492 "compiler.ml" 145 4486 4501
+type(
+  Ast_typing.at_instruction
+)
+"compiler.ml" 146 4505 4521 "compiler.ml" 146 4505 4534
+type(
+  Mips.program
+)
+ident(
+  def mips_for_expr "compiler.ml" 147 4559 4571 "compiler.ml" 152 4719 4732
+)
+"compiler.ml" 146 4505 4537 "compiler.ml" 146 4505 4546
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_expr -> Mips.program
+)
+ident(
+  int_ref mips_expr "compiler.ml" 13 130 138 "compiler.ml" 13 130 147
+)
+"compiler.ml" 146 4505 4547 "compiler.ml" 146 4505 4553
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 135 4102 4123 "compiler.ml" 135 4102 4129
+)
+"compiler.ml" 146 4505 4554 "compiler.ml" 146 4505 4555
+type(
+  Ast_typing.at_expr
+)
+ident(
+  int_ref e "compiler.ml" 145 4486 4500 "compiler.ml" 145 4486 4501
+)
+"compiler.ml" 146 4505 4537 "compiler.ml" 146 4505 4555
+call(
+  stack
+)
+type(
+  Mips.program
+)
+"compiler.ml" 148 4573 4596 "compiler.ml" 148 4573 4597
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 135 4102 4130 "compiler.ml" 135 4102 4131
+)
+"compiler.ml" 148 4573 4596 "compiler.ml" 148 4573 4602
+type(
+  Mips.text
+)
+"compiler.ml" 149 4603 4623 "compiler.ml" 149 4603 4625
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 149 4603 4626 "compiler.ml" 149 4603 4639
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_for_expr "compiler.ml" 146 4505 4521 "compiler.ml" 146 4505 4534
+)
+"compiler.ml" 149 4603 4626 "compiler.ml" 149 4603 4644
+type(
+  Mips.text
+)
+"compiler.ml" 148 4573 4596 "compiler.ml" 149 4603 4644
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 150 4646 4669 "compiler.ml" 150 4646 4670
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 135 4102 4130 "compiler.ml" 135 4102 4131
+)
+"compiler.ml" 150 4646 4669 "compiler.ml" 150 4646 4675
+type(
+  Mips.data
+)
+"compiler.ml" 151 4676 4696 "compiler.ml" 151 4676 4698
+type(
+  Mips.data -> Mips.data -> Mips.data
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 151 4676 4699 "compiler.ml" 151 4676 4712
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_for_expr "compiler.ml" 146 4505 4521 "compiler.ml" 146 4505 4534
+)
+"compiler.ml" 151 4676 4699 "compiler.ml" 151 4676 4717
+type(
+  Mips.data
+)
+"compiler.ml" 150 4646 4669 "compiler.ml" 151 4676 4717
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 147 4559 4571 "compiler.ml" 152 4719 4732
+type(
+  Mips.program
+)
+"compiler.ml" 146 4505 4517 "compiler.ml" 152 4719 4732
+type(
+  Mips.program
+)
+"compiler.ml" 153 4733 4747 "compiler.ml" 153 4733 4750
+type(
+  Ast_typing.at_var
+)
+ident(
+  def var "compiler.ml" 153 4733 4763 "compiler.ml" 167 5371 5378
+)
+"compiler.ml" 153 4733 4752 "compiler.ml" 153 4733 4758
+type(
+  Ast_typing.at_some_assign
+)
+ident(
+  def assign "compiler.ml" 153 4733 4763 "compiler.ml" 167 5371 5378
+)
+"compiler.ml" 153 4733 4739 "compiler.ml" 153 4733 4759
+type(
+  Ast_typing.at_instruction
+)
+"compiler.ml" 154 4769 4783 "compiler.ml" 154 4769 4789
+type(
+  Ast_typing.at_some_assign
+)
+ident(
+  int_ref assign "compiler.ml" 153 4733 4752 "compiler.ml" 153 4733 4758
+)
+"compiler.ml" 155 4795 4809 "compiler.ml" 155 4795 4819
+type(
+  Ast_typing.at_some_assign
+)
+"compiler.ml" 155 4795 4823 "compiler.ml" 155 4795 4835
+type(
+  Mips.program
+)
+"compiler.ml" 156 4847 4870 "compiler.ml" 156 4847 4871
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e "compiler.ml" 157 4876 4896 "compiler.ml" 165 5278 5299
+)
+"compiler.ml" 156 4847 4861 "compiler.ml" 156 4847 4871
+type(
+  Ast_typing.at_some_assign
+)
+"compiler.ml" 157 4876 4900 "compiler.ml" 157 4876 4915
+type(
+  Mips.program
+)
+ident(
+  def mips_for_assign "compiler.ml" 158 4940 4960 "compiler.ml" 165 5278 5299
+)
+"compiler.ml" 157 4876 4918 "compiler.ml" 157 4876 4927
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_expr -> Mips.program
+)
+ident(
+  int_ref mips_expr "compiler.ml" 13 130 138 "compiler.ml" 13 130 147
+)
+"compiler.ml" 157 4876 4928 "compiler.ml" 157 4876 4934
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 135 4102 4123 "compiler.ml" 135 4102 4129
+)
+"compiler.ml" 157 4876 4935 "compiler.ml" 157 4876 4936
+type(
+  Ast_typing.at_expr
+)
+ident(
+  int_ref e "compiler.ml" 156 4847 4870 "compiler.ml" 156 4847 4871
+)
+"compiler.ml" 157 4876 4918 "compiler.ml" 157 4876 4936
+call(
+  stack
+)
+type(
+  Mips.program
+)
+"compiler.ml" 158 4940 4964 "compiler.ml" 158 4940 4967
+type(
+  int
+)
+ident(
+  def pos "compiler.ml" 159 4997 5017 "compiler.ml" 165 5278 5299
+)
+"compiler.ml" 158 4940 4970 "compiler.ml" 158 4940 4982
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_var -> int
+)
+ident(
+  ext_ref Hashtbl.find
+)
+"compiler.ml" 158 4940 4983 "compiler.ml" 158 4940 4989
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 135 4102 4123 "compiler.ml" 135 4102 4129
+)
+"compiler.ml" 158 4940 4990 "compiler.ml" 158 4940 4993
+type(
+  Ast_typing.at_var
+)
+ident(
+  int_ref var "compiler.ml" 153 4733 4747 "compiler.ml" 153 4733 4750
+)
+"compiler.ml" 158 4940 4970 "compiler.ml" 158 4940 4993
+call(
+  stack
+)
+type(
+  int
+)
+"compiler.ml" 160 5019 5050 "compiler.ml" 160 5019 5051
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 135 4102 4130 "compiler.ml" 135 4102 4131
+)
+"compiler.ml" 160 5019 5050 "compiler.ml" 160 5019 5056
+type(
+  Mips.text
+)
+"compiler.ml" 161 5057 5085 "compiler.ml" 161 5057 5087
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 161 5057 5088 "compiler.ml" 161 5057 5103
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_for_assign "compiler.ml" 157 4876 4900 "compiler.ml" 157 4876 4915
+)
+"compiler.ml" 161 5057 5088 "compiler.ml" 161 5057 5108
+type(
+  Mips.text
+)
+"compiler.ml" 160 5019 5050 "compiler.ml" 161 5057 5108
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 162 5109 5137 "compiler.ml" 162 5109 5139
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 162 5109 5140 "compiler.ml" 162 5109 5142
+type(
+  Mips.register ->
+  (int * Mips.register) Mips.address -> int * Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.sw
+)
+"compiler.ml" 162 5109 5143 "compiler.ml" 162 5109 5145
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 162 5109 5146 "compiler.ml" 162 5109 5150
+type(
+  (int * Mips.register) Mips.address
+)
+ident(
+  ext_ref Mips.areg
+)
+"compiler.ml" 162 5109 5152 "compiler.ml" 162 5109 5153
+type(
+  int -> int
+)
+ident(
+  ext_ref Pervasives.( ~- )
+)
+"compiler.ml" 162 5109 5153 "compiler.ml" 162 5109 5156
+type(
+  int
+)
+ident(
+  int_ref pos "compiler.ml" 158 4940 4964 "compiler.ml" 158 4940 4967
+)
+"compiler.ml" 162 5109 5152 "compiler.ml" 162 5109 5156
+type(
+  int
+)
+"compiler.ml" 162 5109 5156 "compiler.ml" 162 5109 5157
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"compiler.ml" 162 5109 5157 "compiler.ml" 162 5109 5158
+type(
+  int
+)
+"compiler.ml" 162 5109 5152 "compiler.ml" 162 5109 5158
+type(
+  int
+)
+"compiler.ml" 162 5109 5160 "compiler.ml" 162 5109 5162
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.fp
+)
+"compiler.ml" 162 5109 5151 "compiler.ml" 162 5109 5163
+type(
+  int * Mips.register
+)
+"compiler.ml" 162 5109 5140 "compiler.ml" 162 5109 5163
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 160 5019 5050 "compiler.ml" 162 5109 5163
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 163 5187 5218 "compiler.ml" 163 5187 5219
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 135 4102 4130 "compiler.ml" 135 4102 4131
+)
+"compiler.ml" 163 5187 5218 "compiler.ml" 163 5187 5224
+type(
+  Mips.data
+)
+"compiler.ml" 164 5225 5253 "compiler.ml" 164 5225 5255
+type(
+  Mips.data -> Mips.data -> Mips.data
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 164 5225 5256 "compiler.ml" 164 5225 5271
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_for_assign "compiler.ml" 157 4876 4900 "compiler.ml" 157 4876 4915
+)
+"compiler.ml" 164 5225 5256 "compiler.ml" 164 5225 5276
+type(
+  Mips.data
+)
+"compiler.ml" 163 5187 5218 "compiler.ml" 164 5225 5276
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 159 4997 5017 "compiler.ml" 165 5278 5299
+type(
+  Mips.program
+)
+"compiler.ml" 158 4940 4960 "compiler.ml" 165 5278 5299
+type(
+  Mips.program
+)
+"compiler.ml" 157 4876 4896 "compiler.ml" 165 5278 5299
+type(
+  Mips.program
+)
+"compiler.ml" 166 5300 5326 "compiler.ml" 166 5300 5331
+type(
+  Ast_typing.at_tident
+)
+ident(
+  def ident "compiler.ml" 166 5300 5347 "compiler.ml" 166 5300 5359
+)
+"compiler.ml" 166 5300 5333 "compiler.ml" 166 5300 5342
+type(
+  Ast_typing.at_expr list
+)
+ident(
+  def expr_list "compiler.ml" 166 5300 5347 "compiler.ml" 166 5300 5359
+)
+"compiler.ml" 166 5300 5314 "compiler.ml" 166 5300 5343
+type(
+  Ast_typing.at_some_assign
+)
+"compiler.ml" 166 5300 5347 "compiler.ml" 166 5300 5359
+type(
+  Mips.program
+)
+"compiler.ml" 153 4733 4763 "compiler.ml" 167 5371 5378
+type(
+  Mips.program
+)
+"compiler.ml" 168 5379 5391 "compiler.ml" 168 5379 5392
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e "compiler.ml" 168 5379 5400 "compiler.ml" 168 5379 5412
+)
+"compiler.ml" 168 5379 5394 "compiler.ml" 168 5379 5395
+type(
+  Ast_typing.at_instruction
+)
+ident(
+  def i "compiler.ml" 168 5379 5400 "compiler.ml" 168 5379 5412
+)
+"compiler.ml" 168 5379 5385 "compiler.ml" 168 5379 5396
+type(
+  Ast_typing.at_instruction
+)
+"compiler.ml" 168 5379 5400 "compiler.ml" 168 5379 5412
+type(
+  Mips.program
+)
+"compiler.ml" 169 5413 5429 "compiler.ml" 169 5413 5430
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e "compiler.ml" 169 5413 5443 "compiler.ml" 169 5413 5455
+)
+"compiler.ml" 169 5413 5432 "compiler.ml" 169 5413 5434
+type(
+  Ast_typing.at_instruction
+)
+ident(
+  def i1 "compiler.ml" 169 5413 5443 "compiler.ml" 169 5413 5455
+)
+"compiler.ml" 169 5413 5436 "compiler.ml" 169 5413 5438
+type(
+  Ast_typing.at_instruction
+)
+ident(
+  def i2 "compiler.ml" 169 5413 5443 "compiler.ml" 169 5413 5455
+)
+"compiler.ml" 169 5413 5419 "compiler.ml" 169 5413 5439
+type(
+  Ast_typing.at_instruction
+)
+"compiler.ml" 169 5413 5443 "compiler.ml" 169 5413 5455
+type(
+  Mips.program
+)
+"compiler.ml" 170 5456 5471 "compiler.ml" 170 5456 5472
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def e "compiler.ml" 170 5456 5480 "compiler.ml" 170 5456 5492
+)
+"compiler.ml" 170 5456 5474 "compiler.ml" 170 5456 5475
+type(
+  Ast_typing.at_instruction
+)
+ident(
+  def i "compiler.ml" 170 5456 5480 "compiler.ml" 170 5456 5492
+)
+"compiler.ml" 170 5456 5462 "compiler.ml" 170 5456 5476
+type(
+  Ast_typing.at_instruction
+)
+"compiler.ml" 170 5456 5480 "compiler.ml" 170 5456 5492
+type(
+  Mips.program
+)
+"compiler.ml" 171 5493 5506 "compiler.ml" 171 5493 5508
+type(
+  Ast_typing.at_expr list
+)
+ident(
+  def e1 "compiler.ml" 171 5493 5524 "compiler.ml" 171 5493 5536
+)
+"compiler.ml" 171 5493 5510 "compiler.ml" 171 5493 5512
+type(
+  Ast_typing.at_some_expr
+)
+ident(
+  def e2 "compiler.ml" 171 5493 5524 "compiler.ml" 171 5493 5536
+)
+"compiler.ml" 171 5493 5514 "compiler.ml" 171 5493 5516
+type(
+  Ast_typing.at_expr list
+)
+ident(
+  def e3 "compiler.ml" 171 5493 5524 "compiler.ml" 171 5493 5536
+)
+"compiler.ml" 171 5493 5518 "compiler.ml" 171 5493 5519
+type(
+  Ast_typing.at_instruction
+)
+ident(
+  def i "compiler.ml" 171 5493 5524 "compiler.ml" 171 5493 5536
+)
+"compiler.ml" 171 5493 5499 "compiler.ml" 171 5493 5520
+type(
+  Ast_typing.at_instruction
+)
+"compiler.ml" 171 5493 5524 "compiler.ml" 171 5493 5536
+type(
+  Mips.program
+)
+"compiler.ml" 172 5537 5551 "compiler.ml" 172 5537 5555
+type(
+  Ast_typing.at_bloc
+)
+ident(
+  def bloc "compiler.ml" 172 5537 5559 "compiler.ml" 172 5537 5571
+)
+"compiler.ml" 172 5537 5543 "compiler.ml" 172 5537 5555
+type(
+  Ast_typing.at_instruction
+)
+"compiler.ml" 172 5537 5559 "compiler.ml" 172 5537 5571
+type(
+  Mips.program
+)
+"compiler.ml" 173 5572 5587 "compiler.ml" 173 5572 5588
+type(
+  Ast_typing.at_some_expr
+)
+ident(
+  def e "compiler.ml" 174 5592 5604 "compiler.ml" 186 5991 6004
+)
+"compiler.ml" 173 5572 5578 "compiler.ml" 173 5572 5588
+type(
+  Ast_typing.at_instruction
+)
+"compiler.ml" 174 5592 5608 "compiler.ml" 174 5592 5621
+type(
+  Mips.program
+)
+ident(
+  def mips_for_expr "compiler.ml" 178 5734 5746 "compiler.ml" 186 5991 6004
+)
+"compiler.ml" 174 5592 5630 "compiler.ml" 174 5592 5631
+type(
+  Ast_typing.at_some_expr
+)
+ident(
+  int_ref e "compiler.ml" 173 5572 5587 "compiler.ml" 173 5572 5588
+)
+"compiler.ml" 175 5637 5656 "compiler.ml" 175 5637 5660
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def expr "compiler.ml" 175 5637 5664 "compiler.ml" 175 5637 5685
+)
+"compiler.ml" 175 5637 5651 "compiler.ml" 175 5637 5660
+type(
+  Ast_typing.at_some_expr
+)
+"compiler.ml" 175 5637 5664 "compiler.ml" 175 5637 5673
+type(
+  (Ast_typing.at_var, int) Hashtbl.t -> Ast_typing.at_expr -> Mips.program
+)
+ident(
+  int_ref mips_expr "compiler.ml" 13 130 138 "compiler.ml" 13 130 147
+)
+"compiler.ml" 175 5637 5674 "compiler.ml" 175 5637 5680
+type(
+  (Ast_typing.at_var, int) Hashtbl.t
+)
+ident(
+  int_ref locals "compiler.ml" 135 4102 4123 "compiler.ml" 135 4102 4129
+)
+"compiler.ml" 175 5637 5681 "compiler.ml" 175 5637 5685
+type(
+  Ast_typing.at_expr
+)
+ident(
+  int_ref expr "compiler.ml" 175 5637 5656 "compiler.ml" 175 5637 5660
+)
+"compiler.ml" 175 5637 5664 "compiler.ml" 175 5637 5685
+call(
+  stack
+)
+type(
+  Mips.program
+)
+"compiler.ml" 176 5686 5700 "compiler.ml" 176 5686 5704
+type(
+  Ast_typing.at_some_expr
+)
+"compiler.ml" 176 5686 5708 "compiler.ml" 176 5686 5718
+type(
+  Mips.program
+)
+ident(
+  int_ref empty_mips "compiler.ml" 8 76 80 "compiler.ml" 8 76 90
+)
+"compiler.ml" 174 5592 5624 "compiler.ml" 176 5686 5718
+type(
+  Mips.program
+)
+"compiler.ml" 179 5748 5771 "compiler.ml" 179 5748 5772
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 135 4102 4130 "compiler.ml" 135 4102 4131
+)
+"compiler.ml" 179 5748 5771 "compiler.ml" 179 5748 5777
+type(
+  Mips.text
+)
+"compiler.ml" 180 5778 5798 "compiler.ml" 180 5778 5800
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 180 5778 5801 "compiler.ml" 180 5778 5814
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_for_expr "compiler.ml" 174 5592 5608 "compiler.ml" 174 5592 5621
+)
+"compiler.ml" 180 5778 5801 "compiler.ml" 180 5778 5819
+type(
+  Mips.text
+)
+"compiler.ml" 179 5748 5771 "compiler.ml" 180 5778 5819
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 181 5820 5840 "compiler.ml" 181 5820 5842
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 181 5820 5843 "compiler.ml" 181 5820 5847
+type(
+  Mips.register -> Mips.register -> Mips.text
+)
+ident(
+  ext_ref Mips.move
+)
+"compiler.ml" 181 5820 5848 "compiler.ml" 181 5820 5850
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.v0
+)
+"compiler.ml" 181 5820 5851 "compiler.ml" 181 5820 5853
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.a0
+)
+"compiler.ml" 181 5820 5843 "compiler.ml" 181 5820 5853
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 179 5748 5771 "compiler.ml" 181 5820 5853
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 182 5854 5874 "compiler.ml" 182 5854 5876
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 182 5854 5877 "compiler.ml" 182 5854 5879
+type(
+  Mips.register -> int -> Mips.text
+)
+ident(
+  ext_ref Mips.li
+)
+"compiler.ml" 182 5854 5880 "compiler.ml" 182 5854 5882
+type(
+  Mips.register
+)
+ident(
+  ext_ref Mips.v0
+)
+"compiler.ml" 182 5854 5883 "compiler.ml" 182 5854 5885
+type(
+  int
+)
+"compiler.ml" 182 5854 5877 "compiler.ml" 182 5854 5885
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 179 5748 5771 "compiler.ml" 182 5854 5885
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 183 5886 5906 "compiler.ml" 183 5886 5908
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 183 5886 5909 "compiler.ml" 183 5886 5916
+type(
+  Mips.text
+)
+ident(
+  ext_ref Mips.syscall
+)
+"compiler.ml" 179 5748 5771 "compiler.ml" 183 5886 5916
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 184 5918 5941 "compiler.ml" 184 5918 5942
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 135 4102 4130 "compiler.ml" 135 4102 4131
+)
+"compiler.ml" 184 5918 5941 "compiler.ml" 184 5918 5947
+type(
+  Mips.data
+)
+"compiler.ml" 185 5948 5968 "compiler.ml" 185 5948 5970
+type(
+  Mips.data -> Mips.data -> Mips.data
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 185 5948 5971 "compiler.ml" 185 5948 5984
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_for_expr "compiler.ml" 174 5592 5608 "compiler.ml" 174 5592 5621
+)
+"compiler.ml" 185 5948 5971 "compiler.ml" 185 5948 5989
+type(
+  Mips.data
+)
+"compiler.ml" 184 5918 5941 "compiler.ml" 185 5948 5989
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 178 5734 5746 "compiler.ml" 186 5991 6004
+type(
+  Mips.program
+)
+"compiler.ml" 174 5592 5604 "compiler.ml" 186 5991 6004
+type(
+  Mips.program
+)
+"compiler.ml" 135 4102 4136 "compiler.ml" 186 5991 6004
+type(
+  Mips.program
+)
+"compiler.ml" 190 6074 6078 "compiler.ml" 190 6074 6091
+type(
+  Ast_typing.at_fonction -> Mips.program
+)
+ident(
+  def mips_fonction "compiler.ml" 205 6431 6431 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 190 6074 6092 "compiler.ml" 190 6074 6093
+type(
+  Ast_typing.at_fonction
+)
+ident(
+  def f "compiler.ml" 192 6111 6115 "compiler.ml" 203 6424 6429
+)
+"compiler.ml" 192 6111 6119 "compiler.ml" 192 6111 6126
+type(
+  Ast_typing.at_ident
+)
+ident(
+  def f_label "compiler.ml" 197 6236 6240 "compiler.ml" 203 6424 6429
+)
+"compiler.ml" 192 6111 6135 "compiler.ml" 192 6111 6136
+type(
+  Ast_typing.at_fonction
+)
+ident(
+  int_ref f "compiler.ml" 190 6074 6092 "compiler.ml" 190 6074 6093
+)
+"compiler.ml" 192 6111 6135 "compiler.ml" 192 6111 6145
+type(
+  Ast_typing.at_proto
+)
+"compiler.ml" 192 6111 6135 "compiler.ml" 192 6111 6154
+type(
+  Ast_typing.at_proto_ident
+)
+"compiler.ml" 193 6160 6174 "compiler.ml" 193 6160 6175
+type(
+  Ast_typing.at_ast_type
+)
+"compiler.ml" 193 6160 6195 "compiler.ml" 193 6160 6196
+type(
+  Ast_typing.at_ident
+)
+ident(
+  def s "compiler.ml" 193 6160 6202 "compiler.ml" 193 6160 6203
+)
+"compiler.ml" 193 6160 6186 "compiler.ml" 193 6160 6197
+type(
+  Ast_typing.at_qident
+)
+"compiler.ml" 193 6160 6177 "compiler.ml" 193 6160 6197
+type(
+  Ast_typing.at_qvar
+)
+"compiler.ml" 193 6160 6166 "compiler.ml" 193 6160 6198
+type(
+  Ast_typing.at_proto_ident
+)
+"compiler.ml" 193 6160 6202 "compiler.ml" 193 6160 6203
+type(
+  Ast_typing.at_ident
+)
+ident(
+  int_ref s "compiler.ml" 193 6160 6195 "compiler.ml" 193 6160 6196
+)
+"compiler.ml" 194 6204 6210 "compiler.ml" 194 6204 6211
+type(
+  Ast_typing.at_proto_ident
+)
+"compiler.ml" 194 6204 6215 "compiler.ml" 194 6204 6227
+type(
+  Ast_typing.at_ident
+)
+"compiler.ml" 192 6111 6129 "compiler.ml" 194 6204 6227
+type(
+  Ast_typing.at_ident
+)
+"compiler.ml" 197 6236 6244 "compiler.ml" 197 6236 6253
+type(
+  Mips.program
+)
+ident(
+  def mips_bloc "compiler.ml" 199 6327 6331 "compiler.ml" 203 6424 6429
+)
+"compiler.ml" 197 6236 6256 "compiler.ml" 197 6236 6270
+type(
+  (Mips.program -> Ast_typing.at_instruction -> Mips.program) ->
+  Mips.program -> Ast_typing.at_bloc -> Mips.program
+)
+ident(
+  ext_ref List.fold_left
+)
+"compiler.ml" 197 6236 6272 "compiler.ml" 197 6236 6288
+type(
+  Ast_typing.at_locals ->
+  Mips.program -> Ast_typing.at_instruction -> Mips.program
+)
+ident(
+  int_ref mips_instruction "compiler.ml" 135 4102 4106 "compiler.ml" 135 4102 4122
+)
+"compiler.ml" 197 6236 6289 "compiler.ml" 197 6236 6290
+type(
+  Ast_typing.at_fonction
+)
+ident(
+  int_ref f "compiler.ml" 190 6074 6092 "compiler.ml" 190 6074 6093
+)
+"compiler.ml" 197 6236 6289 "compiler.ml" 197 6236 6300
+type(
+  Ast_typing.at_locals
+)
+"compiler.ml" 197 6236 6271 "compiler.ml" 197 6236 6301
+call(
+  stack
+)
+type(
+  Mips.program -> Ast_typing.at_instruction -> Mips.program
+)
+"compiler.ml" 197 6236 6302 "compiler.ml" 197 6236 6312
+type(
+  Mips.program
+)
+ident(
+  int_ref empty_mips "compiler.ml" 8 76 80 "compiler.ml" 8 76 90
+)
+"compiler.ml" 197 6236 6313 "compiler.ml" 197 6236 6314
+type(
+  Ast_typing.at_fonction
+)
+ident(
+  int_ref f "compiler.ml" 190 6074 6092 "compiler.ml" 190 6074 6093
+)
+"compiler.ml" 197 6236 6313 "compiler.ml" 197 6236 6322
+type(
+  Ast_typing.at_bloc
+)
+"compiler.ml" 197 6236 6256 "compiler.ml" 197 6236 6322
+call(
+  stack
+)
+type(
+  Mips.program
+)
+"compiler.ml" 200 6333 6348 "compiler.ml" 200 6333 6353
+type(
+  Mips.label -> Mips.text
+)
+ident(
+  ext_ref Mips.label
+)
+"compiler.ml" 200 6333 6354 "compiler.ml" 200 6333 6361
+type(
+  Ast_typing.at_ident
+)
+ident(
+  int_ref f_label "compiler.ml" 192 6111 6119 "compiler.ml" 192 6111 6126
+)
+"compiler.ml" 200 6333 6348 "compiler.ml" 200 6333 6361
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 201 6362 6374 "compiler.ml" 201 6362 6376
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 201 6362 6377 "compiler.ml" 201 6362 6386
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_bloc "compiler.ml" 197 6236 6244 "compiler.ml" 197 6236 6253
+)
+"compiler.ml" 201 6362 6377 "compiler.ml" 201 6362 6391
+type(
+  Mips.text
+)
+"compiler.ml" 200 6333 6348 "compiler.ml" 201 6362 6391
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 202 6393 6408 "compiler.ml" 202 6393 6417
+type(
+  Mips.program
+)
+ident(
+  int_ref mips_bloc "compiler.ml" 197 6236 6244 "compiler.ml" 197 6236 6253
+)
+"compiler.ml" 202 6393 6408 "compiler.ml" 202 6393 6422
+type(
+  Mips.data
+)
+"compiler.ml" 199 6327 6331 "compiler.ml" 203 6424 6429
+type(
+  Mips.program
+)
+"compiler.ml" 197 6236 6240 "compiler.ml" 203 6424 6429
+type(
+  Mips.program
+)
+"compiler.ml" 192 6111 6115 "compiler.ml" 203 6424 6429
+type(
+  Mips.program
+)
+"compiler.ml" 205 6431 6435 "compiler.ml" 205 6431 6444
+type(
+  Mips.program -> Ast_typing.at_decl -> Mips.program
+)
+ident(
+  def mips_decl "compiler.ml" 217 6757 6757 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 205 6431 6445 "compiler.ml" 205 6431 6446
+type(
+  Mips.program
+)
+ident(
+  def x "compiler.ml" 205 6431 6447 "compiler.ml" 214 6717 6740
+)
+"compiler.ml" 205 6431 6447 "compiler.ml" 205 6431 6448
+type(
+  Ast_typing.at_decl
+)
+ident(
+  def y "compiler.ml" 205 6431 6451 "compiler.ml" 214 6717 6740
+)
+"compiler.ml" 205 6431 6457 "compiler.ml" 205 6431 6458
+type(
+  Ast_typing.at_decl
+)
+ident(
+  int_ref y "compiler.ml" 205 6431 6447 "compiler.ml" 205 6431 6448
+)
+"compiler.ml" 206 6464 6482 "compiler.ml" 206 6464 6483
+type(
+  Ast_typing.at_fonction
+)
+ident(
+  def f "compiler.ml" 207 6487 6499 "compiler.ml" 211 6661 6674
+)
+"compiler.ml" 206 6464 6470 "compiler.ml" 206 6464 6483
+type(
+  Ast_typing.at_decl
+)
+"compiler.ml" 207 6487 6503 "compiler.ml" 207 6487 6517
+type(
+  Mips.program
+)
+ident(
+  def generated_mips "compiler.ml" 208 6539 6551 "compiler.ml" 211 6661 6674
+)
+"compiler.ml" 207 6487 6520 "compiler.ml" 207 6487 6533
+type(
+  Ast_typing.at_fonction -> Mips.program
+)
+ident(
+  int_ref mips_fonction "compiler.ml" 190 6074 6078 "compiler.ml" 190 6074 6091
+)
+"compiler.ml" 207 6487 6534 "compiler.ml" 207 6487 6535
+type(
+  Ast_typing.at_fonction
+)
+ident(
+  int_ref f "compiler.ml" 206 6464 6482 "compiler.ml" 206 6464 6483
+)
+"compiler.ml" 207 6487 6520 "compiler.ml" 207 6487 6535
+call(
+  stack
+)
+type(
+  Mips.program
+)
+"compiler.ml" 209 6553 6576 "compiler.ml" 209 6553 6577
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 205 6431 6445 "compiler.ml" 205 6431 6446
+)
+"compiler.ml" 209 6553 6576 "compiler.ml" 209 6553 6582
+type(
+  Mips.text
+)
+"compiler.ml" 209 6553 6583 "compiler.ml" 209 6553 6585
+type(
+  Mips.text -> Mips.text -> Mips.text
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 209 6553 6586 "compiler.ml" 209 6553 6600
+type(
+  Mips.program
+)
+ident(
+  int_ref generated_mips "compiler.ml" 207 6487 6503 "compiler.ml" 207 6487 6517
+)
+"compiler.ml" 209 6553 6586 "compiler.ml" 209 6553 6605
+type(
+  Mips.text
+)
+"compiler.ml" 209 6553 6576 "compiler.ml" 209 6553 6605
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 210 6607 6630 "compiler.ml" 210 6607 6631
+type(
+  Mips.program
+)
+ident(
+  int_ref x "compiler.ml" 205 6431 6445 "compiler.ml" 205 6431 6446
+)
+"compiler.ml" 210 6607 6630 "compiler.ml" 210 6607 6636
+type(
+  Mips.data
+)
+"compiler.ml" 210 6607 6637 "compiler.ml" 210 6607 6639
+type(
+  Mips.data -> Mips.data -> Mips.data
+)
+ident(
+  ext_ref Mips.( ++ )
+)
+"compiler.ml" 210 6607 6640 "compiler.ml" 210 6607 6654
+type(
+  Mips.program
+)
+ident(
+  int_ref generated_mips "compiler.ml" 207 6487 6503 "compiler.ml" 207 6487 6517
+)
+"compiler.ml" 210 6607 6640 "compiler.ml" 210 6607 6659
+type(
+  Mips.data
+)
+"compiler.ml" 210 6607 6630 "compiler.ml" 210 6607 6659
+call(
+  stack
+)
+type(
+  Mips.data
+)
+"compiler.ml" 208 6539 6551 "compiler.ml" 211 6661 6674
+type(
+  Mips.program
+)
+"compiler.ml" 207 6487 6499 "compiler.ml" 211 6661 6674
+type(
+  Mips.program
+)
+"compiler.ml" 212 6675 6689 "compiler.ml" 212 6675 6692
+type(
+  Ast_typing.at_decl_vars
+)
+ident(
+  def var "compiler.ml" 213 6696 6704 "compiler.ml" 213 6696 6716
+)
+"compiler.ml" 212 6675 6681 "compiler.ml" 212 6675 6692
+type(
+  Ast_typing.at_decl
+)
+"compiler.ml" 213 6696 6704 "compiler.ml" 213 6696 6716
+type(
+  Mips.program
+)
+"compiler.ml" 214 6717 6723 "compiler.ml" 214 6717 6724
+type(
+  Ast_typing.at_decl
+)
+"compiler.ml" 214 6717 6728 "compiler.ml" 214 6717 6740
+type(
+  Mips.program
+)
+"compiler.ml" 205 6431 6451 "compiler.ml" 214 6717 6740
+type(
+  Mips.program
+)
+"compiler.ml" 217 6757 6761 "compiler.ml" 217 6757 6768
+type(
+  Ast_typing.at_decl list -> Mips.program
+)
+ident(
+  def program "compiler.ml" 218 6774 6815 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 217 6757 6769 "compiler.ml" 217 6757 6770
+type(
+  Ast_typing.at_decl list
+)
+ident(
+  def x "compiler.ml" 218 6774 6778 "compiler.ml" 218 6774 6815
+)
+"compiler.ml" 218 6774 6778 "compiler.ml" 218 6774 6792
+type(
+  (Mips.program -> Ast_typing.at_decl -> Mips.program) ->
+  Mips.program -> Ast_typing.at_decl list -> Mips.program
+)
+ident(
+  ext_ref List.fold_left
+)
+"compiler.ml" 218 6774 6793 "compiler.ml" 218 6774 6802
+type(
+  Mips.program -> Ast_typing.at_decl -> Mips.program
+)
+ident(
+  int_ref mips_decl "compiler.ml" 205 6431 6435 "compiler.ml" 205 6431 6444
+)
+"compiler.ml" 218 6774 6803 "compiler.ml" 218 6774 6813
+type(
+  Mips.program
+)
+ident(
+  int_ref empty_mips "compiler.ml" 8 76 80 "compiler.ml" 8 76 90
+)
+"compiler.ml" 218 6774 6814 "compiler.ml" 218 6774 6815
+type(
+  Ast_typing.at_decl list
+)
+ident(
+  int_ref x "compiler.ml" 217 6757 6769 "compiler.ml" 217 6757 6770
+)
+"compiler.ml" 218 6774 6778 "compiler.ml" 218 6774 6815
+call(
+  tail
+)
 type(
   Mips.program
 )

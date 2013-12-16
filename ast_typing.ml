@@ -39,9 +39,9 @@ type at_expr_string = ATExpr of at_expr | ATString of string
 type at_some_expr = at_expr option
 type at_some_assign = ATNoAssign | ATSAExpr of at_expr | ATSATident of at_tident * (at_expr list)
 
-type at_instruction_content = ATNop
+type at_instruction = ATNop
                    | ATIExpr of at_expr
-                   | ATIVar of at_ast_type * at_var * at_some_assign
+                   | ATIVar of at_var * at_some_assign
                    | ATIf of at_expr * at_instruction
                    | ATIfElse of at_expr * at_instruction * at_instruction
                    | ATWhile of at_expr * at_instruction
@@ -50,11 +50,7 @@ type at_instruction_content = ATNop
                    | ATCout of at_expr_string list
                    | ATReturn of at_some_expr
                and
-               at_bloc_content = ATBloc_content of at_instruction list
-               and
-               at_instruction = { at_instruction_content : at_instruction_content; at_instruction_loc : at_loc }
-               and
-               at_bloc = { at_bloc_content : at_bloc_content; at_bloc_loc : at_loc }
+               at_bloc = at_instruction list
 
 type at_argument = at_ast_type * at_var
 
@@ -62,17 +58,14 @@ type at_proto_ident = ATQvar of at_ast_type * at_qvar | ATType of at_tident | AT
 type at_proto = {
     at_ident : at_proto_ident; 
     at_args : at_argument list;
-    at_proto_loc : at_loc
 }
 
-type at_decl_vars = { at_decl_vars_content : at_ast_type * (at_var list); at_decl_vars_loc : at_loc }
+type at_decl_vars = { at_ast_type: at_ast_type; at_var: (at_var list)}
 type at_member = ATMVar of at_decl_vars | ATProto of bool * at_proto
 type at_supers = (at_tident list) option
-type at_decl_class = { at_decl_class_content : at_ident * at_supers * (at_member list); at_decl_class_loc : at_loc }
-type at_fonction = { at_fonction_content : at_proto * at_bloc; at_fonction_loc : at_loc }
+type at_decl_class = { at_ident: at_ident; at_supers: at_supers; at_member: (at_member list)}
+type at_locals = (at_var, int) Hashtbl.t
+type at_fonction = { at_proto: at_proto; at_bloc: at_bloc; at_locals: at_locals }
 type at_decl = AT_DVar of at_decl_vars | AT_Class of decl_class | AT_Fonction of at_fonction
 
-type at_program = {
-    at_program : at_decl list;
-    at_program_loc : at_loc;
-}
+type at_program = at_decl list

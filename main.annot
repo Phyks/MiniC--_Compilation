@@ -878,14 +878,14 @@ type(
 )
 "main.ml" 70 2327 2337 "main.ml" 70 2327 2343
 type(
-  Ast_typing.at_program
+  Ast_typing.at_decl list
 )
 ident(
   def p_type "main.ml" 73 2429 2435 "main.ml" 78 2539 2612
 )
 "main.ml" 70 2327 2346 "main.ml" 70 2327 2360
 type(
-  Ast.program -> Ast_typing.at_program
+  Ast.program -> Ast_typing.at_decl list
 )
 ident(
   ext_ref Typer.type_ast
@@ -902,7 +902,7 @@ call(
   stack
 )
 type(
-  Ast_typing.at_program
+  Ast_typing.at_decl list
 )
 "main.ml" 73 2429 2438 "main.ml" 73 2429 2439
 type(
@@ -953,14 +953,14 @@ ident(
 )
 "main.ml" 76 2494 2511 "main.ml" 76 2494 2527
 type(
-  Ast_typing.at_program -> Mips.program
+  Ast_typing.at_decl list -> Mips.program
 )
 ident(
   ext_ref Compiler.program
 )
 "main.ml" 76 2494 2528 "main.ml" 76 2494 2534
 type(
-  Ast_typing.at_program
+  Ast_typing.at_decl list
 )
 ident(
   int_ref p_type "main.ml" 70 2327 2337 "main.ml" 70 2327 2343
