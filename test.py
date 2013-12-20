@@ -16,7 +16,7 @@ files = [i for i in os.listdir(sys.argv[1]) if i.endswith(".cpp")]
 for i in files:
     try:
         subprocess.check_call(["./minic++",
-                               "--parse-only",
+                               "--type-only",
                                sys.argv[1]+"/"+i],
                               #stdout=FNULL,
                               #stderr=FNULL)

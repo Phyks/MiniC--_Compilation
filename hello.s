@@ -1,4 +1,5 @@
 .text
+	b main
 main:
 	li $a0, 3
 	sw $a0, -8($fp)
@@ -139,10 +140,12 @@ main:
 	la $a0, string_15
 	li $v0, 4
 	syscall
+	b end_if_1
 else_1:
 	la $a0, string_16
 	li $v0, 4
 	syscall
+end_if_1:
 	li $a0, 0
 	sw $a0, -16($fp)
 	lw $a0, -16($fp)

@@ -645,7 +645,7 @@ type(
   in_channel
 )
 ident(
-  def f "main.ml" 55 1803 1805 "main.ml" 97 3384 3398
+  def f "main.ml" 55 1803 1805 "main.ml" 97 3366 3380
 )
 "main.ml" 52 1636 1650 "main.ml" 52 1636 1657
 type(
@@ -757,7 +757,7 @@ type(
   Lexing.lexbuf
 )
 ident(
-  def buf "main.ml" 57 1841 1843 "main.ml" 97 3384 3398
+  def buf "main.ml" 57 1841 1843 "main.ml" 97 3366 3380
 )
 "main.ml" 55 1803 1815 "main.ml" 55 1803 1834
 type(
@@ -1256,119 +1256,112 @@ type(
   string
 )
 ident(
-  def e "main.ml" 95 3282 3290 "main.ml" 97 3384 3398
+  def e "main.ml" 95 3288 3296 "main.ml" 97 3366 3380
 )
-"main.ml" 92 3145 3151 "main.ml" 92 3145 3165
+"main.ml" 92 3145 3167 "main.ml" 92 3145 3170
+type(
+  Lexing.position
+)
+ident(
+  def pos "main.ml" 95 3288 3296 "main.ml" 97 3366 3380
+)
+"main.ml" 92 3145 3151 "main.ml" 92 3145 3171
 type(
   exn
 )
-"main.ml" 95 3282 3290 "main.ml" 95 3282 3302
+"main.ml" 95 3288 3296 "main.ml" 95 3288 3308
 type(
   Lexing.position -> unit
 )
 ident(
   int_ref localisation "main.ml" 32 952 956 "main.ml" 32 952 968
 )
-"main.ml" 95 3282 3304 "main.ml" 95 3282 3325
-type(
-  Lexing.lexbuf -> Lexing.position
-)
-ident(
-  ext_ref Lexing.lexeme_start_p
-)
-"main.ml" 95 3282 3326 "main.ml" 95 3282 3329
-type(
-  Lexing.lexbuf
-)
-ident(
-  int_ref buf "main.ml" 55 1803 1809 "main.ml" 55 1803 1812
-)
-"main.ml" 95 3282 3303 "main.ml" 95 3282 3330
-call(
-  stack
-)
+"main.ml" 95 3288 3309 "main.ml" 95 3288 3312
 type(
   Lexing.position
 )
-"main.ml" 95 3282 3290 "main.ml" 95 3282 3330
+ident(
+  int_ref pos "main.ml" 92 3145 3167 "main.ml" 92 3145 3170
+)
+"main.ml" 95 3288 3296 "main.ml" 95 3288 3312
 call(
   stack
 )
 type(
   unit
 )
-"main.ml" 96 3332 3340 "main.ml" 96 3332 3347
+"main.ml" 96 3314 3322 "main.ml" 96 3314 3329
 type(
   (string -> unit, Format.formatter, unit) format -> string -> unit
 )
 ident(
   ext_ref Format.eprintf
 )
-"main.ml" 96 3332 3348 "main.ml" 96 3332 3380
+"main.ml" 96 3314 3330 "main.ml" 96 3314 3362
 type(
   (string -> unit, Format.formatter, unit) format
 )
-"main.ml" 96 3332 3381 "main.ml" 96 3332 3382
+"main.ml" 96 3314 3363 "main.ml" 96 3314 3364
 type(
   string
 )
 ident(
   int_ref e "main.ml" 92 3145 3164 "main.ml" 92 3145 3165
 )
-"main.ml" 96 3332 3340 "main.ml" 96 3332 3382
+"main.ml" 96 3314 3322 "main.ml" 96 3314 3364
 call(
   stack
 )
 type(
   unit
 )
-"main.ml" 97 3384 3392 "main.ml" 97 3384 3396
+"main.ml" 97 3366 3374 "main.ml" 97 3366 3378
 type(
   int -> unit
 )
 ident(
   ext_ref Pervasives.exit
 )
-"main.ml" 97 3384 3397 "main.ml" 97 3384 3398
+"main.ml" 97 3366 3379 "main.ml" 97 3366 3380
 type(
   int
 )
-"main.ml" 97 3384 3392 "main.ml" 97 3384 3398
+"main.ml" 97 3366 3374 "main.ml" 97 3366 3380
 call(
   stack
 )
 type(
   unit
 )
-"main.ml" 96 3332 3340 "main.ml" 97 3384 3398
+"main.ml" 96 3314 3322 "main.ml" 97 3366 3380
 type(
   unit
 )
-"main.ml" 95 3282 3290 "main.ml" 97 3384 3398
+"main.ml" 95 3288 3296 "main.ml" 97 3366 3380
 type(
   unit
 )
-"main.ml" 57 1841 1843 "main.ml" 97 3384 3398
+"main.ml" 57 1841 1843 "main.ml" 97 3366 3380
 type(
   unit
 )
-"main.ml" 55 1803 1805 "main.ml" 97 3384 3398
+"main.ml" 55 1803 1805 "main.ml" 97 3366 3380
 type(
   unit
 )
-"main.ml" 52 1636 1638 "main.ml" 97 3384 3398
+"main.ml" 52 1636 1638 "main.ml" 97 3366 3380
 type(
   unit
 )
-"main.ml" 45 1406 1408 "main.ml" 97 3384 3398
+"main.ml" 45 1406 1408 "main.ml" 97 3366 3380
 type(
   unit
 )
-"main.ml" 42 1278 1280 "main.ml" 97 3384 3398
+"main.ml" 42 1278 1280 "main.ml" 97 3366 3380
 type(
   unit
 )
-"main.ml" 39 1166 1168 "main.ml" 97 3384 3398
+"main.ml" 39 1166 1168 "main.ml" 97 3366 3380
 type(
   unit
 )

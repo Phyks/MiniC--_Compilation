@@ -7611,14 +7611,14 @@ type(
   Ast_typing.at_decl list -> Mips.program
 )
 ident(
-  def program "compiler.ml" 350 11708 11749 "compiler.ml" 1 0 -1
+  def program "compiler.ml" 350 11708 11771 "compiler.ml" 1 0 -1
 )
 "compiler.ml" 349 11691 11703 "compiler.ml" 349 11691 11704
 type(
   Ast_typing.at_decl list
 )
 ident(
-  def x "compiler.ml" 350 11708 11712 "compiler.ml" 350 11708 11749
+  def x "compiler.ml" 350 11708 11712 "compiler.ml" 350 11708 11771
 )
 "compiler.ml" 350 11708 11712 "compiler.ml" 350 11708 11726
 type(
@@ -7635,21 +7635,43 @@ type(
 ident(
   int_ref mips_decl "compiler.ml" 321 10815 10819 "compiler.ml" 321 10815 10828
 )
-"compiler.ml" 350 11708 11737 "compiler.ml" 350 11708 11747
+"compiler.ml" 350 11708 11746 "compiler.ml" 350 11708 11747
+type(
+  Mips.label -> Mips.text
+)
+ident(
+  ext_ref Mips.b
+)
+"compiler.ml" 350 11708 11748 "compiler.ml" 350 11708 11754
+type(
+  Mips.label
+)
+"compiler.ml" 350 11708 11746 "compiler.ml" 350 11708 11754
+call(
+  stack
+)
+type(
+  Mips.text
+)
+"compiler.ml" 350 11708 11763 "compiler.ml" 350 11708 11766
+type(
+  Mips.data
+)
+ident(
+  ext_ref Mips.nop
+)
+"compiler.ml" 350 11708 11737 "compiler.ml" 350 11708 11769
 type(
   Mips.program
 )
-ident(
-  int_ref empty_mips "compiler.ml" 11 134 138 "compiler.ml" 11 134 148
-)
-"compiler.ml" 350 11708 11748 "compiler.ml" 350 11708 11749
+"compiler.ml" 350 11708 11770 "compiler.ml" 350 11708 11771
 type(
   Ast_typing.at_decl list
 )
 ident(
   int_ref x "compiler.ml" 349 11691 11703 "compiler.ml" 349 11691 11704
 )
-"compiler.ml" 350 11708 11712 "compiler.ml" 350 11708 11749
+"compiler.ml" 350 11708 11712 "compiler.ml" 350 11708 11771
 call(
   tail
 )

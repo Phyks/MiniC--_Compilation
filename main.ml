@@ -89,9 +89,9 @@ let () =
         localisation (Lexing.lexeme_start_p buf);
         eprintf "Erreur dans l'analyse syntaxique@.";
         exit 1
-    | Typer.Error  e ->
+    | Typer.Error (e, pos) ->
         (* Erreur de typage. On récupère sa position absolue et on la
-         * convertir en numéro de ligne *)
-        localisation (Lexing.lexeme_start_p buf);
+         * convertit en numéro de ligne *)
+        localisation pos;
         eprintf "Erreur durant le typage : %s@." e;
         exit 1

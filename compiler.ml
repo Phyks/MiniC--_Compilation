@@ -347,4 +347,4 @@ let mips_decl x y = match y with
     (* TODO *)
 
 let program x = 
-    List.fold_left mips_decl empty_mips x
+    List.fold_left mips_decl { text = b "main"; data = nop; } x
