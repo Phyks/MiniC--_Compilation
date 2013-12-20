@@ -174,7 +174,7 @@ let mips_expr_string locals x y = match y with
                     ++ li v0 4
                     ++ syscall;
                 data = x.data
-                    ++ label ("string_"^(string_of_int !nb_string)) ++ asciiz s;
+                    ++ label ("string_"^(string_of_int !nb_string)) ++ asciiz ("\""^(String.escaped s)^"\"");
             }
     | ATExpr e ->
             let mips_for_expr = mips_expr locals e in

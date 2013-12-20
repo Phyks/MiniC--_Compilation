@@ -30,4 +30,4 @@ string_4:
 string_5:
 	.asciiz "a\"c\n"
 string_6:
-	.asciiz "\x41\x42\x43\n"
+	.asciiz "ABC\n"

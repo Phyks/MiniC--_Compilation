@@ -38,6 +38,8 @@
         let pos = lexbuf.lex_curr_p in
         lexbuf.lex_curr_p <- 
             { pos with pos_lnum = pos.pos_lnum + 1; pos_bol = pos.pos_cnum }
+
+    let localstring = ref ""
 }
 
 let chiffre = ['0'-'9']
@@ -96,9 +98,21 @@ rule token = parse
     | (['1'-'9'] chiffre*) as i { INT (int_of_string i) }
     | '0' (chiffre_octal+ as i) { INT (int_of_string ("0o"^i)) }
     | ('0' 'x' chiffre_hexa+ as i) { INT (int_of_string i) }
-    | chaine as s { STRING s }
+    | '"' { chaine lexbuf }
     | eof { EOF }
     | _ as c { raise (Lexing_error ("Caractère illégal : " ^ String.make 1 c)) }
+
+and chaine = parse
+    | '"' { let tmp = !localstring in localstring := ""; STRING tmp }
+    | ['\032'-'\033' '\035'-'\091' '\093'-'\127'] as c { localstring := !localstring ^ (String.make 1 c) ; chaine lexbuf }
+    | '\\' '\\' { localstring := !localstring ^ "\\" ; chaine lexbuf }
+    | '\\' '\"' { localstring := !localstring ^ "\"" ; chaine lexbuf }
+    | '\\' 'n' { localstring := !localstring ^ "\n" ; chaine lexbuf }
+    | '\\' 't' { localstring := !localstring ^ "\t" ; chaine lexbuf }
+    | '\\' 'x' (chiffre_hexa chiffre_hexa as hex) { localstring := !localstring ^ (String.make 1 (char_of_int (int_of_string ("0x"^hex)))); chaine lexbuf }
+    | eof { raise (Lexing_error "Unterminated string") }
+    | _ as c { raise (Lexing_error (Printf.sprintf "Character %s forbidden :" (if c = '\n' then "newline" else String.make 1 c))) }
+
 
 and comment = parse
     | "*/" { token lexbuf }
