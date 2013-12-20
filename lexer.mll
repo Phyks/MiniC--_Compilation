@@ -47,11 +47,6 @@ let ident = (alpha | '_') (alpha | chiffre | '_')*
 let chiffre_octal = ['0'-'7']
 let chiffre_hexa = ['0'-'9' 'a'-'f' 'A'-'F']
 
-let entier = '0' 
-             | ['1'-'9'] chiffre* 
-             | '0' chiffre_octal+
-             | '0' 'x' chiffre_hexa+
-
 let caractere = ['\032'-'\033' '\035'-'\091' '\093'-'\127']
                 | '\\' '\\' | '\\' '\"' | '\\' 'n' | '\\' 't'
                 | '\\' 'x' chiffre_hexa chiffre_hexa
@@ -97,7 +92,10 @@ rule token = parse
     | '}' { RBRACE }
     | ident as s
         { id_or_kwd s }
-    | entier as i { INT (int_of_string i) }
+    | '0' { INT 0 }
+    | (['1'-'9'] chiffre*) as i { INT (int_of_string i) }
+    | '0' (chiffre_octal+ as i) { INT (int_of_string ("0o"^i)) }
+    | ('0' 'x' chiffre_hexa+ as i) { INT (int_of_string i) }
     | chaine as s { STRING s }
     | eof { EOF }
     | _ as c { raise (Lexing_error ("Caractère illégal : " ^ String.make 1 c)) }

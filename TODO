@@ -1,2 +1,8 @@
 * Si main n'est pas la première fonction ?!?
 * Localisation pour erreurs de typage
+* Pointeurs
+* Fonctions
+* Classes
+
+Tests :
+* string.cpp (représentation hexa)

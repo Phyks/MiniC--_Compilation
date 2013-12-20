@@ -21,10 +21,8 @@ type at_qvar = ATQident of at_qident | ATQUTimes of at_qvar | ATQEComm of at_qva
 
 type at_expr = ATEInt of int 
             | ATEThis
-            | ATEFalse 
-            | ATETrue 
             | ATENull
-            | ATEQident of at_qident 
+            | ATEQident of at_qident * bool (* Bool is true for locals *)
             | ATDot of at_expr * at_ident 
             | ATArrow of at_expr * at_ident 
             | ATAssign of at_expr * at_expr
@@ -39,14 +37,15 @@ type at_expr_string = ATExpr of at_expr | ATString of string
 type at_some_expr = at_expr option
 type at_some_assign = ATNoAssign | ATSAExpr of at_expr | ATSATident of at_tident * (at_expr list)
 
+type at_locals = (at_var, int) Hashtbl.t
+
 type at_instruction = ATNop
                    | ATIExpr of at_expr
                    | ATIVar of at_var * at_some_assign
-                   | ATIf of at_expr * at_instruction
-                   | ATIfElse of at_expr * at_instruction * at_instruction
-                   | ATWhile of at_expr * at_instruction
-                   | ATFor of at_expr list * at_some_expr * at_expr list * at_instruction
-                   | ATIBloc of at_bloc
+                   | ATIfElse of at_expr * at_instruction * at_instruction * at_locals
+                   | ATWhile of at_expr * at_instruction * at_locals
+                   | ATFor of at_expr list * at_expr * at_expr list * at_instruction * at_locals
+                   | ATIBloc of at_bloc * at_locals
                    | ATCout of at_expr_string list
                    | ATReturn of at_some_expr
                and
@@ -64,7 +63,6 @@ type at_decl_vars = { at_ast_type: at_ast_type; at_var: (at_var list)}
 type at_member = ATMVar of at_decl_vars | ATProto of bool * at_proto
 type at_supers = (at_tident list) option
 type at_decl_class = { at_ident: at_ident; at_supers: at_supers; at_member: (at_member list)}
-type at_locals = (at_var, int) Hashtbl.t
 type at_fonction = { at_proto: at_proto; at_bloc: at_bloc; at_locals: at_locals }
 type at_decl = AT_DVar of at_decl_vars | AT_Class of decl_class | AT_Fonction of at_fonction
 
