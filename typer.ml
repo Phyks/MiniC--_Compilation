@@ -141,7 +141,6 @@ and type_bloc locals x =
 
 let type_proto_ident = function
     | Qvar (x, y) ->
-            if x = Int && y = Qident (Ident "main") then is_main_here := true;
             ATQvar (types_ast_to_atast x, type_qvar y)
     | _ -> assert false
     (* TODO *)
@@ -151,6 +150,17 @@ let type_args x =
 
 let type_proto locals x =
     List.fold_left (fun a b -> Hashtbl.add locals (type_var (snd b)) (4 * Hashtbl.length locals)) () x.args;
+
+    let () = 
+        match x.ident with
+        | Qvar (a, b) when a = Int && b = Qident (Ident "main") ->
+                if List.length x.args = 0 then
+                    if not !is_main_here then
+                        is_main_here := true
+                    else
+                        raise (Error ("Redeclaration of main function.", fst x.proto_loc))
+        | _ -> ()
+    in
 
     {
         at_ident = type_proto_ident x.ident;
@@ -182,4 +192,9 @@ let type_decl = function
 let rec type_ast p = 
     if p.includes then includes := true;
 
-    List.map type_decl p.program;
+    let return = List.map type_decl p.program in
+
+    if not !is_main_here then
+        raise (Error("No \"int main()\" function present", fst p.program_loc))
+    else
+        return
