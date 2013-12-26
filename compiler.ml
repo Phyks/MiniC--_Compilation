@@ -7,6 +7,7 @@ let nb_string = ref 0
 let nb_if = ref 0
 let nb_while = ref 0
 let nb_for = ref 0
+let nb_lazy = ref 0
 
 let empty_mips = {
     text = nop;
@@ -39,15 +40,49 @@ let rec mips_expr locals = function
             | ATOr -> or_ a0 t1 a0
             in
 
-            {
-                text = mips_expr1.text
-                    ++ push a0
-                    ++ mips_expr2.text
-                    ++ pop t1
-                    ++ mips_op;
-                data = mips_expr1.data
-                    ++ mips_expr2.data;
-            }
+            begin
+                match op with (* Lazy *)
+                | ATOr ->
+                    nb_lazy := !nb_lazy + 1;
+                    {
+                        text = mips_expr1.text
+                            ++ sne a0 a0 zero
+                            ++ bnez a0 ("lazy_end"^(string_of_int !nb_lazy))
+                            ++ push a0
+                            ++ mips_expr2.text
+                            ++ sne a0 a0 zero
+                            ++ pop t1
+                            ++ mips_op
+                            ++ label ("lazy_end"^(string_of_int !nb_lazy));
+                        data = mips_expr1.data
+                            ++ mips_expr2.data;
+                    }
+                | ATAnd -> 
+                    nb_lazy := !nb_lazy + 1;
+                    {
+                        text = mips_expr1.text
+                            ++ sne a0 a0 zero
+                            ++ beqz a0 ("lazy_end"^(string_of_int !nb_lazy))
+                            ++ push a0
+                            ++ mips_expr2.text
+                            ++ sne a0 a0 zero
+                            ++ pop t1
+                            ++ mips_op
+                            ++ label ("lazy_end"^(string_of_int !nb_lazy));
+                        data = mips_expr1.data
+                            ++ mips_expr2.data;
+                    }
+                | ATPlus | ATMinus | ATEq | ATNeq | ATLt | ATLeq | ATGt | ATGeq | ATTimes | ATDiv | ATMod ->
+                    {
+                        text = mips_expr1.text
+                            ++ push a0
+                            ++ mips_expr2.text
+                            ++ pop t1
+                            ++ mips_op;
+                        data = mips_expr1.data
+                            ++ mips_expr2.data;
+                    }
+            end
     | ATEThis -> assert false
     | ATENull ->
             {
@@ -141,7 +176,7 @@ let rec mips_expr locals = function
     | ATIncr (incr, e) -> assert false (* TODO *)
     | ATUOp (uop, e) -> begin
         match uop with
-        | ATEComm -> begin
+        | ATEComm | ATUTimes -> begin
             match e with
             | ATEQident (ATIdent ident, local) ->
                 let generated_mips = if local then (
@@ -192,8 +227,6 @@ let rec mips_expr locals = function
                     text = mips_for_expr.text;
                     data = mips_for_expr.data;
                 }
-        | ATUTimes -> assert false
-        (* TODO *)
     end
 
 let mips_expr_string locals x y = match y with
