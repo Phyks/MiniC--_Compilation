@@ -123,6 +123,24 @@ let rec mips_expr locals = function
                         ++ sw a0 alab ("var_"^i);
                     data = mips_for_e2.data;
                 }
+    | ATAssign (ATUOp (ATUTimes, ATEQident (ATIdent i, local)), e2) ->
+            let mips_for_e2 = mips_expr locals e2 in
+            if local then
+                let pos = Hashtbl.find locals (ATVIdent i) in
+                
+                {
+                    text = mips_for_e2.text
+                        ++ lw a1 areg (-pos-8, fp)
+                        ++ add a1 a1 oreg fp
+                        ++ sw a0 areg (0, a1);
+                    data = mips_for_e2.data;
+                }
+            else
+                {
+                    text = mips_for_e2.text
+                        ++ sw a0 alab ("var_"^i);
+                    data = mips_for_e2.data;
+                }
     | ATAssign (e1, e2) -> assert false (* TODO *)
     | ATApply (e, le) -> assert false (* TODO *)
     | ATInstance (tident, l) -> assert false
@@ -176,7 +194,7 @@ let rec mips_expr locals = function
     | ATIncr (incr, e) -> assert false (* TODO *)
     | ATUOp (uop, e) -> begin
         match uop with
-        | ATEComm | ATUTimes -> begin
+        | ATEComm -> begin
             match e with
             | ATEQident (ATIdent ident, local) ->
                 let generated_mips = if local then (
@@ -188,15 +206,38 @@ let rec mips_expr locals = function
                             }
                         else
                             {
-                                text = li a0 pos
-                                    ++ add a0 a0 oi (-8)
-                                    ++ add a0 a0 oreg fp;
+                                text = la a0 areg (-pos-8,fp);
                                 data = nop;
                             }
                     )
                     else
                         {
                             text = la a0 alab ("var_"^ident);
+                            data = nop;
+                        }
+                in
+
+                {
+                    text = generated_mips.text;
+                    data = generated_mips.data;
+                }
+            | _ -> assert false (* TODO *)
+            end
+        | ATUTimes -> begin
+            match e with
+            | ATEQident (ATIdent ident, local) ->
+                let generated_mips = if local then (
+                        let pos = Hashtbl.find locals (ATVIdent ident) in
+                        {
+                            text = lw a0 areg (-pos-8,fp)
+                                ++ add a0 a0 oreg fp
+                                ++ lw a0 areg (0, a0);
+                            data = nop;
+                        }
+                    )
+                    else
+                        {
+                            text = lw a0 alab ("var_"^ident);
                             data = nop;
                         }
                 in

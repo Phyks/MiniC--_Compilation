@@ -12,6 +12,7 @@ let decl_class = Hashtbl.create 17
 
 let is_left_value = function
     | EQident _ -> true
+    | UOp (UTimes, _) -> true
     | _ -> false
 
 
