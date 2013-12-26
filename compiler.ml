@@ -65,7 +65,7 @@ let rec mips_expr locals = function
                     }
                 else
                     {
-                        text = lw a0 alab ident;
+                        text = lw a0 alab ("var_"^ident);
                         data = nop;
                     }
         | ATTident (tid1, tid2) -> assert false
@@ -85,11 +85,11 @@ let rec mips_expr locals = function
             else
                 {
                     text = mips_for_e2.text
-                        ++ sw a0 alab i;
+                        ++ sw a0 alab ("var_"^i);
                     data = mips_for_e2.data;
                 }
     | ATAssign (e1, e2) -> assert false (* TODO *)
-    | ATApply (e, l) -> assert false
+    | ATApply (e, le) -> assert false (* TODO *)
     | ATInstance (tident, l) -> assert false
     | ATIncr (incr, ATEQident ((ATIdent i), local)) ->
         let load reg =
@@ -97,14 +97,14 @@ let rec mips_expr locals = function
                 let pos = Hashtbl.find locals (ATVIdent i) in
                 lw reg areg(-pos-8, fp)
             else
-                lw reg alab i
+                lw reg alab ("var_"^i)
         in
         let store reg = 
             if local then
                 let pos = Hashtbl.find locals (ATVIdent i) in
                 sw reg areg(-pos-8, fp)
             else
-                sw reg alab i
+                sw reg alab ("var_"^i)
         in
 
         begin
@@ -140,23 +140,54 @@ let rec mips_expr locals = function
         end
     | ATIncr (incr, e) -> assert false (* TODO *)
     | ATUOp (uop, e) -> begin
-        let mips_for_expr = mips_expr locals e in
-
         match uop with
-        | ATEComm -> assert false
+        | ATEComm -> begin
+            match e with
+            | ATEQident (ATIdent ident, local) ->
+                let generated_mips = if local then (
+                        let pos = Hashtbl.find locals (ATVIdent ident) in
+                        if pos = -1 then (* Object on the heap *)
+                            {
+                                text = la a0 alab ("object_"^ident);
+                                data = nop;
+                            }
+                        else
+                            {
+                                text = li a0 pos
+                                    ++ add a0 a0 oi (-8)
+                                    ++ add a0 a0 oreg fp;
+                                data = nop;
+                            }
+                    )
+                    else
+                        {
+                            text = la a0 alab ("var_"^ident);
+                            data = nop;
+                        }
+                in
+
+                {
+                    text = generated_mips.text;
+                    data = generated_mips.data;
+                }
+            | _ -> assert false (* TODO *)
+            end
         | ATNot -> 
+                let mips_for_expr = mips_expr locals e in
                 {
                     text = mips_for_expr.text
                         ++ seq a0 a0 zero;
                     data = mips_for_expr.data;
                 }
         | ATUMinus ->
+                let mips_for_expr = mips_expr locals e in
                 {
                     text = mips_for_expr.text
                         ++ neg a0 a0;
                     data = mips_for_expr.data;
                 }
         | ATUPlus ->
+                let mips_for_expr = mips_expr locals e in
                 {
                     text = mips_for_expr.text;
                     data = mips_for_expr.data;
@@ -187,6 +218,31 @@ let mips_expr_string locals x y = match y with
                     ++ mips_for_expr.data;
             }
 
+let rec mips_class x =
+    let rec mips_for_member x = function
+        | [] -> { text = x.text; data = x.data }
+        | y :: l -> begin
+            match y with
+            | ATMVar var ->
+                    let generated_mips =
+                        {
+                            text = x.text;
+                            data = x.data
+                                ++ dword [0];
+                        }
+                    in
+                    mips_for_member generated_mips l
+            | ATProto (virtuelle, proto) -> assert false (* TODO *)
+        end
+    in
+
+    let mips_for_member = mips_for_member empty_mips x.at_member in
+
+    {
+        text = mips_for_member.text;
+        data = mips_for_member.data;
+    }
+
 let rec mips_instruction locals x y = match y with
     | ATNop -> { text = x.text; data = x.data }
     | ATCout expr_string ->
@@ -212,14 +268,44 @@ let rec mips_instruction locals x y = match y with
             | ATSATident (ident, expr_list) -> assert false (* TODO *)
         in
 
-        let pos = Hashtbl.find locals var in
+        let rec find_ident = function
+            | ATVIdent ident -> ATVIdent ident
+            | ATVUTimes var -> find_ident var
+            | ATVEComm var -> find_ident var
+        in
+
+        let pos = Hashtbl.find locals (find_ident var) in
         {
             text = x.text
                 ++ mips_for_assign.text
-                ++ sw a0 areg (-pos-8, fp); (* TODO : not sure *)
+                ++ sw a0 areg (-pos-8, fp);
             data = x.data
                 ++ mips_for_assign.data;
         }
+    | ATTVar (decl_class, var, assign) ->
+            let mips_for_assign = match assign with
+            | ATNoAssign -> { text = nop; data = nop; }
+            | ATSAExpr e -> assert false (* TODO *)
+            | ATSATident (ident, expr_list) -> assert false (* TODO *)
+            in
+
+            let mips_for_class = mips_class decl_class in
+
+            let rec find_ident = function
+                | ATVIdent ident -> ident
+                | ATVUTimes var -> assert false (* TODO *)
+                | ATVEComm var -> assert false (* TODO *)
+            in
+
+            {
+                text = x.text
+                    ++ mips_for_assign.text
+                    ++ mips_for_class.text;
+                data = x.data
+                    ++ mips_for_assign.data
+                    ++ label ("object_"^(find_ident var))
+                    ++ mips_for_class.data;
+            }
     | ATIfElse (e, i1, i2, if_locals) ->
         nb_if := !nb_if + 1;
         let if_id = !nb_if in
@@ -306,7 +392,7 @@ let rec mips_instruction locals x y = match y with
 let mips_fonction f =
     (* TODO *)
     let f_label = match f.at_proto.at_ident with
-    | ATQvar (_, ATQident (ATIdent s)) -> s
+    | ATQvar (_, ATQident (ATIdent s)) -> "function_"^s
     | _ -> assert false
     in
 
@@ -318,6 +404,15 @@ let mips_fonction f =
         data = mips_bloc.data;
     }
 
+let mips_member x = function
+    | ATMVar var ->
+            {
+                text = nop;
+                data = nop;
+            }
+    | ATProto (virtual_bool, proto) -> assert false
+    (* TODO *)
+
 let mips_decl x y = match y with
     | AT_Fonction f ->
             let generated_mips = mips_fonction f in
@@ -328,7 +423,7 @@ let mips_decl x y = match y with
     | AT_DVar var ->
             let global_var x var = 
                 let etiquette = match var with
-                | ATVIdent ident -> ident
+                | ATVIdent ident -> "var_"^ident
                 | _ -> assert false (* TODO *)
                 in
 
@@ -343,8 +438,15 @@ let mips_decl x y = match y with
                 text = x.text ++ mips_global_var.text;
                 data = x.data ++ mips_global_var.data;
             }
-    | _ -> assert false
+    | AT_Class classe ->
+            let mips_for_members = List.fold_left (mips_member) empty_mips classe.at_member in
+            {
+                text = x.text
+                    ++ mips_for_members.text; (* TODO *)
+                data = x.data
+                    ++ mips_for_members.data;
+            }
     (* TODO *)
 
 let program x = 
-    List.fold_left mips_decl { text = b "main"; data = nop; } x
+    List.fold_left mips_decl { text = b "function_main"; data = nop; } x

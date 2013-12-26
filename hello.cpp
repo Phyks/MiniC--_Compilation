@@ -3,7 +3,14 @@
 int test, bidule, truc;
 int chose;
 
+int test2() {
+    return 0;
+}
+
+class A { public: int x; int y;};
+
 int main() {
+    A a;
     int x = 3;
     int y = 0;
 
@@ -50,6 +57,8 @@ int main() {
     for(j = 0; j < 5; j++) {
         std::cout << j << "\n";
     }
+
+    int *p = NULL;
 
     return 0;
 }

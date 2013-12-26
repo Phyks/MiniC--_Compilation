@@ -1,6 +1,11 @@
 .text
-	b main
-main:
+	b function_main
+function_test2:
+	li $a0, 0
+	move $v0, $a0
+	li $v0, 10
+	syscall
+function_main:
 	li $a0, 3
 	sw $a0, -8($fp)
 	li $a0, 0
@@ -15,16 +20,16 @@ main:
 	li $v0, 4
 	syscall
 	li $a0, 3
-	sw $a0, test
+	sw $a0, var_test
 	li $a0, 4
-	sw $a0, bidule
-	lw $a0, bidule
+	sw $a0, var_bidule
+	lw $a0, var_bidule
 	add $a1, $a0, 1
-	sw $a1, bidule
-	lw $a0, bidule
+	sw $a1, var_bidule
+	lw $a0, var_bidule
 	add $a1, $a0, 1
-	sw $a1, bidule
-	lw $a0, test
+	sw $a1, var_bidule
+	lw $a0, var_test
 	li $v0, 1
 	syscall
 	la $a0, string_2
@@ -39,7 +44,7 @@ main:
 	la $a0, string_4
 	li $v0, 4
 	syscall
-	lw $a0, bidule
+	lw $a0, var_bidule
 	li $v0, 1
 	syscall
 	la $a0, string_5
@@ -126,7 +131,7 @@ main:
 	la $a0, string_13
 	li $v0, 4
 	syscall
-	lw $a0, test
+	lw $a0, var_test
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 4
@@ -205,17 +210,22 @@ test_for_1:
 	slt $a0, $t1, $a0
 	bnez $a0, body_for_1
 	li $a0, 0
+	sw $a0, -24($fp)
+	li $a0, 0
 	move $v0, $a0
 	li $v0, 10
 	syscall
 .data
-test:
+var_test:
 	.word 0
-bidule:
+var_bidule:
 	.word 0
-truc:
+var_truc:
 	.word 0
-chose:
+var_chose:
+	.word 0
+a:
+	.word 0
 	.word 0
 string_1:
 	.asciiz "\n"

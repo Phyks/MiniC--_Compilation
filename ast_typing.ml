@@ -42,6 +42,7 @@ type at_locals = (at_var, int) Hashtbl.t
 type at_instruction = ATNop
                    | ATIExpr of at_expr
                    | ATIVar of at_var * at_some_assign
+                   | ATTVar of at_decl_class*at_var * at_some_assign
                    | ATIfElse of at_expr * at_instruction * at_instruction * at_locals
                    | ATWhile of at_expr * at_instruction * at_locals
                    | ATFor of at_expr list * at_expr * at_expr list * at_instruction * at_locals
@@ -51,19 +52,19 @@ type at_instruction = ATNop
                and
                at_bloc = at_instruction list
 
-type at_argument = at_ast_type * at_var
+and at_argument = at_ast_type * at_var
 
-type at_proto_ident = ATQvar of at_ast_type * at_qvar | ATType of at_tident | ATHerit of at_tident * at_tident
-type at_proto = {
+and at_proto_ident = ATQvar of at_ast_type * at_qvar | ATType of at_tident | ATHerit of at_tident * at_tident
+and at_proto = {
     at_ident : at_proto_ident; 
     at_args : at_argument list;
 }
 
-type at_decl_vars = { at_ast_type: at_ast_type; at_var: (at_var list)}
-type at_member = ATMVar of at_decl_vars | ATProto of bool * at_proto
-type at_supers = (at_tident list) option
-type at_decl_class = { at_ident: at_ident; at_supers: at_supers; at_member: (at_member list)}
-type at_fonction = { at_proto: at_proto; at_bloc: at_bloc; at_locals: at_locals }
-type at_decl = AT_DVar of at_decl_vars | AT_Class of decl_class | AT_Fonction of at_fonction
+and at_decl_vars = { at_ast_type: at_ast_type; at_var: (at_var list)}
+and at_member = ATMVar of at_decl_vars | ATProto of bool * at_proto
+and at_supers = (at_tident list) option
+and at_decl_class = { at_ident: at_ident; at_supers: at_supers; at_member: (at_member list)}
+and at_fonction = { at_proto: at_proto; at_bloc: at_bloc; at_locals: at_locals }
+and at_decl = AT_DVar of at_decl_vars | AT_Class of at_decl_class | AT_Fonction of at_fonction
 
-type at_program = at_decl list
+and at_program = at_decl list

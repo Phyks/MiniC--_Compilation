@@ -1,4 +1,9 @@
 * Makefile pourri
-* Pointeurs
 * Fonctions
+    * Compilation
+    * Arguments
+    * Surcharge
+    * Passage par référence
 * Classes
+    * Héritage
+    * Héritage multiple
