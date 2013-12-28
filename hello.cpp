@@ -3,7 +3,7 @@
 int test, bidule, truc;
 int chose;
 
-int test2() {
+int fonction() {
     return 0;
 }
 
@@ -58,7 +58,10 @@ int main() {
         std::cout << j << "\n";
     }
 
+//    fonction();
     int *p = NULL;
+
+    // TODO : std::cout << a.x << "\n";
 
     return 0;
 }

@@ -300,7 +300,7 @@ and _menhir_goto_loption_separated_nonempty_list_COMMA_expr__ : _menhir_env -> '
                 ((let (_menhir_stack, _menhir_s, x, _startpos_x_) = _menhir_stack in
                 let _startpos = _startpos_x_ in
                 let _v : 'tv_expr = 
-# 171 "parser.mly"
+# 168 "parser.mly"
                                                   ( Apply (x, y) )
 # 306 "parser.ml"
                  in
@@ -1434,7 +1434,7 @@ and _menhir_run79 : _menhir_env -> 'ttv_tail * _menhir_state * 'tv_expr * Lexing
         ((let ((_menhir_stack, _menhir_s, x, _startpos_x_), _) = _menhir_stack in
         let _startpos = _startpos_x_ in
         let _v : 'tv_expr = 
-# 168 "parser.mly"
+# 169 "parser.mly"
                          ( Dot (x, y) )
 # 1440 "parser.ml"
          in
@@ -1492,7 +1492,7 @@ and _menhir_run82 : _menhir_env -> 'ttv_tail * _menhir_state * 'tv_expr * Lexing
         ((let ((_menhir_stack, _menhir_s, x, _startpos_x_), _) = _menhir_stack in
         let _startpos = _startpos_x_ in
         let _v : 'tv_expr = 
-# 169 "parser.mly"
+# 170 "parser.mly"
                            ( Arrow (x, y))
 # 1498 "parser.ml"
          in
@@ -2719,7 +2719,7 @@ and _menhir_goto_expr : _menhir_env -> 'ttv_tail -> _menhir_state -> 'tv_expr ->
             ((let (((_menhir_stack, _menhir_s, x, _startpos_x_), _), _, y, _startpos_y_) = _menhir_stack in
             let _startpos = _startpos_x_ in
             let _v : 'tv_expr = 
-# 170 "parser.mly"
+# 171 "parser.mly"
                            ( Assign (x, y) )
 # 2725 "parser.ml"
              in

@@ -58,15 +58,19 @@ let rec type_var pos locals heap = function
             else
                 -1
             in
-        Hashtbl.add locals (ATVIdent ident) pos;
+        Hashtbl.add locals (ATVIdent ident) (Pos pos);
 
         ATVIdent ident;
-    | VUTimes var ->
+    | VUTimes ((VIdent ident) as var) ->
             let new_var = type_var pos locals false var in
 
             ATVUTimes new_var
-    | VEComm var ->
-            assert false (* TODO *)
+    | VUTimes _ -> raise (Error ("double pointer not allowed", pos))
+    | VEComm ((VIdent ident) as var) ->
+            let new_var = type_var pos locals false var in
+
+            ATVEComm new_var
+    | VEComm _ -> raise (Error ("double reference not allowed", pos))
 
 let type_qvar = function
     | Qident x -> ATQident (type_qident x)
@@ -103,8 +107,8 @@ let rec type_expr pos locals = function
     | EFalse -> ATEInt 0
     | ENull -> ATEInt 0
     | Apply (e, le) -> ATApply ( type_expr pos locals e, List.map (type_expr pos locals) le)
-    | _ -> assert false
-    (* TODO *)
+    | Dot (e, id) -> ATDot ( type_expr pos locals e, id)
+    | _ -> assert false (* TODO *)
 
 let type_expr_string pos locals = function
     | String s -> ATString s
@@ -135,10 +139,36 @@ let rec type_instruction locals x = match x.instruction_content with
             | Void | Int ->begin
                 let new_ident = type_var (fst x.instruction_loc) locals false ident in
 
-                match assign with
-                | NoAssign -> ATIVar (new_ident, ATNoAssign)
-                | SAExpr e -> ATIVar (new_ident, ATSAExpr (type_expr (fst x.instruction_loc) locals e))
-                | SATident (ident, expr_list) -> assert false (* TODO *)
+                match new_ident with
+                | ATVIdent _ | ATVUTimes _ -> begin
+                    match assign with
+                    | NoAssign -> ATIVar (new_ident, ATNoAssign)
+                    | SAExpr e -> ATIVar (new_ident, ATSAExpr (type_expr (fst x.instruction_loc) locals e))
+                    | SATident (ident, expr_list) -> assert false (* TODO *)
+                end
+                | ATVEComm ((ATVIdent ident) as var) -> begin
+                    match assign with
+                    | NoAssign -> raise (Error ("Reference declared but not initialized.", (fst x.instruction_loc)))
+                    | SAExpr (EQident (Ident eident)) -> begin
+                            try
+                                let other_ident = Hashtbl.find locals (ATVIdent eident) in
+                                Hashtbl.add locals (ATVIdent ident) other_ident;
+                                
+                                ATIVar(var, ATSAExpr (ATEQident((ATIdent eident), true)))
+                            with Not_found -> begin
+                                try
+                                    Hashtbl.find globals (ATVIdent eident);
+
+                                    Hashtbl.add locals (ATVIdent ident) (Global_var_ref eident);
+
+                                    ATIVar(var, ATSAExpr (ATEQident((ATIdent eident), false)))
+                                with Not_found ->
+                                    raise (Error ("Unbound variable "^eident, fst x.instruction_loc))
+                            end
+                        end
+                    | SATident _ | SAExpr _ -> raise (Error ("Invalid reference initialization.", (fst x.instruction_loc)))
+                    end
+                | _ -> assert false (* TODO *)
             end
         end
     | If (e, instr) -> let if_locals = Hashtbl.copy locals in ATIfElse (type_expr (fst x.instruction_loc) if_locals e, type_instruction if_locals instr, ATNop, if_locals)
@@ -175,21 +205,24 @@ let type_args pos locals x =
     (types_ast_to_atast (fst x)), type_var pos locals false (snd x)
 
 let type_proto locals x =
-    List.fold_left (fun a b -> Hashtbl.add locals (type_var (fst x.proto_loc) locals false (snd b)) (4 * Hashtbl.length locals)) () x.args;
+    List.fold_left (fun a b -> Hashtbl.add locals (type_var (fst x.proto_loc) locals false (snd b)) (Pos (4 * Hashtbl.length locals))) () x.args;
 
     let () = 
         match x.ident with
         | Qvar (a, b) when a = Int && b = Qident (Ident "main") ->
+                Hashtbl.add globals (ATVIdent "main") ();
                 if List.length x.args = 0 then
                     if not !is_main_here then
                         is_main_here := true
                     else
                         raise (Error ("Redeclaration of main function.", fst x.proto_loc))
+        | Qvar (a, Qident (Ident id)) -> 
+                Hashtbl.add globals (ATVIdent id) ();
         | _ -> ()
     in
 
     {
-        at_ident = type_proto_ident x.ident;
+        at_ident_proto = type_proto_ident x.ident;
         at_args = List.map (type_args (fst x.proto_loc) locals) x.args;
     }
 
@@ -217,7 +250,7 @@ let type_class x = begin
     match x.decl_class_content with
         | ident, supers, members ->
             let ast_typing_class = {
-                at_ident = ident;
+                at_ident_class = ident;
                 at_supers = None;
                 at_member = List.map (type_member (fst x.decl_class_loc)) members;
             }
@@ -232,7 +265,18 @@ let type_decl = function
     | DVar x ->
             let pos = fst x.decl_vars_loc in
 
-            List.fold_left (fun x y -> Hashtbl.add globals (type_var pos (Hashtbl.create 17) false y) ()) () (snd x.decl_vars_content);
+            let fold_globals x y =
+                let typed_var = type_var pos (Hashtbl.create 17) false y in
+                let rec get_ident = function
+                    | ATVIdent ident -> ATVIdent ident
+                    | ATVUTimes var -> get_ident var
+                    | ATVEComm var -> assert false (* TODO *)
+                in
+
+                Hashtbl.add globals (get_ident typed_var) ()
+            in
+
+            List.fold_left fold_globals () (snd x.decl_vars_content);
             AT_DVar {
                 at_ast_type = (types_ast_to_atast (fst x.decl_vars_content));
                 at_var = List.map (type_var pos (Hashtbl.create 17) false) (snd x.decl_vars_content);

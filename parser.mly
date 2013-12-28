@@ -165,10 +165,10 @@ expr:
     | NULL { ENull }
     | x=qident { EQident x }
     | TIMES x=expr { UOp (UTimes, x) } %prec UTIMES
+    | x=expr y=paren(separated_list(COMMA, expr)) { Apply (x, y) }
     | x=expr DOT y=IDENT { Dot (x, y) }
     | x=expr ARROW y=IDENT { Arrow (x, y)}
     | x=expr ASSIGN y=expr { Assign (x, y) }
-    | x=expr y=paren(separated_list(COMMA, expr)) { Apply (x, y) }
     | NEW t=TIDENT x=paren(separated_list(COMMA, expr))
         { 
             Instance (t, x)

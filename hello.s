@@ -1,19 +1,19 @@
 .text
 	b function_main
-function_test2:
+function_fonction:
 	li $a0, 0
 	move $v0, $a0
 	li $v0, 10
 	syscall
 function_main:
 	li $a0, 3
-	sw $a0, -8($fp)
-	li $a0, 0
 	sw $a0, -12($fp)
-	lw $a0, -12($fp)
+	li $a0, 0
+	sw $a0, -16($fp)
+	lw $a0, -16($fp)
 	add $a1, $a0, 1
-	sw $a1, -12($fp)
-	lw $a0, -12($fp)
+	sw $a1, -16($fp)
+	lw $a0, -16($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_1
@@ -35,7 +35,7 @@ function_main:
 	la $a0, string_2
 	li $v0, 4
 	syscall
-	lw $a0, -8($fp)
+	lw $a0, -12($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_3
@@ -50,31 +50,31 @@ function_main:
 	la $a0, string_5
 	li $v0, 4
 	syscall
-	lw $a0, -8($fp)
+	lw $a0, -12($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 1
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
 	add $a0, $t1, $a0
-	sw $a0, -8($fp)
-	lw $a0, -8($fp)
+	sw $a0, -12($fp)
+	lw $a0, -12($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_6
 	li $v0, 4
 	syscall
-	lw $a0, -8($fp)
+	lw $a0, -12($fp)
 	add $a1, $a0, 1
-	sw $a1, -8($fp)
-	sw $a0, -12($fp)
-	lw $a0, -8($fp)
+	sw $a1, -12($fp)
+	sw $a0, -16($fp)
+	lw $a0, -12($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_7
 	li $v0, 4
 	syscall
-	lw $a0, -12($fp)
+	lw $a0, -16($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_8
@@ -152,8 +152,8 @@ else_1:
 	syscall
 end_if_1:
 	li $a0, 0
-	sw $a0, -16($fp)
-	lw $a0, -16($fp)
+	sw $a0, -20($fp)
+	lw $a0, -20($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 3
@@ -167,17 +167,17 @@ end_if_1:
 	syscall
 	b test_while_1
 body_while_1:
-	lw $a0, -16($fp)
+	lw $a0, -20($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_18
 	li $v0, 4
 	syscall
-	lw $a0, -16($fp)
+	lw $a0, -20($fp)
 	add $a1, $a0, 1
-	sw $a1, -16($fp)
+	sw $a1, -20($fp)
 test_while_1:
-	lw $a0, -16($fp)
+	lw $a0, -20($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 3
@@ -186,22 +186,22 @@ test_while_1:
 	slt $a0, $t1, $a0
 	bnez $a0, body_while_1
 	li $a0, 0
-	sw $a0, -20($fp)
+	sw $a0, -24($fp)
 	li $a0, 0
-	sw $a0, -20($fp)
+	sw $a0, -24($fp)
 	b test_for_1
 body_for_1:
-	lw $a0, -20($fp)
+	lw $a0, -24($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_19
 	li $v0, 4
 	syscall
-	lw $a0, -20($fp)
+	lw $a0, -24($fp)
 	add $a1, $a0, 1
-	sw $a1, -20($fp)
+	sw $a1, -24($fp)
 test_for_1:
-	lw $a0, -20($fp)
+	lw $a0, -24($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 5
@@ -210,7 +210,7 @@ test_for_1:
 	slt $a0, $t1, $a0
 	bnez $a0, body_for_1
 	li $a0, 0
-	sw $a0, -24($fp)
+	sw $a0, -28($fp)
 	li $a0, 0
 	move $v0, $a0
 	li $v0, 10
@@ -224,7 +224,7 @@ var_truc:
 	.word 0
 var_chose:
 	.word 0
-a:
+object_a:
 	.word 0
 	.word 0
 string_1:
