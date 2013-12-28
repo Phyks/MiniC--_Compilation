@@ -224,6 +224,40 @@ test_for_1:
 	syscall
 	li $a0, 0
 	sw $a0, -32($fp)
+	la $a0, object_a
+	lw $a0, 0($a0)
+	li $v0, 1
+	syscall
+	la $a0, string_22
+	li $v0, 4
+	syscall
+	la $a0, object_a
+	lw $a0, 4($a0)
+	li $v0, 1
+	syscall
+	la $a0, string_23
+	li $v0, 4
+	syscall
+	li $a0, 3
+	la $t0, object_a
+	sw $a0, 0($t0)
+	li $a0, 5
+	la $t0, object_a
+	sw $a0, 4($t0)
+	la $a0, object_a
+	lw $a0, 0($a0)
+	li $v0, 1
+	syscall
+	la $a0, string_24
+	li $v0, 4
+	syscall
+	la $a0, object_a
+	lw $a0, 4($a0)
+	li $v0, 1
+	syscall
+	la $a0, string_25
+	li $v0, 4
+	syscall
 	li $a0, 2
 	move $v0, $a0
 	b end_function_main
@@ -283,4 +317,12 @@ string_19:
 string_20:
 	.asciiz "\n"
 string_21:
+	.asciiz "\n"
+string_22:
+	.asciiz "\n"
+string_23:
+	.asciiz "\n"
+string_24:
+	.asciiz "\n"
+string_25:
 	.asciiz "\n"

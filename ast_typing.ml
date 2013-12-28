@@ -28,7 +28,7 @@ type at_expr = ATEInt of int
             | ATDot of at_expr * at_ident 
             | ATArrow of at_expr * at_ident 
             | ATAssign of at_expr * at_expr
-            | ATApply of at_expr * (at_expr list)
+            | ATApply of at_ident * (at_expr list)
             | ATInstance of at_tident * (at_expr list)
             | ATIncr of at_incr * at_expr
             | ATUOp of at_uoperateur * at_expr
@@ -44,13 +44,13 @@ type at_locals = (at_var, at_var_pos) Hashtbl.t
 type at_instruction = ATNop
                    | ATIExpr of at_expr
                    | ATIVar of at_var * at_some_assign
-                   | ATTVar of at_decl_class*at_var * at_some_assign
+                   | ATTVar of at_var * at_some_assign
                    | ATIfElse of at_expr * at_instruction * at_instruction * at_locals
                    | ATWhile of at_expr * at_instruction * at_locals
                    | ATFor of at_expr list * at_expr * at_expr list * at_instruction * at_locals
                    | ATIBloc of at_bloc * at_locals
                    | ATCout of at_expr_string list
-                   | ATReturn of (at_some_expr * string) (* string is function name *)
+                   | ATReturn of (at_some_expr * at_ident) (* at_ident is function name *)
                and
                at_bloc = at_instruction list
 

@@ -4,16 +4,22 @@ open Ast_typing
 
 exception Error of string*Lexing.position
 
+type field_offset = int
+type class_fields = { name: at_ident; fields: (at_var, field_offset) Hashtbl.t }
+
 let includes = ref false
 let is_main_here = ref false
 
 let globals = Hashtbl.create 17
 let decl_class = Hashtbl.create 17
+let objects = Hashtbl.create 17
 let current_function = ref ""
+
 
 let is_left_value = function
     | EQident _ -> true
     | UOp (UTimes, _) -> true
+    | Dot (EQident _, _) -> true
     | _ -> false
 
 
@@ -107,8 +113,23 @@ let rec type_expr pos locals = function
     | ETrue -> ATEInt 1
     | EFalse -> ATEInt 0
     | ENull -> ATEInt 0
-    | Apply (e, le) -> ATApply ( type_expr pos locals e, List.map (type_expr pos locals) le)
-    | Dot (e, id) -> ATDot ( type_expr pos locals e, id)
+    | Apply (e, le) -> begin
+        match type_expr pos locals e with
+        | ATEQident (ATIdent id, _) ->
+            ATApply (id, List.map (type_expr pos locals) le)
+        | _ -> raise (Error ("Expression cannot be used as a function.", pos))
+    end
+    | Dot (e, id) -> begin
+        match type_expr pos locals e with
+        | ATEQident (ATIdent ident, _) as qident ->
+                let decl_class = Hashtbl.find objects (ATVIdent ident) in
+                
+                if Hashtbl.mem decl_class.fields (ATVIdent id) then
+                    ATDot (qident, id)
+                else
+                    raise (Error ("No field "^id^" in object "^decl_class.name, pos))
+        | _ -> raise (Error ("Not an instance of a class.", pos))
+    end
     | _ -> assert false (* TODO *)
 
 let type_expr_string pos locals = function
@@ -134,7 +155,10 @@ let rec type_instruction locals x = match x.instruction_content with
                 let new_ident = type_var (fst x.instruction_loc) locals true ident in
 
                 match assign with
-                | NoAssign -> ATTVar (Hashtbl.find decl_class tident, new_ident, ATNoAssign)
+                | NoAssign ->
+                        let decl_class = Hashtbl.find decl_class tident in
+                        Hashtbl.add objects new_ident decl_class;
+                        ATTVar (new_ident, ATNoAssign)
                 | _ -> assert false (* TODO *)
             end
             | Void | Int ->begin
@@ -259,7 +283,14 @@ let type_class x = begin
             }
             in
 
-            Hashtbl.add decl_class ident ast_typing_class;
+            let fields = Hashtbl.create 17 in
+            let rec form_members_hashtbl = function
+                | ATMVar var -> List.map (fun x -> Hashtbl.add fields x (4 * Hashtbl.length fields)) var.at_var;
+                | ATProto (virtuel, proto) -> assert false (* TODO *)
+            in
+            let _ = List.map form_members_hashtbl ast_typing_class.at_member in
+
+            Hashtbl.add decl_class ident {name = ident; fields = fields;};
             ast_typing_class
     end
     (* TODO *)

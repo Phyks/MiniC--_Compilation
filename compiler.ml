@@ -2,6 +2,7 @@
 
 open Mips
 open Ast_typing
+open Typer
 
 let nb_string = ref 0
 let nb_if = ref 0
@@ -113,7 +114,17 @@ let rec mips_expr locals = function
                     }
         | ATTident (tid1, tid2) -> assert false
     end
-    | ATDot (e, ident) -> assert false
+    | ATDot (e, ident) ->
+            let object_id = match e with ATEQident (ATIdent id, _) -> id | _ -> assert false in
+
+            let object_desc = Hashtbl.find objects (ATVIdent object_id) in
+
+            let ofs = Hashtbl.find object_desc.fields (ATVIdent ident) in
+            {
+                text = la a0 alab ("object_"^(object_id))
+                    ++ lw a0 areg (ofs, a0);
+                data = nop;
+            }
     | ATArrow (e, ident) -> assert false
     | ATAssign (ATEQident (ATIdent i, local), e2) ->
             let mips_for_e2 = mips_expr locals e2 in
@@ -167,22 +178,24 @@ let rec mips_expr locals = function
                         ++ sw a0 areg (0, a1);
                     data = mips_for_e2.data;
                 }
-    | ATAssign (e1, e2) -> assert false (* TODO *)
-    | ATApply (e, le) ->
-            (* TODO : Arguments *)
-            let mips_for_call = 
-                match e with
-                | ATEQident (ATIdent id, _) -> 
-                        {
-                            text = jal ("function_"^id);
-                            data = nop;
-                        }
-                | _ -> assert false;
-            in
+    | ATAssign (ATDot(ATEQident (ATIdent qid, _), id), e2) ->
+            let object_desc = Hashtbl.find objects (ATVIdent qid) in
 
+            let ofs = Hashtbl.find object_desc.fields (ATVIdent id) in
+
+            let mips_for_e2 = mips_expr locals e2 in
             {
-                text = mips_for_call.text;
-                data = mips_for_call.data;
+                text = mips_for_e2.text
+                    ++ la t0 alab ("object_"^qid)
+                    ++ sw a0 areg (ofs, t0);
+                data = mips_for_e2.data;
+            }
+    | ATAssign (e1, e2) -> assert false (* TODO *)
+    | ATApply (id, le) ->
+            (* TODO : Arguments *)
+            {
+                text = jal ("function_"^id);
+                data = nop;
             }
     | ATInstance (tident, l) -> assert false
     | ATIncr (incr, ATEQident ((ATIdent i), local)) ->
@@ -361,28 +374,20 @@ let mips_expr_string locals x y = match y with
             }
 
 let rec mips_class x =
-    let rec mips_for_member x = function
-        | [] -> { text = x.text; data = x.data }
-        | y :: l -> begin
-            match y with
-            | ATMVar var ->
-                    let generated_mips =
-                        {
-                            text = x.text;
-                            data = x.data
-                                ++ dword [0];
-                        }
-                    in
-                    mips_for_member generated_mips l
-            | ATProto (virtuelle, proto) -> assert false (* TODO *)
-        end
+    let rec mips_for_fields k d prev =
+        {
+            text = prev.text;
+            data = prev.data
+                ++ dword [0];
+        }
     in
 
-    let mips_for_member = mips_for_member empty_mips x.at_member in
+    let mips_for_fields = Hashtbl.fold mips_for_fields x.fields empty_mips in
+    (* TODO : Mips for proto *)
 
     {
-        text = mips_for_member.text;
-        data = mips_for_member.data;
+        text = mips_for_fields.text;
+        data = mips_for_fields.data;
     }
 
 let rec mips_instruction locals x y = match y with
@@ -432,12 +437,14 @@ let rec mips_instruction locals x y = match y with
                     data = x.data;
                 }
         end
-    | ATTVar (decl_class, var, assign) ->
+    | ATTVar (var, assign) ->
             let mips_for_assign = match assign with
             | ATNoAssign -> { text = nop; data = nop; }
             | ATSAExpr e -> assert false (* TODO *)
             | ATSATident (ident, expr_list) -> assert false (* TODO *)
             in
+
+            let decl_class = Hashtbl.find objects var in
 
             let mips_for_class = mips_class decl_class in
 
@@ -535,8 +542,6 @@ let rec mips_instruction locals x y = match y with
                 data = x.data
                     ++ mips_for_expr.data;
             }
-            (* TODO : Not ok if not main function *)
-    (* TODO *)
 
 let mips_fonction f =
     let f_label = match f.at_proto.at_ident_proto with

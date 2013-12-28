@@ -63,7 +63,14 @@ int main() {
     std::cout << var << "\n";
     int *p = NULL;
 
-    // TODO : std::cout << a.x << "\n";
+    std::cout << a.x << "\n";
+    std::cout << a.y << "\n";
+
+    a.x = 3;
+    a.y = 5;
+
+    std::cout << a.x << "\n";
+    std::cout << a.y << "\n";
 
     return 2;
 }

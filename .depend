@@ -1,7 +1,7 @@
 ast_typing.cmo : ast.cmi
 ast_typing.cmx : ast.cmi
-compiler.cmo : mips.cmi ast_typing.cmo
-compiler.cmx : mips.cmx ast_typing.cmx
+compiler.cmo : typer.cmo mips.cmi ast_typing.cmo
+compiler.cmx : typer.cmx mips.cmx ast_typing.cmx
 lexer.cmo : parser.cmi lexhack.cmo
 lexer.cmx : parser.cmx lexhack.cmx
 lexhack.cmo :
