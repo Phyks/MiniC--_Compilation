@@ -9,6 +9,7 @@ let is_main_here = ref false
 
 let globals = Hashtbl.create 17
 let decl_class = Hashtbl.create 17
+let current_function = ref ""
 
 let is_left_value = function
     | EQident _ -> true
@@ -124,8 +125,8 @@ let rec type_instruction locals x = match x.instruction_content with
     | IExpr expr -> ATIExpr (type_expr (fst x.instruction_loc) locals expr)
     | Return some_expr -> begin
         match some_expr with
-            | None -> ATReturn None
-            | Some expr -> ATReturn (Some (type_expr (fst x.instruction_loc) locals expr))
+            | None -> ATReturn (None, !current_function)
+            | Some expr -> ATReturn (Some (type_expr (fst x.instruction_loc) locals expr), !current_function)
     end
     | IVar (ast_type, ident, assign) -> begin
         match ast_type with
@@ -210,6 +211,7 @@ let type_proto locals x =
     let () = 
         match x.ident with
         | Qvar (a, b) when a = Int && b = Qident (Ident "main") ->
+                current_function := "main";
                 Hashtbl.add globals (ATVIdent "main") ();
                 if List.length x.args = 0 then
                     if not !is_main_here then
@@ -217,6 +219,7 @@ let type_proto locals x =
                     else
                         raise (Error ("Redeclaration of main function.", fst x.proto_loc))
         | Qvar (a, Qident (Ident id)) -> 
+                current_function := id;
                 Hashtbl.add globals (ATVIdent id) ();
         | _ -> ()
     in

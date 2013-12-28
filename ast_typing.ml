@@ -50,7 +50,7 @@ type at_instruction = ATNop
                    | ATFor of at_expr list * at_expr * at_expr list * at_instruction * at_locals
                    | ATIBloc of at_bloc * at_locals
                    | ATCout of at_expr_string list
-                   | ATReturn of at_some_expr
+                   | ATReturn of (at_some_expr * string) (* string is function name *)
                and
                at_bloc = at_instruction list
 

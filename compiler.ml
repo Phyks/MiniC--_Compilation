@@ -168,7 +168,22 @@ let rec mips_expr locals = function
                     data = mips_for_e2.data;
                 }
     | ATAssign (e1, e2) -> assert false (* TODO *)
-    | ATApply (e, le) -> assert false (* TODO *)
+    | ATApply (e, le) ->
+            (* TODO : Arguments *)
+            let mips_for_call = 
+                match e with
+                | ATEQident (ATIdent id, _) -> 
+                        {
+                            text = jal ("function_"^id);
+                            data = nop;
+                        }
+                | _ -> assert false;
+            in
+
+            {
+                text = mips_for_call.text;
+                data = mips_for_call.data;
+            }
     | ATInstance (tident, l) -> assert false
     | ATIncr (incr, ATEQident ((ATIdent i), local)) ->
         let load reg =
@@ -507,17 +522,16 @@ let rec mips_instruction locals x y = match y with
             }
     | ATIBloc (bloc, bloc_locals) ->
         List.fold_left (mips_instruction bloc_locals) empty_mips bloc
-    | ATReturn e ->
+    | ATReturn (e, f_label) ->
             let mips_for_expr = match e with
             | Some expr -> mips_expr locals expr
-            | None -> empty_mips
+            | None -> { text = li a0 0; data = nop; }
             in
             {
                 text = x.text
                     ++ mips_for_expr.text
                     ++ move v0 a0
-                    ++ li v0 10
-                    ++ syscall;
+                    ++ b ("end_function_"^f_label);
                 data = x.data
                     ++ mips_for_expr.data;
             }
@@ -525,17 +539,33 @@ let rec mips_instruction locals x y = match y with
     (* TODO *)
 
 let mips_fonction f =
-    (* TODO *)
     let f_label = match f.at_proto.at_ident_proto with
     | ATQvar (_, ATQident (ATIdent s)) -> "function_"^s
     | _ -> assert false
     in
 
+    let mips_exit = 
+        if f_label = "function_main" then
+            {
+                text = li v0 17
+                    ++ syscall;
+                data = nop;
+            }
+        else
+            {
+                text = move v0 a0
+                    ++ jr ra;
+                data = nop;
+            }
+    in
+
     let mips_bloc = List.fold_left (mips_instruction f.at_locals) empty_mips f.at_bloc in
 
     {
-        text = label f_label
-            ++ mips_bloc.text;
+        text = label f_label (* TODO : Tableau d'activation *)
+            ++ mips_bloc.text
+            ++ label ("end_"^f_label)
+            ++ mips_exit.text;
         data = mips_bloc.data;
     }
 

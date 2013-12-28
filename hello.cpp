@@ -4,7 +4,8 @@ int test, bidule, truc;
 int chose;
 
 int fonction() {
-    return 0;
+    std::cout << "ok\n";
+    return 31415;
 }
 
 class A { public: int x; int y;};
@@ -58,10 +59,11 @@ int main() {
         std::cout << j << "\n";
     }
 
-//    fonction();
+    int var = fonction();
+    std::cout << var << "\n";
     int *p = NULL;
 
     // TODO : std::cout << a.x << "\n";
 
-    return 0;
+    return 2;
 }
