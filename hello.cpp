@@ -3,9 +3,14 @@
 int test, bidule, truc;
 int chose;
 
-int fonction() {
+void fonction() {
     std::cout << "ok\n";
     return 31415;
+}
+
+int fonction_args(int x, int y) {
+    std::cout << x << "\n";
+    std::cout << y << "\n";
 }
 
 class A { public: int x; int y;};
@@ -71,6 +76,8 @@ int main() {
 
     std::cout << a.x << "\n";
     std::cout << a.y << "\n";
+
+    fonction_args(42, 43);
 
     return 2;
 }

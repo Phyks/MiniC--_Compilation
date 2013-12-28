@@ -66,7 +66,7 @@ and at_decl_vars = { at_ast_type: at_ast_type; at_var: (at_var list)}
 and at_member = ATMVar of at_decl_vars | ATProto of bool * at_proto
 and at_supers = (at_tident list) option
 and at_decl_class = { at_ident_class: at_ident; at_supers: at_supers; at_member: (at_member list)}
-and at_fonction = { at_proto: at_proto; at_bloc: at_bloc; at_locals: at_locals }
+and at_fonction = { at_proto: at_proto; at_bloc: at_bloc; at_locals: at_locals; at_frame_size: int }
 and at_decl = AT_DVar of at_decl_vars | AT_Class of at_decl_class | AT_Fonction of at_fonction
 
 and at_program = at_decl list

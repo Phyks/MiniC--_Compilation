@@ -12,6 +12,7 @@ let is_main_here = ref false
 
 let globals = Hashtbl.create 17
 let decl_class = Hashtbl.create 17
+let decl_fonction = Hashtbl.create 17
 let objects = Hashtbl.create 17
 let current_function = ref ""
 
@@ -116,7 +117,10 @@ let rec type_expr pos locals = function
     | Apply (e, le) -> begin
         match type_expr pos locals e with
         | ATEQident (ATIdent id, _) ->
-            ATApply (id, List.map (type_expr pos locals) le)
+            if List.length le = List.length (Hashtbl.find decl_fonction id) then
+                ATApply (id, List.map (type_expr pos locals) le)
+            else
+                raise (Error ("Wrong number of arguments for function "^id^".", pos))
         | _ -> raise (Error ("Expression cannot be used as a function.", pos))
     end
     | Dot (e, id) -> begin
@@ -226,12 +230,10 @@ let type_proto_ident = function
     | _ -> assert false
     (* TODO *)
 
-let type_args pos locals x =
-    (types_ast_to_atast (fst x)), type_var pos locals false (snd x)
+let type_args pos args x =
+    (types_ast_to_atast (fst x)), type_var pos args false (snd x)
 
-let type_proto locals x =
-    List.fold_left (fun a b -> Hashtbl.add locals (type_var (fst x.proto_loc) locals false (snd b)) (Pos (4 * Hashtbl.length locals))) () x.args;
-
+let type_proto args x =
     let () = 
         match x.ident with
         | Qvar (a, b) when a = Int && b = Qident (Ident "main") ->
@@ -248,21 +250,38 @@ let type_proto locals x =
         | _ -> ()
     in
 
+    let typed_args = List.map (type_args (fst x.proto_loc) args) x.args in
+
+    (* Sauve la déclaration dans une table pour pouvoir vérifier que l'appel est bon *)
+    Hashtbl.add decl_fonction !current_function typed_args;
+
     {
         at_ident_proto = type_proto_ident x.ident;
-        at_args = List.map (type_args (fst x.proto_loc) locals) x.args;
+        at_args = typed_args;
     }
 
 let type_fonction x =
     let locals = Hashtbl.create 17 in
- 
-    let type_for_proto = type_proto locals (fst x.fonction_content) in
+    (* Ajoute deux identifiants invalides pour tenir compte du décalage lié à la sauvegarde de fp et ra *)
+    Hashtbl.add locals (ATVIdent "") (Pos 0);
+    Hashtbl.add locals (ATVIdent "_") (Pos 4);
+
+    let args = Hashtbl.create 17 in
+    let type_for_proto = type_proto args (fst x.fonction_content) in
+    let args_to_locals a b =
+        match b with
+        | Pos p -> Hashtbl.add locals a (Pos (-p-4))
+        | _ -> assert false
+    in
+    Hashtbl.iter args_to_locals args;
+
     let type_for_bloc = type_bloc locals (snd x.fonction_content) in
 
     {
         at_proto = type_for_proto; 
         at_bloc = type_for_bloc;
-        at_locals = locals
+        at_locals = locals;
+        at_frame_size = 4*(Hashtbl.length locals) - 4*(Hashtbl.length args);
     }
 
 let type_member pos = function

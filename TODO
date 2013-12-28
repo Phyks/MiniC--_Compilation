@@ -1,8 +1,8 @@
 * Makefile pourri
 * Fonctions
-    * Arguments
     * Surcharge
-    * Passage par référence
+    * Arguments pointeurs / Passage par référence
+    * Typage plus performant à faire
 * Classes
     * Méthodes
     * Héritage

@@ -98,7 +98,7 @@ let rec mips_expr locals = function
                         match Hashtbl.find locals (ATVIdent ident) with
                         | Pos pos ->
                             {
-                                text = lw a0 areg (-pos-8, fp);
+                                text = lw a0 areg (-pos, fp);
                                 data = nop;
                             }
                         | Global_var_ref id ->
@@ -134,7 +134,7 @@ let rec mips_expr locals = function
                     | Pos pos ->
                         {
                             text = mips_for_e2.text
-                                ++ sw a0 areg (-pos-8, fp);
+                                ++ sw a0 areg (-pos, fp);
                             data = mips_for_e2.data;
                         }
                     | Global_var_ref id ->
@@ -158,7 +158,7 @@ let rec mips_expr locals = function
                     | Pos pos ->
                         {
                             text = mips_for_e2.text
-                                ++ lw a1 areg (-pos-8, fp)
+                                ++ lw a1 areg (-pos, fp)
                                 ++ add a1 a1 oreg fp
                                 ++ sw a0 areg (0, a1);
                             data = mips_for_e2.data;
@@ -192,10 +192,22 @@ let rec mips_expr locals = function
             }
     | ATAssign (e1, e2) -> assert false (* TODO *)
     | ATApply (id, le) ->
-            (* TODO : Arguments *)
+            let compute_mips_push_args x e =
+                let mips_for_expr = mips_expr locals e in
+                {
+                    text =  mips_for_expr.text
+                        ++ push a0
+                        ++ x.text;
+                    data = mips_for_expr.data
+                        ++ x.data;
+                }
+            in
+            let mips_push_args = List.fold_left compute_mips_push_args empty_mips le in
             {
-                text = jal ("function_"^id);
-                data = nop;
+                text = mips_push_args.text
+                    ++ jal ("function_"^id)
+                    ++ popn (4*(List.length le));
+                data = mips_push_args.data;
             }
     | ATInstance (tident, l) -> assert false
     | ATIncr (incr, ATEQident ((ATIdent i), local)) ->
@@ -204,7 +216,7 @@ let rec mips_expr locals = function
                 begin
                     match Hashtbl.find locals (ATVIdent i) with
                     | Pos pos ->
-                        lw reg areg(-pos-8, fp)
+                        lw reg areg(-pos, fp)
                     | Global_var_ref id ->
                         lw reg alab ("var_"^id)
                 end
@@ -215,7 +227,7 @@ let rec mips_expr locals = function
             if local then
                 begin match Hashtbl.find locals (ATVIdent i) with 
                     | Pos pos ->
-                        sw reg areg(-pos-8, fp)
+                        sw reg areg(-pos, fp)
                     | Global_var_ref id ->
                         sw reg alab ("var_"^id)
                 end
@@ -271,7 +283,7 @@ let rec mips_expr locals = function
                                     }
                                 else
                                     {
-                                        text = la a0 areg (-pos-8,fp);
+                                        text = la a0 areg (-pos,fp);
                                         data = nop;
                                     }
                             | Global_var_ref id ->
@@ -302,7 +314,7 @@ let rec mips_expr locals = function
                             match Hashtbl.find locals (ATVIdent ident) with
                             | Pos pos ->
                                 {
-                                    text = lw a0 areg (-pos-8,fp)
+                                    text = lw a0 areg (-pos,fp)
                                         ++ add a0 a0 oreg fp
                                         ++ lw a0 areg (0, a0);
                                     data = nop;
@@ -427,7 +439,7 @@ let rec mips_instruction locals x y = match y with
                 {
                     text = x.text
                         ++ mips_for_assign.text
-                        ++ sw a0 areg (-pos-8, fp);
+                        ++ sw a0 areg (-pos, fp);
                     data = x.data
                         ++ mips_for_assign.data;
                 }
@@ -566,10 +578,19 @@ let mips_fonction f =
 
     let mips_bloc = List.fold_left (mips_instruction f.at_locals) empty_mips f.at_bloc in
 
+    let length = f.at_frame_size in
+    
     {
-        text = label f_label (* TODO : Tableau d'activation *)
+        text = label f_label
+            ++ add sp sp oi (-length)
+            ++ sw fp areg (length-4, sp)
+            ++ add fp sp oi (length-4)
+            ++ sw ra areg (length - 8, sp)
             ++ mips_bloc.text
             ++ label ("end_"^f_label)
+            ++ lw ra areg (length - 8, sp)
+            ++ lw fp areg (length -4, sp)
+            ++ add sp sp oi length
             ++ mips_exit.text;
         data = mips_bloc.data;
     }
