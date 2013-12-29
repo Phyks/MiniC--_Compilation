@@ -12,7 +12,7 @@ function_fonction:
 	syscall
 	li $a0, 31415
 	move $v0, $a0
-	b end_function_fonction
+	jr $ra
 end_function_fonction:
 	lw $ra, 4($sp)
 	lw $fp, 8($sp)
@@ -41,6 +41,7 @@ function_fonction_args:
 	la $a0, string_4
 	li $v0, 4
 	syscall
+	add $sp, $sp, 0
 	b test_while_1
 body_while_1:
 	lw $a0, -8($fp)
@@ -60,6 +61,7 @@ test_while_1:
 	add $sp, $sp, 4
 	slt $a0, $t1, $a0
 	bnez $a0, body_while_1
+	add $sp, $sp, 0
 	la $a0, string_6
 	li $v0, 4
 	syscall
@@ -199,6 +201,7 @@ function_main:
 	la $a0, string_19
 	li $v0, 4
 	syscall
+	add $sp, $sp, 0
 	lw $a0, var_test
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
@@ -207,18 +210,23 @@ function_main:
 	add $sp, $sp, 4
 	seq $a0, $t1, $a0
 	beqz $a0, else_1
+	add $sp, $sp, 0
 	la $a0, string_20
 	li $v0, 4
 	syscall
 	la $a0, string_21
 	li $v0, 4
 	syscall
+	add $sp, $sp, 0
 	b end_if_1
 else_1:
+	add $sp, $sp, 0
 	la $a0, string_22
 	li $v0, 4
 	syscall
+	add $sp, $sp, 0
 end_if_1:
+	add $sp, $sp, 0
 	li $a0, 0
 	sw $a0, -16($fp)
 	lw $a0, -16($fp)
@@ -233,8 +241,10 @@ end_if_1:
 	la $a0, string_23
 	li $v0, 4
 	syscall
+	add $sp, $sp, 0
 	b test_while_2
 body_while_2:
+	add $sp, $sp, 0
 	lw $a0, -16($fp)
 	li $v0, 1
 	syscall
@@ -244,6 +254,7 @@ body_while_2:
 	lw $a0, -16($fp)
 	add $a1, $a0, 1
 	sw $a1, -16($fp)
+	add $sp, $sp, 0
 test_while_2:
 	lw $a0, -16($fp)
 	sub $sp, $sp, 4
@@ -253,18 +264,22 @@ test_while_2:
 	add $sp, $sp, 4
 	slt $a0, $t1, $a0
 	bnez $a0, body_while_2
+	add $sp, $sp, 0
 	li $a0, 0
 	sw $a0, -20($fp)
+	add $sp, $sp, 0
 	li $a0, 0
 	sw $a0, -20($fp)
 	b test_for_1
 body_for_1:
+	add $sp, $sp, 0
 	lw $a0, -20($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_25
 	li $v0, 4
 	syscall
+	add $sp, $sp, 0
 	lw $a0, -20($fp)
 	add $a1, $a0, 1
 	sw $a1, -20($fp)
@@ -277,6 +292,7 @@ test_for_1:
 	add $sp, $sp, 4
 	slt $a0, $t1, $a0
 	bnez $a0, body_for_1
+	add $sp, $sp, 0
 	jal function_fonction
 	add $sp, $sp, 0
 	sw $a0, -24($fp)
@@ -332,8 +348,10 @@ test_for_1:
 	add $sp, $sp, 8
 	li $a0, 0
 	sw $a0, -16($fp)
+	add $sp, $sp, 0
 	b test_while_3
 body_while_3:
+	add $sp, $sp, 0
 	lw $a0, -16($fp)
 	add $a0, $a0, 1
 	sw $a0, -16($fp)
@@ -342,6 +360,7 @@ body_while_3:
 	la $a0, string_31
 	li $v0, 4
 	syscall
+	add $sp, $sp, 0
 test_while_3:
 	lw $a0, -16($fp)
 	sub $sp, $sp, 4
@@ -351,22 +370,27 @@ test_while_3:
 	add $sp, $sp, 4
 	slt $a0, $t1, $a0
 	bnez $a0, body_while_3
+	add $sp, $sp, 0
 	la $a0, string_32
 	li $v0, 4
 	syscall
 	la $a0, string_33
 	li $v0, 4
 	syscall
+	add $sp, $sp, 0
 	li $a0, 0
 	sw $a0, -16($fp)
 	b test_for_2
 body_for_2:
+	add $sp, $sp, -4
 	li $a0, 0
 	sw $a0, -32($fp)
+	add $sp, $sp, 0
 	li $a0, 0
 	sw $a0, -32($fp)
 	b test_for_3
 body_for_3:
+	add $sp, $sp, 0
 	lw $a0, -16($fp)
 	li $v0, 1
 	syscall
@@ -379,6 +403,7 @@ body_for_3:
 	la $a0, string_35
 	li $v0, 4
 	syscall
+	add $sp, $sp, 0
 	lw $a0, -32($fp)
 	add $a1, $a0, 1
 	sw $a1, -32($fp)
@@ -391,6 +416,8 @@ test_for_3:
 	add $sp, $sp, 4
 	slt $a0, $t1, $a0
 	bnez $a0, body_for_3
+	add $sp, $sp, 0
+	add $sp, $sp, 4
 	lw $a0, -16($fp)
 	add $a1, $a0, 1
 	sw $a1, -16($fp)
@@ -403,14 +430,16 @@ test_for_2:
 	add $sp, $sp, 4
 	slt $a0, $t1, $a0
 	bnez $a0, body_for_2
+	add $sp, $sp, 0
 	li $a0, 2
 	move $v0, $a0
-	b end_function_main
+	li $v0, 17
+	syscall
 end_function_main:
 	lw $ra, 28($sp)
 	lw $fp, 32($sp)
 	add $sp, $sp, 36
-	li $v0, 17
+	li $v0, 10
 	syscall
 .data
 var_test:

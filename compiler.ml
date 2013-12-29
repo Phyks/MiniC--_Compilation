@@ -160,7 +160,6 @@ let rec mips_expr locals = function
                         {
                             text = mips_for_e2.text
                                 ++ lw a1 areg (-pos, fp)
-                                ++ add a1 a1 oreg fp
                                 ++ sw a0 areg (0, a1);
                             data = mips_for_e2.data;
                         }
@@ -316,7 +315,6 @@ let rec mips_expr locals = function
                             | Pos pos ->
                                 {
                                     text = lw a0 areg (-pos,fp)
-                                        ++ add a0 a0 oreg fp
                                         ++ lw a0 areg (0, a0);
                                     data = nop;
                                 }
@@ -561,11 +559,13 @@ let rec mips_instruction locals x y = match y with
             | Some expr -> mips_expr locals expr
             | None -> { text = li a0 0; data = nop; }
             in
+
+            let mips_exit = if f_label = "main" then li v0 17 ++ syscall else jr ra in
             {
                 text = x.text
                     ++ mips_for_expr.text
                     ++ move v0 a0
-                    ++ b ("end_function_"^f_label);
+                    ++ mips_exit;
                 data = x.data
                     ++ mips_for_expr.data;
             }
@@ -579,7 +579,7 @@ let mips_fonction f =
     let mips_exit = 
         if f_label = "function_main" then
             {
-                text = li v0 17
+                text = li v0 10
                     ++ syscall;
                 data = nop;
             }

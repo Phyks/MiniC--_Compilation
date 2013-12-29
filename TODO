@@ -2,7 +2,7 @@
 * Typing => Mettre des décorations de type dans le ast_typing et les vérifier au typage
 * Fonctions
     * Surcharge
-    * Arguments pointeurs / Passage par référence
+    * Passage par référence
 * Classes
     * Méthodes
     * Héritage
