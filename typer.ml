@@ -59,6 +59,7 @@ let type_qident = function
 let max_hashtbl k d x = match d with
     | Pos p -> if p < x then x else p
     | Global_var_ref _ -> x
+    | Arg_ref _ -> x
 
 let rec type_var pos locals heap = function
     | VIdent ident -> 
@@ -129,7 +130,7 @@ let rec type_expr pos locals = function
                     i:=!i+1;
                     let tmp = type_expr pos locals x in
                     if snd(List.nth decl_fonction_tmp !i) then
-                        tmp, true
+                        ATUOp (ATEComm, tmp), true
                     else
                         tmp, false
                 in
@@ -254,11 +255,16 @@ let type_args pos args x =
     let tmp = type_var pos args false (snd x) in
 
     let reference = match tmp with
-    | ATVEComm _ -> true
+    | ATVEComm id -> begin
+        match Hashtbl.find args id with
+        | Pos p -> Hashtbl.remove args id; Hashtbl.add args id (Arg_ref p); true
+        | _ -> true
+        end
     | _ -> false
     in
 
     ((types_ast_to_atast (fst x)), tmp), reference
+
 let type_proto args x =
     let () = 
         match x.ident with
@@ -296,6 +302,7 @@ let type_fonction x =
     let args_to_locals a b =
         match b with
         | Pos p -> Hashtbl.add locals a (Pos (-p))
+        | Arg_ref p -> Hashtbl.add locals a (Arg_ref (-p))
         | _ -> assert false
     in
     Hashtbl.iter args_to_locals args;
