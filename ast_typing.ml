@@ -45,10 +45,10 @@ type at_instruction = ATNop
                    | ATIExpr of at_expr
                    | ATIVar of at_var * at_some_assign
                    | ATTVar of at_var * at_some_assign
-                   | ATIfElse of at_expr * at_instruction * at_instruction * at_locals
-                   | ATWhile of at_expr * at_instruction * at_locals
-                   | ATFor of at_expr list * at_expr * at_expr list * at_instruction * at_locals
-                   | ATIBloc of at_bloc * at_locals
+                   | ATIfElse of at_expr * at_instruction * at_instruction * at_locals * int (* int is frame size *)
+                   | ATWhile of at_expr * at_instruction * at_locals * int
+                   | ATFor of at_expr list * at_expr * at_expr list * at_instruction * at_locals * int
+                   | ATIBloc of at_bloc * at_locals * int
                    | ATCout of at_expr_string list
                    | ATReturn of (at_some_expr * at_ident) (* at_ident is function name *)
                and

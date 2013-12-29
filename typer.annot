@@ -2762,14 +2762,14 @@ type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  def locals "typer.ml" 147 4585 4617 "typer.ml" 222 8786 8872
+  def locals "typer.ml" 147 4585 4617 "typer.ml" 227 9134 9255
 )
 "typer.ml" 147 4585 4617 "typer.ml" 147 4585 4618
 type(
   Ast.instruction
 )
 ident(
-  def x "typer.ml" 147 4585 4621 "typer.ml" 222 8786 8872
+  def x "typer.ml" 147 4585 4621 "typer.ml" 227 9134 9255
 )
 "typer.ml" 147 4585 4627 "typer.ml" 147 4585 4628
 type(
@@ -4115,14 +4115,14 @@ type(
   Ast.expr
 )
 ident(
-  def e "typer.ml" 207 7664 7687 "typer.ml" 207 7664 7834
+  def e "typer.ml" 207 7664 7687 "typer.ml" 207 7664 7892
 )
 "typer.ml" 207 7664 7677 "typer.ml" 207 7664 7682
 type(
   Ast.instruction
 )
 ident(
-  def instr "typer.ml" 207 7664 7687 "typer.ml" 207 7664 7834
+  def instr "typer.ml" 207 7664 7687 "typer.ml" 207 7664 7892
 )
 "typer.ml" 207 7664 7670 "typer.ml" 207 7664 7683
 type(
@@ -4133,7 +4133,7 @@ type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  def if_locals "typer.ml" 207 7664 7726 "typer.ml" 207 7664 7834
+  def if_locals "typer.ml" 207 7664 7726 "typer.ml" 207 7664 7892
 )
 "typer.ml" 207 7664 7703 "typer.ml" 207 7664 7715
 type(
@@ -4249,47 +4249,130 @@ type(
 ident(
   int_ref if_locals "typer.ml" 207 7664 7691 "typer.ml" 207 7664 7700
 )
-"typer.ml" 207 7664 7726 "typer.ml" 207 7664 7834
+"typer.ml" 207 7664 7835 "typer.ml" 207 7664 7836
 type(
-  Ast_typing.at_instruction
+  int
 )
-"typer.ml" 207 7664 7687 "typer.ml" 207 7664 7834
+"typer.ml" 207 7664 7836 "typer.ml" 207 7664 7837
 type(
-  Ast_typing.at_instruction
-)
-"typer.ml" 208 7835 7849 "typer.ml" 208 7835 7850
-type(
-  Ast.expr
+  int -> int -> int
 )
 ident(
-  def e "typer.ml" 208 7835 7872 "typer.ml" 208 7835 8048
+  ext_ref Pervasives.( * )
 )
-"typer.ml" 208 7835 7852 "typer.ml" 208 7835 7858
+"typer.ml" 207 7664 7838 "typer.ml" 207 7664 7852
 type(
-  Ast.instruction
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
 )
 ident(
-  def instr1 "typer.ml" 208 7835 7872 "typer.ml" 208 7835 8048
+  ext_ref Hashtbl.length
 )
-"typer.ml" 208 7835 7860 "typer.ml" 208 7835 7866
-type(
-  Ast.instruction
-)
-ident(
-  def instr2 "typer.ml" 208 7835 7872 "typer.ml" 208 7835 8048
-)
-"typer.ml" 208 7835 7841 "typer.ml" 208 7835 7867
-type(
-  Ast.instruction_content
-)
-"typer.ml" 208 7835 7876 "typer.ml" 208 7835 7885
+"typer.ml" 207 7664 7853 "typer.ml" 207 7664 7862
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  def if_locals "typer.ml" 208 7835 7911 "typer.ml" 208 7835 8048
+  int_ref if_locals "typer.ml" 207 7664 7691 "typer.ml" 207 7664 7700
 )
-"typer.ml" 208 7835 7888 "typer.ml" 208 7835 7900
+"typer.ml" 207 7664 7837 "typer.ml" 207 7664 7863
+call(
+  stack
+)
+type(
+  int
+)
+"typer.ml" 207 7664 7835 "typer.ml" 207 7664 7863
+type(
+  int
+)
+"typer.ml" 207 7664 7864 "typer.ml" 207 7664 7865
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"typer.ml" 207 7664 7866 "typer.ml" 207 7664 7867
+type(
+  int
+)
+"typer.ml" 207 7664 7867 "typer.ml" 207 7664 7868
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( * )
+)
+"typer.ml" 207 7664 7869 "typer.ml" 207 7664 7883
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
+)
+ident(
+  ext_ref Hashtbl.length
+)
+"typer.ml" 207 7664 7884 "typer.ml" 207 7664 7890
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref locals "typer.ml" 147 4585 4610 "typer.ml" 147 4585 4616
+)
+"typer.ml" 207 7664 7868 "typer.ml" 207 7664 7891
+call(
+  stack
+)
+type(
+  int
+)
+"typer.ml" 207 7664 7866 "typer.ml" 207 7664 7891
+type(
+  int
+)
+"typer.ml" 207 7664 7835 "typer.ml" 207 7664 7891
+type(
+  int
+)
+"typer.ml" 207 7664 7726 "typer.ml" 207 7664 7892
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 207 7664 7687 "typer.ml" 207 7664 7892
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 208 7893 7907 "typer.ml" 208 7893 7908
+type(
+  Ast.expr
+)
+ident(
+  def e "typer.ml" 208 7893 7930 "typer.ml" 208 7893 8164
+)
+"typer.ml" 208 7893 7910 "typer.ml" 208 7893 7916
+type(
+  Ast.instruction
+)
+ident(
+  def instr1 "typer.ml" 208 7893 7930 "typer.ml" 208 7893 8164
+)
+"typer.ml" 208 7893 7918 "typer.ml" 208 7893 7924
+type(
+  Ast.instruction
+)
+ident(
+  def instr2 "typer.ml" 208 7893 7930 "typer.ml" 208 7893 8164
+)
+"typer.ml" 208 7893 7899 "typer.ml" 208 7893 7925
+type(
+  Ast.instruction_content
+)
+"typer.ml" 208 7893 7934 "typer.ml" 208 7893 7943
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  def if_locals "typer.ml" 208 7893 7969 "typer.ml" 208 7893 8164
+)
+"typer.ml" 208 7893 7946 "typer.ml" 208 7893 7958
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
@@ -4297,21 +4380,21 @@ type(
 ident(
   ext_ref Hashtbl.copy
 )
-"typer.ml" 208 7835 7901 "typer.ml" 208 7835 7907
+"typer.ml" 208 7893 7959 "typer.ml" 208 7893 7965
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
   int_ref locals "typer.ml" 147 4585 4610 "typer.ml" 147 4585 4616
 )
-"typer.ml" 208 7835 7888 "typer.ml" 208 7835 7907
+"typer.ml" 208 7893 7946 "typer.ml" 208 7893 7965
 call(
   stack
 )
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
-"typer.ml" 208 7835 7921 "typer.ml" 208 7835 7930
+"typer.ml" 208 7893 7979 "typer.ml" 208 7893 7988
 type(
   Lexing.position ->
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
@@ -4320,50 +4403,50 @@ type(
 ident(
   int_ref type_expr "typer.ml" 98 2327 2335 "typer.ml" 98 2327 2344
 )
-"typer.ml" 208 7835 7932 "typer.ml" 208 7835 7935
+"typer.ml" 208 7893 7990 "typer.ml" 208 7893 7993
 type(
   Ast.loc -> Lexing.position
 )
 ident(
   ext_ref Pervasives.fst
 )
-"typer.ml" 208 7835 7936 "typer.ml" 208 7835 7937
+"typer.ml" 208 7893 7994 "typer.ml" 208 7893 7995
 type(
   Ast.instruction
 )
 ident(
   int_ref x "typer.ml" 147 4585 4617 "typer.ml" 147 4585 4618
 )
-"typer.ml" 208 7835 7936 "typer.ml" 208 7835 7953
+"typer.ml" 208 7893 7994 "typer.ml" 208 7893 8011
 type(
   Ast.loc
 )
-"typer.ml" 208 7835 7931 "typer.ml" 208 7835 7954
+"typer.ml" 208 7893 7989 "typer.ml" 208 7893 8012
 type(
   Lexing.position
 )
-"typer.ml" 208 7835 7955 "typer.ml" 208 7835 7964
+"typer.ml" 208 7893 8013 "typer.ml" 208 7893 8022
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref if_locals "typer.ml" 208 7835 7876 "typer.ml" 208 7835 7885
+  int_ref if_locals "typer.ml" 208 7893 7934 "typer.ml" 208 7893 7943
 )
-"typer.ml" 208 7835 7965 "typer.ml" 208 7835 7966
+"typer.ml" 208 7893 8023 "typer.ml" 208 7893 8024
 type(
   Ast.expr
 )
 ident(
-  int_ref e "typer.ml" 208 7835 7849 "typer.ml" 208 7835 7850
+  int_ref e "typer.ml" 208 7893 7907 "typer.ml" 208 7893 7908
 )
-"typer.ml" 208 7835 7921 "typer.ml" 208 7835 7966
+"typer.ml" 208 7893 7979 "typer.ml" 208 7893 8024
 call(
   stack
 )
 type(
   Ast_typing.at_expr
 )
-"typer.ml" 208 7835 7968 "typer.ml" 208 7835 7984
+"typer.ml" 208 7893 8026 "typer.ml" 208 7893 8042
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast.instruction -> Ast_typing.at_instruction
@@ -4371,28 +4454,28 @@ type(
 ident(
   int_ref type_instruction "typer.ml" 147 4585 4593 "typer.ml" 147 4585 4609
 )
-"typer.ml" 208 7835 7985 "typer.ml" 208 7835 7994
+"typer.ml" 208 7893 8043 "typer.ml" 208 7893 8052
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref if_locals "typer.ml" 208 7835 7876 "typer.ml" 208 7835 7885
+  int_ref if_locals "typer.ml" 208 7893 7934 "typer.ml" 208 7893 7943
 )
-"typer.ml" 208 7835 7995 "typer.ml" 208 7835 8001
+"typer.ml" 208 7893 8053 "typer.ml" 208 7893 8059
 type(
   Ast.instruction
 )
 ident(
-  int_ref instr1 "typer.ml" 208 7835 7852 "typer.ml" 208 7835 7858
+  int_ref instr1 "typer.ml" 208 7893 7910 "typer.ml" 208 7893 7916
 )
-"typer.ml" 208 7835 7968 "typer.ml" 208 7835 8001
+"typer.ml" 208 7893 8026 "typer.ml" 208 7893 8059
 call(
   stack
 )
 type(
   Ast_typing.at_instruction
 )
-"typer.ml" 208 7835 8003 "typer.ml" 208 7835 8019
+"typer.ml" 208 7893 8061 "typer.ml" 208 7893 8077
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast.instruction -> Ast_typing.at_instruction
@@ -4400,61 +4483,144 @@ type(
 ident(
   int_ref type_instruction "typer.ml" 147 4585 4593 "typer.ml" 147 4585 4609
 )
-"typer.ml" 208 7835 8020 "typer.ml" 208 7835 8029
+"typer.ml" 208 7893 8078 "typer.ml" 208 7893 8087
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref if_locals "typer.ml" 208 7835 7876 "typer.ml" 208 7835 7885
+  int_ref if_locals "typer.ml" 208 7893 7934 "typer.ml" 208 7893 7943
 )
-"typer.ml" 208 7835 8030 "typer.ml" 208 7835 8036
+"typer.ml" 208 7893 8088 "typer.ml" 208 7893 8094
 type(
   Ast.instruction
 )
 ident(
-  int_ref instr2 "typer.ml" 208 7835 7860 "typer.ml" 208 7835 7866
+  int_ref instr2 "typer.ml" 208 7893 7918 "typer.ml" 208 7893 7924
 )
-"typer.ml" 208 7835 8003 "typer.ml" 208 7835 8036
+"typer.ml" 208 7893 8061 "typer.ml" 208 7893 8094
 call(
   stack
 )
 type(
   Ast_typing.at_instruction
 )
-"typer.ml" 208 7835 8038 "typer.ml" 208 7835 8047
+"typer.ml" 208 7893 8096 "typer.ml" 208 7893 8105
 type(
   Ast_typing.at_locals
 )
 ident(
-  int_ref if_locals "typer.ml" 208 7835 7876 "typer.ml" 208 7835 7885
+  int_ref if_locals "typer.ml" 208 7893 7934 "typer.ml" 208 7893 7943
 )
-"typer.ml" 208 7835 7911 "typer.ml" 208 7835 8048
+"typer.ml" 208 7893 8107 "typer.ml" 208 7893 8108
 type(
-  Ast_typing.at_instruction
+  int
 )
-"typer.ml" 208 7835 7872 "typer.ml" 208 7835 8048
+"typer.ml" 208 7893 8108 "typer.ml" 208 7893 8109
 type(
-  Ast_typing.at_instruction
-)
-"typer.ml" 209 8049 8061 "typer.ml" 209 8049 8065
-type(
-  Ast.bloc
+  int -> int -> int
 )
 ident(
-  def bloc "typer.ml" 209 8049 8069 "typer.ml" 209 8049 8159
+  ext_ref Pervasives.( * )
 )
-"typer.ml" 209 8049 8055 "typer.ml" 209 8049 8065
+"typer.ml" 208 7893 8110 "typer.ml" 208 7893 8124
 type(
-  Ast.instruction_content
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
 )
-"typer.ml" 209 8049 8073 "typer.ml" 209 8049 8084
+ident(
+  ext_ref Hashtbl.length
+)
+"typer.ml" 208 7893 8125 "typer.ml" 208 7893 8134
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  def bloc_locals "typer.ml" 209 8049 8110 "typer.ml" 209 8049 8159
+  int_ref if_locals "typer.ml" 208 7893 7934 "typer.ml" 208 7893 7943
 )
-"typer.ml" 209 8049 8087 "typer.ml" 209 8049 8099
+"typer.ml" 208 7893 8109 "typer.ml" 208 7893 8135
+call(
+  stack
+)
+type(
+  int
+)
+"typer.ml" 208 7893 8107 "typer.ml" 208 7893 8135
+type(
+  int
+)
+"typer.ml" 208 7893 8136 "typer.ml" 208 7893 8137
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"typer.ml" 208 7893 8138 "typer.ml" 208 7893 8139
+type(
+  int
+)
+"typer.ml" 208 7893 8139 "typer.ml" 208 7893 8140
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( * )
+)
+"typer.ml" 208 7893 8141 "typer.ml" 208 7893 8155
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
+)
+ident(
+  ext_ref Hashtbl.length
+)
+"typer.ml" 208 7893 8156 "typer.ml" 208 7893 8162
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref locals "typer.ml" 147 4585 4610 "typer.ml" 147 4585 4616
+)
+"typer.ml" 208 7893 8140 "typer.ml" 208 7893 8163
+call(
+  stack
+)
+type(
+  int
+)
+"typer.ml" 208 7893 8138 "typer.ml" 208 7893 8163
+type(
+  int
+)
+"typer.ml" 208 7893 8107 "typer.ml" 208 7893 8163
+type(
+  int
+)
+"typer.ml" 208 7893 7969 "typer.ml" 208 7893 8164
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 208 7893 7930 "typer.ml" 208 7893 8164
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 209 8165 8177 "typer.ml" 209 8165 8181
+type(
+  Ast.bloc
+)
+ident(
+  def bloc "typer.ml" 210 8185 8197 "typer.ml" 212 8290 8388
+)
+"typer.ml" 209 8165 8171 "typer.ml" 209 8165 8181
+type(
+  Ast.instruction_content
+)
+"typer.ml" 210 8185 8201 "typer.ml" 210 8185 8212
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  def bloc_locals "typer.ml" 211 8238 8250 "typer.ml" 212 8290 8388
+)
+"typer.ml" 210 8185 8215 "typer.ml" 210 8185 8227
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
@@ -4462,306 +4628,213 @@ type(
 ident(
   ext_ref Hashtbl.copy
 )
-"typer.ml" 209 8049 8100 "typer.ml" 209 8049 8106
+"typer.ml" 210 8185 8228 "typer.ml" 210 8185 8234
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
   int_ref locals "typer.ml" 147 4585 4610 "typer.ml" 147 4585 4616
 )
-"typer.ml" 209 8049 8087 "typer.ml" 209 8049 8106
+"typer.ml" 210 8185 8215 "typer.ml" 210 8185 8234
 call(
   stack
 )
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
-"typer.ml" 209 8049 8119 "typer.ml" 209 8049 8128
+"typer.ml" 211 8238 8254 "typer.ml" 211 8238 8257
+type(
+  Ast_typing.at_bloc
+)
+ident(
+  def tmp "typer.ml" 212 8290 8302 "typer.ml" 212 8290 8388
+)
+"typer.ml" 211 8238 8260 "typer.ml" 211 8238 8269
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast.bloc -> Ast_typing.at_bloc
 )
 ident(
-  int_ref type_bloc "typer.ml" 224 8874 8878 "typer.ml" 224 8874 8887
+  int_ref type_bloc "typer.ml" 229 9257 9261 "typer.ml" 229 9257 9270
 )
-"typer.ml" 209 8049 8129 "typer.ml" 209 8049 8140
+"typer.ml" 211 8238 8270 "typer.ml" 211 8238 8281
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref bloc_locals "typer.ml" 209 8049 8073 "typer.ml" 209 8049 8084
+  int_ref bloc_locals "typer.ml" 210 8185 8201 "typer.ml" 210 8185 8212
 )
-"typer.ml" 209 8049 8141 "typer.ml" 209 8049 8145
+"typer.ml" 211 8238 8282 "typer.ml" 211 8238 8286
 type(
   Ast.bloc
 )
 ident(
-  int_ref bloc "typer.ml" 209 8049 8061 "typer.ml" 209 8049 8065
+  int_ref bloc "typer.ml" 209 8165 8177 "typer.ml" 209 8165 8181
 )
-"typer.ml" 209 8049 8119 "typer.ml" 209 8049 8145
+"typer.ml" 211 8238 8260 "typer.ml" 211 8238 8286
 call(
   stack
 )
 type(
   Ast_typing.at_bloc
 )
-"typer.ml" 209 8049 8147 "typer.ml" 209 8049 8158
+"typer.ml" 212 8290 8311 "typer.ml" 212 8290 8314
+type(
+  Ast_typing.at_bloc
+)
+ident(
+  int_ref tmp "typer.ml" 211 8238 8254 "typer.ml" 211 8238 8257
+)
+"typer.ml" 212 8290 8316 "typer.ml" 212 8290 8327
 type(
   Ast_typing.at_locals
 )
 ident(
-  int_ref bloc_locals "typer.ml" 209 8049 8073 "typer.ml" 209 8049 8084
+  int_ref bloc_locals "typer.ml" 210 8185 8201 "typer.ml" 210 8185 8212
 )
-"typer.ml" 209 8049 8110 "typer.ml" 209 8049 8159
-type(
-  Ast_typing.at_instruction
-)
-"typer.ml" 209 8049 8069 "typer.ml" 209 8049 8159
-type(
-  Ast_typing.at_instruction
-)
-"typer.ml" 210 8160 8173 "typer.ml" 210 8160 8174
-type(
-  Ast.expr
-)
-ident(
-  def e "typer.ml" 210 8160 8186 "typer.ml" 210 8160 8337
-)
-"typer.ml" 210 8160 8176 "typer.ml" 210 8160 8181
-type(
-  Ast.instruction
-)
-ident(
-  def instr "typer.ml" 210 8160 8186 "typer.ml" 210 8160 8337
-)
-"typer.ml" 210 8160 8166 "typer.ml" 210 8160 8182
-type(
-  Ast.instruction_content
-)
-"typer.ml" 210 8160 8190 "typer.ml" 210 8160 8202
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-ident(
-  def while_locals "typer.ml" 210 8160 8228 "typer.ml" 210 8160 8337
-)
-"typer.ml" 210 8160 8205 "typer.ml" 210 8160 8217
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-ident(
-  ext_ref Hashtbl.copy
-)
-"typer.ml" 210 8160 8218 "typer.ml" 210 8160 8224
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-ident(
-  int_ref locals "typer.ml" 147 4585 4610 "typer.ml" 147 4585 4616
-)
-"typer.ml" 210 8160 8205 "typer.ml" 210 8160 8224
-call(
-  stack
-)
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-"typer.ml" 210 8160 8237 "typer.ml" 210 8160 8246
-type(
-  Lexing.position ->
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
-  Ast.expr -> Ast_typing.at_expr
-)
-ident(
-  int_ref type_expr "typer.ml" 98 2327 2335 "typer.ml" 98 2327 2344
-)
-"typer.ml" 210 8160 8248 "typer.ml" 210 8160 8251
-type(
-  Ast.loc -> Lexing.position
-)
-ident(
-  ext_ref Pervasives.fst
-)
-"typer.ml" 210 8160 8252 "typer.ml" 210 8160 8253
-type(
-  Ast.instruction
-)
-ident(
-  int_ref x "typer.ml" 147 4585 4617 "typer.ml" 147 4585 4618
-)
-"typer.ml" 210 8160 8252 "typer.ml" 210 8160 8269
-type(
-  Ast.loc
-)
-"typer.ml" 210 8160 8247 "typer.ml" 210 8160 8270
-type(
-  Lexing.position
-)
-"typer.ml" 210 8160 8271 "typer.ml" 210 8160 8283
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-ident(
-  int_ref while_locals "typer.ml" 210 8160 8190 "typer.ml" 210 8160 8202
-)
-"typer.ml" 210 8160 8284 "typer.ml" 210 8160 8285
-type(
-  Ast.expr
-)
-ident(
-  int_ref e "typer.ml" 210 8160 8173 "typer.ml" 210 8160 8174
-)
-"typer.ml" 210 8160 8237 "typer.ml" 210 8160 8285
-call(
-  stack
-)
-type(
-  Ast_typing.at_expr
-)
-"typer.ml" 210 8160 8287 "typer.ml" 210 8160 8303
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
-  Ast.instruction -> Ast_typing.at_instruction
-)
-ident(
-  int_ref type_instruction "typer.ml" 147 4585 4593 "typer.ml" 147 4585 4609
-)
-"typer.ml" 210 8160 8304 "typer.ml" 210 8160 8316
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-ident(
-  int_ref while_locals "typer.ml" 210 8160 8190 "typer.ml" 210 8160 8202
-)
-"typer.ml" 210 8160 8317 "typer.ml" 210 8160 8322
-type(
-  Ast.instruction
-)
-ident(
-  int_ref instr "typer.ml" 210 8160 8176 "typer.ml" 210 8160 8181
-)
-"typer.ml" 210 8160 8287 "typer.ml" 210 8160 8322
-call(
-  stack
-)
-type(
-  Ast_typing.at_instruction
-)
-"typer.ml" 210 8160 8324 "typer.ml" 210 8160 8336
-type(
-  Ast_typing.at_locals
-)
-ident(
-  int_ref while_locals "typer.ml" 210 8160 8190 "typer.ml" 210 8160 8202
-)
-"typer.ml" 210 8160 8228 "typer.ml" 210 8160 8337
-type(
-  Ast_typing.at_instruction
-)
-"typer.ml" 210 8160 8186 "typer.ml" 210 8160 8337
-type(
-  Ast_typing.at_instruction
-)
-"typer.ml" 211 8338 8349 "typer.ml" 211 8338 8351
-type(
-  Ast.expr list
-)
-ident(
-  def e1 "typer.ml" 212 8368 8380 "typer.ml" 222 8786 8872
-)
-"typer.ml" 211 8338 8353 "typer.ml" 211 8338 8356
-type(
-  Ast.some_expr
-)
-ident(
-  def se2 "typer.ml" 212 8368 8380 "typer.ml" 222 8786 8872
-)
-"typer.ml" 211 8338 8358 "typer.ml" 211 8338 8360
-type(
-  Ast.expr list
-)
-ident(
-  def e3 "typer.ml" 212 8368 8380 "typer.ml" 222 8786 8872
-)
-"typer.ml" 211 8338 8362 "typer.ml" 211 8338 8363
-type(
-  Ast.instruction
-)
-ident(
-  def i "typer.ml" 212 8368 8380 "typer.ml" 222 8786 8872
-)
-"typer.ml" 211 8338 8344 "typer.ml" 211 8338 8364
-type(
-  Ast.instruction_content
-)
-"typer.ml" 212 8368 8384 "typer.ml" 212 8368 8394
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-ident(
-  def for_locals "typer.ml" 213 8420 8432 "typer.ml" 222 8786 8872
-)
-"typer.ml" 212 8368 8397 "typer.ml" 212 8368 8409
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-ident(
-  ext_ref Hashtbl.copy
-)
-"typer.ml" 212 8368 8410 "typer.ml" 212 8368 8416
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-ident(
-  int_ref locals "typer.ml" 147 4585 4610 "typer.ml" 147 4585 4616
-)
-"typer.ml" 212 8368 8397 "typer.ml" 212 8368 8416
-call(
-  stack
-)
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-"typer.ml" 213 8420 8436 "typer.ml" 213 8420 8446
-type(
-  Ast_typing.at_expr
-)
-ident(
-  def some_expr2 "typer.ml" 219 8613 8625 "typer.ml" 222 8786 8872
-)
-"typer.ml" 214 8450 8472 "typer.ml" 214 8450 8475
-type(
-  Ast.some_expr
-)
-ident(
-  int_ref se2 "typer.ml" 211 8338 8353 "typer.ml" 211 8338 8356
-)
-"typer.ml" 215 8481 8499 "typer.ml" 215 8481 8503
-type(
-  Ast.some_expr
-)
-"typer.ml" 215 8481 8514 "typer.ml" 215 8481 8515
+"typer.ml" 212 8290 8329 "typer.ml" 212 8290 8330
 type(
   int
 )
-"typer.ml" 215 8481 8507 "typer.ml" 215 8481 8515
+"typer.ml" 212 8290 8330 "typer.ml" 212 8290 8331
 type(
-  Ast_typing.at_expr
+  int -> int -> int
 )
-"typer.ml" 216 8516 8539 "typer.ml" 216 8516 8543
+ident(
+  ext_ref Pervasives.( * )
+)
+"typer.ml" 212 8290 8332 "typer.ml" 212 8290 8346
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
+)
+ident(
+  ext_ref Hashtbl.length
+)
+"typer.ml" 212 8290 8347 "typer.ml" 212 8290 8358
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref bloc_locals "typer.ml" 210 8185 8201 "typer.ml" 210 8185 8212
+)
+"typer.ml" 212 8290 8331 "typer.ml" 212 8290 8359
+call(
+  stack
+)
+type(
+  int
+)
+"typer.ml" 212 8290 8329 "typer.ml" 212 8290 8359
+type(
+  int
+)
+"typer.ml" 212 8290 8360 "typer.ml" 212 8290 8361
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"typer.ml" 212 8290 8362 "typer.ml" 212 8290 8363
+type(
+  int
+)
+"typer.ml" 212 8290 8363 "typer.ml" 212 8290 8364
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( * )
+)
+"typer.ml" 212 8290 8365 "typer.ml" 212 8290 8379
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
+)
+ident(
+  ext_ref Hashtbl.length
+)
+"typer.ml" 212 8290 8380 "typer.ml" 212 8290 8386
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref locals "typer.ml" 147 4585 4610 "typer.ml" 147 4585 4616
+)
+"typer.ml" 212 8290 8364 "typer.ml" 212 8290 8387
+call(
+  stack
+)
+type(
+  int
+)
+"typer.ml" 212 8290 8362 "typer.ml" 212 8290 8387
+type(
+  int
+)
+"typer.ml" 212 8290 8329 "typer.ml" 212 8290 8387
+type(
+  int
+)
+"typer.ml" 212 8290 8302 "typer.ml" 212 8290 8388
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 211 8238 8250 "typer.ml" 212 8290 8388
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 210 8185 8197 "typer.ml" 212 8290 8388
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 213 8389 8402 "typer.ml" 213 8389 8403
 type(
   Ast.expr
 )
 ident(
-  def expr "typer.ml" 216 8516 8547 "typer.ml" 216 8516 8596
+  def e "typer.ml" 213 8389 8415 "typer.ml" 213 8389 8627
 )
-"typer.ml" 216 8516 8534 "typer.ml" 216 8516 8543
+"typer.ml" 213 8389 8405 "typer.ml" 213 8389 8410
 type(
-  Ast.some_expr
+  Ast.instruction
 )
-"typer.ml" 216 8516 8547 "typer.ml" 216 8516 8556
+ident(
+  def instr "typer.ml" 213 8389 8415 "typer.ml" 213 8389 8627
+)
+"typer.ml" 213 8389 8395 "typer.ml" 213 8389 8411
+type(
+  Ast.instruction_content
+)
+"typer.ml" 213 8389 8419 "typer.ml" 213 8389 8431
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  def while_locals "typer.ml" 213 8389 8457 "typer.ml" 213 8389 8627
+)
+"typer.ml" 213 8389 8434 "typer.ml" 213 8389 8446
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  ext_ref Hashtbl.copy
+)
+"typer.ml" 213 8389 8447 "typer.ml" 213 8389 8453
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref locals "typer.ml" 147 4585 4610 "typer.ml" 147 4585 4616
+)
+"typer.ml" 213 8389 8434 "typer.ml" 213 8389 8453
+call(
+  stack
+)
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+"typer.ml" 213 8389 8466 "typer.ml" 213 8389 8475
 type(
   Lexing.position ->
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
@@ -4770,223 +4843,50 @@ type(
 ident(
   int_ref type_expr "typer.ml" 98 2327 2335 "typer.ml" 98 2327 2344
 )
-"typer.ml" 216 8516 8558 "typer.ml" 216 8516 8561
+"typer.ml" 213 8389 8477 "typer.ml" 213 8389 8480
 type(
   Ast.loc -> Lexing.position
 )
 ident(
   ext_ref Pervasives.fst
 )
-"typer.ml" 216 8516 8562 "typer.ml" 216 8516 8563
+"typer.ml" 213 8389 8481 "typer.ml" 213 8389 8482
 type(
   Ast.instruction
 )
 ident(
   int_ref x "typer.ml" 147 4585 4617 "typer.ml" 147 4585 4618
 )
-"typer.ml" 216 8516 8562 "typer.ml" 216 8516 8579
+"typer.ml" 213 8389 8481 "typer.ml" 213 8389 8498
 type(
   Ast.loc
 )
-"typer.ml" 216 8516 8557 "typer.ml" 216 8516 8580
+"typer.ml" 213 8389 8476 "typer.ml" 213 8389 8499
 type(
   Lexing.position
 )
-"typer.ml" 216 8516 8581 "typer.ml" 216 8516 8591
+"typer.ml" 213 8389 8500 "typer.ml" 213 8389 8512
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref for_locals "typer.ml" 212 8368 8384 "typer.ml" 212 8368 8394
+  int_ref while_locals "typer.ml" 213 8389 8419 "typer.ml" 213 8389 8431
 )
-"typer.ml" 216 8516 8592 "typer.ml" 216 8516 8596
+"typer.ml" 213 8389 8513 "typer.ml" 213 8389 8514
 type(
   Ast.expr
 )
 ident(
-  int_ref expr "typer.ml" 216 8516 8539 "typer.ml" 216 8516 8543
+  int_ref e "typer.ml" 213 8389 8402 "typer.ml" 213 8389 8403
 )
-"typer.ml" 216 8516 8547 "typer.ml" 216 8516 8596
+"typer.ml" 213 8389 8466 "typer.ml" 213 8389 8514
 call(
   stack
 )
 type(
   Ast_typing.at_expr
 )
-"typer.ml" 214 8450 8466 "typer.ml" 216 8516 8596
-type(
-  Ast_typing.at_expr
-)
-"typer.ml" 219 8613 8629 "typer.ml" 219 8613 8634
-type(
-  Ast_typing.at_expr list
-)
-ident(
-  def expr1 "typer.ml" 220 8699 8711 "typer.ml" 222 8786 8872
-)
-"typer.ml" 219 8613 8637 "typer.ml" 219 8613 8645
-type(
-  (Ast.expr -> Ast_typing.at_expr) ->
-  Ast.expr list -> Ast_typing.at_expr list
-)
-ident(
-  ext_ref List.map
-)
-"typer.ml" 219 8613 8647 "typer.ml" 219 8613 8656
-type(
-  Lexing.position ->
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
-  Ast.expr -> Ast_typing.at_expr
-)
-ident(
-  int_ref type_expr "typer.ml" 98 2327 2335 "typer.ml" 98 2327 2344
-)
-"typer.ml" 219 8613 8658 "typer.ml" 219 8613 8661
-type(
-  Ast.loc -> Lexing.position
-)
-ident(
-  ext_ref Pervasives.fst
-)
-"typer.ml" 219 8613 8662 "typer.ml" 219 8613 8663
-type(
-  Ast.instruction
-)
-ident(
-  int_ref x "typer.ml" 147 4585 4617 "typer.ml" 147 4585 4618
-)
-"typer.ml" 219 8613 8662 "typer.ml" 219 8613 8679
-type(
-  Ast.loc
-)
-"typer.ml" 219 8613 8657 "typer.ml" 219 8613 8680
-type(
-  Lexing.position
-)
-"typer.ml" 219 8613 8681 "typer.ml" 219 8613 8691
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-ident(
-  int_ref for_locals "typer.ml" 212 8368 8384 "typer.ml" 212 8368 8394
-)
-"typer.ml" 219 8613 8646 "typer.ml" 219 8613 8692
-call(
-  stack
-)
-type(
-  Ast.expr -> Ast_typing.at_expr
-)
-"typer.ml" 219 8613 8693 "typer.ml" 219 8613 8695
-type(
-  Ast.expr list
-)
-ident(
-  int_ref e1 "typer.ml" 211 8338 8349 "typer.ml" 211 8338 8351
-)
-"typer.ml" 219 8613 8637 "typer.ml" 219 8613 8695
-call(
-  stack
-)
-type(
-  Ast_typing.at_expr list
-)
-"typer.ml" 220 8699 8715 "typer.ml" 220 8699 8720
-type(
-  Ast_typing.at_expr list
-)
-ident(
-  def expr3 "typer.ml" 222 8786 8798 "typer.ml" 222 8786 8872
-)
-"typer.ml" 220 8699 8723 "typer.ml" 220 8699 8731
-type(
-  (Ast.expr -> Ast_typing.at_expr) ->
-  Ast.expr list -> Ast_typing.at_expr list
-)
-ident(
-  ext_ref List.map
-)
-"typer.ml" 220 8699 8733 "typer.ml" 220 8699 8742
-type(
-  Lexing.position ->
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
-  Ast.expr -> Ast_typing.at_expr
-)
-ident(
-  int_ref type_expr "typer.ml" 98 2327 2335 "typer.ml" 98 2327 2344
-)
-"typer.ml" 220 8699 8744 "typer.ml" 220 8699 8747
-type(
-  Ast.loc -> Lexing.position
-)
-ident(
-  ext_ref Pervasives.fst
-)
-"typer.ml" 220 8699 8748 "typer.ml" 220 8699 8749
-type(
-  Ast.instruction
-)
-ident(
-  int_ref x "typer.ml" 147 4585 4617 "typer.ml" 147 4585 4618
-)
-"typer.ml" 220 8699 8748 "typer.ml" 220 8699 8765
-type(
-  Ast.loc
-)
-"typer.ml" 220 8699 8743 "typer.ml" 220 8699 8766
-type(
-  Lexing.position
-)
-"typer.ml" 220 8699 8767 "typer.ml" 220 8699 8777
-type(
-  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
-)
-ident(
-  int_ref for_locals "typer.ml" 212 8368 8384 "typer.ml" 212 8368 8394
-)
-"typer.ml" 220 8699 8732 "typer.ml" 220 8699 8778
-call(
-  stack
-)
-type(
-  Ast.expr -> Ast_typing.at_expr
-)
-"typer.ml" 220 8699 8779 "typer.ml" 220 8699 8781
-type(
-  Ast.expr list
-)
-ident(
-  int_ref e3 "typer.ml" 211 8338 8358 "typer.ml" 211 8338 8360
-)
-"typer.ml" 220 8699 8723 "typer.ml" 220 8699 8781
-call(
-  stack
-)
-type(
-  Ast_typing.at_expr list
-)
-"typer.ml" 222 8786 8804 "typer.ml" 222 8786 8809
-type(
-  Ast_typing.at_expr list
-)
-ident(
-  int_ref expr1 "typer.ml" 219 8613 8629 "typer.ml" 219 8613 8634
-)
-"typer.ml" 222 8786 8811 "typer.ml" 222 8786 8821
-type(
-  Ast_typing.at_expr
-)
-ident(
-  int_ref some_expr2 "typer.ml" 213 8420 8436 "typer.ml" 213 8420 8446
-)
-"typer.ml" 222 8786 8823 "typer.ml" 222 8786 8828
-type(
-  Ast_typing.at_expr list
-)
-ident(
-  int_ref expr3 "typer.ml" 220 8699 8715 "typer.ml" 220 8699 8720
-)
-"typer.ml" 222 8786 8830 "typer.ml" 222 8786 8846
+"typer.ml" 213 8389 8516 "typer.ml" 213 8389 8532
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast.instruction -> Ast_typing.at_instruction
@@ -4994,59 +4894,610 @@ type(
 ident(
   int_ref type_instruction "typer.ml" 147 4585 4593 "typer.ml" 147 4585 4609
 )
-"typer.ml" 222 8786 8847 "typer.ml" 222 8786 8857
+"typer.ml" 213 8389 8533 "typer.ml" 213 8389 8545
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref for_locals "typer.ml" 212 8368 8384 "typer.ml" 212 8368 8394
+  int_ref while_locals "typer.ml" 213 8389 8419 "typer.ml" 213 8389 8431
 )
-"typer.ml" 222 8786 8858 "typer.ml" 222 8786 8859
+"typer.ml" 213 8389 8546 "typer.ml" 213 8389 8551
 type(
   Ast.instruction
 )
 ident(
-  int_ref i "typer.ml" 211 8338 8362 "typer.ml" 211 8338 8363
+  int_ref instr "typer.ml" 213 8389 8405 "typer.ml" 213 8389 8410
 )
-"typer.ml" 222 8786 8830 "typer.ml" 222 8786 8859
+"typer.ml" 213 8389 8516 "typer.ml" 213 8389 8551
 call(
   stack
 )
 type(
   Ast_typing.at_instruction
 )
-"typer.ml" 222 8786 8861 "typer.ml" 222 8786 8871
+"typer.ml" 213 8389 8553 "typer.ml" 213 8389 8565
 type(
   Ast_typing.at_locals
 )
 ident(
-  int_ref for_locals "typer.ml" 212 8368 8384 "typer.ml" 212 8368 8394
+  int_ref while_locals "typer.ml" 213 8389 8419 "typer.ml" 213 8389 8431
 )
-"typer.ml" 222 8786 8798 "typer.ml" 222 8786 8872
+"typer.ml" 213 8389 8567 "typer.ml" 213 8389 8568
+type(
+  int
+)
+"typer.ml" 213 8389 8568 "typer.ml" 213 8389 8569
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( * )
+)
+"typer.ml" 213 8389 8570 "typer.ml" 213 8389 8584
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
+)
+ident(
+  ext_ref Hashtbl.length
+)
+"typer.ml" 213 8389 8585 "typer.ml" 213 8389 8597
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref while_locals "typer.ml" 213 8389 8419 "typer.ml" 213 8389 8431
+)
+"typer.ml" 213 8389 8569 "typer.ml" 213 8389 8598
+call(
+  stack
+)
+type(
+  int
+)
+"typer.ml" 213 8389 8567 "typer.ml" 213 8389 8598
+type(
+  int
+)
+"typer.ml" 213 8389 8599 "typer.ml" 213 8389 8600
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"typer.ml" 213 8389 8601 "typer.ml" 213 8389 8602
+type(
+  int
+)
+"typer.ml" 213 8389 8602 "typer.ml" 213 8389 8603
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( * )
+)
+"typer.ml" 213 8389 8604 "typer.ml" 213 8389 8618
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
+)
+ident(
+  ext_ref Hashtbl.length
+)
+"typer.ml" 213 8389 8619 "typer.ml" 213 8389 8625
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref locals "typer.ml" 147 4585 4610 "typer.ml" 147 4585 4616
+)
+"typer.ml" 213 8389 8603 "typer.ml" 213 8389 8626
+call(
+  stack
+)
+type(
+  int
+)
+"typer.ml" 213 8389 8601 "typer.ml" 213 8389 8626
+type(
+  int
+)
+"typer.ml" 213 8389 8567 "typer.ml" 213 8389 8626
+type(
+  int
+)
+"typer.ml" 213 8389 8457 "typer.ml" 213 8389 8627
 type(
   Ast_typing.at_instruction
 )
-"typer.ml" 220 8699 8711 "typer.ml" 222 8786 8872
+"typer.ml" 213 8389 8415 "typer.ml" 213 8389 8627
 type(
   Ast_typing.at_instruction
 )
-"typer.ml" 219 8613 8625 "typer.ml" 222 8786 8872
+"typer.ml" 214 8628 8639 "typer.ml" 214 8628 8641
+type(
+  Ast.expr list
+)
+ident(
+  def e1 "typer.ml" 215 8658 8670 "typer.ml" 227 9134 9255
+)
+"typer.ml" 214 8628 8643 "typer.ml" 214 8628 8646
+type(
+  Ast.some_expr
+)
+ident(
+  def se2 "typer.ml" 215 8658 8670 "typer.ml" 227 9134 9255
+)
+"typer.ml" 214 8628 8648 "typer.ml" 214 8628 8650
+type(
+  Ast.expr list
+)
+ident(
+  def e3 "typer.ml" 215 8658 8670 "typer.ml" 227 9134 9255
+)
+"typer.ml" 214 8628 8652 "typer.ml" 214 8628 8653
+type(
+  Ast.instruction
+)
+ident(
+  def i "typer.ml" 215 8658 8670 "typer.ml" 227 9134 9255
+)
+"typer.ml" 214 8628 8634 "typer.ml" 214 8628 8654
+type(
+  Ast.instruction_content
+)
+"typer.ml" 215 8658 8674 "typer.ml" 215 8658 8684
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  def for_locals "typer.ml" 216 8710 8722 "typer.ml" 227 9134 9255
+)
+"typer.ml" 215 8658 8687 "typer.ml" 215 8658 8699
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  ext_ref Hashtbl.copy
+)
+"typer.ml" 215 8658 8700 "typer.ml" 215 8658 8706
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref locals "typer.ml" 147 4585 4610 "typer.ml" 147 4585 4616
+)
+"typer.ml" 215 8658 8687 "typer.ml" 215 8658 8706
+call(
+  stack
+)
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+"typer.ml" 216 8710 8726 "typer.ml" 216 8710 8736
+type(
+  Ast_typing.at_expr
+)
+ident(
+  def some_expr2 "typer.ml" 222 8903 8915 "typer.ml" 227 9134 9255
+)
+"typer.ml" 217 8740 8762 "typer.ml" 217 8740 8765
+type(
+  Ast.some_expr
+)
+ident(
+  int_ref se2 "typer.ml" 214 8628 8643 "typer.ml" 214 8628 8646
+)
+"typer.ml" 218 8771 8789 "typer.ml" 218 8771 8793
+type(
+  Ast.some_expr
+)
+"typer.ml" 218 8771 8804 "typer.ml" 218 8771 8805
+type(
+  int
+)
+"typer.ml" 218 8771 8797 "typer.ml" 218 8771 8805
+type(
+  Ast_typing.at_expr
+)
+"typer.ml" 219 8806 8829 "typer.ml" 219 8806 8833
+type(
+  Ast.expr
+)
+ident(
+  def expr "typer.ml" 219 8806 8837 "typer.ml" 219 8806 8886
+)
+"typer.ml" 219 8806 8824 "typer.ml" 219 8806 8833
+type(
+  Ast.some_expr
+)
+"typer.ml" 219 8806 8837 "typer.ml" 219 8806 8846
+type(
+  Lexing.position ->
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
+  Ast.expr -> Ast_typing.at_expr
+)
+ident(
+  int_ref type_expr "typer.ml" 98 2327 2335 "typer.ml" 98 2327 2344
+)
+"typer.ml" 219 8806 8848 "typer.ml" 219 8806 8851
+type(
+  Ast.loc -> Lexing.position
+)
+ident(
+  ext_ref Pervasives.fst
+)
+"typer.ml" 219 8806 8852 "typer.ml" 219 8806 8853
+type(
+  Ast.instruction
+)
+ident(
+  int_ref x "typer.ml" 147 4585 4617 "typer.ml" 147 4585 4618
+)
+"typer.ml" 219 8806 8852 "typer.ml" 219 8806 8869
+type(
+  Ast.loc
+)
+"typer.ml" 219 8806 8847 "typer.ml" 219 8806 8870
+type(
+  Lexing.position
+)
+"typer.ml" 219 8806 8871 "typer.ml" 219 8806 8881
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref for_locals "typer.ml" 215 8658 8674 "typer.ml" 215 8658 8684
+)
+"typer.ml" 219 8806 8882 "typer.ml" 219 8806 8886
+type(
+  Ast.expr
+)
+ident(
+  int_ref expr "typer.ml" 219 8806 8829 "typer.ml" 219 8806 8833
+)
+"typer.ml" 219 8806 8837 "typer.ml" 219 8806 8886
+call(
+  stack
+)
+type(
+  Ast_typing.at_expr
+)
+"typer.ml" 217 8740 8756 "typer.ml" 219 8806 8886
+type(
+  Ast_typing.at_expr
+)
+"typer.ml" 222 8903 8919 "typer.ml" 222 8903 8924
+type(
+  Ast_typing.at_expr list
+)
+ident(
+  def expr1 "typer.ml" 223 8989 9001 "typer.ml" 227 9134 9255
+)
+"typer.ml" 222 8903 8927 "typer.ml" 222 8903 8935
+type(
+  (Ast.expr -> Ast_typing.at_expr) ->
+  Ast.expr list -> Ast_typing.at_expr list
+)
+ident(
+  ext_ref List.map
+)
+"typer.ml" 222 8903 8937 "typer.ml" 222 8903 8946
+type(
+  Lexing.position ->
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
+  Ast.expr -> Ast_typing.at_expr
+)
+ident(
+  int_ref type_expr "typer.ml" 98 2327 2335 "typer.ml" 98 2327 2344
+)
+"typer.ml" 222 8903 8948 "typer.ml" 222 8903 8951
+type(
+  Ast.loc -> Lexing.position
+)
+ident(
+  ext_ref Pervasives.fst
+)
+"typer.ml" 222 8903 8952 "typer.ml" 222 8903 8953
+type(
+  Ast.instruction
+)
+ident(
+  int_ref x "typer.ml" 147 4585 4617 "typer.ml" 147 4585 4618
+)
+"typer.ml" 222 8903 8952 "typer.ml" 222 8903 8969
+type(
+  Ast.loc
+)
+"typer.ml" 222 8903 8947 "typer.ml" 222 8903 8970
+type(
+  Lexing.position
+)
+"typer.ml" 222 8903 8971 "typer.ml" 222 8903 8981
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref for_locals "typer.ml" 215 8658 8674 "typer.ml" 215 8658 8684
+)
+"typer.ml" 222 8903 8936 "typer.ml" 222 8903 8982
+call(
+  stack
+)
+type(
+  Ast.expr -> Ast_typing.at_expr
+)
+"typer.ml" 222 8903 8983 "typer.ml" 222 8903 8985
+type(
+  Ast.expr list
+)
+ident(
+  int_ref e1 "typer.ml" 214 8628 8639 "typer.ml" 214 8628 8641
+)
+"typer.ml" 222 8903 8927 "typer.ml" 222 8903 8985
+call(
+  stack
+)
+type(
+  Ast_typing.at_expr list
+)
+"typer.ml" 223 8989 9005 "typer.ml" 223 8989 9010
+type(
+  Ast_typing.at_expr list
+)
+ident(
+  def expr3 "typer.ml" 225 9076 9088 "typer.ml" 227 9134 9255
+)
+"typer.ml" 223 8989 9013 "typer.ml" 223 8989 9021
+type(
+  (Ast.expr -> Ast_typing.at_expr) ->
+  Ast.expr list -> Ast_typing.at_expr list
+)
+ident(
+  ext_ref List.map
+)
+"typer.ml" 223 8989 9023 "typer.ml" 223 8989 9032
+type(
+  Lexing.position ->
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
+  Ast.expr -> Ast_typing.at_expr
+)
+ident(
+  int_ref type_expr "typer.ml" 98 2327 2335 "typer.ml" 98 2327 2344
+)
+"typer.ml" 223 8989 9034 "typer.ml" 223 8989 9037
+type(
+  Ast.loc -> Lexing.position
+)
+ident(
+  ext_ref Pervasives.fst
+)
+"typer.ml" 223 8989 9038 "typer.ml" 223 8989 9039
+type(
+  Ast.instruction
+)
+ident(
+  int_ref x "typer.ml" 147 4585 4617 "typer.ml" 147 4585 4618
+)
+"typer.ml" 223 8989 9038 "typer.ml" 223 8989 9055
+type(
+  Ast.loc
+)
+"typer.ml" 223 8989 9033 "typer.ml" 223 8989 9056
+type(
+  Lexing.position
+)
+"typer.ml" 223 8989 9057 "typer.ml" 223 8989 9067
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref for_locals "typer.ml" 215 8658 8674 "typer.ml" 215 8658 8684
+)
+"typer.ml" 223 8989 9022 "typer.ml" 223 8989 9068
+call(
+  stack
+)
+type(
+  Ast.expr -> Ast_typing.at_expr
+)
+"typer.ml" 223 8989 9069 "typer.ml" 223 8989 9071
+type(
+  Ast.expr list
+)
+ident(
+  int_ref e3 "typer.ml" 214 8628 8648 "typer.ml" 214 8628 8650
+)
+"typer.ml" 223 8989 9013 "typer.ml" 223 8989 9071
+call(
+  stack
+)
+type(
+  Ast_typing.at_expr list
+)
+"typer.ml" 225 9076 9092 "typer.ml" 225 9076 9097
 type(
   Ast_typing.at_instruction
 )
-"typer.ml" 213 8420 8432 "typer.ml" 222 8786 8872
+ident(
+  def instr "typer.ml" 227 9134 9146 "typer.ml" 227 9134 9255
+)
+"typer.ml" 225 9076 9100 "typer.ml" 225 9076 9116
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
+  Ast.instruction -> Ast_typing.at_instruction
+)
+ident(
+  int_ref type_instruction "typer.ml" 147 4585 4593 "typer.ml" 147 4585 4609
+)
+"typer.ml" 225 9076 9117 "typer.ml" 225 9076 9127
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref for_locals "typer.ml" 215 8658 8674 "typer.ml" 215 8658 8684
+)
+"typer.ml" 225 9076 9128 "typer.ml" 225 9076 9129
+type(
+  Ast.instruction
+)
+ident(
+  int_ref i "typer.ml" 214 8628 8652 "typer.ml" 214 8628 8653
+)
+"typer.ml" 225 9076 9100 "typer.ml" 225 9076 9129
+call(
+  stack
+)
 type(
   Ast_typing.at_instruction
 )
-"typer.ml" 212 8368 8380 "typer.ml" 222 8786 8872
+"typer.ml" 227 9134 9152 "typer.ml" 227 9134 9157
+type(
+  Ast_typing.at_expr list
+)
+ident(
+  int_ref expr1 "typer.ml" 222 8903 8919 "typer.ml" 222 8903 8924
+)
+"typer.ml" 227 9134 9159 "typer.ml" 227 9134 9169
+type(
+  Ast_typing.at_expr
+)
+ident(
+  int_ref some_expr2 "typer.ml" 216 8710 8726 "typer.ml" 216 8710 8736
+)
+"typer.ml" 227 9134 9171 "typer.ml" 227 9134 9176
+type(
+  Ast_typing.at_expr list
+)
+ident(
+  int_ref expr3 "typer.ml" 223 8989 9005 "typer.ml" 223 8989 9010
+)
+"typer.ml" 227 9134 9178 "typer.ml" 227 9134 9183
 type(
   Ast_typing.at_instruction
 )
-"typer.ml" 147 4585 4621 "typer.ml" 222 8786 8872
+ident(
+  int_ref instr "typer.ml" 225 9076 9092 "typer.ml" 225 9076 9097
+)
+"typer.ml" 227 9134 9185 "typer.ml" 227 9134 9195
+type(
+  Ast_typing.at_locals
+)
+ident(
+  int_ref for_locals "typer.ml" 215 8658 8674 "typer.ml" 215 8658 8684
+)
+"typer.ml" 227 9134 9197 "typer.ml" 227 9134 9198
+type(
+  int
+)
+"typer.ml" 227 9134 9198 "typer.ml" 227 9134 9199
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( * )
+)
+"typer.ml" 227 9134 9200 "typer.ml" 227 9134 9214
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
+)
+ident(
+  ext_ref Hashtbl.length
+)
+"typer.ml" 227 9134 9215 "typer.ml" 227 9134 9225
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref for_locals "typer.ml" 215 8658 8674 "typer.ml" 215 8658 8684
+)
+"typer.ml" 227 9134 9199 "typer.ml" 227 9134 9226
+call(
+  stack
+)
+type(
+  int
+)
+"typer.ml" 227 9134 9197 "typer.ml" 227 9134 9226
+type(
+  int
+)
+"typer.ml" 227 9134 9227 "typer.ml" 227 9134 9228
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"typer.ml" 227 9134 9229 "typer.ml" 227 9134 9230
+type(
+  int
+)
+"typer.ml" 227 9134 9230 "typer.ml" 227 9134 9231
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( * )
+)
+"typer.ml" 227 9134 9232 "typer.ml" 227 9134 9246
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
+)
+ident(
+  ext_ref Hashtbl.length
+)
+"typer.ml" 227 9134 9247 "typer.ml" 227 9134 9253
+type(
+  (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
+)
+ident(
+  int_ref locals "typer.ml" 147 4585 4610 "typer.ml" 147 4585 4616
+)
+"typer.ml" 227 9134 9231 "typer.ml" 227 9134 9254
+call(
+  stack
+)
+type(
+  int
+)
+"typer.ml" 227 9134 9229 "typer.ml" 227 9134 9254
+type(
+  int
+)
+"typer.ml" 227 9134 9197 "typer.ml" 227 9134 9254
+type(
+  int
+)
+"typer.ml" 227 9134 9146 "typer.ml" 227 9134 9255
 type(
   Ast_typing.at_instruction
 )
-"typer.ml" 224 8874 8878 "typer.ml" 224 8874 8887
+"typer.ml" 225 9076 9088 "typer.ml" 227 9134 9255
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 223 8989 9001 "typer.ml" 227 9134 9255
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 222 8903 8915 "typer.ml" 227 9134 9255
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 216 8710 8722 "typer.ml" 227 9134 9255
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 215 8658 8670 "typer.ml" 227 9134 9255
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 147 4585 4621 "typer.ml" 227 9134 9255
+type(
+  Ast_typing.at_instruction
+)
+"typer.ml" 229 9257 9261 "typer.ml" 229 9257 9270
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast.bloc -> Ast_typing.at_bloc
@@ -5054,61 +5505,61 @@ type(
 ident(
   def type_bloc "typer.ml" 147 4585 4585 "typer.ml" 1 0 -1
 )
-"typer.ml" 224 8874 8888 "typer.ml" 224 8874 8894
+"typer.ml" 229 9257 9271 "typer.ml" 229 9257 9277
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  def locals "typer.ml" 224 8874 8895 "typer.ml" 229 8982 9033
+  def locals "typer.ml" 229 9257 9278 "typer.ml" 234 9365 9416
 )
-"typer.ml" 224 8874 8895 "typer.ml" 224 8874 8896
+"typer.ml" 229 9257 9278 "typer.ml" 229 9257 9279
 type(
   Ast.bloc
 )
 ident(
-  def x "typer.ml" 225 8899 8903 "typer.ml" 229 8982 9033
+  def x "typer.ml" 230 9282 9286 "typer.ml" 234 9365 9416
 )
-"typer.ml" 225 8899 8907 "typer.ml" 225 8899 8919
+"typer.ml" 230 9282 9290 "typer.ml" 230 9282 9302
 type(
   Ast.instruction list
 )
 ident(
-  def bloc_content "typer.ml" 229 8982 8986 "typer.ml" 229 8982 9033
+  def bloc_content "typer.ml" 234 9365 9369 "typer.ml" 234 9365 9416
 )
-"typer.ml" 225 8899 8928 "typer.ml" 225 8899 8929
+"typer.ml" 230 9282 9311 "typer.ml" 230 9282 9312
 type(
   Ast.bloc
 )
 ident(
-  int_ref x "typer.ml" 224 8874 8895 "typer.ml" 224 8874 8896
+  int_ref x "typer.ml" 229 9257 9278 "typer.ml" 229 9257 9279
 )
-"typer.ml" 225 8899 8928 "typer.ml" 225 8899 8942
+"typer.ml" 230 9282 9311 "typer.ml" 230 9282 9325
 type(
   Ast.bloc_content
 )
-"typer.ml" 226 8948 8967 "typer.ml" 226 8948 8968
+"typer.ml" 231 9331 9350 "typer.ml" 231 9331 9351
 type(
   Ast.instruction list
 )
 ident(
-  def y "typer.ml" 226 8948 8972 "typer.ml" 226 8948 8973
+  def y "typer.ml" 231 9331 9355 "typer.ml" 231 9331 9356
 )
-"typer.ml" 226 8948 8954 "typer.ml" 226 8948 8968
+"typer.ml" 231 9331 9337 "typer.ml" 231 9331 9351
 type(
   Ast.bloc_content
 )
-"typer.ml" 226 8948 8972 "typer.ml" 226 8948 8973
+"typer.ml" 231 9331 9355 "typer.ml" 231 9331 9356
 type(
   Ast.instruction list
 )
 ident(
-  int_ref y "typer.ml" 226 8948 8967 "typer.ml" 226 8948 8968
+  int_ref y "typer.ml" 231 9331 9350 "typer.ml" 231 9331 9351
 )
-"typer.ml" 225 8899 8922 "typer.ml" 226 8948 8973
+"typer.ml" 230 9282 9305 "typer.ml" 231 9331 9356
 type(
   Ast.instruction list
 )
-"typer.ml" 229 8982 8986 "typer.ml" 229 8982 8994
+"typer.ml" 234 9365 9369 "typer.ml" 234 9365 9377
 type(
   (Ast.instruction -> Ast_typing.at_instruction) ->
   Ast.instruction list -> Ast_typing.at_bloc
@@ -5116,7 +5567,7 @@ type(
 ident(
   ext_ref List.map
 )
-"typer.ml" 229 8982 8996 "typer.ml" 229 8982 9012
+"typer.ml" 234 9365 9379 "typer.ml" 234 9365 9395
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast.instruction -> Ast_typing.at_instruction
@@ -5124,184 +5575,184 @@ type(
 ident(
   int_ref type_instruction "typer.ml" 147 4585 4593 "typer.ml" 147 4585 4609
 )
-"typer.ml" 229 8982 9013 "typer.ml" 229 8982 9019
+"typer.ml" 234 9365 9396 "typer.ml" 234 9365 9402
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref locals "typer.ml" 224 8874 8888 "typer.ml" 224 8874 8894
+  int_ref locals "typer.ml" 229 9257 9271 "typer.ml" 229 9257 9277
 )
-"typer.ml" 229 8982 8995 "typer.ml" 229 8982 9020
+"typer.ml" 234 9365 9378 "typer.ml" 234 9365 9403
 call(
   stack
 )
 type(
   Ast.instruction -> Ast_typing.at_instruction
 )
-"typer.ml" 229 8982 9021 "typer.ml" 229 8982 9033
+"typer.ml" 234 9365 9404 "typer.ml" 234 9365 9416
 type(
   Ast.instruction list
 )
 ident(
-  int_ref bloc_content "typer.ml" 225 8899 8907 "typer.ml" 225 8899 8919
+  int_ref bloc_content "typer.ml" 230 9282 9290 "typer.ml" 230 9282 9302
 )
-"typer.ml" 229 8982 8986 "typer.ml" 229 8982 9033
+"typer.ml" 234 9365 9369 "typer.ml" 234 9365 9416
 call(
   tail
 )
 type(
   Ast_typing.at_bloc
 )
-"typer.ml" 225 8899 8903 "typer.ml" 229 8982 9033
+"typer.ml" 230 9282 9286 "typer.ml" 234 9365 9416
 type(
   Ast_typing.at_bloc
 )
-"typer.ml" 231 9035 9039 "typer.ml" 231 9035 9055
+"typer.ml" 236 9418 9422 "typer.ml" 236 9418 9438
 type(
   Ast.proto_ident -> Ast_typing.at_proto_ident
 )
 ident(
-  def type_proto_ident "typer.ml" 237 9183 9183 "typer.ml" 1 0 -1
+  def type_proto_ident "typer.ml" 242 9566 9566 "typer.ml" 1 0 -1
 )
-"typer.ml" 232 9067 9079 "typer.ml" 232 9067 9080
+"typer.ml" 237 9450 9462 "typer.ml" 237 9450 9463
 type(
   Ast.ast_type
 )
 ident(
-  def x "typer.ml" 233 9088 9100 "typer.ml" 233 9088 9142
+  def x "typer.ml" 238 9471 9483 "typer.ml" 238 9471 9525
 )
-"typer.ml" 232 9067 9082 "typer.ml" 232 9067 9083
+"typer.ml" 237 9450 9465 "typer.ml" 237 9450 9466
 type(
   Ast.qvar
 )
 ident(
-  def y "typer.ml" 233 9088 9100 "typer.ml" 233 9088 9142
+  def y "typer.ml" 238 9471 9483 "typer.ml" 238 9471 9525
 )
-"typer.ml" 232 9067 9073 "typer.ml" 232 9067 9084
+"typer.ml" 237 9450 9456 "typer.ml" 237 9450 9467
 type(
   Ast.proto_ident
 )
-"typer.ml" 233 9088 9108 "typer.ml" 233 9088 9126
+"typer.ml" 238 9471 9491 "typer.ml" 238 9471 9509
 type(
   Ast.ast_type -> Ast_typing.at_ast_type
 )
 ident(
   int_ref types_ast_to_atast "typer.ml" 27 560 564 "typer.ml" 27 560 582
 )
-"typer.ml" 233 9088 9127 "typer.ml" 233 9088 9128
+"typer.ml" 238 9471 9510 "typer.ml" 238 9471 9511
 type(
   Ast.ast_type
 )
 ident(
-  int_ref x "typer.ml" 232 9067 9079 "typer.ml" 232 9067 9080
+  int_ref x "typer.ml" 237 9450 9462 "typer.ml" 237 9450 9463
 )
-"typer.ml" 233 9088 9108 "typer.ml" 233 9088 9128
+"typer.ml" 238 9471 9491 "typer.ml" 238 9471 9511
 call(
   stack
 )
 type(
   Ast_typing.at_ast_type
 )
-"typer.ml" 233 9088 9130 "typer.ml" 233 9088 9139
+"typer.ml" 238 9471 9513 "typer.ml" 238 9471 9522
 type(
   Ast.qvar -> Ast_typing.at_qvar
 )
 ident(
   int_ref type_qvar "typer.ml" 87 2101 2105 "typer.ml" 87 2101 2114
 )
-"typer.ml" 233 9088 9140 "typer.ml" 233 9088 9141
+"typer.ml" 238 9471 9523 "typer.ml" 238 9471 9524
 type(
   Ast.qvar
 )
 ident(
-  int_ref y "typer.ml" 232 9067 9082 "typer.ml" 232 9067 9083
+  int_ref y "typer.ml" 237 9450 9465 "typer.ml" 237 9450 9466
 )
-"typer.ml" 233 9088 9130 "typer.ml" 233 9088 9141
+"typer.ml" 238 9471 9513 "typer.ml" 238 9471 9524
 call(
   stack
 )
 type(
   Ast_typing.at_qvar
 )
-"typer.ml" 233 9088 9100 "typer.ml" 233 9088 9142
+"typer.ml" 238 9471 9483 "typer.ml" 238 9471 9525
 type(
   Ast_typing.at_proto_ident
 )
-"typer.ml" 234 9143 9149 "typer.ml" 234 9143 9150
+"typer.ml" 239 9526 9532 "typer.ml" 239 9526 9533
 type(
   Ast.proto_ident
 )
-"typer.ml" 234 9143 9154 "typer.ml" 234 9143 9166
+"typer.ml" 239 9526 9537 "typer.ml" 239 9526 9549
 type(
   Ast_typing.at_proto_ident
 )
-"typer.ml" 231 9035 9058 "typer.ml" 234 9143 9166
+"typer.ml" 236 9418 9441 "typer.ml" 239 9526 9549
 type(
   Ast.proto_ident -> Ast_typing.at_proto_ident
 )
-"typer.ml" 237 9183 9187 "typer.ml" 237 9183 9196
+"typer.ml" 242 9566 9570 "typer.ml" 242 9566 9579
 type(
   Lexing.position ->
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast.ast_type * Ast.var -> Ast_typing.at_ast_type * Ast_typing.at_var
 )
 ident(
-  def type_args "typer.ml" 240 9277 9277 "typer.ml" 1 0 -1
+  def type_args "typer.ml" 245 9660 9660 "typer.ml" 1 0 -1
 )
-"typer.ml" 237 9183 9197 "typer.ml" 237 9183 9200
+"typer.ml" 242 9566 9580 "typer.ml" 242 9566 9583
 type(
   Lexing.position
 )
 ident(
-  def pos "typer.ml" 237 9183 9201 "typer.ml" 238 9210 9275
+  def pos "typer.ml" 242 9566 9584 "typer.ml" 243 9593 9658
 )
-"typer.ml" 237 9183 9201 "typer.ml" 237 9183 9205
+"typer.ml" 242 9566 9584 "typer.ml" 242 9566 9588
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  def args "typer.ml" 237 9183 9206 "typer.ml" 238 9210 9275
+  def args "typer.ml" 242 9566 9589 "typer.ml" 243 9593 9658
 )
-"typer.ml" 237 9183 9206 "typer.ml" 237 9183 9207
+"typer.ml" 242 9566 9589 "typer.ml" 242 9566 9590
 type(
   Ast.ast_type * Ast.var
 )
 ident(
-  def x "typer.ml" 238 9210 9214 "typer.ml" 238 9210 9275
+  def x "typer.ml" 243 9593 9597 "typer.ml" 243 9593 9658
 )
-"typer.ml" 238 9210 9215 "typer.ml" 238 9210 9233
+"typer.ml" 243 9593 9598 "typer.ml" 243 9593 9616
 type(
   Ast.ast_type -> Ast_typing.at_ast_type
 )
 ident(
   int_ref types_ast_to_atast "typer.ml" 27 560 564 "typer.ml" 27 560 582
 )
-"typer.ml" 238 9210 9235 "typer.ml" 238 9210 9238
+"typer.ml" 243 9593 9618 "typer.ml" 243 9593 9621
 type(
   Ast.ast_type * Ast.var -> Ast.ast_type
 )
 ident(
   ext_ref Pervasives.fst
 )
-"typer.ml" 238 9210 9239 "typer.ml" 238 9210 9240
+"typer.ml" 243 9593 9622 "typer.ml" 243 9593 9623
 type(
   Ast.ast_type * Ast.var
 )
 ident(
-  int_ref x "typer.ml" 237 9183 9206 "typer.ml" 237 9183 9207
+  int_ref x "typer.ml" 242 9566 9589 "typer.ml" 242 9566 9590
 )
-"typer.ml" 238 9210 9234 "typer.ml" 238 9210 9241
+"typer.ml" 243 9593 9617 "typer.ml" 243 9593 9624
 type(
   Ast.ast_type
 )
-"typer.ml" 238 9210 9214 "typer.ml" 238 9210 9242
+"typer.ml" 243 9593 9597 "typer.ml" 243 9593 9625
 call(
   stack
 )
 type(
   Ast_typing.at_ast_type
 )
-"typer.ml" 238 9210 9244 "typer.ml" 238 9210 9252
+"typer.ml" 243 9593 9627 "typer.ml" 243 9593 9635
 type(
   Lexing.position ->
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
@@ -5310,485 +5761,485 @@ type(
 ident(
   int_ref type_var "typer.ml" 63 1297 1305 "typer.ml" 63 1297 1313
 )
-"typer.ml" 238 9210 9253 "typer.ml" 238 9210 9256
+"typer.ml" 243 9593 9636 "typer.ml" 243 9593 9639
 type(
   Lexing.position
 )
 ident(
-  int_ref pos "typer.ml" 237 9183 9197 "typer.ml" 237 9183 9200
+  int_ref pos "typer.ml" 242 9566 9580 "typer.ml" 242 9566 9583
 )
-"typer.ml" 238 9210 9257 "typer.ml" 238 9210 9261
+"typer.ml" 243 9593 9640 "typer.ml" 243 9593 9644
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref args "typer.ml" 237 9183 9201 "typer.ml" 237 9183 9205
+  int_ref args "typer.ml" 242 9566 9584 "typer.ml" 242 9566 9588
 )
-"typer.ml" 238 9210 9262 "typer.ml" 238 9210 9267
+"typer.ml" 243 9593 9645 "typer.ml" 243 9593 9650
 type(
   bool
 )
-"typer.ml" 238 9210 9269 "typer.ml" 238 9210 9272
+"typer.ml" 243 9593 9652 "typer.ml" 243 9593 9655
 type(
   Ast.ast_type * Ast.var -> Ast.var
 )
 ident(
   ext_ref Pervasives.snd
 )
-"typer.ml" 238 9210 9273 "typer.ml" 238 9210 9274
+"typer.ml" 243 9593 9656 "typer.ml" 243 9593 9657
 type(
   Ast.ast_type * Ast.var
 )
 ident(
-  int_ref x "typer.ml" 237 9183 9206 "typer.ml" 237 9183 9207
+  int_ref x "typer.ml" 242 9566 9589 "typer.ml" 242 9566 9590
 )
-"typer.ml" 238 9210 9268 "typer.ml" 238 9210 9275
+"typer.ml" 243 9593 9651 "typer.ml" 243 9593 9658
 type(
   Ast.var
 )
-"typer.ml" 238 9210 9244 "typer.ml" 238 9210 9275
+"typer.ml" 243 9593 9627 "typer.ml" 243 9593 9658
 call(
   stack
 )
 type(
   Ast_typing.at_var
 )
-"typer.ml" 238 9210 9214 "typer.ml" 238 9210 9275
+"typer.ml" 243 9593 9597 "typer.ml" 243 9593 9658
 type(
   Ast_typing.at_ast_type * Ast_typing.at_var
 )
-"typer.ml" 240 9277 9281 "typer.ml" 240 9277 9291
+"typer.ml" 245 9660 9664 "typer.ml" 245 9660 9674
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast.proto -> Ast_typing.at_proto
 )
 ident(
-  def type_proto "typer.ml" 267 10248 10248 "typer.ml" 1 0 -1
+  def type_proto "typer.ml" 272 10631 10631 "typer.ml" 1 0 -1
 )
-"typer.ml" 240 9277 9292 "typer.ml" 240 9277 9296
+"typer.ml" 245 9660 9675 "typer.ml" 245 9660 9679
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  def args "typer.ml" 240 9277 9297 "typer.ml" 265 10241 10246
+  def args "typer.ml" 245 9660 9680 "typer.ml" 270 10624 10629
 )
-"typer.ml" 240 9277 9297 "typer.ml" 240 9277 9298
+"typer.ml" 245 9660 9680 "typer.ml" 245 9660 9681
 type(
   Ast.proto
 )
 ident(
-  def x "typer.ml" 241 9301 9305 "typer.ml" 265 10241 10246
+  def x "typer.ml" 246 9684 9688 "typer.ml" 270 10624 10629
 )
-"typer.ml" 241 9301 9309 "typer.ml" 241 9301 9311
+"typer.ml" 246 9684 9692 "typer.ml" 246 9684 9694
 type(
   unit
 )
-"typer.ml" 242 9315 9329 "typer.ml" 242 9315 9330
+"typer.ml" 247 9698 9712 "typer.ml" 247 9698 9713
 type(
   Ast.proto
 )
 ident(
-  int_ref x "typer.ml" 240 9277 9297 "typer.ml" 240 9277 9298
+  int_ref x "typer.ml" 245 9660 9680 "typer.ml" 245 9660 9681
 )
-"typer.ml" 242 9315 9329 "typer.ml" 242 9315 9336
+"typer.ml" 247 9698 9712 "typer.ml" 247 9698 9719
 type(
   Ast.proto_ident
 )
-"typer.ml" 243 9342 9358 "typer.ml" 243 9342 9359
+"typer.ml" 248 9725 9741 "typer.ml" 248 9725 9742
 type(
   Ast.ast_type
 )
 ident(
-  def a "typer.ml" 243 9342 9364 "typer.ml" 250 9674 9764
+  def a "typer.ml" 248 9725 9747 "typer.ml" 255 10057 10147
 )
-"typer.ml" 243 9342 9361 "typer.ml" 243 9342 9362
+"typer.ml" 248 9725 9744 "typer.ml" 248 9725 9745
 type(
   Ast.qvar
 )
 ident(
-  def b "typer.ml" 243 9342 9364 "typer.ml" 250 9674 9764
+  def b "typer.ml" 248 9725 9747 "typer.ml" 255 10057 10147
 )
-"typer.ml" 243 9342 9352 "typer.ml" 243 9342 9363
+"typer.ml" 248 9725 9735 "typer.ml" 248 9725 9746
 type(
   Ast.proto_ident
 )
-"typer.ml" 243 9342 9369 "typer.ml" 243 9342 9370
+"typer.ml" 248 9725 9752 "typer.ml" 248 9725 9753
 type(
   Ast.ast_type
 )
 ident(
-  int_ref a "typer.ml" 243 9342 9358 "typer.ml" 243 9342 9359
+  int_ref a "typer.ml" 248 9725 9741 "typer.ml" 248 9725 9742
 )
-"typer.ml" 243 9342 9371 "typer.ml" 243 9342 9372
+"typer.ml" 248 9725 9754 "typer.ml" 248 9725 9755
 type(
   Ast.ast_type -> Ast.ast_type -> bool
 )
 ident(
   ext_ref Pervasives.( = )
 )
-"typer.ml" 243 9342 9373 "typer.ml" 243 9342 9376
+"typer.ml" 248 9725 9756 "typer.ml" 248 9725 9759
 type(
   Ast.ast_type
 )
-"typer.ml" 243 9342 9369 "typer.ml" 243 9342 9376
+"typer.ml" 248 9725 9752 "typer.ml" 248 9725 9759
 type(
   bool
 )
-"typer.ml" 243 9342 9377 "typer.ml" 243 9342 9379
+"typer.ml" 248 9725 9760 "typer.ml" 248 9725 9762
 type(
   bool -> bool -> bool
 )
 ident(
   ext_ref Pervasives.( && )
 )
-"typer.ml" 243 9342 9380 "typer.ml" 243 9342 9381
+"typer.ml" 248 9725 9763 "typer.ml" 248 9725 9764
 type(
   Ast.qvar
 )
 ident(
-  int_ref b "typer.ml" 243 9342 9361 "typer.ml" 243 9342 9362
+  int_ref b "typer.ml" 248 9725 9744 "typer.ml" 248 9725 9745
 )
-"typer.ml" 243 9342 9382 "typer.ml" 243 9342 9383
+"typer.ml" 248 9725 9765 "typer.ml" 248 9725 9766
 type(
   Ast.qvar -> Ast.qvar -> bool
 )
 ident(
   ext_ref Pervasives.( = )
 )
-"typer.ml" 243 9342 9398 "typer.ml" 243 9342 9404
+"typer.ml" 248 9725 9781 "typer.ml" 248 9725 9787
 type(
   Ast.ident
 )
-"typer.ml" 243 9342 9391 "typer.ml" 243 9342 9405
+"typer.ml" 248 9725 9774 "typer.ml" 248 9725 9788
 type(
   Ast.qident
 )
-"typer.ml" 243 9342 9384 "typer.ml" 243 9342 9405
+"typer.ml" 248 9725 9767 "typer.ml" 248 9725 9788
 type(
   Ast.qvar
 )
-"typer.ml" 243 9342 9380 "typer.ml" 243 9342 9405
+"typer.ml" 248 9725 9763 "typer.ml" 248 9725 9788
 type(
   bool
 )
-"typer.ml" 243 9342 9369 "typer.ml" 243 9342 9405
+"typer.ml" 248 9725 9752 "typer.ml" 248 9725 9788
 type(
   bool
 )
-"typer.ml" 244 9409 9425 "typer.ml" 244 9409 9441
+"typer.ml" 249 9792 9808 "typer.ml" 249 9792 9824
 type(
   Ast_typing.at_ident ref
 )
 ident(
   int_ref current_function "typer.ml" 17 393 397 "typer.ml" 17 393 413
 )
-"typer.ml" 244 9409 9442 "typer.ml" 244 9409 9444
+"typer.ml" 249 9792 9825 "typer.ml" 249 9792 9827
 type(
   Ast_typing.at_ident ref -> Ast_typing.at_ident -> unit
 )
 ident(
   ext_ref Pervasives.( := )
 )
-"typer.ml" 244 9409 9445 "typer.ml" 244 9409 9451
+"typer.ml" 249 9792 9828 "typer.ml" 249 9792 9834
 type(
   Ast_typing.at_ident
 )
-"typer.ml" 244 9409 9425 "typer.ml" 244 9409 9451
+"typer.ml" 249 9792 9808 "typer.ml" 249 9792 9834
 type(
   unit
 )
-"typer.ml" 245 9453 9469 "typer.ml" 245 9453 9480
+"typer.ml" 250 9836 9852 "typer.ml" 250 9836 9863
 type(
   (Ast_typing.at_var, unit) Hashtbl.t -> Ast_typing.at_var -> unit -> unit
 )
 ident(
   ext_ref Hashtbl.add
 )
-"typer.ml" 245 9453 9481 "typer.ml" 245 9453 9488
+"typer.ml" 250 9836 9864 "typer.ml" 250 9836 9871
 type(
   (Ast_typing.at_var, unit) Hashtbl.t
 )
 ident(
   int_ref globals "typer.ml" 13 256 260 "typer.ml" 13 256 267
 )
-"typer.ml" 245 9453 9499 "typer.ml" 245 9453 9505
+"typer.ml" 250 9836 9882 "typer.ml" 250 9836 9888
 type(
   Ast_typing.at_ident
 )
-"typer.ml" 245 9453 9489 "typer.ml" 245 9453 9506
+"typer.ml" 250 9836 9872 "typer.ml" 250 9836 9889
 type(
   Ast_typing.at_var
 )
-"typer.ml" 245 9453 9507 "typer.ml" 245 9453 9509
+"typer.ml" 250 9836 9890 "typer.ml" 250 9836 9892
 type(
   unit
 )
-"typer.ml" 245 9453 9469 "typer.ml" 245 9453 9509
+"typer.ml" 250 9836 9852 "typer.ml" 250 9836 9892
 call(
   stack
 )
 type(
   unit
 )
-"typer.ml" 246 9511 9530 "typer.ml" 246 9511 9541
+"typer.ml" 251 9894 9913 "typer.ml" 251 9894 9924
 type(
   Ast.argument list -> int
 )
 ident(
   ext_ref List.length
 )
-"typer.ml" 246 9511 9542 "typer.ml" 246 9511 9543
+"typer.ml" 251 9894 9925 "typer.ml" 251 9894 9926
 type(
   Ast.proto
 )
 ident(
-  int_ref x "typer.ml" 240 9277 9297 "typer.ml" 240 9277 9298
+  int_ref x "typer.ml" 245 9660 9680 "typer.ml" 245 9660 9681
 )
-"typer.ml" 246 9511 9542 "typer.ml" 246 9511 9548
+"typer.ml" 251 9894 9925 "typer.ml" 251 9894 9931
 type(
   Ast.argument list
 )
-"typer.ml" 246 9511 9530 "typer.ml" 246 9511 9548
+"typer.ml" 251 9894 9913 "typer.ml" 251 9894 9931
 call(
   stack
 )
 type(
   int
 )
-"typer.ml" 246 9511 9549 "typer.ml" 246 9511 9550
+"typer.ml" 251 9894 9932 "typer.ml" 251 9894 9933
 type(
   int -> int -> bool
 )
 ident(
   ext_ref Pervasives.( = )
 )
-"typer.ml" 246 9511 9551 "typer.ml" 246 9511 9552
+"typer.ml" 251 9894 9934 "typer.ml" 251 9894 9935
 type(
   int
 )
-"typer.ml" 246 9511 9530 "typer.ml" 246 9511 9552
+"typer.ml" 251 9894 9913 "typer.ml" 251 9894 9935
 type(
   bool
 )
-"typer.ml" 247 9558 9581 "typer.ml" 247 9558 9584
+"typer.ml" 252 9941 9964 "typer.ml" 252 9941 9967
 type(
   bool -> bool
 )
 ident(
   ext_ref Pervasives.not
 )
-"typer.ml" 247 9558 9585 "typer.ml" 247 9558 9586
+"typer.ml" 252 9941 9968 "typer.ml" 252 9941 9969
 type(
   bool ref -> bool
 )
 ident(
   ext_ref Pervasives.( ! )
 )
-"typer.ml" 247 9558 9586 "typer.ml" 247 9558 9598
+"typer.ml" 252 9941 9969 "typer.ml" 252 9941 9981
 type(
   bool ref
 )
 ident(
   int_ref is_main_here "typer.ml" 11 226 230 "typer.ml" 11 226 242
 )
-"typer.ml" 247 9558 9585 "typer.ml" 247 9558 9598
+"typer.ml" 252 9941 9968 "typer.ml" 252 9941 9981
 type(
   bool
 )
-"typer.ml" 247 9558 9581 "typer.ml" 247 9558 9598
+"typer.ml" 252 9941 9964 "typer.ml" 252 9941 9981
 type(
   bool
 )
-"typer.ml" 248 9604 9628 "typer.ml" 248 9604 9640
+"typer.ml" 253 9987 10011 "typer.ml" 253 9987 10023
 type(
   bool ref
 )
 ident(
   int_ref is_main_here "typer.ml" 11 226 230 "typer.ml" 11 226 242
 )
-"typer.ml" 248 9604 9641 "typer.ml" 248 9604 9643
+"typer.ml" 253 9987 10024 "typer.ml" 253 9987 10026
 type(
   bool ref -> bool -> unit
 )
 ident(
   ext_ref Pervasives.( := )
 )
-"typer.ml" 248 9604 9644 "typer.ml" 248 9604 9648
+"typer.ml" 253 9987 10027 "typer.ml" 253 9987 10031
 type(
   bool
 )
-"typer.ml" 248 9604 9628 "typer.ml" 248 9604 9648
+"typer.ml" 253 9987 10011 "typer.ml" 253 9987 10031
 type(
   unit
 )
-"typer.ml" 250 9674 9698 "typer.ml" 250 9674 9703
+"typer.ml" 255 10057 10081 "typer.ml" 255 10057 10086
 type(
   exn -> unit
 )
 ident(
   ext_ref Pervasives.raise
 )
-"typer.ml" 250 9674 9712 "typer.ml" 250 9674 9745
+"typer.ml" 255 10057 10095 "typer.ml" 255 10057 10128
 type(
   string
 )
-"typer.ml" 250 9674 9747 "typer.ml" 250 9674 9750
+"typer.ml" 255 10057 10130 "typer.ml" 255 10057 10133
 type(
   Ast.loc -> Lexing.position
 )
 ident(
   ext_ref Pervasives.fst
 )
-"typer.ml" 250 9674 9751 "typer.ml" 250 9674 9752
+"typer.ml" 255 10057 10134 "typer.ml" 255 10057 10135
 type(
   Ast.proto
 )
 ident(
-  int_ref x "typer.ml" 240 9277 9297 "typer.ml" 240 9277 9298
+  int_ref x "typer.ml" 245 9660 9680 "typer.ml" 245 9660 9681
 )
-"typer.ml" 250 9674 9751 "typer.ml" 250 9674 9762
+"typer.ml" 255 10057 10134 "typer.ml" 255 10057 10145
 type(
   Ast.loc
 )
-"typer.ml" 250 9674 9747 "typer.ml" 250 9674 9762
+"typer.ml" 255 10057 10130 "typer.ml" 255 10057 10145
 type(
   Lexing.position
 )
-"typer.ml" 250 9674 9704 "typer.ml" 250 9674 9764
+"typer.ml" 255 10057 10087 "typer.ml" 255 10057 10147
 type(
   exn
 )
-"typer.ml" 250 9674 9698 "typer.ml" 250 9674 9764
+"typer.ml" 255 10057 10081 "typer.ml" 255 10057 10147
 type(
   unit
 )
-"typer.ml" 247 9558 9578 "typer.ml" 250 9674 9764
+"typer.ml" 252 9941 9961 "typer.ml" 255 10057 10147
 type(
   unit
 )
-"typer.ml" 246 9511 9527 "typer.ml" 250 9674 9764
+"typer.ml" 251 9894 9910 "typer.ml" 255 10057 10147
 type(
   unit
 )
-"typer.ml" 245 9453 9469 "typer.ml" 250 9674 9764
+"typer.ml" 250 9836 9852 "typer.ml" 255 10057 10147
 type(
   unit
 )
-"typer.ml" 244 9409 9425 "typer.ml" 250 9674 9764
+"typer.ml" 249 9792 9808 "typer.ml" 255 10057 10147
 type(
   unit
 )
-"typer.ml" 251 9765 9781 "typer.ml" 251 9765 9782
+"typer.ml" 256 10148 10164 "typer.ml" 256 10148 10165
 type(
   Ast.ast_type
 )
 ident(
-  def a "typer.ml" 252 9807 9823 "typer.ml" 253 9847 9900
+  def a "typer.ml" 257 10190 10206 "typer.ml" 258 10230 10283
 )
-"typer.ml" 251 9765 9798 "typer.ml" 251 9765 9800
+"typer.ml" 256 10148 10181 "typer.ml" 256 10148 10183
 type(
   Ast.ident
 )
 ident(
-  def id "typer.ml" 252 9807 9823 "typer.ml" 253 9847 9900
+  def id "typer.ml" 257 10190 10206 "typer.ml" 258 10230 10283
 )
-"typer.ml" 251 9765 9791 "typer.ml" 251 9765 9801
+"typer.ml" 256 10148 10174 "typer.ml" 256 10148 10184
 type(
   Ast.qident
 )
-"typer.ml" 251 9765 9784 "typer.ml" 251 9765 9801
+"typer.ml" 256 10148 10167 "typer.ml" 256 10148 10184
 type(
   Ast.qvar
 )
-"typer.ml" 251 9765 9775 "typer.ml" 251 9765 9802
+"typer.ml" 256 10148 10158 "typer.ml" 256 10148 10185
 type(
   Ast.proto_ident
 )
-"typer.ml" 252 9807 9823 "typer.ml" 252 9807 9839
+"typer.ml" 257 10190 10206 "typer.ml" 257 10190 10222
 type(
   Ast_typing.at_ident ref
 )
 ident(
   int_ref current_function "typer.ml" 17 393 397 "typer.ml" 17 393 413
 )
-"typer.ml" 252 9807 9840 "typer.ml" 252 9807 9842
+"typer.ml" 257 10190 10223 "typer.ml" 257 10190 10225
 type(
   Ast_typing.at_ident ref -> Ast_typing.at_ident -> unit
 )
 ident(
   ext_ref Pervasives.( := )
 )
-"typer.ml" 252 9807 9843 "typer.ml" 252 9807 9845
+"typer.ml" 257 10190 10226 "typer.ml" 257 10190 10228
 type(
   Ast.ident
 )
 ident(
-  int_ref id "typer.ml" 251 9765 9798 "typer.ml" 251 9765 9800
+  int_ref id "typer.ml" 256 10148 10181 "typer.ml" 256 10148 10183
 )
-"typer.ml" 252 9807 9823 "typer.ml" 252 9807 9845
+"typer.ml" 257 10190 10206 "typer.ml" 257 10190 10228
 type(
   unit
 )
-"typer.ml" 253 9847 9863 "typer.ml" 253 9847 9874
+"typer.ml" 258 10230 10246 "typer.ml" 258 10230 10257
 type(
   (Ast_typing.at_var, unit) Hashtbl.t -> Ast_typing.at_var -> unit -> unit
 )
 ident(
   ext_ref Hashtbl.add
 )
-"typer.ml" 253 9847 9875 "typer.ml" 253 9847 9882
+"typer.ml" 258 10230 10258 "typer.ml" 258 10230 10265
 type(
   (Ast_typing.at_var, unit) Hashtbl.t
 )
 ident(
   int_ref globals "typer.ml" 13 256 260 "typer.ml" 13 256 267
 )
-"typer.ml" 253 9847 9893 "typer.ml" 253 9847 9895
+"typer.ml" 258 10230 10276 "typer.ml" 258 10230 10278
 type(
   Ast.ident
 )
 ident(
-  int_ref id "typer.ml" 251 9765 9798 "typer.ml" 251 9765 9800
+  int_ref id "typer.ml" 256 10148 10181 "typer.ml" 256 10148 10183
 )
-"typer.ml" 253 9847 9883 "typer.ml" 253 9847 9896
+"typer.ml" 258 10230 10266 "typer.ml" 258 10230 10279
 type(
   Ast_typing.at_var
 )
-"typer.ml" 253 9847 9897 "typer.ml" 253 9847 9899
+"typer.ml" 258 10230 10280 "typer.ml" 258 10230 10282
 type(
   unit
 )
-"typer.ml" 253 9847 9863 "typer.ml" 253 9847 9900
+"typer.ml" 258 10230 10246 "typer.ml" 258 10230 10283
 call(
   stack
 )
 type(
   unit
 )
-"typer.ml" 252 9807 9823 "typer.ml" 253 9847 9900
+"typer.ml" 257 10190 10206 "typer.ml" 258 10230 10283
 type(
   unit
 )
-"typer.ml" 254 9901 9911 "typer.ml" 254 9901 9912
+"typer.ml" 259 10284 10294 "typer.ml" 259 10284 10295
 type(
   Ast.proto_ident
 )
-"typer.ml" 254 9901 9916 "typer.ml" 254 9901 9918
+"typer.ml" 259 10284 10299 "typer.ml" 259 10284 10301
 type(
   unit
 )
-"typer.ml" 242 9315 9323 "typer.ml" 254 9901 9918
+"typer.ml" 247 9698 9706 "typer.ml" 259 10284 10301
 type(
   unit
 )
-"typer.ml" 257 9927 9935 "typer.ml" 257 9927 9945
+"typer.ml" 262 10310 10318 "typer.ml" 262 10310 10328
 type(
   (Ast_typing.at_ast_type * Ast_typing.at_var) list
 )
 ident(
-  def typed_args "typer.ml" 260 10093 10097 "typer.ml" 265 10241 10246
+  def typed_args "typer.ml" 265 10476 10480 "typer.ml" 270 10624 10629
 )
-"typer.ml" 257 9927 9948 "typer.ml" 257 9927 9956
+"typer.ml" 262 10310 10331 "typer.ml" 262 10310 10339
 type(
   (Ast.argument -> Ast_typing.at_ast_type * Ast_typing.at_var) ->
   Ast.argument list -> (Ast_typing.at_ast_type * Ast_typing.at_var) list
@@ -5796,70 +6247,70 @@ type(
 ident(
   ext_ref List.map
 )
-"typer.ml" 257 9927 9958 "typer.ml" 257 9927 9967
+"typer.ml" 262 10310 10341 "typer.ml" 262 10310 10350
 type(
   Lexing.position ->
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast.argument -> Ast_typing.at_ast_type * Ast_typing.at_var
 )
 ident(
-  int_ref type_args "typer.ml" 237 9183 9187 "typer.ml" 237 9183 9196
+  int_ref type_args "typer.ml" 242 9566 9570 "typer.ml" 242 9566 9579
 )
-"typer.ml" 257 9927 9969 "typer.ml" 257 9927 9972
+"typer.ml" 262 10310 10352 "typer.ml" 262 10310 10355
 type(
   Ast.loc -> Lexing.position
 )
 ident(
   ext_ref Pervasives.fst
 )
-"typer.ml" 257 9927 9973 "typer.ml" 257 9927 9974
+"typer.ml" 262 10310 10356 "typer.ml" 262 10310 10357
 type(
   Ast.proto
 )
 ident(
-  int_ref x "typer.ml" 240 9277 9297 "typer.ml" 240 9277 9298
+  int_ref x "typer.ml" 245 9660 9680 "typer.ml" 245 9660 9681
 )
-"typer.ml" 257 9927 9973 "typer.ml" 257 9927 9984
+"typer.ml" 262 10310 10356 "typer.ml" 262 10310 10367
 type(
   Ast.loc
 )
-"typer.ml" 257 9927 9968 "typer.ml" 257 9927 9985
+"typer.ml" 262 10310 10351 "typer.ml" 262 10310 10368
 type(
   Lexing.position
 )
-"typer.ml" 257 9927 9986 "typer.ml" 257 9927 9990
+"typer.ml" 262 10310 10369 "typer.ml" 262 10310 10373
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref args "typer.ml" 240 9277 9292 "typer.ml" 240 9277 9296
+  int_ref args "typer.ml" 245 9660 9675 "typer.ml" 245 9660 9679
 )
-"typer.ml" 257 9927 9957 "typer.ml" 257 9927 9991
+"typer.ml" 262 10310 10340 "typer.ml" 262 10310 10374
 call(
   stack
 )
 type(
   Ast.argument -> Ast_typing.at_ast_type * Ast_typing.at_var
 )
-"typer.ml" 257 9927 9992 "typer.ml" 257 9927 9993
+"typer.ml" 262 10310 10375 "typer.ml" 262 10310 10376
 type(
   Ast.proto
 )
 ident(
-  int_ref x "typer.ml" 240 9277 9297 "typer.ml" 240 9277 9298
+  int_ref x "typer.ml" 245 9660 9680 "typer.ml" 245 9660 9681
 )
-"typer.ml" 257 9927 9992 "typer.ml" 257 9927 9998
+"typer.ml" 262 10310 10375 "typer.ml" 262 10310 10381
 type(
   Ast.argument list
 )
-"typer.ml" 257 9927 9948 "typer.ml" 257 9927 9998
+"typer.ml" 262 10310 10331 "typer.ml" 262 10310 10381
 call(
   stack
 )
 type(
   (Ast_typing.at_ast_type * Ast_typing.at_var) list
 )
-"typer.ml" 260 10093 10097 "typer.ml" 260 10093 10108
+"typer.ml" 265 10476 10480 "typer.ml" 265 10476 10491
 type(
   (Ast_typing.at_ident, (Ast_typing.at_ast_type * Ast_typing.at_var) list)
   Hashtbl.t ->
@@ -5869,7 +6320,7 @@ type(
 ident(
   ext_ref Hashtbl.add
 )
-"typer.ml" 260 10093 10109 "typer.ml" 260 10093 10122
+"typer.ml" 265 10476 10492 "typer.ml" 265 10476 10505
 type(
   (Ast_typing.at_ident, (Ast_typing.at_ast_type * Ast_typing.at_var) list)
   Hashtbl.t
@@ -5877,126 +6328,126 @@ type(
 ident(
   int_ref decl_fonction "typer.ml" 15 323 327 "typer.ml" 15 323 340
 )
-"typer.ml" 260 10093 10123 "typer.ml" 260 10093 10124
+"typer.ml" 265 10476 10506 "typer.ml" 265 10476 10507
 type(
   Ast_typing.at_ident ref -> Ast_typing.at_ident
 )
 ident(
   ext_ref Pervasives.( ! )
 )
-"typer.ml" 260 10093 10124 "typer.ml" 260 10093 10140
+"typer.ml" 265 10476 10507 "typer.ml" 265 10476 10523
 type(
   Ast_typing.at_ident ref
 )
 ident(
   int_ref current_function "typer.ml" 17 393 397 "typer.ml" 17 393 413
 )
-"typer.ml" 260 10093 10123 "typer.ml" 260 10093 10140
+"typer.ml" 265 10476 10506 "typer.ml" 265 10476 10523
 type(
   Ast_typing.at_ident
 )
-"typer.ml" 260 10093 10141 "typer.ml" 260 10093 10151
+"typer.ml" 265 10476 10524 "typer.ml" 265 10476 10534
 type(
   (Ast_typing.at_ast_type * Ast_typing.at_var) list
 )
 ident(
-  int_ref typed_args "typer.ml" 257 9927 9935 "typer.ml" 257 9927 9945
+  int_ref typed_args "typer.ml" 262 10310 10318 "typer.ml" 262 10310 10328
 )
-"typer.ml" 260 10093 10097 "typer.ml" 260 10093 10151
+"typer.ml" 265 10476 10480 "typer.ml" 265 10476 10534
 call(
   stack
 )
 type(
   unit
 )
-"typer.ml" 263 10160 10185 "typer.ml" 263 10160 10201
+"typer.ml" 268 10543 10568 "typer.ml" 268 10543 10584
 type(
   Ast.proto_ident -> Ast_typing.at_proto_ident
 )
 ident(
-  int_ref type_proto_ident "typer.ml" 231 9035 9039 "typer.ml" 231 9035 9055
+  int_ref type_proto_ident "typer.ml" 236 9418 9422 "typer.ml" 236 9418 9438
 )
-"typer.ml" 263 10160 10202 "typer.ml" 263 10160 10203
+"typer.ml" 268 10543 10585 "typer.ml" 268 10543 10586
 type(
   Ast.proto
 )
 ident(
-  int_ref x "typer.ml" 240 9277 9297 "typer.ml" 240 9277 9298
+  int_ref x "typer.ml" 245 9660 9680 "typer.ml" 245 9660 9681
 )
-"typer.ml" 263 10160 10202 "typer.ml" 263 10160 10209
+"typer.ml" 268 10543 10585 "typer.ml" 268 10543 10592
 type(
   Ast.proto_ident
 )
-"typer.ml" 263 10160 10185 "typer.ml" 263 10160 10209
+"typer.ml" 268 10543 10568 "typer.ml" 268 10543 10592
 call(
   stack
 )
 type(
   Ast_typing.at_proto_ident
 )
-"typer.ml" 264 10211 10229 "typer.ml" 264 10211 10239
+"typer.ml" 269 10594 10612 "typer.ml" 269 10594 10622
 type(
   Ast_typing.at_argument list
 )
 ident(
-  int_ref typed_args "typer.ml" 257 9927 9935 "typer.ml" 257 9927 9945
+  int_ref typed_args "typer.ml" 262 10310 10318 "typer.ml" 262 10310 10328
 )
-"typer.ml" 262 10154 10158 "typer.ml" 265 10241 10246
+"typer.ml" 267 10537 10541 "typer.ml" 270 10624 10629
 type(
   Ast_typing.at_proto
 )
-"typer.ml" 260 10093 10097 "typer.ml" 265 10241 10246
+"typer.ml" 265 10476 10480 "typer.ml" 270 10624 10629
 type(
   Ast_typing.at_proto
 )
-"typer.ml" 257 9927 9931 "typer.ml" 265 10241 10246
+"typer.ml" 262 10310 10314 "typer.ml" 270 10624 10629
 type(
   Ast_typing.at_proto
 )
-"typer.ml" 241 9301 9305 "typer.ml" 265 10241 10246
+"typer.ml" 246 9684 9688 "typer.ml" 270 10624 10629
 type(
   Ast_typing.at_proto
 )
-"typer.ml" 267 10248 10252 "typer.ml" 267 10248 10265
+"typer.ml" 272 10631 10635 "typer.ml" 272 10631 10648
 type(
   Ast.fonction -> Ast_typing.at_fonction
 )
 ident(
-  def type_fonction "typer.ml" 290 11019 11019 "typer.ml" 1 0 -1
+  def type_fonction "typer.ml" 295 11402 11402 "typer.ml" 1 0 -1
 )
-"typer.ml" 267 10248 10266 "typer.ml" 267 10248 10267
+"typer.ml" 272 10631 10649 "typer.ml" 272 10631 10650
 type(
   Ast.fonction
 )
 ident(
-  def x "typer.ml" 268 10270 10274 "typer.ml" 288 11012 11017
+  def x "typer.ml" 273 10653 10657 "typer.ml" 293 11395 11400
 )
-"typer.ml" 268 10270 10278 "typer.ml" 268 10270 10284
+"typer.ml" 273 10653 10661 "typer.ml" 273 10653 10667
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  def locals "typer.ml" 270 10434 10438 "typer.ml" 288 11012 11017
+  def locals "typer.ml" 275 10817 10821 "typer.ml" 293 11395 11400
 )
-"typer.ml" 268 10270 10287 "typer.ml" 268 10270 10301
+"typer.ml" 273 10653 10670 "typer.ml" 273 10653 10684
 type(
   ?random:bool -> int -> (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
   ext_ref Hashtbl.create
 )
-"typer.ml" 268 10270 10302 "typer.ml" 268 10270 10304
+"typer.ml" 273 10653 10685 "typer.ml" 273 10653 10687
 type(
   int
 )
-"typer.ml" 268 10270 10287 "typer.ml" 268 10270 10304
+"typer.ml" 273 10653 10670 "typer.ml" 273 10653 10687
 call(
   stack
 )
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
-"typer.ml" 270 10434 10438 "typer.ml" 270 10434 10449
+"typer.ml" 275 10817 10821 "typer.ml" 275 10817 10832
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast_typing.at_var -> Ast_typing.at_var_pos -> unit
@@ -6004,152 +6455,152 @@ type(
 ident(
   ext_ref Hashtbl.add
 )
-"typer.ml" 270 10434 10450 "typer.ml" 270 10434 10456
+"typer.ml" 275 10817 10833 "typer.ml" 275 10817 10839
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref locals "typer.ml" 268 10270 10278 "typer.ml" 268 10270 10284
+  int_ref locals "typer.ml" 273 10653 10661 "typer.ml" 273 10653 10667
 )
-"typer.ml" 270 10434 10467 "typer.ml" 270 10434 10470
+"typer.ml" 275 10817 10850 "typer.ml" 275 10817 10853
 type(
   Ast_typing.at_ident
 )
-"typer.ml" 270 10434 10457 "typer.ml" 270 10434 10471
+"typer.ml" 275 10817 10840 "typer.ml" 275 10817 10854
 type(
   Ast_typing.at_var
 )
-"typer.ml" 270 10434 10477 "typer.ml" 270 10434 10478
+"typer.ml" 275 10817 10860 "typer.ml" 275 10817 10861
 type(
   int
 )
-"typer.ml" 270 10434 10472 "typer.ml" 270 10434 10479
+"typer.ml" 275 10817 10855 "typer.ml" 275 10817 10862
 type(
   Ast_typing.at_var_pos
 )
-"typer.ml" 270 10434 10438 "typer.ml" 270 10434 10479
+"typer.ml" 275 10817 10821 "typer.ml" 275 10817 10862
 call(
   stack
 )
 type(
   unit
 )
-"typer.ml" 272 10482 10490 "typer.ml" 272 10482 10494
+"typer.ml" 277 10865 10873 "typer.ml" 277 10865 10877
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  def args "typer.ml" 273 10518 10522 "typer.ml" 288 11012 11017
+  def args "typer.ml" 278 10901 10905 "typer.ml" 293 11395 11400
 )
-"typer.ml" 272 10482 10497 "typer.ml" 272 10482 10511
+"typer.ml" 277 10865 10880 "typer.ml" 277 10865 10894
 type(
   ?random:bool -> int -> (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
   ext_ref Hashtbl.create
 )
-"typer.ml" 272 10482 10512 "typer.ml" 272 10482 10514
+"typer.ml" 277 10865 10895 "typer.ml" 277 10865 10897
 type(
   int
 )
-"typer.ml" 272 10482 10497 "typer.ml" 272 10482 10514
+"typer.ml" 277 10865 10880 "typer.ml" 277 10865 10897
 call(
   stack
 )
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
-"typer.ml" 273 10518 10526 "typer.ml" 273 10518 10540
+"typer.ml" 278 10901 10909 "typer.ml" 278 10901 10923
 type(
   Ast_typing.at_proto
 )
 ident(
-  def type_for_proto "typer.ml" 274 10587 10591 "typer.ml" 288 11012 11017
+  def type_for_proto "typer.ml" 279 10970 10974 "typer.ml" 293 11395 11400
 )
-"typer.ml" 273 10518 10543 "typer.ml" 273 10518 10553
+"typer.ml" 278 10901 10926 "typer.ml" 278 10901 10936
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast.proto -> Ast_typing.at_proto
 )
 ident(
-  int_ref type_proto "typer.ml" 240 9277 9281 "typer.ml" 240 9277 9291
+  int_ref type_proto "typer.ml" 245 9660 9664 "typer.ml" 245 9660 9674
 )
-"typer.ml" 273 10518 10554 "typer.ml" 273 10518 10558
+"typer.ml" 278 10901 10937 "typer.ml" 278 10901 10941
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref args "typer.ml" 272 10482 10490 "typer.ml" 272 10482 10494
+  int_ref args "typer.ml" 277 10865 10873 "typer.ml" 277 10865 10877
 )
-"typer.ml" 273 10518 10560 "typer.ml" 273 10518 10563
+"typer.ml" 278 10901 10943 "typer.ml" 278 10901 10946
 type(
   Ast.proto * Ast.bloc -> Ast.proto
 )
 ident(
   ext_ref Pervasives.fst
 )
-"typer.ml" 273 10518 10564 "typer.ml" 273 10518 10565
+"typer.ml" 278 10901 10947 "typer.ml" 278 10901 10948
 type(
   Ast.fonction
 )
 ident(
-  int_ref x "typer.ml" 267 10248 10266 "typer.ml" 267 10248 10267
+  int_ref x "typer.ml" 272 10631 10649 "typer.ml" 272 10631 10650
 )
-"typer.ml" 273 10518 10564 "typer.ml" 273 10518 10582
+"typer.ml" 278 10901 10947 "typer.ml" 278 10901 10965
 type(
   Ast.proto * Ast.bloc
 )
-"typer.ml" 273 10518 10559 "typer.ml" 273 10518 10583
+"typer.ml" 278 10901 10942 "typer.ml" 278 10901 10966
 type(
   Ast.proto
 )
-"typer.ml" 273 10518 10543 "typer.ml" 273 10518 10583
+"typer.ml" 278 10901 10926 "typer.ml" 278 10901 10966
 call(
   stack
 )
 type(
   Ast_typing.at_proto
 )
-"typer.ml" 274 10587 10595 "typer.ml" 274 10587 10609
+"typer.ml" 279 10970 10978 "typer.ml" 279 10970 10992
 type(
   Ast_typing.at_var -> Ast_typing.at_var_pos -> unit
 )
 ident(
-  def args_to_locals "typer.ml" 279 10723 10727 "typer.ml" 288 11012 11017
+  def args_to_locals "typer.ml" 284 11106 11110 "typer.ml" 293 11395 11400
 )
-"typer.ml" 274 10587 10610 "typer.ml" 274 10587 10611
+"typer.ml" 279 10970 10993 "typer.ml" 279 10970 10994
 type(
   Ast_typing.at_var
 )
 ident(
-  def a "typer.ml" 274 10587 10612 "typer.ml" 277 10688 10715
+  def a "typer.ml" 279 10970 10995 "typer.ml" 282 11071 11098
 )
-"typer.ml" 274 10587 10612 "typer.ml" 274 10587 10613
+"typer.ml" 279 10970 10995 "typer.ml" 279 10970 10996
 type(
   Ast_typing.at_var_pos
 )
 ident(
-  def b "typer.ml" 275 10616 10624 "typer.ml" 277 10688 10715
+  def b "typer.ml" 280 10999 11007 "typer.ml" 282 11071 11098
 )
-"typer.ml" 275 10616 10630 "typer.ml" 275 10616 10631
+"typer.ml" 280 10999 11013 "typer.ml" 280 10999 11014
 type(
   Ast_typing.at_var_pos
 )
 ident(
-  int_ref b "typer.ml" 274 10587 10612 "typer.ml" 274 10587 10613
+  int_ref b "typer.ml" 279 10970 10995 "typer.ml" 279 10970 10996
 )
-"typer.ml" 276 10637 10651 "typer.ml" 276 10637 10652
+"typer.ml" 281 11020 11034 "typer.ml" 281 11020 11035
 type(
   int
 )
 ident(
-  def p "typer.ml" 276 10637 10656 "typer.ml" 276 10637 10687
+  def p "typer.ml" 281 11020 11039 "typer.ml" 281 11020 11070
 )
-"typer.ml" 276 10637 10647 "typer.ml" 276 10637 10652
+"typer.ml" 281 11020 11030 "typer.ml" 281 11020 11035
 type(
   Ast_typing.at_var_pos
 )
-"typer.ml" 276 10637 10656 "typer.ml" 276 10637 10667
+"typer.ml" 281 11020 11039 "typer.ml" 281 11020 11050
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast_typing.at_var -> Ast_typing.at_var_pos -> unit
@@ -6157,62 +6608,62 @@ type(
 ident(
   ext_ref Hashtbl.add
 )
-"typer.ml" 276 10637 10668 "typer.ml" 276 10637 10674
+"typer.ml" 281 11020 11051 "typer.ml" 281 11020 11057
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref locals "typer.ml" 268 10270 10278 "typer.ml" 268 10270 10284
+  int_ref locals "typer.ml" 273 10653 10661 "typer.ml" 273 10653 10667
 )
-"typer.ml" 276 10637 10675 "typer.ml" 276 10637 10676
+"typer.ml" 281 11020 11058 "typer.ml" 281 11020 11059
 type(
   Ast_typing.at_var
 )
 ident(
-  int_ref a "typer.ml" 274 10587 10610 "typer.ml" 274 10587 10611
+  int_ref a "typer.ml" 279 10970 10993 "typer.ml" 279 10970 10994
 )
-"typer.ml" 276 10637 10683 "typer.ml" 276 10637 10684
+"typer.ml" 281 11020 11066 "typer.ml" 281 11020 11067
 type(
   int -> int
 )
 ident(
   ext_ref Pervasives.( ~- )
 )
-"typer.ml" 276 10637 10684 "typer.ml" 276 10637 10685
+"typer.ml" 281 11020 11067 "typer.ml" 281 11020 11068
 type(
   int
 )
 ident(
-  int_ref p "typer.ml" 276 10637 10651 "typer.ml" 276 10637 10652
+  int_ref p "typer.ml" 281 11020 11034 "typer.ml" 281 11020 11035
 )
-"typer.ml" 276 10637 10682 "typer.ml" 276 10637 10686
+"typer.ml" 281 11020 11065 "typer.ml" 281 11020 11069
 type(
   int
 )
-"typer.ml" 276 10637 10677 "typer.ml" 276 10637 10687
+"typer.ml" 281 11020 11060 "typer.ml" 281 11020 11070
 type(
   Ast_typing.at_var_pos
 )
-"typer.ml" 276 10637 10656 "typer.ml" 276 10637 10687
+"typer.ml" 281 11020 11039 "typer.ml" 281 11020 11070
 call(
   tail
 )
 type(
   unit
 )
-"typer.ml" 277 10688 10698 "typer.ml" 277 10688 10699
+"typer.ml" 282 11071 11081 "typer.ml" 282 11071 11082
 type(
   Ast_typing.at_var_pos
 )
-"typer.ml" 277 10688 10703 "typer.ml" 277 10688 10715
+"typer.ml" 282 11071 11086 "typer.ml" 282 11071 11098
 type(
   unit
 )
-"typer.ml" 275 10616 10624 "typer.ml" 277 10688 10715
+"typer.ml" 280 10999 11007 "typer.ml" 282 11071 11098
 type(
   unit
 )
-"typer.ml" 279 10723 10727 "typer.ml" 279 10723 10739
+"typer.ml" 284 11106 11110 "typer.ml" 284 11106 11122
 type(
   (Ast_typing.at_var -> Ast_typing.at_var_pos -> unit) ->
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> unit
@@ -6220,283 +6671,283 @@ type(
 ident(
   ext_ref Hashtbl.iter
 )
-"typer.ml" 279 10723 10740 "typer.ml" 279 10723 10754
+"typer.ml" 284 11106 11123 "typer.ml" 284 11106 11137
 type(
   Ast_typing.at_var -> Ast_typing.at_var_pos -> unit
 )
 ident(
-  int_ref args_to_locals "typer.ml" 274 10587 10595 "typer.ml" 274 10587 10609
+  int_ref args_to_locals "typer.ml" 279 10970 10978 "typer.ml" 279 10970 10992
 )
-"typer.ml" 279 10723 10755 "typer.ml" 279 10723 10759
+"typer.ml" 284 11106 11138 "typer.ml" 284 11106 11142
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref args "typer.ml" 272 10482 10490 "typer.ml" 272 10482 10494
+  int_ref args "typer.ml" 277 10865 10873 "typer.ml" 277 10865 10877
 )
-"typer.ml" 279 10723 10727 "typer.ml" 279 10723 10759
+"typer.ml" 284 11106 11110 "typer.ml" 284 11106 11142
 call(
   stack
 )
 type(
   unit
 )
-"typer.ml" 281 10762 10770 "typer.ml" 281 10762 10783
+"typer.ml" 286 11145 11153 "typer.ml" 286 11145 11166
 type(
   Ast_typing.at_bloc
 )
 ident(
-  def type_for_bloc "typer.ml" 283 10832 10836 "typer.ml" 288 11012 11017
+  def type_for_bloc "typer.ml" 288 11215 11219 "typer.ml" 293 11395 11400
 )
-"typer.ml" 281 10762 10786 "typer.ml" 281 10762 10795
+"typer.ml" 286 11145 11169 "typer.ml" 286 11145 11178
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
   Ast.bloc -> Ast_typing.at_bloc
 )
 ident(
-  int_ref type_bloc "typer.ml" 224 8874 8878 "typer.ml" 224 8874 8887
+  int_ref type_bloc "typer.ml" 229 9257 9261 "typer.ml" 229 9257 9270
 )
-"typer.ml" 281 10762 10796 "typer.ml" 281 10762 10802
+"typer.ml" 286 11145 11179 "typer.ml" 286 11145 11185
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref locals "typer.ml" 268 10270 10278 "typer.ml" 268 10270 10284
+  int_ref locals "typer.ml" 273 10653 10661 "typer.ml" 273 10653 10667
 )
-"typer.ml" 281 10762 10804 "typer.ml" 281 10762 10807
+"typer.ml" 286 11145 11187 "typer.ml" 286 11145 11190
 type(
   Ast.proto * Ast.bloc -> Ast.bloc
 )
 ident(
   ext_ref Pervasives.snd
 )
-"typer.ml" 281 10762 10808 "typer.ml" 281 10762 10809
+"typer.ml" 286 11145 11191 "typer.ml" 286 11145 11192
 type(
   Ast.fonction
 )
 ident(
-  int_ref x "typer.ml" 267 10248 10266 "typer.ml" 267 10248 10267
+  int_ref x "typer.ml" 272 10631 10649 "typer.ml" 272 10631 10650
 )
-"typer.ml" 281 10762 10808 "typer.ml" 281 10762 10826
+"typer.ml" 286 11145 11191 "typer.ml" 286 11145 11209
 type(
   Ast.proto * Ast.bloc
 )
-"typer.ml" 281 10762 10803 "typer.ml" 281 10762 10827
+"typer.ml" 286 11145 11186 "typer.ml" 286 11145 11210
 type(
   Ast.bloc
 )
-"typer.ml" 281 10762 10786 "typer.ml" 281 10762 10827
+"typer.ml" 286 11145 11169 "typer.ml" 286 11145 11210
 call(
   stack
 )
 type(
   Ast_typing.at_bloc
 )
-"typer.ml" 284 10838 10857 "typer.ml" 284 10838 10871
+"typer.ml" 289 11221 11240 "typer.ml" 289 11221 11254
 type(
   Ast_typing.at_proto
 )
 ident(
-  int_ref type_for_proto "typer.ml" 273 10518 10526 "typer.ml" 273 10518 10540
+  int_ref type_for_proto "typer.ml" 278 10901 10909 "typer.ml" 278 10901 10923
 )
-"typer.ml" 285 10874 10892 "typer.ml" 285 10874 10905
+"typer.ml" 290 11257 11275 "typer.ml" 290 11257 11288
 type(
   Ast_typing.at_bloc
 )
 ident(
-  int_ref type_for_bloc "typer.ml" 281 10762 10770 "typer.ml" 281 10762 10783
+  int_ref type_for_bloc "typer.ml" 286 11145 11153 "typer.ml" 286 11145 11166
 )
-"typer.ml" 286 10907 10927 "typer.ml" 286 10907 10933
+"typer.ml" 291 11290 11310 "typer.ml" 291 11290 11316
 type(
   Ast_typing.at_locals
 )
 ident(
-  int_ref locals "typer.ml" 268 10270 10278 "typer.ml" 268 10270 10284
+  int_ref locals "typer.ml" 273 10653 10661 "typer.ml" 273 10653 10667
 )
-"typer.ml" 287 10935 10959 "typer.ml" 287 10935 10960
+"typer.ml" 292 11318 11342 "typer.ml" 292 11318 11343
 type(
   int
 )
-"typer.ml" 287 10935 10960 "typer.ml" 287 10935 10961
+"typer.ml" 292 11318 11343 "typer.ml" 292 11318 11344
 type(
   int -> int -> int
 )
 ident(
   ext_ref Pervasives.( * )
 )
-"typer.ml" 287 10935 10962 "typer.ml" 287 10935 10976
+"typer.ml" 292 11318 11345 "typer.ml" 292 11318 11359
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
 )
 ident(
   ext_ref Hashtbl.length
 )
-"typer.ml" 287 10935 10977 "typer.ml" 287 10935 10983
+"typer.ml" 292 11318 11360 "typer.ml" 292 11318 11366
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref locals "typer.ml" 268 10270 10278 "typer.ml" 268 10270 10284
+  int_ref locals "typer.ml" 273 10653 10661 "typer.ml" 273 10653 10667
 )
-"typer.ml" 287 10935 10961 "typer.ml" 287 10935 10984
+"typer.ml" 292 11318 11344 "typer.ml" 292 11318 11367
 call(
   stack
 )
 type(
   int
 )
-"typer.ml" 287 10935 10959 "typer.ml" 287 10935 10984
+"typer.ml" 292 11318 11342 "typer.ml" 292 11318 11367
 type(
   int
 )
-"typer.ml" 287 10935 10985 "typer.ml" 287 10935 10986
+"typer.ml" 292 11318 11368 "typer.ml" 292 11318 11369
 type(
   int -> int -> int
 )
 ident(
   ext_ref Pervasives.( - )
 )
-"typer.ml" 287 10935 10987 "typer.ml" 287 10935 10988
+"typer.ml" 292 11318 11370 "typer.ml" 292 11318 11371
 type(
   int
 )
-"typer.ml" 287 10935 10988 "typer.ml" 287 10935 10989
+"typer.ml" 292 11318 11371 "typer.ml" 292 11318 11372
 type(
   int -> int -> int
 )
 ident(
   ext_ref Pervasives.( * )
 )
-"typer.ml" 287 10935 10990 "typer.ml" 287 10935 11004
+"typer.ml" 292 11318 11373 "typer.ml" 292 11318 11387
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t -> int
 )
 ident(
   ext_ref Hashtbl.length
 )
-"typer.ml" 287 10935 11005 "typer.ml" 287 10935 11009
+"typer.ml" 292 11318 11388 "typer.ml" 292 11318 11392
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
-  int_ref args "typer.ml" 272 10482 10490 "typer.ml" 272 10482 10494
+  int_ref args "typer.ml" 277 10865 10873 "typer.ml" 277 10865 10877
 )
-"typer.ml" 287 10935 10989 "typer.ml" 287 10935 11010
+"typer.ml" 292 11318 11372 "typer.ml" 292 11318 11393
 call(
   stack
 )
 type(
   int
 )
-"typer.ml" 287 10935 10987 "typer.ml" 287 10935 11010
+"typer.ml" 292 11318 11370 "typer.ml" 292 11318 11393
 type(
   int
 )
-"typer.ml" 287 10935 10959 "typer.ml" 287 10935 11010
+"typer.ml" 292 11318 11342 "typer.ml" 292 11318 11393
 type(
   int
 )
-"typer.ml" 283 10832 10836 "typer.ml" 288 11012 11017
+"typer.ml" 288 11215 11219 "typer.ml" 293 11395 11400
 type(
   Ast_typing.at_fonction
 )
-"typer.ml" 281 10762 10766 "typer.ml" 288 11012 11017
+"typer.ml" 286 11145 11149 "typer.ml" 293 11395 11400
 type(
   Ast_typing.at_fonction
 )
-"typer.ml" 279 10723 10727 "typer.ml" 288 11012 11017
+"typer.ml" 284 11106 11110 "typer.ml" 293 11395 11400
 type(
   Ast_typing.at_fonction
 )
-"typer.ml" 274 10587 10591 "typer.ml" 288 11012 11017
+"typer.ml" 279 10970 10974 "typer.ml" 293 11395 11400
 type(
   Ast_typing.at_fonction
 )
-"typer.ml" 273 10518 10522 "typer.ml" 288 11012 11017
+"typer.ml" 278 10901 10905 "typer.ml" 293 11395 11400
 type(
   Ast_typing.at_fonction
 )
-"typer.ml" 272 10482 10486 "typer.ml" 288 11012 11017
+"typer.ml" 277 10865 10869 "typer.ml" 293 11395 11400
 type(
   Ast_typing.at_fonction
 )
-"typer.ml" 270 10434 10438 "typer.ml" 288 11012 11017
+"typer.ml" 275 10817 10821 "typer.ml" 293 11395 11400
 type(
   Ast_typing.at_fonction
 )
-"typer.ml" 268 10270 10274 "typer.ml" 288 11012 11017
+"typer.ml" 273 10653 10657 "typer.ml" 293 11395 11400
 type(
   Ast_typing.at_fonction
 )
-"typer.ml" 290 11019 11023 "typer.ml" 290 11019 11034
+"typer.ml" 295 11402 11406 "typer.ml" 295 11402 11417
 type(
   Lexing.position -> Ast.member -> Ast_typing.at_member
 )
 ident(
-  def type_member "typer.ml" 298 11350 11350 "typer.ml" 1 0 -1
+  def type_member "typer.ml" 303 11733 11733 "typer.ml" 1 0 -1
 )
-"typer.ml" 290 11019 11035 "typer.ml" 290 11019 11038
+"typer.ml" 295 11402 11418 "typer.ml" 295 11402 11421
 type(
   Lexing.position
 )
 ident(
-  def pos "typer.ml" 290 11019 11041 "typer.ml" 296 11288 11337
+  def pos "typer.ml" 295 11402 11424 "typer.ml" 301 11671 11720
 )
-"typer.ml" 291 11050 11061 "typer.ml" 291 11050 11064
+"typer.ml" 296 11433 11444 "typer.ml" 296 11433 11447
 type(
   Ast.decl_vars
 )
 ident(
-  def var "typer.ml" 292 11069 11081 "typer.ml" 295 11274 11287
+  def var "typer.ml" 297 11452 11464 "typer.ml" 300 11657 11670
 )
-"typer.ml" 291 11050 11056 "typer.ml" 291 11050 11064
+"typer.ml" 296 11433 11439 "typer.ml" 296 11433 11447
 type(
   Ast.member
 )
-"typer.ml" 293 11090 11121 "typer.ml" 293 11090 11139
+"typer.ml" 298 11473 11504 "typer.ml" 298 11473 11522
 type(
   Ast.ast_type -> Ast_typing.at_ast_type
 )
 ident(
   int_ref types_ast_to_atast "typer.ml" 27 560 564 "typer.ml" 27 560 582
 )
-"typer.ml" 293 11090 11141 "typer.ml" 293 11090 11144
+"typer.ml" 298 11473 11524 "typer.ml" 298 11473 11527
 type(
   Ast.ast_type * Ast.var list -> Ast.ast_type
 )
 ident(
   ext_ref Pervasives.fst
 )
-"typer.ml" 293 11090 11145 "typer.ml" 293 11090 11148
+"typer.ml" 298 11473 11528 "typer.ml" 298 11473 11531
 type(
   Ast.decl_vars
 )
 ident(
-  int_ref var "typer.ml" 291 11050 11061 "typer.ml" 291 11050 11064
+  int_ref var "typer.ml" 296 11433 11444 "typer.ml" 296 11433 11447
 )
-"typer.ml" 293 11090 11145 "typer.ml" 293 11090 11166
+"typer.ml" 298 11473 11528 "typer.ml" 298 11473 11549
 type(
   Ast.ast_type * Ast.var list
 )
-"typer.ml" 293 11090 11140 "typer.ml" 293 11090 11167
+"typer.ml" 298 11473 11523 "typer.ml" 298 11473 11550
 type(
   Ast.ast_type
 )
-"typer.ml" 293 11090 11120 "typer.ml" 293 11090 11168
+"typer.ml" 298 11473 11503 "typer.ml" 298 11473 11551
 call(
   stack
 )
 type(
   Ast_typing.at_ast_type
 )
-"typer.ml" 294 11170 11195 "typer.ml" 294 11170 11203
+"typer.ml" 299 11553 11578 "typer.ml" 299 11553 11586
 type(
   (Ast.var -> Ast_typing.at_var) -> Ast.var list -> Ast_typing.at_var list
 )
 ident(
   ext_ref List.map
 )
-"typer.ml" 294 11170 11205 "typer.ml" 294 11170 11213
+"typer.ml" 299 11553 11588 "typer.ml" 299 11553 11596
 type(
   Lexing.position ->
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
@@ -6505,174 +6956,174 @@ type(
 ident(
   int_ref type_var "typer.ml" 63 1297 1305 "typer.ml" 63 1297 1313
 )
-"typer.ml" 294 11170 11214 "typer.ml" 294 11170 11217
+"typer.ml" 299 11553 11597 "typer.ml" 299 11553 11600
 type(
   Lexing.position
 )
 ident(
-  int_ref pos "typer.ml" 290 11019 11035 "typer.ml" 290 11019 11038
+  int_ref pos "typer.ml" 295 11402 11418 "typer.ml" 295 11402 11421
 )
-"typer.ml" 294 11170 11219 "typer.ml" 294 11170 11233
+"typer.ml" 299 11553 11602 "typer.ml" 299 11553 11616
 type(
   ?random:bool -> int -> (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
   ext_ref Hashtbl.create
 )
-"typer.ml" 294 11170 11234 "typer.ml" 294 11170 11236
+"typer.ml" 299 11553 11617 "typer.ml" 299 11553 11619
 type(
   int
 )
-"typer.ml" 294 11170 11218 "typer.ml" 294 11170 11237
+"typer.ml" 299 11553 11601 "typer.ml" 299 11553 11620
 call(
   stack
 )
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
-"typer.ml" 294 11170 11238 "typer.ml" 294 11170 11243
+"typer.ml" 299 11553 11621 "typer.ml" 299 11553 11626
 type(
   bool
 )
-"typer.ml" 294 11170 11204 "typer.ml" 294 11170 11244
+"typer.ml" 299 11553 11587 "typer.ml" 299 11553 11627
 call(
   stack
 )
 type(
   Ast.var -> Ast_typing.at_var
 )
-"typer.ml" 294 11170 11246 "typer.ml" 294 11170 11249
+"typer.ml" 299 11553 11629 "typer.ml" 299 11553 11632
 type(
   Ast.ast_type * Ast.var list -> Ast.var list
 )
 ident(
   ext_ref Pervasives.snd
 )
-"typer.ml" 294 11170 11250 "typer.ml" 294 11170 11253
+"typer.ml" 299 11553 11633 "typer.ml" 299 11553 11636
 type(
   Ast.decl_vars
 )
 ident(
-  int_ref var "typer.ml" 291 11050 11061 "typer.ml" 291 11050 11064
+  int_ref var "typer.ml" 296 11433 11444 "typer.ml" 296 11433 11447
 )
-"typer.ml" 294 11170 11250 "typer.ml" 294 11170 11271
+"typer.ml" 299 11553 11633 "typer.ml" 299 11553 11654
 type(
   Ast.ast_type * Ast.var list
 )
-"typer.ml" 294 11170 11245 "typer.ml" 294 11170 11272
+"typer.ml" 299 11553 11628 "typer.ml" 299 11553 11655
 type(
   Ast.var list
 )
-"typer.ml" 294 11170 11195 "typer.ml" 294 11170 11272
+"typer.ml" 299 11553 11578 "typer.ml" 299 11553 11655
 call(
   stack
 )
 type(
   Ast_typing.at_var list
 )
-"typer.ml" 292 11069 11088 "typer.ml" 295 11274 11287
+"typer.ml" 297 11452 11471 "typer.ml" 300 11657 11670
 type(
   Ast_typing.at_decl_vars
 )
-"typer.ml" 292 11069 11081 "typer.ml" 295 11274 11287
+"typer.ml" 297 11452 11464 "typer.ml" 300 11657 11670
 type(
   Ast_typing.at_member
 )
-"typer.ml" 296 11288 11301 "typer.ml" 296 11288 11313
+"typer.ml" 301 11671 11684 "typer.ml" 301 11671 11696
 type(
   bool
 )
 ident(
-  def virtual_bool "typer.ml" 296 11288 11325 "typer.ml" 296 11288 11337
+  def virtual_bool "typer.ml" 301 11671 11708 "typer.ml" 301 11671 11720
 )
-"typer.ml" 296 11288 11315 "typer.ml" 296 11288 11320
+"typer.ml" 301 11671 11698 "typer.ml" 301 11671 11703
 type(
   Ast.proto
 )
 ident(
-  def proto "typer.ml" 296 11288 11325 "typer.ml" 296 11288 11337
+  def proto "typer.ml" 301 11671 11708 "typer.ml" 301 11671 11720
 )
-"typer.ml" 296 11288 11294 "typer.ml" 296 11288 11321
+"typer.ml" 301 11671 11677 "typer.ml" 301 11671 11704
 type(
   Ast.member
 )
-"typer.ml" 296 11288 11325 "typer.ml" 296 11288 11337
+"typer.ml" 301 11671 11708 "typer.ml" 301 11671 11720
 type(
   Ast_typing.at_member
 )
-"typer.ml" 290 11019 11041 "typer.ml" 296 11288 11337
+"typer.ml" 295 11402 11424 "typer.ml" 301 11671 11720
 type(
   Ast.member -> Ast_typing.at_member
 )
-"typer.ml" 298 11350 11354 "typer.ml" 298 11350 11364
+"typer.ml" 303 11733 11737 "typer.ml" 303 11733 11747
 type(
   Ast.decl_class -> Ast_typing.at_decl_class
 )
 ident(
-  def type_class "typer.ml" 320 12176 12176 "typer.ml" 1 0 -1
+  def type_class "typer.ml" 325 12559 12559 "typer.ml" 1 0 -1
 )
-"typer.ml" 298 11350 11365 "typer.ml" 298 11350 11366
+"typer.ml" 303 11733 11748 "typer.ml" 303 11733 11749
 type(
   Ast.decl_class
 )
 ident(
-  def x "typer.ml" 298 11350 11369 "typer.ml" 317 12152 12159
+  def x "typer.ml" 303 11733 11752 "typer.ml" 322 12535 12542
 )
-"typer.ml" 299 11375 11385 "typer.ml" 299 11375 11386
+"typer.ml" 304 11758 11768 "typer.ml" 304 11758 11769
 type(
   Ast.decl_class
 )
 ident(
-  int_ref x "typer.ml" 298 11350 11365 "typer.ml" 298 11350 11366
+  int_ref x "typer.ml" 303 11733 11748 "typer.ml" 303 11733 11749
 )
-"typer.ml" 299 11375 11385 "typer.ml" 299 11375 11405
+"typer.ml" 304 11758 11768 "typer.ml" 304 11758 11788
 type(
   Ast.ident * Ast.supers * Ast.member list
 )
-"typer.ml" 300 11411 11421 "typer.ml" 300 11411 11426
+"typer.ml" 305 11794 11804 "typer.ml" 305 11794 11809
 type(
   Ast.ident
 )
 ident(
-  def ident "typer.ml" 301 11447 11459 "typer.ml" 316 12123 12151
+  def ident "typer.ml" 306 11830 11842 "typer.ml" 321 12506 12534
 )
-"typer.ml" 300 11411 11428 "typer.ml" 300 11411 11434
+"typer.ml" 305 11794 11811 "typer.ml" 305 11794 11817
 type(
   Ast.supers
 )
 ident(
-  def supers "typer.ml" 301 11447 11459 "typer.ml" 316 12123 12151
+  def supers "typer.ml" 306 11830 11842 "typer.ml" 321 12506 12534
 )
-"typer.ml" 300 11411 11436 "typer.ml" 300 11411 11443
+"typer.ml" 305 11794 11819 "typer.ml" 305 11794 11826
 type(
   Ast.member list
 )
 ident(
-  def members "typer.ml" 301 11447 11459 "typer.ml" 316 12123 12151
+  def members "typer.ml" 306 11830 11842 "typer.ml" 321 12506 12534
 )
-"typer.ml" 300 11411 11421 "typer.ml" 300 11411 11443
+"typer.ml" 305 11794 11804 "typer.ml" 305 11794 11826
 type(
   Ast.ident * Ast.supers * Ast.member list
 )
-"typer.ml" 301 11447 11463 "typer.ml" 301 11447 11479
+"typer.ml" 306 11830 11846 "typer.ml" 306 11830 11862
 type(
   Ast_typing.at_decl_class
 )
 ident(
-  def ast_typing_class "typer.ml" 308 11671 11683 "typer.ml" 316 12123 12151
+  def ast_typing_class "typer.ml" 313 12054 12066 "typer.ml" 321 12506 12534
 )
-"typer.ml" 302 11484 11517 "typer.ml" 302 11484 11522
+"typer.ml" 307 11867 11900 "typer.ml" 307 11867 11905
 type(
   Ast.ident
 )
 ident(
-  int_ref ident "typer.ml" 300 11411 11421 "typer.ml" 300 11411 11426
+  int_ref ident "typer.ml" 305 11794 11804 "typer.ml" 305 11794 11809
 )
-"typer.ml" 303 11524 11552 "typer.ml" 303 11524 11556
+"typer.ml" 308 11907 11935 "typer.ml" 308 11907 11939
 type(
   Ast_typing.at_supers
 )
-"typer.ml" 304 11558 11586 "typer.ml" 304 11558 11594
+"typer.ml" 309 11941 11969 "typer.ml" 309 11941 11977
 type(
   (Ast.member -> Ast_typing.at_member) ->
   Ast.member list -> Ast_typing.at_member list
@@ -6680,118 +7131,118 @@ type(
 ident(
   ext_ref List.map
 )
-"typer.ml" 304 11558 11596 "typer.ml" 304 11558 11607
+"typer.ml" 309 11941 11979 "typer.ml" 309 11941 11990
 type(
   Lexing.position -> Ast.member -> Ast_typing.at_member
 )
 ident(
-  int_ref type_member "typer.ml" 290 11019 11023 "typer.ml" 290 11019 11034
+  int_ref type_member "typer.ml" 295 11402 11406 "typer.ml" 295 11402 11417
 )
-"typer.ml" 304 11558 11609 "typer.ml" 304 11558 11612
+"typer.ml" 309 11941 11992 "typer.ml" 309 11941 11995
 type(
   Ast.loc -> Lexing.position
 )
 ident(
   ext_ref Pervasives.fst
 )
-"typer.ml" 304 11558 11613 "typer.ml" 304 11558 11614
+"typer.ml" 309 11941 11996 "typer.ml" 309 11941 11997
 type(
   Ast.decl_class
 )
 ident(
-  int_ref x "typer.ml" 298 11350 11365 "typer.ml" 298 11350 11366
+  int_ref x "typer.ml" 303 11733 11748 "typer.ml" 303 11733 11749
 )
-"typer.ml" 304 11558 11613 "typer.ml" 304 11558 11629
+"typer.ml" 309 11941 11996 "typer.ml" 309 11941 12012
 type(
   Ast.loc
 )
-"typer.ml" 304 11558 11608 "typer.ml" 304 11558 11630
+"typer.ml" 309 11941 11991 "typer.ml" 309 11941 12013
 type(
   Lexing.position
 )
-"typer.ml" 304 11558 11595 "typer.ml" 304 11558 11631
+"typer.ml" 309 11941 11978 "typer.ml" 309 11941 12014
 call(
   stack
 )
 type(
   Ast.member -> Ast_typing.at_member
 )
-"typer.ml" 304 11558 11632 "typer.ml" 304 11558 11639
+"typer.ml" 309 11941 12015 "typer.ml" 309 11941 12022
 type(
   Ast.member list
 )
 ident(
-  int_ref members "typer.ml" 300 11411 11436 "typer.ml" 300 11411 11443
+  int_ref members "typer.ml" 305 11794 11819 "typer.ml" 305 11794 11826
 )
-"typer.ml" 304 11558 11586 "typer.ml" 304 11558 11639
+"typer.ml" 309 11941 11969 "typer.ml" 309 11941 12022
 call(
   stack
 )
 type(
   Ast_typing.at_member list
 )
-"typer.ml" 301 11447 11482 "typer.ml" 305 11641 11654
+"typer.ml" 306 11830 11865 "typer.ml" 310 12024 12037
 type(
   Ast_typing.at_decl_class
 )
-"typer.ml" 308 11671 11687 "typer.ml" 308 11671 11693
+"typer.ml" 313 12054 12070 "typer.ml" 313 12054 12076
 type(
   (Ast_typing.at_var, field_offset) Hashtbl.t
 )
 ident(
-  def fields "typer.ml" 309 11717 11729 "typer.ml" 316 12123 12151
+  def fields "typer.ml" 314 12100 12112 "typer.ml" 321 12506 12534
 )
-"typer.ml" 308 11671 11696 "typer.ml" 308 11671 11710
+"typer.ml" 313 12054 12079 "typer.ml" 313 12054 12093
 type(
   ?random:bool -> int -> (Ast_typing.at_var, field_offset) Hashtbl.t
 )
 ident(
   ext_ref Hashtbl.create
 )
-"typer.ml" 308 11671 11711 "typer.ml" 308 11671 11713
+"typer.ml" 313 12054 12094 "typer.ml" 313 12054 12096
 type(
   int
 )
-"typer.ml" 308 11671 11696 "typer.ml" 308 11671 11713
+"typer.ml" 313 12054 12079 "typer.ml" 313 12054 12096
 call(
   stack
 )
 type(
   (Ast_typing.at_var, field_offset) Hashtbl.t
 )
-"typer.ml" 309 11717 11737 "typer.ml" 309 11717 11757
+"typer.ml" 314 12100 12120 "typer.ml" 314 12100 12140
 type(
   Ast_typing.at_member -> unit list
 )
 ident(
-  def form_members_hashtbl "typer.ml" 309 11717 11729 "typer.ml" 316 12123 12151
+  def form_members_hashtbl "typer.ml" 314 12100 12112 "typer.ml" 321 12506 12534
 )
-"typer.ml" 310 11769 11794 "typer.ml" 310 11769 11797
+"typer.ml" 315 12152 12177 "typer.ml" 315 12152 12180
 type(
   Ast_typing.at_decl_vars
 )
 ident(
-  def var "typer.ml" 310 11769 11801 "typer.ml" 310 11769 11881
+  def var "typer.ml" 315 12152 12184 "typer.ml" 315 12152 12264
 )
-"typer.ml" 310 11769 11787 "typer.ml" 310 11769 11797
+"typer.ml" 315 12152 12170 "typer.ml" 315 12152 12180
 type(
   Ast_typing.at_member
 )
-"typer.ml" 310 11769 11801 "typer.ml" 310 11769 11809
+"typer.ml" 315 12152 12184 "typer.ml" 315 12152 12192
 type(
   (Ast_typing.at_var -> unit) -> Ast_typing.at_var list -> unit list
 )
 ident(
   ext_ref List.map
 )
-"typer.ml" 310 11769 11815 "typer.ml" 310 11769 11816
+"typer.ml" 315 12152 12198 "typer.ml" 315 12152 12199
 type(
   Ast_typing.at_var
 )
 ident(
-  def x "typer.ml" 310 11769 11820 "typer.ml" 310 11769 11868
+  def x "typer.ml" 315 12152 12203 "typer.ml" 315 12152 12251
 )
-"typer.ml" 310 11769 11820 "typer.ml" 310 11769 11831
+"typer.ml" 315 12152 12203 "typer.ml" 315 12152 12214
 type(
   (Ast_typing.at_var, field_offset) Hashtbl.t ->
   Ast_typing.at_var -> field_offset -> unit
@@ -6799,116 +7250,116 @@ type(
 ident(
   ext_ref Hashtbl.add
 )
-"typer.ml" 310 11769 11832 "typer.ml" 310 11769 11838
+"typer.ml" 315 12152 12215 "typer.ml" 315 12152 12221
 type(
   (Ast_typing.at_var, field_offset) Hashtbl.t
 )
 ident(
-  int_ref fields "typer.ml" 308 11671 11687 "typer.ml" 308 11671 11693
+  int_ref fields "typer.ml" 313 12054 12070 "typer.ml" 313 12054 12076
 )
-"typer.ml" 310 11769 11839 "typer.ml" 310 11769 11840
+"typer.ml" 315 12152 12222 "typer.ml" 315 12152 12223
 type(
   Ast_typing.at_var
 )
 ident(
-  int_ref x "typer.ml" 310 11769 11815 "typer.ml" 310 11769 11816
+  int_ref x "typer.ml" 315 12152 12198 "typer.ml" 315 12152 12199
 )
-"typer.ml" 310 11769 11842 "typer.ml" 310 11769 11843
+"typer.ml" 315 12152 12225 "typer.ml" 315 12152 12226
 type(
   int
 )
-"typer.ml" 310 11769 11844 "typer.ml" 310 11769 11845
+"typer.ml" 315 12152 12227 "typer.ml" 315 12152 12228
 type(
   int -> int -> field_offset
 )
 ident(
   ext_ref Pervasives.( * )
 )
-"typer.ml" 310 11769 11846 "typer.ml" 310 11769 11860
+"typer.ml" 315 12152 12229 "typer.ml" 315 12152 12243
 type(
   (Ast_typing.at_var, field_offset) Hashtbl.t -> int
 )
 ident(
   ext_ref Hashtbl.length
 )
-"typer.ml" 310 11769 11861 "typer.ml" 310 11769 11867
+"typer.ml" 315 12152 12244 "typer.ml" 315 12152 12250
 type(
   (Ast_typing.at_var, field_offset) Hashtbl.t
 )
 ident(
-  int_ref fields "typer.ml" 308 11671 11687 "typer.ml" 308 11671 11693
+  int_ref fields "typer.ml" 313 12054 12070 "typer.ml" 313 12054 12076
 )
-"typer.ml" 310 11769 11846 "typer.ml" 310 11769 11867
+"typer.ml" 315 12152 12229 "typer.ml" 315 12152 12250
 call(
   stack
 )
 type(
   int
 )
-"typer.ml" 310 11769 11841 "typer.ml" 310 11769 11868
+"typer.ml" 315 12152 12224 "typer.ml" 315 12152 12251
 type(
   field_offset
 )
-"typer.ml" 310 11769 11820 "typer.ml" 310 11769 11868
+"typer.ml" 315 12152 12203 "typer.ml" 315 12152 12251
 call(
   tail
 )
 type(
   unit
 )
-"typer.ml" 310 11769 11810 "typer.ml" 310 11769 11869
+"typer.ml" 315 12152 12193 "typer.ml" 315 12152 12252
 type(
   Ast_typing.at_var -> unit
 )
-"typer.ml" 310 11769 11870 "typer.ml" 310 11769 11873
+"typer.ml" 315 12152 12253 "typer.ml" 315 12152 12256
 type(
   Ast_typing.at_decl_vars
 )
 ident(
-  int_ref var "typer.ml" 310 11769 11794 "typer.ml" 310 11769 11797
+  int_ref var "typer.ml" 315 12152 12177 "typer.ml" 315 12152 12180
 )
-"typer.ml" 310 11769 11870 "typer.ml" 310 11769 11880
+"typer.ml" 315 12152 12253 "typer.ml" 315 12152 12263
 type(
   Ast_typing.at_var list
 )
-"typer.ml" 310 11769 11801 "typer.ml" 310 11769 11881
+"typer.ml" 315 12152 12184 "typer.ml" 315 12152 12264
 call(
   tail
 )
 type(
   unit list
 )
-"typer.ml" 311 11882 11909 "typer.ml" 311 11882 11916
+"typer.ml" 316 12265 12292 "typer.ml" 316 12265 12299
 type(
   bool
 )
 ident(
-  def virtuel "typer.ml" 311 11882 11928 "typer.ml" 311 11882 11940
+  def virtuel "typer.ml" 316 12265 12311 "typer.ml" 316 12265 12323
 )
-"typer.ml" 311 11882 11918 "typer.ml" 311 11882 11923
+"typer.ml" 316 12265 12301 "typer.ml" 316 12265 12306
 type(
   Ast_typing.at_proto
 )
 ident(
-  def proto "typer.ml" 311 11882 11928 "typer.ml" 311 11882 11940
+  def proto "typer.ml" 316 12265 12311 "typer.ml" 316 12265 12323
 )
-"typer.ml" 311 11882 11900 "typer.ml" 311 11882 11924
+"typer.ml" 316 12265 12283 "typer.ml" 316 12265 12307
 type(
   Ast_typing.at_member
 )
-"typer.ml" 311 11882 11928 "typer.ml" 311 11882 11940
+"typer.ml" 316 12265 12311 "typer.ml" 316 12265 12323
 type(
   unit list
 )
-"typer.ml" 309 11717 11760 "typer.ml" 311 11882 11940
+"typer.ml" 314 12100 12143 "typer.ml" 316 12265 12323
 type(
   Ast_typing.at_member -> unit list
 )
-"typer.ml" 313 11967 11983 "typer.ml" 313 11967 11984
+"typer.ml" 318 12350 12366 "typer.ml" 318 12350 12367
 type(
   unit list list
 )
-"typer.ml" 313 11967 11987 "typer.ml" 313 11967 11995
+"typer.ml" 318 12350 12370 "typer.ml" 318 12350 12378
 type(
   (Ast_typing.at_member -> unit list) ->
   Ast_typing.at_member list -> unit list list
@@ -6916,184 +7367,184 @@ type(
 ident(
   ext_ref List.map
 )
-"typer.ml" 313 11967 11996 "typer.ml" 313 11967 12016
+"typer.ml" 318 12350 12379 "typer.ml" 318 12350 12399
 type(
   Ast_typing.at_member -> unit list
 )
 ident(
-  int_ref form_members_hashtbl "typer.ml" 309 11717 11737 "typer.ml" 309 11717 11757
+  int_ref form_members_hashtbl "typer.ml" 314 12100 12120 "typer.ml" 314 12100 12140
 )
-"typer.ml" 313 11967 12017 "typer.ml" 313 11967 12033
+"typer.ml" 318 12350 12400 "typer.ml" 318 12350 12416
 type(
   Ast_typing.at_decl_class
 )
 ident(
-  int_ref ast_typing_class "typer.ml" 301 11447 11463 "typer.ml" 301 11447 11479
+  int_ref ast_typing_class "typer.ml" 306 11830 11846 "typer.ml" 306 11830 11862
 )
-"typer.ml" 313 11967 12017 "typer.ml" 313 11967 12043
+"typer.ml" 318 12350 12400 "typer.ml" 318 12350 12426
 type(
   Ast_typing.at_member list
 )
-"typer.ml" 313 11967 11987 "typer.ml" 313 11967 12043
+"typer.ml" 318 12350 12370 "typer.ml" 318 12350 12426
 call(
   stack
 )
 type(
   unit list list
 )
-"typer.ml" 315 12048 12060 "typer.ml" 315 12048 12071
+"typer.ml" 320 12431 12443 "typer.ml" 320 12431 12454
 type(
   (Ast.tident, class_fields) Hashtbl.t -> Ast.tident -> class_fields -> unit
 )
 ident(
   ext_ref Hashtbl.add
 )
-"typer.ml" 315 12048 12072 "typer.ml" 315 12048 12082
+"typer.ml" 320 12431 12455 "typer.ml" 320 12431 12465
 type(
   (Ast.tident, class_fields) Hashtbl.t
 )
 ident(
   int_ref decl_class "typer.ml" 14 288 292 "typer.ml" 14 288 302
 )
-"typer.ml" 315 12048 12083 "typer.ml" 315 12048 12088
+"typer.ml" 320 12431 12466 "typer.ml" 320 12431 12471
 type(
   Ast.ident
 )
 ident(
-  int_ref ident "typer.ml" 300 11411 11421 "typer.ml" 300 11411 11426
+  int_ref ident "typer.ml" 305 11794 11804 "typer.ml" 305 11794 11809
 )
-"typer.ml" 315 12048 12097 "typer.ml" 315 12048 12102
+"typer.ml" 320 12431 12480 "typer.ml" 320 12431 12485
 type(
   Ast.ident
 )
 ident(
-  int_ref ident "typer.ml" 300 11411 11421 "typer.ml" 300 11411 11426
+  int_ref ident "typer.ml" 305 11794 11804 "typer.ml" 305 11794 11809
 )
-"typer.ml" 315 12048 12113 "typer.ml" 315 12048 12119
+"typer.ml" 320 12431 12496 "typer.ml" 320 12431 12502
 type(
   (Ast_typing.at_var, field_offset) Hashtbl.t
 )
 ident(
-  int_ref fields "typer.ml" 308 11671 11687 "typer.ml" 308 11671 11693
+  int_ref fields "typer.ml" 313 12054 12070 "typer.ml" 313 12054 12076
 )
-"typer.ml" 315 12048 12089 "typer.ml" 315 12048 12121
+"typer.ml" 320 12431 12472 "typer.ml" 320 12431 12504
 type(
   class_fields
 )
-"typer.ml" 315 12048 12060 "typer.ml" 315 12048 12121
+"typer.ml" 320 12431 12443 "typer.ml" 320 12431 12504
 call(
   stack
 )
 type(
   unit
 )
-"typer.ml" 316 12123 12135 "typer.ml" 316 12123 12151
+"typer.ml" 321 12506 12518 "typer.ml" 321 12506 12534
 type(
   Ast_typing.at_decl_class
 )
 ident(
-  int_ref ast_typing_class "typer.ml" 301 11447 11463 "typer.ml" 301 11447 11479
+  int_ref ast_typing_class "typer.ml" 306 11830 11846 "typer.ml" 306 11830 11862
 )
-"typer.ml" 315 12048 12060 "typer.ml" 316 12123 12151
+"typer.ml" 320 12431 12443 "typer.ml" 321 12506 12534
 type(
   Ast_typing.at_decl_class
 )
-"typer.ml" 313 11967 11979 "typer.ml" 316 12123 12151
+"typer.ml" 318 12350 12362 "typer.ml" 321 12506 12534
 type(
   Ast_typing.at_decl_class
 )
-"typer.ml" 309 11717 11729 "typer.ml" 316 12123 12151
+"typer.ml" 314 12100 12112 "typer.ml" 321 12506 12534
 type(
   Ast_typing.at_decl_class
 )
-"typer.ml" 308 11671 11683 "typer.ml" 316 12123 12151
+"typer.ml" 313 12054 12066 "typer.ml" 321 12506 12534
 type(
   Ast_typing.at_decl_class
 )
-"typer.ml" 301 11447 11459 "typer.ml" 316 12123 12151
+"typer.ml" 306 11830 11842 "typer.ml" 321 12506 12534
 type(
   Ast_typing.at_decl_class
 )
-"typer.ml" 298 11350 11369 "typer.ml" 317 12152 12159
+"typer.ml" 303 11733 11752 "typer.ml" 322 12535 12542
 type(
   Ast_typing.at_decl_class
 )
-"typer.ml" 320 12176 12180 "typer.ml" 320 12176 12189
+"typer.ml" 325 12559 12563 "typer.ml" 325 12559 12572
 type(
   Ast.decl -> Ast_typing.at_decl
 )
 ident(
-  def type_decl "typer.ml" 343 13064 13064 "typer.ml" 1 0 -1
+  def type_decl "typer.ml" 348 13447 13447 "typer.ml" 1 0 -1
 )
-"typer.ml" 321 12201 12212 "typer.ml" 321 12201 12213
+"typer.ml" 326 12584 12595 "typer.ml" 326 12584 12596
 type(
   Ast.decl_vars
 )
 ident(
-  def x "typer.ml" 322 12217 12229 "typer.ml" 339 12958 12971
+  def x "typer.ml" 327 12600 12612 "typer.ml" 344 13341 13354
 )
-"typer.ml" 321 12201 12207 "typer.ml" 321 12201 12213
+"typer.ml" 326 12584 12590 "typer.ml" 326 12584 12596
 type(
   Ast.decl
 )
-"typer.ml" 322 12217 12233 "typer.ml" 322 12217 12236
+"typer.ml" 327 12600 12616 "typer.ml" 327 12600 12619
 type(
   Lexing.position
 )
 ident(
-  def pos "typer.ml" 324 12263 12275 "typer.ml" 339 12958 12971
+  def pos "typer.ml" 329 12646 12658 "typer.ml" 344 13341 13354
 )
-"typer.ml" 322 12217 12239 "typer.ml" 322 12217 12242
+"typer.ml" 327 12600 12622 "typer.ml" 327 12600 12625
 type(
   Ast.loc -> Lexing.position
 )
 ident(
   ext_ref Pervasives.fst
 )
-"typer.ml" 322 12217 12243 "typer.ml" 322 12217 12244
+"typer.ml" 327 12600 12626 "typer.ml" 327 12600 12627
 type(
   Ast.decl_vars
 )
 ident(
-  int_ref x "typer.ml" 321 12201 12212 "typer.ml" 321 12201 12213
+  int_ref x "typer.ml" 326 12584 12595 "typer.ml" 326 12584 12596
 )
-"typer.ml" 322 12217 12243 "typer.ml" 322 12217 12258
+"typer.ml" 327 12600 12626 "typer.ml" 327 12600 12641
 type(
   Ast.loc
 )
-"typer.ml" 322 12217 12239 "typer.ml" 322 12217 12258
+"typer.ml" 327 12600 12622 "typer.ml" 327 12600 12641
 type(
   Lexing.position
 )
-"typer.ml" 324 12263 12279 "typer.ml" 324 12263 12291
+"typer.ml" 329 12646 12662 "typer.ml" 329 12646 12674
 type(
   'a -> Ast.var -> unit
 )
 ident(
-  def fold_globals "typer.ml" 335 12686 12698 "typer.ml" 339 12958 12971
+  def fold_globals "typer.ml" 340 13069 13081 "typer.ml" 344 13341 13354
 )
-"typer.ml" 324 12263 12292 "typer.ml" 324 12263 12293
+"typer.ml" 329 12646 12675 "typer.ml" 329 12646 12676
 type(
   'a
 )
 ident(
-  def x "typer.ml" 324 12263 12294 "typer.ml" 332 12609 12669
+  def x "typer.ml" 329 12646 12677 "typer.ml" 337 12992 13052
 )
-"typer.ml" 324 12263 12294 "typer.ml" 324 12263 12295
+"typer.ml" 329 12646 12677 "typer.ml" 329 12646 12678
 type(
   Ast.var
 )
 ident(
-  def y "typer.ml" 325 12298 12314 "typer.ml" 332 12609 12669
+  def y "typer.ml" 330 12681 12697 "typer.ml" 337 12992 13052
 )
-"typer.ml" 325 12298 12318 "typer.ml" 325 12298 12327
+"typer.ml" 330 12681 12701 "typer.ml" 330 12681 12710
 type(
   Ast_typing.at_var
 )
 ident(
-  def typed_var "typer.ml" 326 12374 12390 "typer.ml" 332 12609 12669
+  def typed_var "typer.ml" 331 12757 12773 "typer.ml" 337 12992 13052
 )
-"typer.ml" 325 12298 12330 "typer.ml" 325 12298 12338
+"typer.ml" 330 12681 12713 "typer.ml" 330 12681 12721
 type(
   Lexing.position ->
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
@@ -7102,274 +7553,274 @@ type(
 ident(
   int_ref type_var "typer.ml" 63 1297 1305 "typer.ml" 63 1297 1313
 )
-"typer.ml" 325 12298 12339 "typer.ml" 325 12298 12342
+"typer.ml" 330 12681 12722 "typer.ml" 330 12681 12725
 type(
   Lexing.position
 )
 ident(
-  int_ref pos "typer.ml" 322 12217 12233 "typer.ml" 322 12217 12236
+  int_ref pos "typer.ml" 327 12600 12616 "typer.ml" 327 12600 12619
 )
-"typer.ml" 325 12298 12344 "typer.ml" 325 12298 12358
+"typer.ml" 330 12681 12727 "typer.ml" 330 12681 12741
 type(
   ?random:bool -> int -> (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
   ext_ref Hashtbl.create
 )
-"typer.ml" 325 12298 12359 "typer.ml" 325 12298 12361
+"typer.ml" 330 12681 12742 "typer.ml" 330 12681 12744
 type(
   int
 )
-"typer.ml" 325 12298 12343 "typer.ml" 325 12298 12362
+"typer.ml" 330 12681 12726 "typer.ml" 330 12681 12745
 call(
   stack
 )
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
-"typer.ml" 325 12298 12363 "typer.ml" 325 12298 12368
+"typer.ml" 330 12681 12746 "typer.ml" 330 12681 12751
 type(
   bool
 )
-"typer.ml" 325 12298 12369 "typer.ml" 325 12298 12370
+"typer.ml" 330 12681 12752 "typer.ml" 330 12681 12753
 type(
   Ast.var
 )
 ident(
-  int_ref y "typer.ml" 324 12263 12294 "typer.ml" 324 12263 12295
+  int_ref y "typer.ml" 329 12646 12677 "typer.ml" 329 12646 12678
 )
-"typer.ml" 325 12298 12330 "typer.ml" 325 12298 12370
+"typer.ml" 330 12681 12713 "typer.ml" 330 12681 12753
 call(
   stack
 )
 type(
   Ast_typing.at_var
 )
-"typer.ml" 326 12374 12398 "typer.ml" 326 12374 12407
+"typer.ml" 331 12757 12781 "typer.ml" 331 12757 12790
 type(
   Ast_typing.at_var -> Ast_typing.at_var
 )
 ident(
-  def get_ident "typer.ml" 326 12374 12390 "typer.ml" 332 12609 12669
+  def get_ident "typer.ml" 331 12757 12773 "typer.ml" 337 12992 13052
 )
-"typer.ml" 327 12419 12450 "typer.ml" 327 12419 12455
+"typer.ml" 332 12802 12833 "typer.ml" 332 12802 12838
 type(
   Ast_typing.at_ident
 )
 ident(
-  def ident "typer.ml" 327 12419 12459 "typer.ml" 327 12419 12473
+  def ident "typer.ml" 332 12802 12842 "typer.ml" 332 12802 12856
 )
-"typer.ml" 327 12419 12441 "typer.ml" 327 12419 12455
+"typer.ml" 332 12802 12824 "typer.ml" 332 12802 12838
 type(
   Ast_typing.at_var
 )
-"typer.ml" 327 12419 12468 "typer.ml" 327 12419 12473
+"typer.ml" 332 12802 12851 "typer.ml" 332 12802 12856
 type(
   Ast_typing.at_ident
 )
 ident(
-  int_ref ident "typer.ml" 327 12419 12450 "typer.ml" 327 12419 12455
+  int_ref ident "typer.ml" 332 12802 12833 "typer.ml" 332 12802 12838
 )
-"typer.ml" 327 12419 12459 "typer.ml" 327 12419 12473
+"typer.ml" 332 12802 12842 "typer.ml" 332 12802 12856
 type(
   Ast_typing.at_var
 )
-"typer.ml" 328 12474 12506 "typer.ml" 328 12474 12509
+"typer.ml" 333 12857 12889 "typer.ml" 333 12857 12892
 type(
   Ast_typing.at_var
 )
 ident(
-  def var "typer.ml" 328 12474 12513 "typer.ml" 328 12474 12526
+  def var "typer.ml" 333 12857 12896 "typer.ml" 333 12857 12909
 )
-"typer.ml" 328 12474 12496 "typer.ml" 328 12474 12509
+"typer.ml" 333 12857 12879 "typer.ml" 333 12857 12892
 type(
   Ast_typing.at_var
 )
-"typer.ml" 328 12474 12513 "typer.ml" 328 12474 12522
+"typer.ml" 333 12857 12896 "typer.ml" 333 12857 12905
 type(
   Ast_typing.at_var -> Ast_typing.at_var
 )
 ident(
-  int_ref get_ident "typer.ml" 326 12374 12398 "typer.ml" 326 12374 12407
+  int_ref get_ident "typer.ml" 331 12757 12781 "typer.ml" 331 12757 12790
 )
-"typer.ml" 328 12474 12523 "typer.ml" 328 12474 12526
+"typer.ml" 333 12857 12906 "typer.ml" 333 12857 12909
 type(
   Ast_typing.at_var
 )
 ident(
-  int_ref var "typer.ml" 328 12474 12506 "typer.ml" 328 12474 12509
+  int_ref var "typer.ml" 333 12857 12889 "typer.ml" 333 12857 12892
 )
-"typer.ml" 328 12474 12513 "typer.ml" 328 12474 12526
+"typer.ml" 333 12857 12896 "typer.ml" 333 12857 12909
 call(
   tail
 )
 type(
   Ast_typing.at_var
 )
-"typer.ml" 329 12527 12558 "typer.ml" 329 12527 12561
+"typer.ml" 334 12910 12941 "typer.ml" 334 12910 12944
 type(
   Ast_typing.at_var
 )
 ident(
-  def var "typer.ml" 329 12527 12565 "typer.ml" 329 12527 12577
+  def var "typer.ml" 334 12910 12948 "typer.ml" 334 12910 12960
 )
-"typer.ml" 329 12527 12549 "typer.ml" 329 12527 12561
+"typer.ml" 334 12910 12932 "typer.ml" 334 12910 12944
 type(
   Ast_typing.at_var
 )
-"typer.ml" 329 12527 12565 "typer.ml" 329 12527 12577
+"typer.ml" 334 12910 12948 "typer.ml" 334 12910 12960
 type(
   Ast_typing.at_var
 )
-"typer.ml" 326 12374 12410 "typer.ml" 329 12527 12577
+"typer.ml" 331 12757 12793 "typer.ml" 334 12910 12960
 type(
   Ast_typing.at_var -> Ast_typing.at_var
 )
-"typer.ml" 332 12609 12625 "typer.ml" 332 12609 12636
+"typer.ml" 337 12992 13008 "typer.ml" 337 12992 13019
 type(
   (Ast_typing.at_var, unit) Hashtbl.t -> Ast_typing.at_var -> unit -> unit
 )
 ident(
   ext_ref Hashtbl.add
 )
-"typer.ml" 332 12609 12637 "typer.ml" 332 12609 12644
+"typer.ml" 337 12992 13020 "typer.ml" 337 12992 13027
 type(
   (Ast_typing.at_var, unit) Hashtbl.t
 )
 ident(
   int_ref globals "typer.ml" 13 256 260 "typer.ml" 13 256 267
 )
-"typer.ml" 332 12609 12646 "typer.ml" 332 12609 12655
+"typer.ml" 337 12992 13029 "typer.ml" 337 12992 13038
 type(
   Ast_typing.at_var -> Ast_typing.at_var
 )
 ident(
-  int_ref get_ident "typer.ml" 326 12374 12398 "typer.ml" 326 12374 12407
+  int_ref get_ident "typer.ml" 331 12757 12781 "typer.ml" 331 12757 12790
 )
-"typer.ml" 332 12609 12656 "typer.ml" 332 12609 12665
+"typer.ml" 337 12992 13039 "typer.ml" 337 12992 13048
 type(
   Ast_typing.at_var
 )
 ident(
-  int_ref typed_var "typer.ml" 325 12298 12318 "typer.ml" 325 12298 12327
+  int_ref typed_var "typer.ml" 330 12681 12701 "typer.ml" 330 12681 12710
 )
-"typer.ml" 332 12609 12645 "typer.ml" 332 12609 12666
+"typer.ml" 337 12992 13028 "typer.ml" 337 12992 13049
 call(
   stack
 )
 type(
   Ast_typing.at_var
 )
-"typer.ml" 332 12609 12667 "typer.ml" 332 12609 12669
+"typer.ml" 337 12992 13050 "typer.ml" 337 12992 13052
 type(
   unit
 )
-"typer.ml" 332 12609 12625 "typer.ml" 332 12609 12669
+"typer.ml" 337 12992 13008 "typer.ml" 337 12992 13052
 call(
   tail
 )
 type(
   unit
 )
-"typer.ml" 326 12374 12390 "typer.ml" 332 12609 12669
+"typer.ml" 331 12757 12773 "typer.ml" 337 12992 13052
 type(
   unit
 )
-"typer.ml" 325 12298 12314 "typer.ml" 332 12609 12669
+"typer.ml" 330 12681 12697 "typer.ml" 337 12992 13052
 type(
   unit
 )
-"typer.ml" 335 12686 12698 "typer.ml" 335 12686 12712
+"typer.ml" 340 13069 13081 "typer.ml" 340 13069 13095
 type(
   (unit -> Ast.var -> unit) -> unit -> Ast.var list -> unit
 )
 ident(
   ext_ref List.fold_left
 )
-"typer.ml" 335 12686 12713 "typer.ml" 335 12686 12725
+"typer.ml" 340 13069 13096 "typer.ml" 340 13069 13108
 type(
   unit -> Ast.var -> unit
 )
 ident(
-  int_ref fold_globals "typer.ml" 324 12263 12279 "typer.ml" 324 12263 12291
+  int_ref fold_globals "typer.ml" 329 12646 12662 "typer.ml" 329 12646 12674
 )
-"typer.ml" 335 12686 12726 "typer.ml" 335 12686 12728
+"typer.ml" 340 13069 13109 "typer.ml" 340 13069 13111
 type(
   unit
 )
-"typer.ml" 335 12686 12730 "typer.ml" 335 12686 12733
+"typer.ml" 340 13069 13113 "typer.ml" 340 13069 13116
 type(
   Ast.ast_type * Ast.var list -> Ast.var list
 )
 ident(
   ext_ref Pervasives.snd
 )
-"typer.ml" 335 12686 12734 "typer.ml" 335 12686 12735
+"typer.ml" 340 13069 13117 "typer.ml" 340 13069 13118
 type(
   Ast.decl_vars
 )
 ident(
-  int_ref x "typer.ml" 321 12201 12212 "typer.ml" 321 12201 12213
+  int_ref x "typer.ml" 326 12584 12595 "typer.ml" 326 12584 12596
 )
-"typer.ml" 335 12686 12734 "typer.ml" 335 12686 12753
+"typer.ml" 340 13069 13117 "typer.ml" 340 13069 13136
 type(
   Ast.ast_type * Ast.var list
 )
-"typer.ml" 335 12686 12729 "typer.ml" 335 12686 12754
+"typer.ml" 340 13069 13112 "typer.ml" 340 13069 13137
 type(
   Ast.var list
 )
-"typer.ml" 335 12686 12698 "typer.ml" 335 12686 12754
+"typer.ml" 340 13069 13081 "typer.ml" 340 13069 13137
 call(
   stack
 )
 type(
   unit
 )
-"typer.ml" 337 12778 12809 "typer.ml" 337 12778 12827
+"typer.ml" 342 13161 13192 "typer.ml" 342 13161 13210
 type(
   Ast.ast_type -> Ast_typing.at_ast_type
 )
 ident(
   int_ref types_ast_to_atast "typer.ml" 27 560 564 "typer.ml" 27 560 582
 )
-"typer.ml" 337 12778 12829 "typer.ml" 337 12778 12832
+"typer.ml" 342 13161 13212 "typer.ml" 342 13161 13215
 type(
   Ast.ast_type * Ast.var list -> Ast.ast_type
 )
 ident(
   ext_ref Pervasives.fst
 )
-"typer.ml" 337 12778 12833 "typer.ml" 337 12778 12834
+"typer.ml" 342 13161 13216 "typer.ml" 342 13161 13217
 type(
   Ast.decl_vars
 )
 ident(
-  int_ref x "typer.ml" 321 12201 12212 "typer.ml" 321 12201 12213
+  int_ref x "typer.ml" 326 12584 12595 "typer.ml" 326 12584 12596
 )
-"typer.ml" 337 12778 12833 "typer.ml" 337 12778 12852
+"typer.ml" 342 13161 13216 "typer.ml" 342 13161 13235
 type(
   Ast.ast_type * Ast.var list
 )
-"typer.ml" 337 12778 12828 "typer.ml" 337 12778 12853
+"typer.ml" 342 13161 13211 "typer.ml" 342 13161 13236
 type(
   Ast.ast_type
 )
-"typer.ml" 337 12778 12808 "typer.ml" 337 12778 12854
+"typer.ml" 342 13161 13191 "typer.ml" 342 13161 13237
 call(
   stack
 )
 type(
   Ast_typing.at_ast_type
 )
-"typer.ml" 338 12856 12881 "typer.ml" 338 12856 12889
+"typer.ml" 343 13239 13264 "typer.ml" 343 13239 13272
 type(
   (Ast.var -> Ast_typing.at_var) -> Ast.var list -> Ast_typing.at_var list
 )
 ident(
   ext_ref List.map
 )
-"typer.ml" 338 12856 12891 "typer.ml" 338 12856 12899
+"typer.ml" 343 13239 13274 "typer.ml" 343 13239 13282
 type(
   Lexing.position ->
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t ->
@@ -7378,226 +7829,226 @@ type(
 ident(
   int_ref type_var "typer.ml" 63 1297 1305 "typer.ml" 63 1297 1313
 )
-"typer.ml" 338 12856 12900 "typer.ml" 338 12856 12903
+"typer.ml" 343 13239 13283 "typer.ml" 343 13239 13286
 type(
   Lexing.position
 )
 ident(
-  int_ref pos "typer.ml" 322 12217 12233 "typer.ml" 322 12217 12236
+  int_ref pos "typer.ml" 327 12600 12616 "typer.ml" 327 12600 12619
 )
-"typer.ml" 338 12856 12905 "typer.ml" 338 12856 12919
+"typer.ml" 343 13239 13288 "typer.ml" 343 13239 13302
 type(
   ?random:bool -> int -> (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
 ident(
   ext_ref Hashtbl.create
 )
-"typer.ml" 338 12856 12920 "typer.ml" 338 12856 12922
+"typer.ml" 343 13239 13303 "typer.ml" 343 13239 13305
 type(
   int
 )
-"typer.ml" 338 12856 12904 "typer.ml" 338 12856 12923
+"typer.ml" 343 13239 13287 "typer.ml" 343 13239 13306
 call(
   stack
 )
 type(
   (Ast_typing.at_var, Ast_typing.at_var_pos) Hashtbl.t
 )
-"typer.ml" 338 12856 12924 "typer.ml" 338 12856 12929
+"typer.ml" 343 13239 13307 "typer.ml" 343 13239 13312
 type(
   bool
 )
-"typer.ml" 338 12856 12890 "typer.ml" 338 12856 12930
+"typer.ml" 343 13239 13273 "typer.ml" 343 13239 13313
 call(
   stack
 )
 type(
   Ast.var -> Ast_typing.at_var
 )
-"typer.ml" 338 12856 12932 "typer.ml" 338 12856 12935
+"typer.ml" 343 13239 13315 "typer.ml" 343 13239 13318
 type(
   Ast.ast_type * Ast.var list -> Ast.var list
 )
 ident(
   ext_ref Pervasives.snd
 )
-"typer.ml" 338 12856 12936 "typer.ml" 338 12856 12937
+"typer.ml" 343 13239 13319 "typer.ml" 343 13239 13320
 type(
   Ast.decl_vars
 )
 ident(
-  int_ref x "typer.ml" 321 12201 12212 "typer.ml" 321 12201 12213
+  int_ref x "typer.ml" 326 12584 12595 "typer.ml" 326 12584 12596
 )
-"typer.ml" 338 12856 12936 "typer.ml" 338 12856 12955
+"typer.ml" 343 13239 13319 "typer.ml" 343 13239 13338
 type(
   Ast.ast_type * Ast.var list
 )
-"typer.ml" 338 12856 12931 "typer.ml" 338 12856 12956
+"typer.ml" 343 13239 13314 "typer.ml" 343 13239 13339
 type(
   Ast.var list
 )
-"typer.ml" 338 12856 12881 "typer.ml" 338 12856 12956
+"typer.ml" 343 13239 13264 "typer.ml" 343 13239 13339
 call(
   stack
 )
 type(
   Ast_typing.at_var list
 )
-"typer.ml" 336 12756 12776 "typer.ml" 339 12958 12971
+"typer.ml" 341 13139 13159 "typer.ml" 344 13341 13354
 type(
   Ast_typing.at_decl_vars
 )
-"typer.ml" 336 12756 12768 "typer.ml" 339 12958 12971
+"typer.ml" 341 13139 13151 "typer.ml" 344 13341 13354
 type(
   Ast_typing.at_decl
 )
-"typer.ml" 335 12686 12698 "typer.ml" 339 12958 12971
+"typer.ml" 340 13069 13081 "typer.ml" 344 13341 13354
 type(
   Ast_typing.at_decl
 )
-"typer.ml" 324 12263 12275 "typer.ml" 339 12958 12971
+"typer.ml" 329 12646 12658 "typer.ml" 344 13341 13354
 type(
   Ast_typing.at_decl
 )
-"typer.ml" 322 12217 12229 "typer.ml" 339 12958 12971
+"typer.ml" 327 12600 12612 "typer.ml" 344 13341 13354
 type(
   Ast_typing.at_decl
 )
-"typer.ml" 340 12972 12984 "typer.ml" 340 12972 12985
+"typer.ml" 345 13355 13367 "typer.ml" 345 13355 13368
 type(
   Ast.decl_class
 )
 ident(
-  def x "typer.ml" 340 12972 12989 "typer.ml" 340 12972 13012
+  def x "typer.ml" 345 13355 13372 "typer.ml" 345 13355 13395
 )
-"typer.ml" 340 12972 12978 "typer.ml" 340 12972 12985
+"typer.ml" 345 13355 13361 "typer.ml" 345 13355 13368
 type(
   Ast.decl
 )
-"typer.ml" 340 12972 12999 "typer.ml" 340 12972 13009
+"typer.ml" 345 13355 13382 "typer.ml" 345 13355 13392
 type(
   Ast.decl_class -> Ast_typing.at_decl_class
 )
 ident(
-  int_ref type_class "typer.ml" 298 11350 11354 "typer.ml" 298 11350 11364
+  int_ref type_class "typer.ml" 303 11733 11737 "typer.ml" 303 11733 11747
 )
-"typer.ml" 340 12972 13010 "typer.ml" 340 12972 13011
+"typer.ml" 345 13355 13393 "typer.ml" 345 13355 13394
 type(
   Ast.decl_class
 )
 ident(
-  int_ref x "typer.ml" 340 12972 12984 "typer.ml" 340 12972 12985
+  int_ref x "typer.ml" 345 13355 13367 "typer.ml" 345 13355 13368
 )
-"typer.ml" 340 12972 12998 "typer.ml" 340 12972 13012
+"typer.ml" 345 13355 13381 "typer.ml" 345 13355 13395
 call(
   stack
 )
 type(
   Ast_typing.at_decl_class
 )
-"typer.ml" 340 12972 12989 "typer.ml" 340 12972 13012
+"typer.ml" 345 13355 13372 "typer.ml" 345 13355 13395
 type(
   Ast_typing.at_decl
 )
-"typer.ml" 341 13013 13028 "typer.ml" 341 13013 13029
+"typer.ml" 346 13396 13411 "typer.ml" 346 13396 13412
 type(
   Ast.fonction
 )
 ident(
-  def x "typer.ml" 341 13013 13033 "typer.ml" 341 13013 13062
+  def x "typer.ml" 346 13396 13416 "typer.ml" 346 13396 13445
 )
-"typer.ml" 341 13013 13019 "typer.ml" 341 13013 13029
+"typer.ml" 346 13396 13402 "typer.ml" 346 13396 13412
 type(
   Ast.decl
 )
-"typer.ml" 341 13013 13046 "typer.ml" 341 13013 13059
+"typer.ml" 346 13396 13429 "typer.ml" 346 13396 13442
 type(
   Ast.fonction -> Ast_typing.at_fonction
 )
 ident(
-  int_ref type_fonction "typer.ml" 267 10248 10252 "typer.ml" 267 10248 10265
+  int_ref type_fonction "typer.ml" 272 10631 10635 "typer.ml" 272 10631 10648
 )
-"typer.ml" 341 13013 13060 "typer.ml" 341 13013 13061
+"typer.ml" 346 13396 13443 "typer.ml" 346 13396 13444
 type(
   Ast.fonction
 )
 ident(
-  int_ref x "typer.ml" 341 13013 13028 "typer.ml" 341 13013 13029
+  int_ref x "typer.ml" 346 13396 13411 "typer.ml" 346 13396 13412
 )
-"typer.ml" 341 13013 13045 "typer.ml" 341 13013 13062
+"typer.ml" 346 13396 13428 "typer.ml" 346 13396 13445
 call(
   stack
 )
 type(
   Ast_typing.at_fonction
 )
-"typer.ml" 341 13013 13033 "typer.ml" 341 13013 13062
+"typer.ml" 346 13396 13416 "typer.ml" 346 13396 13445
 type(
   Ast_typing.at_decl
 )
-"typer.ml" 320 12176 12192 "typer.ml" 341 13013 13062
+"typer.ml" 325 12559 12575 "typer.ml" 346 13396 13445
 type(
   Ast.decl -> Ast_typing.at_decl
 )
-"typer.ml" 343 13064 13072 "typer.ml" 343 13064 13080
+"typer.ml" 348 13447 13455 "typer.ml" 348 13447 13463
 type(
   Ast.program -> Ast_typing.at_decl list
 )
 ident(
-  def type_ast "typer.ml" 343 13064 13064 "typer.ml" 1 0 -1
+  def type_ast "typer.ml" 348 13447 13447 "typer.ml" 1 0 -1
 )
-"typer.ml" 343 13064 13081 "typer.ml" 343 13064 13082
+"typer.ml" 348 13447 13464 "typer.ml" 348 13447 13465
 type(
   Ast.program
 )
 ident(
-  def p "typer.ml" 344 13086 13090 "typer.ml" 351 13296 13310
+  def p "typer.ml" 349 13469 13473 "typer.ml" 356 13679 13693
 )
-"typer.ml" 344 13086 13093 "typer.ml" 344 13086 13094
+"typer.ml" 349 13469 13476 "typer.ml" 349 13469 13477
 type(
   Ast.program
 )
 ident(
-  int_ref p "typer.ml" 343 13064 13081 "typer.ml" 343 13064 13082
+  int_ref p "typer.ml" 348 13447 13464 "typer.ml" 348 13447 13465
 )
-"typer.ml" 344 13086 13093 "typer.ml" 344 13086 13103
+"typer.ml" 349 13469 13476 "typer.ml" 349 13469 13486
 type(
   bool
 )
-"typer.ml" 344 13086 13109 "typer.ml" 344 13086 13117
+"typer.ml" 349 13469 13492 "typer.ml" 349 13469 13500
 type(
   bool ref
 )
 ident(
   int_ref includes "typer.ml" 10 201 205 "typer.ml" 10 201 213
 )
-"typer.ml" 344 13086 13118 "typer.ml" 344 13086 13120
+"typer.ml" 349 13469 13501 "typer.ml" 349 13469 13503
 type(
   bool ref -> bool -> unit
 )
 ident(
   ext_ref Pervasives.( := )
 )
-"typer.ml" 344 13086 13121 "typer.ml" 344 13086 13125
+"typer.ml" 349 13469 13504 "typer.ml" 349 13469 13508
 type(
   bool
 )
-"typer.ml" 344 13086 13109 "typer.ml" 344 13086 13125
+"typer.ml" 349 13469 13492 "typer.ml" 349 13469 13508
 type(
   unit
 )
-"typer.ml" 344 13086 13090 "typer.ml" 344 13086 13125
+"typer.ml" 349 13469 13473 "typer.ml" 349 13469 13508
 type(
   unit
 )
-"typer.ml" 346 13128 13136 "typer.ml" 346 13128 13142
+"typer.ml" 351 13511 13519 "typer.ml" 351 13511 13525
 type(
   Ast_typing.at_decl list
 )
 ident(
-  def return "typer.ml" 348 13178 13182 "typer.ml" 351 13296 13310
+  def return "typer.ml" 353 13561 13565 "typer.ml" 356 13679 13693
 )
-"typer.ml" 346 13128 13145 "typer.ml" 346 13128 13153
+"typer.ml" 351 13511 13528 "typer.ml" 351 13511 13536
 type(
   (Ast.decl -> Ast_typing.at_decl) ->
   Ast.decl list -> Ast_typing.at_decl list
@@ -7605,117 +8056,117 @@ type(
 ident(
   ext_ref List.map
 )
-"typer.ml" 346 13128 13154 "typer.ml" 346 13128 13163
+"typer.ml" 351 13511 13537 "typer.ml" 351 13511 13546
 type(
   Ast.decl -> Ast_typing.at_decl
 )
 ident(
-  int_ref type_decl "typer.ml" 320 12176 12180 "typer.ml" 320 12176 12189
+  int_ref type_decl "typer.ml" 325 12559 12563 "typer.ml" 325 12559 12572
 )
-"typer.ml" 346 13128 13164 "typer.ml" 346 13128 13165
+"typer.ml" 351 13511 13547 "typer.ml" 351 13511 13548
 type(
   Ast.program
 )
 ident(
-  int_ref p "typer.ml" 343 13064 13081 "typer.ml" 343 13064 13082
+  int_ref p "typer.ml" 348 13447 13464 "typer.ml" 348 13447 13465
 )
-"typer.ml" 346 13128 13164 "typer.ml" 346 13128 13173
+"typer.ml" 351 13511 13547 "typer.ml" 351 13511 13556
 type(
   Ast.decl list
 )
-"typer.ml" 346 13128 13145 "typer.ml" 346 13128 13173
+"typer.ml" 351 13511 13528 "typer.ml" 351 13511 13556
 call(
   stack
 )
 type(
   Ast_typing.at_decl list
 )
-"typer.ml" 348 13178 13185 "typer.ml" 348 13178 13188
+"typer.ml" 353 13561 13568 "typer.ml" 353 13561 13571
 type(
   bool -> bool
 )
 ident(
   ext_ref Pervasives.not
 )
-"typer.ml" 348 13178 13189 "typer.ml" 348 13178 13190
+"typer.ml" 353 13561 13572 "typer.ml" 353 13561 13573
 type(
   bool ref -> bool
 )
 ident(
   ext_ref Pervasives.( ! )
 )
-"typer.ml" 348 13178 13190 "typer.ml" 348 13178 13202
+"typer.ml" 353 13561 13573 "typer.ml" 353 13561 13585
 type(
   bool ref
 )
 ident(
   int_ref is_main_here "typer.ml" 11 226 230 "typer.ml" 11 226 242
 )
-"typer.ml" 348 13178 13189 "typer.ml" 348 13178 13202
+"typer.ml" 353 13561 13572 "typer.ml" 353 13561 13585
 type(
   bool
 )
-"typer.ml" 348 13178 13185 "typer.ml" 348 13178 13202
+"typer.ml" 353 13561 13568 "typer.ml" 353 13561 13585
 type(
   bool
 )
-"typer.ml" 349 13208 13216 "typer.ml" 349 13208 13221
+"typer.ml" 354 13591 13599 "typer.ml" 354 13591 13604
 type(
   exn -> Ast_typing.at_decl list
 )
 ident(
   ext_ref Pervasives.raise
 )
-"typer.ml" 349 13208 13229 "typer.ml" 349 13208 13265
+"typer.ml" 354 13591 13612 "typer.ml" 354 13591 13648
 type(
   string
 )
-"typer.ml" 349 13208 13267 "typer.ml" 349 13208 13270
+"typer.ml" 354 13591 13650 "typer.ml" 354 13591 13653
 type(
   Ast.loc -> Lexing.position
 )
 ident(
   ext_ref Pervasives.fst
 )
-"typer.ml" 349 13208 13271 "typer.ml" 349 13208 13272
+"typer.ml" 354 13591 13654 "typer.ml" 354 13591 13655
 type(
   Ast.program
 )
 ident(
-  int_ref p "typer.ml" 343 13064 13081 "typer.ml" 343 13064 13082
+  int_ref p "typer.ml" 348 13447 13464 "typer.ml" 348 13447 13465
 )
-"typer.ml" 349 13208 13271 "typer.ml" 349 13208 13284
+"typer.ml" 354 13591 13654 "typer.ml" 354 13591 13667
 type(
   Ast.loc
 )
-"typer.ml" 349 13208 13267 "typer.ml" 349 13208 13284
+"typer.ml" 354 13591 13650 "typer.ml" 354 13591 13667
 type(
   Lexing.position
 )
-"typer.ml" 349 13208 13222 "typer.ml" 349 13208 13286
+"typer.ml" 354 13591 13605 "typer.ml" 354 13591 13669
 type(
   exn
 )
-"typer.ml" 349 13208 13216 "typer.ml" 349 13208 13286
+"typer.ml" 354 13591 13599 "typer.ml" 354 13591 13669
 type(
   Ast_typing.at_decl list
 )
-"typer.ml" 351 13296 13304 "typer.ml" 351 13296 13310
+"typer.ml" 356 13679 13687 "typer.ml" 356 13679 13693
 type(
   Ast_typing.at_decl list
 )
 ident(
-  int_ref return "typer.ml" 346 13128 13136 "typer.ml" 346 13128 13142
+  int_ref return "typer.ml" 351 13511 13519 "typer.ml" 351 13511 13525
 )
-"typer.ml" 348 13178 13182 "typer.ml" 351 13296 13310
+"typer.ml" 353 13561 13565 "typer.ml" 356 13679 13693
 type(
   Ast_typing.at_decl list
 )
-"typer.ml" 346 13128 13132 "typer.ml" 351 13296 13310
+"typer.ml" 351 13511 13515 "typer.ml" 356 13679 13693
 type(
   Ast_typing.at_decl list
 )
-"typer.ml" 344 13086 13090 "typer.ml" 351 13296 13310
+"typer.ml" 349 13469 13473 "typer.ml" 356 13679 13693
 type(
   Ast_typing.at_decl list
 )

@@ -204,10 +204,13 @@ let rec type_instruction locals x = match x.instruction_content with
                 | _ -> assert false (* TODO *)
             end
         end
-    | If (e, instr) -> let if_locals = Hashtbl.copy locals in ATIfElse (type_expr (fst x.instruction_loc) if_locals e, type_instruction if_locals instr, ATNop, if_locals)
-    | IfElse (e, instr1, instr2)  -> let if_locals = Hashtbl.copy locals in ATIfElse (type_expr (fst x.instruction_loc) if_locals e, type_instruction if_locals instr1, type_instruction if_locals instr2, if_locals)
-    | IBloc bloc -> let bloc_locals = Hashtbl.copy locals in ATIBloc (type_bloc bloc_locals bloc, bloc_locals)
-    | While (e, instr) -> let while_locals = Hashtbl.copy locals in ATWhile (type_expr (fst x.instruction_loc) while_locals e, type_instruction while_locals instr, while_locals)
+    | If (e, instr) -> let if_locals = Hashtbl.copy locals in ATIfElse (type_expr (fst x.instruction_loc) if_locals e, type_instruction if_locals instr, ATNop, if_locals, 4*(Hashtbl.length if_locals) - 4*(Hashtbl.length locals))
+    | IfElse (e, instr1, instr2)  -> let if_locals = Hashtbl.copy locals in ATIfElse (type_expr (fst x.instruction_loc) if_locals e, type_instruction if_locals instr1, type_instruction if_locals instr2, if_locals, 4*(Hashtbl.length if_locals) - 4*(Hashtbl.length locals))
+    | IBloc bloc ->
+            let bloc_locals = Hashtbl.copy locals in
+            let tmp = type_bloc bloc_locals bloc in
+            ATIBloc (tmp, bloc_locals, 4*(Hashtbl.length bloc_locals) - 4*(Hashtbl.length locals))
+    | While (e, instr) -> let while_locals = Hashtbl.copy locals in ATWhile (type_expr (fst x.instruction_loc) while_locals e, type_instruction while_locals instr, while_locals, 4*(Hashtbl.length while_locals) - 4*(Hashtbl.length locals))
     | For (e1, se2, e3, i) ->
             let for_locals = Hashtbl.copy locals in
             let some_expr2 = 
@@ -219,7 +222,9 @@ let rec type_instruction locals x = match x.instruction_content with
             let expr1 = List.map (type_expr (fst x.instruction_loc) for_locals) e1 in
             let expr3 = List.map (type_expr (fst x.instruction_loc) for_locals) e3 in
 
-            ATFor(expr1, some_expr2, expr3, type_instruction for_locals i, for_locals)
+            let instr = type_instruction for_locals i in
+
+            ATFor(expr1, some_expr2, expr3, instr, for_locals, 4*(Hashtbl.length for_locals) - 4*(Hashtbl.length locals))
 
 and type_bloc locals x =
     let bloc_content = match x.bloc_content with

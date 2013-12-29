@@ -1,13 +1,9 @@
 * Makefile pourri
+* Typing => Mettre des décorations de type dans le ast_typing et les vérifier au typage
 * Fonctions
     * Surcharge
     * Arguments pointeurs / Passage par référence
-    * Typage plus performant à faire
 * Classes
     * Méthodes
     * Héritage
     * Héritage multiple
-
-Bugs :
-======
-* Mauvaise définition des positions => placer la variable en "plus négatif d'avant + 4"

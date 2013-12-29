@@ -91,5 +91,13 @@ int main() {
         std::cout << ++i << "\n";
     }
 
+    std::cout << "test for imbriques" << "\n";
+    for(i = 0; i < 5; i++) {
+        int k;
+        for(k = 0; k < 5; k++) {
+            std::cout << i << ", " << k << "\n";
+        }
+    }
+
     return 2;
 }

@@ -6,7 +6,7 @@ function_fonction:
 	add $fp, $sp, 8
 	sw $ra, 4($sp)
 	li $a0, 3
-	sw $a0, -4($fp)
+	sw $a0, -8($fp)
 	la $a0, string_1
 	li $v0, 4
 	syscall
@@ -37,22 +37,22 @@ function_fonction_args:
 	li $v0, 4
 	syscall
 	li $a0, 0
-	sw $a0, -12($fp)
+	sw $a0, -8($fp)
 	la $a0, string_4
 	li $v0, 4
 	syscall
 	b test_while_1
 body_while_1:
-	lw $a0, -12($fp)
+	lw $a0, -8($fp)
 	add $a1, $a0, 1
-	sw $a1, -12($fp)
+	sw $a1, -8($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_5
 	li $v0, 4
 	syscall
 test_while_1:
-	lw $a0, -12($fp)
+	lw $a0, -8($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 3
@@ -351,6 +351,58 @@ test_while_3:
 	add $sp, $sp, 4
 	slt $a0, $t1, $a0
 	bnez $a0, body_while_3
+	la $a0, string_32
+	li $v0, 4
+	syscall
+	la $a0, string_33
+	li $v0, 4
+	syscall
+	li $a0, 0
+	sw $a0, -16($fp)
+	b test_for_2
+body_for_2:
+	li $a0, 0
+	sw $a0, -32($fp)
+	li $a0, 0
+	sw $a0, -32($fp)
+	b test_for_3
+body_for_3:
+	lw $a0, -16($fp)
+	li $v0, 1
+	syscall
+	la $a0, string_34
+	li $v0, 4
+	syscall
+	lw $a0, -32($fp)
+	li $v0, 1
+	syscall
+	la $a0, string_35
+	li $v0, 4
+	syscall
+	lw $a0, -32($fp)
+	add $a1, $a0, 1
+	sw $a1, -32($fp)
+test_for_3:
+	lw $a0, -32($fp)
+	sub $sp, $sp, 4
+	sw $a0, 0($sp)
+	li $a0, 5
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	slt $a0, $t1, $a0
+	bnez $a0, body_for_3
+	lw $a0, -16($fp)
+	add $a1, $a0, 1
+	sw $a1, -16($fp)
+test_for_2:
+	lw $a0, -16($fp)
+	sub $sp, $sp, 4
+	sw $a0, 0($sp)
+	li $a0, 5
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	slt $a0, $t1, $a0
+	bnez $a0, body_for_2
 	li $a0, 2
 	move $v0, $a0
 	b end_function_main
@@ -433,4 +485,12 @@ string_29:
 string_30:
 	.asciiz "\n"
 string_31:
+	.asciiz "\n"
+string_32:
+	.asciiz "test for imbriques"
+string_33:
+	.asciiz "\n"
+string_34:
+	.asciiz ", "
+string_35:
 	.asciiz "\n"

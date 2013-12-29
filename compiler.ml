@@ -476,7 +476,7 @@ let rec mips_instruction locals x y = match y with
                     ++ label ("object_"^(find_ident var))
                     ++ mips_for_class.data;
             }
-    | ATIfElse (e, i1, i2, if_locals) ->
+    | ATIfElse (e, i1, i2, if_locals, frame_size) ->
         nb_if := !nb_if + 1;
         let if_id = !nb_if in
 
@@ -485,19 +485,21 @@ let rec mips_instruction locals x y = match y with
         let mips_for_instr2 = mips_instruction if_locals empty_mips i2 in
         {
             text = x.text
+                ++ add sp sp oi (-frame_size)
                 ++ mips_for_expr.text
                 ++ beqz a0 ("else_"^(string_of_int if_id))
                 ++ mips_for_instr1.text
                 ++ b ("end_if_"^(string_of_int if_id))
                 ++ label ("else_"^(string_of_int if_id))
                 ++ mips_for_instr2.text
-                ++ label ("end_if_"^(string_of_int if_id));
+                ++ label ("end_if_"^(string_of_int if_id))
+                ++ add sp sp oi (frame_size);
             data = x.data
                 ++ mips_for_expr.data
                 ++ mips_for_instr1.data
                 ++ mips_for_instr2.data;
         }
-    | ATWhile (e, i, while_locals) ->
+    | ATWhile (e, i, while_locals, frame_size) ->
             nb_while := !nb_while + 1;
             let while_id = !nb_while in 
             let mips_for_expr = mips_expr while_locals e in
@@ -505,17 +507,19 @@ let rec mips_instruction locals x y = match y with
 
             {
                 text = x.text
+                    ++ add sp sp oi (-frame_size)
                     ++ b ("test_while_"^(string_of_int while_id))
                     ++ label ("body_while_"^(string_of_int while_id))
                     ++ mips_for_instr.text
                     ++ label ("test_while_"^(string_of_int while_id))
                     ++ mips_for_expr.text
-                    ++ bnez a0 ("body_while_"^(string_of_int while_id));
+                    ++ bnez a0 ("body_while_"^(string_of_int while_id))
+                    ++ add sp sp oi (frame_size);
                 data = x.data
                     ++ mips_for_instr.data
                     ++ mips_for_expr.data;
             }
-    | ATFor (e1, e2, e3, i, for_locals) ->
+    | ATFor (e1, e2, e3, i, for_locals, frame_size) ->
             nb_for := !nb_for + 1;
             let for_id = !nb_for in
 
@@ -526,6 +530,7 @@ let rec mips_instruction locals x y = match y with
 
             {
                 text = x.text
+                    ++ add sp sp oi (-frame_size)
                     ++ mips_for_expr1.text
                     ++ b ("test_for_"^(string_of_int for_id))
                     ++ label ("body_for_"^(string_of_int for_id))
@@ -533,15 +538,24 @@ let rec mips_instruction locals x y = match y with
                     ++ mips_for_expr3.text
                     ++ label ("test_for_"^(string_of_int for_id))
                     ++ mips_for_expr2.text
-                    ++ bnez a0 ("body_for_"^(string_of_int for_id));
+                    ++ bnez a0 ("body_for_"^(string_of_int for_id))
+                    ++ add sp sp oi (frame_size);
                 data = x.data
                     ++ mips_for_expr1.data
                     ++ mips_for_expr2.data
                     ++ mips_for_expr3.data
                     ++ mips_for_instr.data;
             }
-    | ATIBloc (bloc, bloc_locals) ->
-        List.fold_left (mips_instruction bloc_locals) empty_mips bloc
+    | ATIBloc (bloc, bloc_locals, frame_size) ->
+            let tmp_mips = List.fold_left (mips_instruction bloc_locals) empty_mips bloc in
+            {
+                text = x.text
+                    ++ add sp sp oi (-frame_size)
+                    ++ tmp_mips.text
+                    ++ add sp sp oi (frame_size);
+                data = x.data
+                    ++ tmp_mips.data;
+            }
     | ATReturn (e, f_label) ->
             let mips_for_expr = match e with
             | Some expr -> mips_expr locals expr

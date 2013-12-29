@@ -7,8 +7,10 @@ function_fact_loop:
 	sw $ra, 4($sp)
 	li $a0, 1
 	sw $a0, -8($fp)
+	add $sp, $sp, 0
 	b test_while_1
 body_while_1:
+	add $sp, $sp, 0
 	lw $a0, -8($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
@@ -19,6 +21,7 @@ body_while_1:
 	add $sp, $sp, 4
 	mul $a0, $t1, $a0
 	sw $a0, -8($fp)
+	add $sp, $sp, 0
 test_while_1:
 	lw $a0, 4($fp)
 	sub $sp, $sp, 4
@@ -28,6 +31,7 @@ test_while_1:
 	add $sp, $sp, 4
 	sgt $a0, $t1, $a0
 	bnez $a0, body_while_1
+	add $sp, $sp, 0
 	lw $a0, -8($fp)
 	move $v0, $a0
 	b end_function_fact_loop

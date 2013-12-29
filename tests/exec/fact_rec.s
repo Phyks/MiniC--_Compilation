@@ -5,6 +5,7 @@ function_fact_rec:
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
 	sw $ra, 0($sp)
+	add $sp, $sp, 0
 	lw $a0, 4($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
@@ -19,6 +20,7 @@ function_fact_rec:
 	b end_if_1
 else_1:
 end_if_1:
+	add $sp, $sp, 0
 	lw $a0, 4($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
