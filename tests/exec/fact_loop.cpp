@@ -2,7 +2,7 @@
 
 int fact_loop(int n) {
   int r = 1;
-  while (n > 1) r = r * n--;
+  while (n > 1) { r = r * n--;}
   return r;
 }
 

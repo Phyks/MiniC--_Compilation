@@ -128,6 +128,7 @@ let rec mips_expr locals = function
     | ATArrow (e, ident) -> assert false
     | ATAssign (ATEQident (ATIdent i, local), e2) ->
             let mips_for_e2 = mips_expr locals e2 in
+            
             if local then
                 begin
                     match Hashtbl.find locals (ATVIdent i) with
@@ -582,15 +583,15 @@ let mips_fonction f =
     
     {
         text = label f_label
-            ++ add sp sp oi (-length)
-            ++ sw fp areg (length-4, sp)
-            ++ add fp sp oi (length-4)
-            ++ sw ra areg (length - 8, sp)
+            ++ add sp sp oi (-length-4)
+            ++ sw fp areg (length, sp)
+            ++ add fp sp oi (length)
+            ++ sw ra areg (length - 4, sp)
             ++ mips_bloc.text
             ++ label ("end_"^f_label)
-            ++ lw ra areg (length - 8, sp)
-            ++ lw fp areg (length -4, sp)
-            ++ add sp sp oi length
+            ++ lw ra areg (length - 4, sp)
+            ++ lw fp areg (length, sp)
+            ++ add sp sp oi (length+4)
             ++ mips_exit.text;
         data = mips_bloc.data;
     }

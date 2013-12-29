@@ -7,3 +7,7 @@
     * Méthodes
     * Héritage
     * Héritage multiple
+
+Bugs :
+======
+* Mauvaise définition des positions => placer la variable en "plus négatif d'avant + 4"

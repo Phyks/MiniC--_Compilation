@@ -56,13 +56,17 @@ let type_qident = function
     | _ -> assert false
     (* TODO *)
 
+let max_hashtbl k d x = match d with
+    | Pos p -> if p < x then x else p
+    | Global_var_ref _ -> x
+
 let rec type_var pos locals heap = function
     | VIdent ident -> 
         if Hashtbl.mem locals (ATVIdent ident) then
             raise (Error ("redeclaration of "^ident, pos));
 
         let pos = if not heap then
-                (4 * Hashtbl.length locals)
+                ((Hashtbl.fold max_hashtbl) locals 0) + 4
             else
                 -1
             in
@@ -262,15 +266,14 @@ let type_proto args x =
 
 let type_fonction x =
     let locals = Hashtbl.create 17 in
-    (* Ajoute deux identifiants invalides pour tenir compte du décalage lié à la sauvegarde de fp et ra *)
-    Hashtbl.add locals (ATVIdent "") (Pos 0);
+    (* Ajoute un identifiant (invalide = pas de conflits) pour tenir compte du décalage lié à la sauvegarde de fp et ra *)
     Hashtbl.add locals (ATVIdent "_") (Pos 4);
 
     let args = Hashtbl.create 17 in
     let type_for_proto = type_proto args (fst x.fonction_content) in
     let args_to_locals a b =
         match b with
-        | Pos p -> Hashtbl.add locals a (Pos (-p-4))
+        | Pos p -> Hashtbl.add locals a (Pos (-p))
         | _ -> assert false
     in
     Hashtbl.iter args_to_locals args;

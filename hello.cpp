@@ -4,6 +4,7 @@ int test, bidule, truc;
 int chose;
 
 void fonction() {
+    int x = 3;
     std::cout << "ok\n";
     return 31415;
 }
@@ -11,6 +12,12 @@ void fonction() {
 int fonction_args(int x, int y) {
     std::cout << x << "\n";
     std::cout << y << "\n";
+    int i = 0;
+
+    std::cout << "\n";
+    while(i < 3)
+        std::cout << i++ << "\n";
+    std::cout << "\n";
 }
 
 class A { public: int x; int y;};
@@ -78,6 +85,11 @@ int main() {
     std::cout << a.y << "\n";
 
     fonction_args(42, 43);
+
+    i = 0;
+    while(i < 5) {
+        std::cout << ++i << "\n";
+    }
 
     return 2;
 }
