@@ -106,6 +106,7 @@ let rec mips_expr locals = function
                                 text = lw a0 alab ("var_"^id);
                                 data = nop;
                             }
+                        | Arg_ref _ -> assert false; (* TODO *)
                     end
                 else
                     {
@@ -139,11 +140,12 @@ let rec mips_expr locals = function
                             data = mips_for_e2.data;
                         }
                     | Global_var_ref id ->
-                            {
+                        {
                             text = mips_for_e2.text
                                 ++ sw a0 alab ("var_"^id);
                             data = mips_for_e2.data;
                         }
+                    | Arg_ref _ -> assert false; (* TODO *)
                 end
             else
                 {
@@ -170,6 +172,7 @@ let rec mips_expr locals = function
                                 ++ sw a0 areg (0, a1);
                             data = mips_for_e2.data;
                         }
+                | Arg_ref _ -> assert false; (* TODO *)
                 end
             else
                 {
@@ -193,20 +196,21 @@ let rec mips_expr locals = function
     | ATAssign (e1, e2) -> assert false (* TODO *)
     | ATApply (id, le) ->
             let compute_mips_push_args x e =
-                let mips_for_expr = mips_expr locals e in
+                let mips_for_expr = mips_expr locals (fst e) in
                 {
                     text =  mips_for_expr.text
-                        ++ push a0
+                        ++ if snd e then nop else push a0
                         ++ x.text;
                     data = mips_for_expr.data
                         ++ x.data;
                 }
             in
             let mips_push_args = List.fold_left compute_mips_push_args empty_mips le in
+            let length = List.fold_left (fun x y -> if snd y then x else x+4) 0 le in
             {
                 text = mips_push_args.text
                     ++ jal ("function_"^id)
-                    ++ popn (4*(List.length le));
+                    ++ popn length;
                 data = mips_push_args.data;
             }
     | ATInstance (tident, l) -> assert false
@@ -219,6 +223,7 @@ let rec mips_expr locals = function
                         lw reg areg(-pos, fp)
                     | Global_var_ref id ->
                         lw reg alab ("var_"^id)
+                    | Arg_ref _ -> assert false; (* TODO *)
                 end
             else
                 lw reg alab ("var_"^i)
@@ -230,6 +235,7 @@ let rec mips_expr locals = function
                         sw reg areg(-pos, fp)
                     | Global_var_ref id ->
                         sw reg alab ("var_"^id)
+                    | Arg_ref _ -> assert false; (* TODO *)
                 end
             else
                 sw reg alab ("var_"^i)
@@ -291,6 +297,7 @@ let rec mips_expr locals = function
                                     text = la a0 alab ("var_"^id);
                                     data = nop;
                                 }
+                            | Arg_ref _ -> assert false; (* TODO *)
                         end
                     )
                     else
@@ -324,6 +331,7 @@ let rec mips_expr locals = function
                                         ++ lw a0 areg (0, a0);
                                     data = nop;
                                 }
+                            | Arg_ref _ -> assert false; (* TODO *)
                         end
                     )
                     else
@@ -447,6 +455,7 @@ let rec mips_instruction locals x y = match y with
                     text = x.text;
                     data = x.data;
                 }
+            | Arg_ref _ -> assert false; (* TODO *)
         end
     | ATTVar (var, assign) ->
             let mips_for_assign = match assign with

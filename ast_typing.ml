@@ -3,7 +3,7 @@ open Ast
 
 type at_loc = Lexing.position * Lexing.position
 
-type at_var_pos = Pos of int | Global_var_ref of string (* Pour les références locales pour des variables globales *)
+type at_var_pos = Pos of int | Global_var_ref of string | Arg_ref of int (* Pour les références locales pour des variables globales *)
 
 (* Opérateurs binaires *)
 type at_operateur = ATEq | ATNeq | ATLt | ATLeq | ATGt | ATGeq | ATPlus | ATMinus | ATTimes | ATDiv | ATMod | ATAnd | ATOr
@@ -28,7 +28,7 @@ type at_expr = ATEInt of int
             | ATDot of at_expr * at_ident 
             | ATArrow of at_expr * at_ident 
             | ATAssign of at_expr * at_expr
-            | ATApply of at_ident * (at_expr list)
+            | ATApply of at_ident * ((at_expr*bool)list) (* Bool is true if passed by reference *)
             | ATInstance of at_tident * (at_expr list)
             | ATIncr of at_incr * at_expr
             | ATUOp of at_uoperateur * at_expr

@@ -121,8 +121,19 @@ let rec type_expr pos locals = function
     | Apply (e, le) -> begin
         match type_expr pos locals e with
         | ATEQident (ATIdent id, _) ->
-            if List.length le = List.length (Hashtbl.find decl_fonction id) then
-                ATApply (id, List.map (type_expr pos locals) le)
+            let decl_fonction_tmp = Hashtbl.find decl_fonction id in
+            let i = ref (-1) in
+
+            if List.length le = List.length decl_fonction_tmp then
+                let type_expr_ref x =
+                    i:=!i+1;
+                    let tmp = type_expr pos locals x in
+                    if snd(List.nth decl_fonction_tmp !i) then
+                        tmp, true
+                    else
+                        tmp, false
+                in
+                ATApply (id, List.map (type_expr_ref) le)
             else
                 raise (Error ("Wrong number of arguments for function "^id^".", pos))
         | _ -> raise (Error ("Expression cannot be used as a function.", pos))
@@ -240,8 +251,14 @@ let type_proto_ident = function
     (* TODO *)
 
 let type_args pos args x =
-    (types_ast_to_atast (fst x)), type_var pos args false (snd x)
+    let tmp = type_var pos args false (snd x) in
 
+    let reference = match tmp with
+    | ATVEComm _ -> true
+    | _ -> false
+    in
+
+    ((types_ast_to_atast (fst x)), tmp), reference
 let type_proto args x =
     let () = 
         match x.ident with
@@ -266,7 +283,7 @@ let type_proto args x =
 
     {
         at_ident_proto = type_proto_ident x.ident;
-        at_args = typed_args;
+        at_args = List.map fst typed_args;
     }
 
 let type_fonction x =
