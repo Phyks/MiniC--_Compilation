@@ -599,7 +599,7 @@ let rec mips_instruction locals x y = match y with
             | None -> { text = li a0 0; data = nop; }
             in
 
-            let mips_exit = if f_label = "main" then li v0 17 ++ syscall else jr ra in
+            let mips_exit = if f_label = "main" then li v0 17 ++ syscall else b ("end_function_"^f_label) in
             {
                 text = x.text
                     ++ mips_for_expr.text
