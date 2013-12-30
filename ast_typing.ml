@@ -39,7 +39,7 @@ type at_expr_string = ATExpr of at_expr | ATString of string
 type at_some_expr = at_expr option
 type at_some_assign = ATNoAssign | ATSAExpr of at_expr | ATSATident of at_tident * (at_expr list)
 
-type at_locals = (at_var, at_var_pos) Hashtbl.t
+type at_locals = (at_var, at_ast_type * at_var_pos) Hashtbl.t
 
 type at_instruction = ATNop
                    | ATIExpr of at_expr
@@ -54,7 +54,7 @@ type at_instruction = ATNop
                and
                at_bloc = at_instruction list
 
-and at_argument = at_ast_type * at_var
+and at_argument = at_var * at_ast_type
 
 and at_proto_ident = ATQvar of at_ast_type * at_qvar | ATType of at_tident | ATHerit of at_tident * at_tident
 and at_proto = {
@@ -62,7 +62,7 @@ and at_proto = {
     at_args : at_argument list;
 }
 
-and at_decl_vars = { at_ast_type: at_ast_type; at_var: (at_var list)}
+and at_decl_vars = (at_var * at_ast_type) list
 and at_member = ATMVar of at_decl_vars | ATProto of bool * at_proto
 and at_supers = (at_tident list) option
 and at_decl_class = { at_ident_class: at_ident; at_supers: at_supers; at_member: (at_member list)}
