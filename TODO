@@ -1,6 +1,6 @@
 * Makefile pourri
-* Typing => Mettre des décorations de type dans le ast_typing et les vérifier au typage
-    * Vérifier le typage des instructions
+* Typing
+    * Vérifier le typage des arguments lors de l'application d'une fonction
 * Fonctions
     * Surcharge
     * Passage par référence

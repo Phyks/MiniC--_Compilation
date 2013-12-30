@@ -140,7 +140,10 @@ let rec type_expr pos locals = function
             let tmp2 = type_expr pos locals e2 in
 
             if snd tmp1 = snd tmp2 then
-                ATOp (op_ast_to_atast op, fst tmp1, fst tmp2), snd tmp1
+                if num (snd tmp1) then
+                    ATOp (op_ast_to_atast op, fst tmp1, fst tmp2), snd tmp1
+                else
+                    raise (Error ("Type of the operands must be either an int or a pointer.", pos))
             else
                 raise (Error ("Left and right operands must have the same type.", pos))
     | Op (op, e1, e2) ->
@@ -168,7 +171,9 @@ let rec type_expr pos locals = function
     | UOp (EComm, e) -> begin
             let tmp = type_expr pos locals e in
 
-            ATUOp (ATUTimes, fst tmp), ATPointer (snd tmp)
+            match fst tmp with
+            | ATEQident _ -> ATUOp (ATUTimes, fst tmp), ATPointer (snd tmp)
+            | _ -> raise (Error ("Invalid ampersand.", pos))
     end
     | EQident qident -> begin
         match qident with
@@ -246,11 +251,13 @@ let rec type_instruction locals x = match x.instruction_content with
                 ATCout (List.map (type_expr_string (fst x.instruction_loc) locals) expr)
             else
                 raise (Error ("iostream not included.", (fst x.instruction_loc)))
-    | IExpr expr -> ATIExpr (fst(type_expr (fst x.instruction_loc) locals expr))
+    | IExpr expr ->
+            let tmp = type_expr (fst x.instruction_loc) locals expr in
+            ATIExpr (fst tmp)
     | Return some_expr -> begin
         match some_expr with
             | None -> ATReturn (None, !current_function)
-            | Some expr -> ATReturn (Some (fst(type_expr (fst x.instruction_loc) locals expr)), !current_function)
+            | Some expr -> let tmp = type_expr (fst x.instruction_loc) locals expr in if snd tmp = ATInt then ATReturn (Some (fst tmp), !current_function) else raise (Error ("Returned value must be int.", fst x.instruction_loc))
     end
     | IVar (ast_type, ident, assign) -> begin
         match ast_type with
@@ -264,7 +271,7 @@ let rec type_instruction locals x = match x.instruction_content with
                         ATTVar (fst new_ident, ATNoAssign)
                 | _ -> assert false (* TODO *)
             end
-            | Void | Int ->begin
+            | Int ->begin
                 let new_ident = type_var (fst x.instruction_loc) locals false ast_type ident in
 
                 match fst new_ident with
@@ -296,20 +303,42 @@ let rec type_instruction locals x = match x.instruction_content with
                     end
                 | _ -> assert false (* TODO *)
             end
+            | Void -> raise (Error ("Variable declared void.", fst x.instruction_loc));
         end
-    | If (e, instr) -> let if_locals = Hashtbl.copy locals in ATIfElse (fst(type_expr (fst x.instruction_loc) if_locals e), type_instruction if_locals instr, ATNop, if_locals, 4*(Hashtbl.length if_locals) - 4*(Hashtbl.length locals))
-    | IfElse (e, instr1, instr2)  -> let if_locals = Hashtbl.copy locals in ATIfElse (fst(type_expr (fst x.instruction_loc) if_locals e), type_instruction if_locals instr1, type_instruction if_locals instr2, if_locals, 4*(Hashtbl.length if_locals) - 4*(Hashtbl.length locals))
+    | If (e, instr) ->
+            let if_locals = Hashtbl.copy locals in
+            let tmp = type_expr (fst x.instruction_loc) if_locals e in
+
+            if snd tmp = ATInt then
+                ATIfElse (fst tmp, type_instruction if_locals instr, ATNop, if_locals, 4*(Hashtbl.length if_locals) - 4*(Hashtbl.length locals))
+            else
+                raise (Error ("Condition in if must be int.", fst x.instruction_loc))
+    | IfElse (e, instr1, instr2)  ->
+            let if_locals = Hashtbl.copy locals in
+
+            let tmp = type_expr (fst x.instruction_loc) if_locals e in
+            if snd tmp = ATInt then
+                ATIfElse (fst tmp, type_instruction if_locals instr1, type_instruction if_locals instr2, if_locals, 4*(Hashtbl.length if_locals) - 4*(Hashtbl.length locals))
+            else
+                raise (Error ("Condition in if must be int.", fst x.instruction_loc))
     | IBloc bloc ->
             let bloc_locals = Hashtbl.copy locals in
             let tmp = type_bloc bloc_locals bloc in
             ATIBloc (tmp, bloc_locals, 4*(Hashtbl.length bloc_locals) - 4*(Hashtbl.length locals))
-    | While (e, instr) -> let while_locals = Hashtbl.copy locals in ATWhile (fst(type_expr (fst x.instruction_loc) while_locals e), type_instruction while_locals instr, while_locals, 4*(Hashtbl.length while_locals) - 4*(Hashtbl.length locals))
+    | While (e, instr) ->
+            let while_locals = Hashtbl.copy locals in
+
+            let tmp = type_expr (fst x.instruction_loc) while_locals e in
+            if snd tmp = ATInt then
+                ATWhile (fst tmp, type_instruction while_locals instr, while_locals, 4*(Hashtbl.length while_locals) - 4*(Hashtbl.length locals))
+            else
+                raise (Error ("Loop condition in while must be int.", fst x.instruction_loc))
     | For (e1, se2, e3, i) ->
             let for_locals = Hashtbl.copy locals in
             let some_expr2 = 
                 match se2 with
                 | None -> ATEInt 1
-                | Some expr -> fst(type_expr (fst x.instruction_loc) for_locals expr)
+                | Some expr -> let tmp = type_expr (fst x.instruction_loc) for_locals expr in if snd tmp = ATInt then fst tmp else raise (Error ("Loop condition in for must be int", (fst x.instruction_loc)))
             in
 
             let expr1 = List.map (fun a -> fst(type_expr (fst x.instruction_loc) for_locals a)) e1 in
@@ -351,6 +380,10 @@ let type_proto args x =
         match x.ident with
         | Qvar (a, b) when a = Int && b = Qident (Ident "main") ->
                 current_function := "main";
+
+                if Hashtbl.mem globals (ATVIdent "main") then
+                    raise (Error ("Redeclaration of function main().", fst x.proto_loc));
+
                 Hashtbl.add globals (ATVIdent "main") (ATInt);
                 if List.length x.args = 0 then
                     if not !is_main_here then
@@ -359,6 +392,10 @@ let type_proto args x =
                         raise (Error ("Redeclaration of main function.", fst x.proto_loc))
         | Qvar (a, Qident (Ident id)) -> 
                 current_function := id;
+
+                if Hashtbl.mem globals (ATVIdent id) then
+                    raise (Error ("Redeclaration of function "^id^"().", fst x.proto_loc));
+
                 Hashtbl.add globals (ATVIdent id) (types_ast_to_atast a);
         | _ -> ()
     in
@@ -436,8 +473,18 @@ let type_decl = function
                     | ATVEComm var -> assert false (* TODO *)
                 in
 
-                Hashtbl.add globals (get_ident (fst typed_var)) (snd typed_var)
+                let tmp = get_ident (fst typed_var) in
+                if Hashtbl.mem globals tmp then begin
+                    match tmp with
+                    | ATVIdent id -> raise (Error ("Redeclaration of "^id^".", pos));
+                    | _ -> assert false; (* Never happens *)
+                end;
+
+                Hashtbl.add globals tmp (snd typed_var)
             in
+
+            if fst x.decl_vars_content = Void then
+                raise (Error ("Global variable declared void.", pos));
 
             List.fold_left fold_globals () (snd x.decl_vars_content);
 
