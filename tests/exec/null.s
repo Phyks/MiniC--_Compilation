@@ -21,8 +21,7 @@ function_main:
 	syscall
 	li $a0, 1
 	sw $a0, -12($fp)
-	lw $a0, -12($fp)
-	lw $a0, 0($a0)
+	la $a0, -12($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 0
@@ -34,8 +33,7 @@ function_main:
 	la $a0, string_2
 	li $v0, 4
 	syscall
-	lw $a0, 1($fp)
-	lw $a0, 0($a0)
+	la $a0, object_a
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 0

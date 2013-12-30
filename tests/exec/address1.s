@@ -16,8 +16,7 @@ function_main:
 	la $a0, string_2
 	li $v0, 4
 	syscall
-	lw $a0, -8($fp)
-	lw $a0, 0($a0)
+	la $a0, -8($fp)
 	sw $a0, -12($fp)
 	li $a0, 42
 	lw $a1, -12($fp)

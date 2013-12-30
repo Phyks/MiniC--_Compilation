@@ -13,8 +13,7 @@ function_main:
 	la $a0, string_1
 	li $v0, 4
 	syscall
-	lw $a0, var_x
-	lw $a0, 0($a0)
+	la $a0, var_x
 	sw $a0, var_p
 	lw $a0, var_p
 	lw $a0, 0($a0)

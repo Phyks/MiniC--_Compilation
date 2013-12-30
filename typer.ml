@@ -184,7 +184,7 @@ let rec type_expr pos locals = function
             let tmp = type_expr pos locals e in
 
             match fst tmp with
-            | ATEQident _ -> ATUOp (ATUTimes, fst tmp), ATPointer (snd tmp)
+            | ATEQident _ -> ATUOp (ATEComm, fst tmp), ATPointer (snd tmp)
             | _ -> raise (Error ("Invalid ampersand.", pos))
     end
     | EQident qident -> begin
