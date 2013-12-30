@@ -22,6 +22,7 @@ let is_left_value = function
     | EQident _ -> true
     | UOp (UTimes, _) -> true
     | Dot (EQident _, _) -> true
+    | Apply (EQident (Ident id), _) when Hashtbl.mem refs (ATVIdent id) -> true
     | _ -> false
 
 
@@ -339,7 +340,7 @@ let rec type_instruction locals x = match x.instruction_content with
                                     raise (Error ("Unbound variable "^eident, fst x.instruction_loc))
                             end
                         end
-                    | SAExpr (Apply (EQident (Ident id), _)) when Hashtbl.mem refs (ATVIdent id) -> assert false;
+                    | SAExpr (Apply (EQident (Ident id), _) as apply) when Hashtbl.mem refs (ATVIdent id) -> ATIVar(var, ATSAExpr (fst (type_expr (fst x.instruction_loc) locals apply)))
                     | SATident _ | SAExpr _ -> raise (Error ("Invalid reference initialization.", (fst x.instruction_loc)))
                     end
                 | _ -> assert false (* TODO *)
