@@ -1,12 +1,19 @@
 .text
-main:
+	b function_main
+function_main:
+	add $sp, $sp, -8
+	sw $fp, 4($sp)
+	add $fp, $sp, 4
+	sw $ra, 0($sp)
 	li $a0, 1
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 2
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	slt $a0, $a0, $t1
+	slt $a0, $t1, $a0
+	sne $a0, $a0, $zero
+	beqz $a0, lazy_end1
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 2
@@ -15,10 +22,14 @@ main:
 	li $a0, 3
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	sle $a0, $a0, $t1
+	sle $a0, $t1, $a0
+	sne $a0, $a0, $zero
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	and $a0, $a0, $t1
+	and $a0, $t1, $a0
+lazy_end1:
+	sne $a0, $a0, $zero
+	bnez $a0, lazy_end2
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 1
@@ -39,10 +50,12 @@ main:
 	add $a0, $t1, $a0
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	seq $a0, $a0, $t1
+	seq $a0, $t1, $a0
+	sne $a0, $a0, $zero
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	or $a0, $a0, $t1
+	or $a0, $t1, $a0
+lazy_end2:
 	li $v0, 1
 	syscall
 	la $a0, string_1
@@ -54,7 +67,9 @@ main:
 	li $a0, 1
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	sgt $a0, $a0, $t1
+	sgt $a0, $t1, $a0
+	sne $a0, $a0, $zero
+	beqz $a0, lazy_end4
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 2
@@ -63,7 +78,9 @@ main:
 	li $a0, 3
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	sge $a0, $a0, $t1
+	sge $a0, $t1, $a0
+	sne $a0, $a0, $zero
+	bnez $a0, lazy_end3
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 3
@@ -72,10 +89,12 @@ main:
 	li $a0, 3
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	sne $a0, $a0, $t1
+	sne $a0, $t1, $a0
+	sne $a0, $a0, $zero
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	or $a0, $a0, $t1
+	or $a0, $t1, $a0
+lazy_end3:
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 3
@@ -84,14 +103,16 @@ main:
 	li $a0, 4
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	seq $a0, $a0, $t1
+	seq $a0, $t1, $a0
 	seq $a0, $a0, $zero
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	seq $a0, $a0, $t1
+	seq $a0, $t1, $a0
+	sne $a0, $a0, $zero
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	and $a0, $a0, $t1
+	and $a0, $t1, $a0
+lazy_end4:
 	li $v0, 1
 	syscall
 	la $a0, string_2
@@ -111,7 +132,9 @@ main:
 	li $a0, 2
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	seq $a0, $a0, $t1
+	seq $a0, $t1, $a0
+	sne $a0, $a0, $zero
+	beqz $a0, lazy_end5
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 1
@@ -120,10 +143,14 @@ main:
 	li $a0, 2
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	seq $a0, $a0, $t1
+	seq $a0, $t1, $a0
+	sne $a0, $a0, $zero
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	and $a0, $a0, $t1
+	and $a0, $t1, $a0
+lazy_end5:
+	sne $a0, $a0, $zero
+	beqz $a0, lazy_end6
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 0
@@ -132,14 +159,22 @@ main:
 	li $a0, 0
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	seq $a0, $a0, $t1
+	seq $a0, $t1, $a0
+	sne $a0, $a0, $zero
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
-	and $a0, $a0, $t1
+	and $a0, $t1, $a0
+lazy_end6:
 	li $v0, 1
 	syscall
 	la $a0, string_3
 	li $v0, 4
+	syscall
+end_function_main:
+	lw $ra, 0($sp)
+	lw $fp, 4($sp)
+	add $sp, $sp, 8
+	li $v0, 10
 	syscall
 .data
 string_1:

@@ -13,7 +13,7 @@ function_add:
 	add $sp, $sp, 4
 	add $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_add
+	jr $ra
 end_function_add:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
@@ -33,7 +33,7 @@ function_sub:
 	add $sp, $sp, 4
 	sub $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_sub
+	jr $ra
 end_function_sub:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
@@ -73,7 +73,7 @@ function_mul:
 	add $sp, $sp, 4
 	div $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_mul
+	jr $ra
 end_function_mul:
 	lw $ra, 4($sp)
 	lw $fp, 8($sp)
@@ -113,7 +113,7 @@ function_div:
 	add $sp, $sp, 4
 	div $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_div
+	jr $ra
 end_function_div:
 	lw $ra, 4($sp)
 	lw $fp, 8($sp)
@@ -133,7 +133,7 @@ function_of_int:
 	add $sp, $sp, 4
 	mul $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_of_int
+	jr $ra
 end_function_of_int:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
@@ -156,7 +156,7 @@ function_iter:
 	beqz $a0, else_1
 	li $a0, 1
 	move $v0, $a0
-	b end_function_iter
+	jr $ra
 	b end_if_1
 else_1:
 end_if_1:
@@ -201,7 +201,7 @@ end_if_1:
 	beqz $a0, else_2
 	li $a0, 0
 	move $v0, $a0
-	b end_function_iter
+	jr $ra
 	b end_if_2
 else_2:
 end_if_2:
@@ -269,7 +269,7 @@ end_if_2:
 	jal function_iter
 	add $sp, $sp, 20
 	move $v0, $a0
-	b end_function_iter
+	jr $ra
 end_function_iter:
 	lw $ra, 8($sp)
 	lw $fp, 12($sp)
@@ -307,7 +307,7 @@ function_inside:
 	jal function_iter
 	add $sp, $sp, 20
 	move $v0, $a0
-	b end_function_inside
+	jr $ra
 end_function_inside:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
@@ -510,7 +510,7 @@ end_function_main:
 	lw $ra, 32($sp)
 	lw $fp, 36($sp)
 	add $sp, $sp, 40
-	li $v0, 17
+	li $v0, 10
 	syscall
 .data
 string_1:

@@ -13,7 +13,8 @@ function_main:
 	la $a0, string_1
 	li $v0, 4
 	syscall
-	la $a0, var_x
+	lw $a0, var_x
+	lw $a0, 0($a0)
 	sw $a0, var_p
 	lw $a0, var_p
 	lw $a0, 0($a0)
@@ -49,7 +50,7 @@ end_function_main:
 	lw $ra, 8($sp)
 	lw $fp, 12($sp)
 	add $sp, $sp, 16
-	li $v0, 17
+	li $v0, 10
 	syscall
 .data
 var_x:

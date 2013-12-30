@@ -34,7 +34,7 @@ test_while_1:
 	add $sp, $sp, 0
 	lw $a0, -8($fp)
 	move $v0, $a0
-	b end_function_fact_loop
+	jr $ra
 end_function_fact_loop:
 	lw $ra, 4($sp)
 	lw $fp, 8($sp)
@@ -60,7 +60,7 @@ end_function_main:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
-	li $v0, 17
+	li $v0, 10
 	syscall
 .data
 string_1:

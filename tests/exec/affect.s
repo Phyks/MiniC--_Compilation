@@ -1,5 +1,10 @@
 .text
-main:
+	b function_main
+function_main:
+	add $sp, $sp, -16
+	sw $fp, 12($sp)
+	add $fp, $sp, 12
+	sw $ra, 8($sp)
 	li $a0, 0
 	sw $a0, -8($fp)
 	li $a0, 0
@@ -50,6 +55,12 @@ main:
 	syscall
 	la $a0, string_4
 	li $v0, 4
+	syscall
+end_function_main:
+	lw $ra, 8($sp)
+	lw $fp, 12($sp)
+	add $sp, $sp, 16
+	li $v0, 10
 	syscall
 .data
 string_1:

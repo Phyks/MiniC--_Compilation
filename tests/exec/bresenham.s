@@ -5,6 +5,7 @@ function_plot:
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
 	sw $ra, 0($sp)
+	add $sp, $sp, 0
 	b test_while_1
 body_while_1:
 	la $a0, string_1
@@ -21,6 +22,7 @@ test_while_1:
 	add $sp, $sp, 4
 	sgt $a0, $t1, $a0
 	bnez $a0, body_while_1
+	add $sp, $sp, 0
 	la $a0, string_2
 	li $v0, 4
 	syscall
@@ -53,15 +55,18 @@ function_bresenham:
 	add $sp, $sp, 4
 	sub $a0, $t1, $a0
 	sw $a0, -16($fp)
+	add $sp, $sp, 0
 	li $a0, 0
 	sw $a0, -8($fp)
 	b test_for_1
 body_for_1:
+	add $sp, $sp, 0
 	lw $a0, -12($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	jal function_plot
 	add $sp, $sp, 4
+	add $sp, $sp, 0
 	lw $a0, -16($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
@@ -86,6 +91,7 @@ body_for_1:
 	sw $a0, -16($fp)
 	b end_if_1
 else_1:
+	add $sp, $sp, 0
 	lw $a0, -12($fp)
 	add $a1, $a0, 1
 	sw $a1, -12($fp)
@@ -109,7 +115,10 @@ else_1:
 	add $sp, $sp, 4
 	add $a0, $t1, $a0
 	sw $a0, -16($fp)
+	add $sp, $sp, 0
 end_if_1:
+	add $sp, $sp, 0
+	add $sp, $sp, 0
 	lw $a0, -8($fp)
 	add $a1, $a0, 1
 	sw $a1, -8($fp)
@@ -122,6 +131,7 @@ test_for_1:
 	add $sp, $sp, 4
 	sle $a0, $t1, $a0
 	bnez $a0, body_for_1
+	add $sp, $sp, 0
 end_function_bresenham:
 	lw $ra, 12($sp)
 	lw $fp, 16($sp)
@@ -145,7 +155,7 @@ end_function_main:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
-	li $v0, 17
+	li $v0, 10
 	syscall
 .data
 string_1:

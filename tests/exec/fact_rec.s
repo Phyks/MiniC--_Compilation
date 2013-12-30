@@ -16,7 +16,7 @@ function_fact_rec:
 	beqz $a0, else_1
 	li $a0, 1
 	move $v0, $a0
-	b end_function_fact_rec
+	jr $ra
 	b end_if_1
 else_1:
 end_if_1:
@@ -39,7 +39,7 @@ end_if_1:
 	add $sp, $sp, 4
 	mul $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_fact_rec
+	jr $ra
 end_function_fact_rec:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
@@ -65,7 +65,7 @@ end_function_main:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
-	li $v0, 17
+	li $v0, 10
 	syscall
 .data
 string_1:

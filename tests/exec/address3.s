@@ -37,7 +37,8 @@ function_main:
 	la $a0, string_2
 	li $v0, 4
 	syscall
-	la $a0, -8($fp)
+	lw $a0, -8($fp)
+	lw $a0, 0($a0)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	jal function_f
@@ -51,7 +52,8 @@ function_main:
 	la $a0, string_4
 	li $v0, 4
 	syscall
-	la $a0, -8($fp)
+	lw $a0, -8($fp)
+	lw $a0, 0($a0)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	jal function_f

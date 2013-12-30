@@ -1,6 +1,10 @@
 .text
 	b function_main
 function_main:
+	add $sp, $sp, -20
+	sw $fp, 16($sp)
+	add $fp, $sp, 16
+	sw $ra, 12($sp)
 	li $a0, 0
 	sw $a0, -8($fp)
 	lw $a0, -8($fp)
@@ -17,9 +21,8 @@ function_main:
 	syscall
 	li $a0, 1
 	sw $a0, -12($fp)
-	li $a0, 4
-	add $a0, $a0, -8
-	add $a0, $a0, $fp
+	lw $a0, -12($fp)
+	lw $a0, 0($a0)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 0
@@ -31,7 +34,8 @@ function_main:
 	la $a0, string_2
 	li $v0, 4
 	syscall
-	la $a0, object_a
+	lw $a0, 1($fp)
+	lw $a0, 0($a0)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 0
@@ -42,6 +46,12 @@ function_main:
 	syscall
 	la $a0, string_3
 	li $v0, 4
+	syscall
+end_function_main:
+	lw $ra, 12($sp)
+	lw $fp, 16($sp)
+	add $sp, $sp, 20
+	li $v0, 10
 	syscall
 .data
 string_1:

@@ -109,6 +109,14 @@ let num = function
     | ATNull | ATPointer _ -> true
     | _ -> false
 
+let compatible_types t1 t2 =
+    if t1 = t2 then true
+    else begin
+        match t1, t2 with
+        | ((ATPointer _ | ATNull), (ATPointer _ | ATNull)) -> true
+        | _ -> false
+    end
+
 let rec subtype t1 t2 = match t1 with
     | ATVoid -> false
     | ATInt -> if t2 = ATInt then true else false
@@ -143,9 +151,9 @@ let rec type_expr pos locals = function
             let tmp1 = type_expr pos locals e1 in
             let tmp2 = type_expr pos locals e2 in
 
-            if snd tmp1 = snd tmp2 then
+            if compatible_types (snd tmp1) (snd tmp2) then
                 if num (snd tmp1) then
-                    ATOp (op_ast_to_atast op, fst tmp1, fst tmp2), snd tmp1
+                    ATOp (op_ast_to_atast op, fst tmp1, fst tmp2), ATInt
                 else
                     raise (Error ("Type of the operands must be either an int or a pointer.", pos))
             else
@@ -212,7 +220,7 @@ let rec type_expr pos locals = function
             let correct_argument a b =
                 let tmp = type_expr pos locals a in
 
-                if snd tmp = snd (fst b) then
+                if compatible_types (snd tmp) (snd (fst b)) then
                     ()
                 else
                     raise (Error ("Type mismatch for an argument in function call.", pos))
@@ -278,7 +286,7 @@ let rec type_instruction locals x = match x.instruction_content with
             | Some expr ->
                     let tmp = type_expr (fst x.instruction_loc) locals expr in
                     
-                    if snd tmp = type_current_function then
+                    if compatible_types (snd tmp) type_current_function then
                         ATReturn (Some (fst tmp), !current_function)
                     else
                         raise (Error ("Returned value doesn't match with function type..", fst x.instruction_loc))
