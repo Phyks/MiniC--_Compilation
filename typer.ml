@@ -14,6 +14,7 @@ let globals = Hashtbl.create 17
 let decl_class = Hashtbl.create 17
 let decl_fonction = Hashtbl.create 17
 let objects = Hashtbl.create 17
+let refs = Hashtbl.create 17
 let current_function = ref ""
 
 
@@ -88,6 +89,8 @@ let rec type_var pos locals heap type_for_var = function
     | VEComm ((VIdent ident) as var) ->
             let new_var = type_var pos locals false type_for_var var in
             let tmp_type = types_ast_to_atast type_for_var in
+
+            Hashtbl.add refs (ATVIdent ident) ();
 
             ATVEComm (fst new_var), tmp_type
     | VEComm _ -> raise (Error ("double reference not allowed", pos))
@@ -287,7 +290,12 @@ let rec type_instruction locals x = match x.instruction_content with
                     let tmp = type_expr (fst x.instruction_loc) locals expr in
                     
                     if compatible_types (snd tmp) type_current_function then
-                        ATReturn (Some (fst tmp), !current_function)
+                        if Hashtbl.mem refs (ATVIdent !current_function) then
+                            match expr with
+                            | EQident _ -> ATReturn (Some (fst tmp), !current_function)
+                            | _ -> raise (Error ("Returned value doesn't match with function type..", fst x.instruction_loc))
+                        else
+                            ATReturn (Some (fst tmp), !current_function)
                     else
                         raise (Error ("Returned value doesn't match with function type..", fst x.instruction_loc))
     end
@@ -331,6 +339,7 @@ let rec type_instruction locals x = match x.instruction_content with
                                     raise (Error ("Unbound variable "^eident, fst x.instruction_loc))
                             end
                         end
+                    | SAExpr (Apply (EQident (Ident id), _)) when Hashtbl.mem refs (ATVIdent id) -> assert false;
                     | SATident _ | SAExpr _ -> raise (Error ("Invalid reference initialization.", (fst x.instruction_loc)))
                     end
                 | _ -> assert false (* TODO *)
@@ -422,14 +431,22 @@ let type_proto args x =
                         is_main_here := true
                     else
                         raise (Error ("Redeclaration of main function.", fst x.proto_loc))
-        | Qvar (a, Qident (Ident id)) -> 
+        | Qvar (a, qid) -> 
+                let rec find_ident = function
+                    | Qident (Ident ident) -> ident
+                    | Qident _ -> assert false
+                    | QUTimes var -> find_ident var
+                    | QEComm var -> let tmp = find_ident var in Hashtbl.add refs (ATVIdent tmp) (); tmp
+                in
+                let id = find_ident qid in
+
                 current_function := id;
 
                 if Hashtbl.mem globals (ATVIdent id) then
                     raise (Error ("Redeclaration of function "^id^"().", fst x.proto_loc));
 
                 Hashtbl.add globals (ATVIdent id) (types_ast_to_atast a);
-        | _ -> ()
+        | _ -> assert false;
     in
 
     let typed_args = List.map (type_args (fst x.proto_loc) args) x.args in
@@ -466,9 +483,18 @@ let type_fonction x =
         at_frame_size = 4*(Hashtbl.length locals) - 4*(Hashtbl.length args);
     }
 
-let type_member pos = function
+let type_member tid pos = function
     | MVar var -> 
-            ATMVar (List.map (type_var pos (Hashtbl.create 17) false (fst var.decl_vars_content)) (snd var.decl_vars_content))
+            let map_type_member x =
+                let tmp = type_var pos (Hashtbl.create 17) false (fst var.decl_vars_content) x in
+                if fst var.decl_vars_content = ASTTident tid then
+                    match fst tmp with
+                    | ATVIdent _ -> raise (Error ("Error this field has incomplete type.", pos))
+                    | ATVUTimes _ | ATVEComm _ -> tmp
+                else
+                    tmp
+            in
+            ATMVar (List.map (map_type_member) (snd var.decl_vars_content))
     | Proto (virtual_bool, proto) -> assert false (* TODO *)
 
 let type_class x = begin
@@ -477,7 +503,7 @@ let type_class x = begin
             let ast_typing_class = {
                 at_ident_class = ident;
                 at_supers = None;
-                at_member = List.map (type_member (fst x.decl_class_loc)) members;
+                at_member = List.map (type_member ident (fst x.decl_class_loc)) members;
             }
             in
 
