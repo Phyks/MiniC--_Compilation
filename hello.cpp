@@ -6,7 +6,6 @@ int chose;
 void fonction() {
     int x = 3;
     std::cout << "ok\n";
-    return 31415;
 }
 
 int fonction_args(int x, int y) {

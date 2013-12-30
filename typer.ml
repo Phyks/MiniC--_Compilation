@@ -79,6 +79,10 @@ let rec type_var pos locals heap type_for_var = function
             let new_var = type_var pos locals false type_for_var var in
             let tmp_type = types_ast_to_atast type_for_var in
 
+            let old_binding = Hashtbl.find locals (ATVIdent ident) in
+            Hashtbl.remove locals (ATVIdent ident);
+            Hashtbl.add locals (ATVIdent ident) (ATPointer (fst old_binding), snd old_binding);
+
             ATVUTimes (fst new_var), ATPointer tmp_type
     | VUTimes _ -> raise (Error ("double pointer not allowed", pos))
     | VEComm ((VIdent ident) as var) ->
@@ -205,18 +209,31 @@ let rec type_expr pos locals = function
             let decl_fonction_tmp = Hashtbl.find decl_fonction id in
             let i = ref (-1) in
 
-            if List.length le = List.length decl_fonction_tmp then
-                let type_expr_ref x =
-                    i:=!i+1;
-                    let tmp = type_expr pos locals x in
-                    if snd(List.nth decl_fonction_tmp !i) then
-                        ATUOp (ATEComm, fst tmp), true
-                    else
-                        fst tmp, false
-                in
-                ATApply (id, List.map (type_expr_ref) le), snd tmp
-            else
-                raise (Error ("Wrong number of arguments for function "^id^".", pos))
+            let correct_argument a b =
+                let tmp = type_expr pos locals a in
+
+                if snd tmp = snd (fst b) then
+                    ()
+                else
+                    raise (Error ("Type mismatch for an argument in function call.", pos))
+            in
+
+            begin
+                try
+                    List.iter2 correct_argument le decl_fonction_tmp
+                with
+                | Invalid_argument _ -> raise (Error ("Wrong number of arguments for function "^id^".", pos))
+            end;
+
+            let type_expr_ref x =
+                i:=!i+1;
+                let tmp = type_expr pos locals x in
+                if snd(List.nth decl_fonction_tmp !i) then
+                    ATUOp (ATEComm, fst tmp), true
+                else
+                    fst tmp, false
+            in
+            ATApply (id, List.map (type_expr_ref) le), snd tmp
         | _ -> raise (Error ("Expression cannot be used as a function.", pos))
     end
     | Dot (e, id) -> begin
@@ -255,9 +272,16 @@ let rec type_instruction locals x = match x.instruction_content with
             let tmp = type_expr (fst x.instruction_loc) locals expr in
             ATIExpr (fst tmp)
     | Return some_expr -> begin
+        let type_current_function = Hashtbl.find globals (ATVIdent !current_function) in
         match some_expr with
-            | None -> ATReturn (None, !current_function)
-            | Some expr -> let tmp = type_expr (fst x.instruction_loc) locals expr in if snd tmp = ATInt then ATReturn (Some (fst tmp), !current_function) else raise (Error ("Returned value must be int.", fst x.instruction_loc))
+            | None -> if type_current_function = ATVoid then ATReturn (None, !current_function) else raise (Error ("Returned value doesn't match with function type.", fst x.instruction_loc))
+            | Some expr ->
+                    let tmp = type_expr (fst x.instruction_loc) locals expr in
+                    
+                    if snd tmp = type_current_function then
+                        ATReturn (Some (fst tmp), !current_function)
+                    else
+                        raise (Error ("Returned value doesn't match with function type..", fst x.instruction_loc))
     end
     | IVar (ast_type, ident, assign) -> begin
         match ast_type with

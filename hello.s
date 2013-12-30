@@ -10,9 +10,6 @@ function_fonction:
 	la $a0, string_1
 	li $v0, 4
 	syscall
-	li $a0, 31415
-	move $v0, $a0
-	jr $ra
 end_function_fonction:
 	lw $ra, 4($sp)
 	lw $fp, 8($sp)
