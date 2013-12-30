@@ -95,7 +95,7 @@ let rec mips_expr locals = function
         | ATIdent ident ->
                 if local then
                     begin
-                        match Hashtbl.find locals (ATVIdent ident) with
+                        match snd (Hashtbl.find locals (ATVIdent ident)) with
                         | Pos pos ->
                             {
                                 text = lw a0 areg (-pos, fp);
@@ -125,7 +125,7 @@ let rec mips_expr locals = function
 
             let object_desc = Hashtbl.find objects (ATVIdent object_id) in
 
-            let ofs = Hashtbl.find object_desc.fields (ATVIdent ident) in
+            let ofs = snd (Hashtbl.find object_desc.fields (ATVIdent ident)) in
             {
                 text = la a0 alab ("object_"^(object_id))
                     ++ lw a0 areg (ofs, a0);
@@ -137,7 +137,7 @@ let rec mips_expr locals = function
             
             if local then
                 begin
-                    match Hashtbl.find locals (ATVIdent i) with
+                    match snd(Hashtbl.find locals (ATVIdent i)) with
                     | Pos pos ->
                         {
                             text = mips_for_e2.text
@@ -168,7 +168,7 @@ let rec mips_expr locals = function
             let mips_for_e2 = mips_expr locals e2 in
             if local then
                 begin
-                    match Hashtbl.find locals (ATVIdent i) with
+                    match snd(Hashtbl.find locals (ATVIdent i)) with
                     | Pos pos ->
                         {
                             text = mips_for_e2.text
@@ -202,7 +202,7 @@ let rec mips_expr locals = function
     | ATAssign (ATDot(ATEQident (ATIdent qid, _), id), e2) ->
             let object_desc = Hashtbl.find objects (ATVIdent qid) in
 
-            let ofs = Hashtbl.find object_desc.fields (ATVIdent id) in
+            let ofs = snd(Hashtbl.find object_desc.fields (ATVIdent id)) in
 
             let mips_for_e2 = mips_expr locals e2 in
             {
@@ -235,7 +235,7 @@ let rec mips_expr locals = function
         let load reg =
             if local then
                 begin
-                    match Hashtbl.find locals (ATVIdent i) with
+                    match snd(Hashtbl.find locals (ATVIdent i)) with
                     | Pos pos ->
                         lw reg areg(-pos, fp)
                     | Global_var_ref id ->
@@ -248,7 +248,7 @@ let rec mips_expr locals = function
         in
         let store reg = 
             if local then
-                begin match Hashtbl.find locals (ATVIdent i) with 
+                begin match snd(Hashtbl.find locals (ATVIdent i)) with 
                     | Pos pos ->
                         sw reg areg(-pos, fp)
                     | Global_var_ref id ->
@@ -299,7 +299,7 @@ let rec mips_expr locals = function
             | ATEQident (ATIdent ident, local) ->
                 let generated_mips = if local then (
                         begin
-                            match Hashtbl.find locals (ATVIdent ident) with
+                            match snd(Hashtbl.find locals (ATVIdent ident)) with
                             | Pos pos ->
                                 if pos = -1 then (* Object on the heap *)
                                     {
@@ -342,7 +342,7 @@ let rec mips_expr locals = function
             | ATEQident (ATIdent ident, local) ->
                 let generated_mips = if local then (
                         begin
-                            match Hashtbl.find locals (ATVIdent ident) with
+                            match snd(Hashtbl.find locals (ATVIdent ident)) with
                             | Pos pos ->
                                 {
                                     text = lw a0 areg (-pos,fp)
@@ -471,7 +471,7 @@ let rec mips_instruction locals x y = match y with
         in
 
         begin
-            match Hashtbl.find locals (find_ident var) with
+            match snd(Hashtbl.find locals (find_ident var)) with
             | Pos pos -> 
                 {
                     text = x.text
@@ -675,11 +675,11 @@ let mips_decl x y = match y with
 
                 {
                     text = x.text;
-                    data = x.data ++ label (etiquette var) ++ dword [0];
+                    data = x.data ++ label (etiquette (fst var)) ++ dword [0];
                 }
             in
 
-            let mips_global_var = List.fold_left (global_var) empty_mips var.at_var in
+            let mips_global_var = List.fold_left (global_var) empty_mips var in
             {
                 text = x.text ++ mips_global_var.text;
                 data = x.data ++ mips_global_var.data;

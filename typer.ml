@@ -193,8 +193,9 @@ let rec type_expr pos locals = function
     | ETrue -> ATEInt 1, ATInt
     | EFalse -> ATEInt 0, ATInt
     | ENull -> ATEInt 0, ATNull
-    | Apply (e, le) -> assert false; (*begin (* TODO typing *)
-        match type_expr pos locals e with
+    | Apply (e, le) -> begin
+        let tmp = type_expr pos locals e in
+        match fst tmp with
         | ATEQident (ATIdent id, _) ->
             let decl_fonction_tmp = Hashtbl.find decl_fonction id in
             let i = ref (-1) in
@@ -204,15 +205,15 @@ let rec type_expr pos locals = function
                     i:=!i+1;
                     let tmp = type_expr pos locals x in
                     if snd(List.nth decl_fonction_tmp !i) then
-                        ATUOp (ATEComm, tmp), true
+                        ATUOp (ATEComm, fst tmp), true
                     else
-                        tmp, false
+                        fst tmp, false
                 in
-                ATApply (id, List.map (type_expr_ref) le)
+                ATApply (id, List.map (type_expr_ref) le), snd tmp
             else
                 raise (Error ("Wrong number of arguments for function "^id^".", pos))
         | _ -> raise (Error ("Expression cannot be used as a function.", pos))
-    end*)
+    end
     | Dot (e, id) -> begin
         let tmp = type_expr pos locals e in
         begin match snd tmp with
