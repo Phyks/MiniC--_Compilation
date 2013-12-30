@@ -27,7 +27,7 @@ let is_left_value = function
 let types_ast_to_atast = function
     | Void -> ATVoid
     | Int -> ATInt
-    | ASTTident y -> ATASTTident y
+    | ASTTident y -> ATClass y
 
 let op_ast_to_atast = function
     | Eq -> ATEq
@@ -59,7 +59,7 @@ let type_qident = function
 let max_hashtbl k d x = match d with
     | Pos p -> if p < x then x else p
     | Global_var_ref _ -> x
-    | Arg_ref _ -> x
+    | Arg_ref p -> if p < x then x else p
 
 let rec type_var pos locals heap = function
     | VIdent ident -> 
@@ -87,6 +87,7 @@ let rec type_var pos locals heap = function
 
 let type_qvar = function
     | Qident x -> ATQident (type_qident x)
+    | QEComm (Qident x) -> ATQEComm (ATQident (type_qident x))
     | _ -> assert false
     (* TODO *)
 

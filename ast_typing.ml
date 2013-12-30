@@ -16,7 +16,7 @@ type at_ident = string
 type at_tident = string
 type at_qident = ATIdent of at_ident | ATTident of at_tident * at_ident
 
-type at_ast_type = ATVoid | ATInt | ATASTTident of at_tident
+type at_ast_type = ATNull | ATVoid | ATInt | ATClass of at_tident | ATPointer of at_ast_type
 
 type at_var = ATVIdent of at_ident | ATVUTimes of at_var | ATVEComm of at_var
 type at_qvar = ATQident of at_qident | ATQUTimes of at_qvar | ATQEComm of at_qvar
