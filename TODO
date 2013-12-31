@@ -1,9 +1,7 @@
 * Makefile pourri
 * Typing
     * bad/subtyping1
-    * bad/constructor1
     * bad/extra_qualification1
-    * bad/assign4
     * bad/overload1
     * good/subtype2, 3
 * Fonctions

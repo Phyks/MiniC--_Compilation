@@ -23,6 +23,7 @@ class A { public: int x; int y;};
 
 int main() {
     A a;
+    A *a1 = new A();
     int x = 3;
     int y = 0;
 

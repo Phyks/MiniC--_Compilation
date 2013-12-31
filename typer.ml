@@ -5,6 +5,7 @@ open Ast_typing
 exception Error of string*Lexing.position
 
 type field_offset = int
+type in_class = False | InClass of string
 type class_fields = { name: at_ident; fields: (at_var, (at_ast_type * field_offset)) Hashtbl.t }
 
 let includes = ref false
@@ -124,7 +125,7 @@ let compatible_types t1 t2 =
 let rec subtype t1 t2 = match t1 with
     | ATVoid -> false
     | ATInt -> if t2 = ATInt then true else false
-    | ATClass _ -> assert false (* TODO *)
+    | ATClass _ -> if t2 = t1 then true else false (* TODO : pas d'héritage *)
     | ATNull -> begin
         match t2 with
         | ATPointer _ -> true
@@ -216,6 +217,10 @@ let rec type_expr pos locals = function
         let tmp = type_expr pos locals e in
         match fst tmp with
         | ATEQident (ATIdent id, _) ->
+            if not (Hashtbl.mem globals (ATVIdent id)) then begin
+                raise (Error ("Undefined function "^id^".", pos))
+            end;
+
             let decl_fonction_tmp = Hashtbl.find decl_fonction id in
             let i = ref (-1) in
 
@@ -317,7 +322,7 @@ let rec type_instruction locals x = match x.instruction_content with
                     match assign with
                     | NoAssign -> ATIVar (fst new_ident, ATNoAssign)
                     | SAExpr e -> ATIVar (fst new_ident, ATSAExpr (fst(type_expr (fst x.instruction_loc) locals e)))
-                    | SATident (ident, expr_list) -> assert false (* TODO *)
+                    | SATident (ident, expr_list) -> raise(Error ("Cannot convert right type to left type in initialization.", fst x.instruction_loc))
                 end
                 | ATVEComm ((ATVIdent ident) as var) -> begin
                     match assign with
@@ -397,6 +402,8 @@ and type_bloc locals x =
 let type_proto_ident = function
     | Qvar (x, y) ->
             ATQvar (types_ast_to_atast x, type_qvar y)
+    | Type tid ->
+            ATType tid
     | _ -> assert false
     (* TODO *)
 
@@ -414,21 +421,25 @@ let type_args pos args x =
 
     tmp, reference
 
-let type_proto args x =
+let type_proto args x in_class virtualbool =
     let () = 
         match x.ident with
         | Qvar (a, b) when a = Int && b = Qident (Ident "main") ->
                 current_function := "main";
 
-                if Hashtbl.mem globals (ATVIdent "main") then
-                    raise (Error ("Redeclaration of function main().", fst x.proto_loc));
+                if in_class = False then begin
+                    if Hashtbl.mem globals (ATVIdent "main") then
+                        raise (Error ("Redeclaration of function main().", fst x.proto_loc));
 
-                Hashtbl.add globals (ATVIdent "main") (ATInt);
-                if List.length x.args = 0 then
-                    if not !is_main_here then
-                        is_main_here := true
-                    else
-                        raise (Error ("Redeclaration of main function.", fst x.proto_loc))
+                    Hashtbl.add globals (ATVIdent "main") (ATInt);
+                    if List.length x.args = 0 then
+                        if not !is_main_here then
+                            is_main_here := true
+                        else
+                            raise (Error ("Redeclaration of main function.", fst x.proto_loc))
+                end
+                else
+                    (); (* TODO *)
         | Qvar (a, qid) -> 
                 let rec find_ident = function
                     | Qident (Ident ident) -> ident
@@ -440,10 +451,19 @@ let type_proto args x =
 
                 current_function := id;
 
-                if Hashtbl.mem globals (ATVIdent id) then
-                    raise (Error ("Redeclaration of function "^id^"().", fst x.proto_loc));
+                if in_class = False then begin
+                    if Hashtbl.mem globals (ATVIdent id) then
+                        raise (Error ("Redeclaration of function "^id^"().", fst x.proto_loc));
 
-                Hashtbl.add globals (ATVIdent id) (types_ast_to_atast a);
+                    Hashtbl.add globals (ATVIdent id) (types_ast_to_atast a);
+                end
+                else
+                    ();  (* TODO *)
+        | Type tid -> begin
+                match in_class with
+                | False -> raise (Error ("Constructor is out a class.", fst x.proto_loc))
+                | InClass id -> if tid != id then raise (Error ("Bad constructor for class "^id^".", fst x.proto_loc))
+                end
         | _ -> assert false;
     in
 
@@ -463,7 +483,7 @@ let type_fonction x =
     Hashtbl.add locals (ATVIdent "_") (ATVoid, Pos 4);
 
     let args = Hashtbl.create 17 in
-    let type_for_proto = type_proto args (fst x.fonction_content) in
+    let type_for_proto = type_proto args (fst x.fonction_content) False false in
     let args_to_locals a b =
         match snd b with
         | Pos p -> Hashtbl.add locals a (fst b, Pos (-p))
@@ -493,7 +513,7 @@ let type_member tid pos = function
                     tmp
             in
             ATMVar (List.map (map_type_member) (snd var.decl_vars_content))
-    | Proto (virtual_bool, proto) -> assert false (* TODO *)
+    | Proto (virtual_bool, proto) -> ATProto (virtual_bool, type_proto (Hashtbl.create 17) proto (InClass tid) virtual_bool)
 
 let type_class x = begin
     match x.decl_class_content with
@@ -506,11 +526,12 @@ let type_class x = begin
             in
 
             let fields = Hashtbl.create 17 in
-            let rec form_members_hashtbl = function
-                | ATMVar var -> List.map (fun x -> Hashtbl.add fields (fst x) (snd x, 4 * Hashtbl.length fields)) var;
-                | ATProto (virtuel, proto) -> assert false (* TODO *)
+            let form_members_hashtbl = function
+                | ATMVar var -> List.iter (fun x -> Hashtbl.add fields (fst x) (snd x, 4 * Hashtbl.length fields)) var;
+                | ATProto (virtuel, proto) -> ();
+                        (* Table de méthode virtuelle ? TODO *)
             in
-            let _ = List.map form_members_hashtbl ast_typing_class.at_member in
+            let _ = List.iter form_members_hashtbl ast_typing_class.at_member in
 
             Hashtbl.add decl_class ident {name = ident; fields = fields;};
             ast_typing_class

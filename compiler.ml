@@ -226,7 +226,8 @@ let rec mips_expr locals = function
             {
                 text = mips_push_args.text
                     ++ jal ("function_"^id)
-                    ++ popn (4*(List.length le));
+                    ++ popn (4*(List.length le))
+                    ++ move a0 v0;
                 data = mips_push_args.data;
             }
     | ATInstance (tident, l) -> assert false
