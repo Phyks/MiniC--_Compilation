@@ -1493,7 +1493,7 @@ and _menhir_run82 : _menhir_env -> 'ttv_tail * _menhir_state * 'tv_expr * Lexing
         let _startpos = _startpos_x_ in
         let _v : 'tv_expr = 
 # 170 "parser.mly"
-                           ( Arrow (x, y))
+                           ( Dot (UOp(UTimes, x), y))
 # 1498 "parser.ml"
          in
         _menhir_goto_expr _menhir_env _menhir_stack _menhir_s _v _startpos) : 'freshtv880)) : 'freshtv882)
@@ -3742,7 +3742,7 @@ and _menhir_run59 : _menhir_env -> 'ttv_tail -> _menhir_state -> Lexing.position
     ((let _startpos = _startpos__1_ in
     let _v : 'tv_expr = 
 # 164 "parser.mly"
-           ( ETrue )
+           ( EInt 1 )
 # 3747 "parser.ml"
      in
     _menhir_goto_expr _menhir_env _menhir_stack _menhir_s _v _startpos) : 'freshtv582)
@@ -4297,7 +4297,7 @@ and _menhir_run72 : _menhir_env -> 'ttv_tail -> _menhir_state -> Lexing.position
     ((let _startpos = _startpos__1_ in
     let _v : 'tv_expr = 
 # 163 "parser.mly"
-            ( EFalse )
+            ( EInt 0 )
 # 4302 "parser.ml"
      in
     _menhir_goto_expr _menhir_env _menhir_stack _menhir_s _v _startpos) : 'freshtv536)

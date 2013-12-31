@@ -211,8 +211,6 @@ let rec type_expr pos locals = function
             else
                 raise (Error ("Operand must be int.", pos))
     | Incr (incr, expr) -> raise (Error ("Valeur gauche attendue.", pos))
-    | ETrue -> ATEInt 1, ATInt
-    | EFalse -> ATEInt 0, ATInt
     | ENull -> ATEInt 0, ATNull
     | Apply (e, le) -> begin
         let tmp = type_expr pos locals e in
@@ -265,7 +263,6 @@ let rec type_expr pos locals = function
                     raise (Error ("No field "^id^" in object "^decl_class.name, pos))
         | _ -> raise (Error ("Not an instance of a class.", pos))
     end
-    | Arrow _ -> assert false (* TODO *)
     | Instance _ -> assert false (* TODO *)
     | EThis -> assert false (* TODO *)
 

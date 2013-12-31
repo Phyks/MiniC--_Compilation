@@ -20,12 +20,9 @@ type qvar = Qident of qident | QUTimes of qvar | QEComm of qvar
 
 type expr = EInt of int 
             | EThis
-            | EFalse 
-            | ETrue 
             | ENull
             | EQident of qident 
             | Dot of expr * ident 
-            | Arrow of expr * ident 
             | Assign of expr * expr
             | Apply of expr * (expr list)
             | Instance of tident * (expr list)

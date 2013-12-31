@@ -26,7 +26,6 @@ type at_expr = ATEInt of int
             | ATENull
             | ATEQident of at_qident * bool (* Bool is true for locals *)
             | ATDot of at_expr * at_ident 
-            | ATArrow of at_expr * at_ident 
             | ATAssign of at_expr * at_expr
             | ATApply of at_ident * ((at_expr*bool)list) (* Bool is true if passed by reference *)
             | ATInstance of at_tident * (at_expr list)

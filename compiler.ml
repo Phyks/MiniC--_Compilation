@@ -131,7 +131,6 @@ let rec mips_expr locals = function
                     ++ lw a0 areg (ofs, a0);
                 data = nop;
             }
-    | ATArrow (e, ident) -> assert false
     | ATAssign (ATEQident (ATIdent i, local), e2) ->
             let mips_for_e2 = mips_expr locals e2 in
             
