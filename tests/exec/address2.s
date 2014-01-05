@@ -1,6 +1,6 @@
 .text
 	b function_main
-function_f:
+function_f1:
 	add $sp, $sp, -8
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
@@ -8,7 +8,7 @@ function_f:
 	li $a0, 42
 	lw $a1, 4($fp)
 	sw $a0, 0($a1)
-end_function_f:
+end_function_f1:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
@@ -33,8 +33,9 @@ function_main:
 	la $a0, -8($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_f
+	jal function_f1
 	add $sp, $sp, 4
+	move $a0, $v0
 	la $a0, string_3
 	li $v0, 4
 	syscall

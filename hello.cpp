@@ -21,9 +21,17 @@ int fonction_args(int x, int y) {
 
 class A { public: int x; int y;};
 
+void surcharge() {
+    std::cout << 42 << "\n";
+}
+
+void surcharge (int x) {
+    std::cout << x << "\n";
+}
+
 int main() {
     A a;
-    A *a1 = new A();
+    // TODO A *a1 = new A();
     int x = 3;
     int y = 0;
 
@@ -98,6 +106,9 @@ int main() {
             std::cout << i << ", " << k << "\n";
         }
     }
+
+    surcharge();
+    surcharge(43);
 
     return 2;
 }

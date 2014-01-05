@@ -1,6 +1,6 @@
 .text
 	b function_main
-function_fact_rec:
+function_fact_rec1:
 	add $sp, $sp, -8
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
@@ -16,7 +16,7 @@ function_fact_rec:
 	beqz $a0, else_1
 	li $a0, 1
 	move $v0, $a0
-	b end_function_fact_rec
+	b end_function_fact_rec1
 	b end_if_1
 else_1:
 end_if_1:
@@ -33,14 +33,15 @@ end_if_1:
 	sub $a0, $t1, $a0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_fact_rec
+	jal function_fact_rec1
 	add $sp, $sp, 4
+	move $a0, $v0
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
 	mul $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_fact_rec
-end_function_fact_rec:
+	b end_function_fact_rec1
+end_function_fact_rec1:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
@@ -54,8 +55,9 @@ function_main:
 	li $a0, 5
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_fact_rec
+	jal function_fact_rec1
 	add $sp, $sp, 4
+	move $a0, $v0
 	li $v0, 1
 	syscall
 	la $a0, string_1

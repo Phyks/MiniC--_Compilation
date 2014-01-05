@@ -1,6 +1,6 @@
 .text
 	b function_main
-function_plot:
+function_plot1:
 	add $sp, $sp, -8
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
@@ -26,13 +26,13 @@ test_while_1:
 	la $a0, string_2
 	li $v0, 4
 	syscall
-end_function_plot:
+end_function_plot1:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
 	move $v0, $a0
 	jr $ra
-function_bresenham:
+function_bresenham2:
 	add $sp, $sp, -20
 	sw $fp, 16($sp)
 	add $fp, $sp, 16
@@ -64,8 +64,9 @@ body_for_1:
 	lw $a0, -12($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_plot
+	jal function_plot1
 	add $sp, $sp, 4
+	move $a0, $v0
 	add $sp, $sp, 0
 	lw $a0, -16($fp)
 	sub $sp, $sp, 4
@@ -132,7 +133,7 @@ test_for_1:
 	sle $a0, $t1, $a0
 	bnez $a0, body_for_1
 	add $sp, $sp, 0
-end_function_bresenham:
+end_function_bresenham2:
 	lw $ra, 12($sp)
 	lw $fp, 16($sp)
 	add $sp, $sp, 20
@@ -149,8 +150,9 @@ function_main:
 	li $a0, 10
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_bresenham
+	jal function_bresenham2
 	add $sp, $sp, 8
+	move $a0, $v0
 end_function_main:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)

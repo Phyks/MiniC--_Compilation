@@ -1,6 +1,6 @@
 .text
 	b function_main
-function_add:
+function_add1:
 	add $sp, $sp, -8
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
@@ -13,14 +13,14 @@ function_add:
 	add $sp, $sp, 4
 	add $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_add
-end_function_add:
+	b end_function_add1
+end_function_add1:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
 	move $v0, $a0
 	jr $ra
-function_sub:
+function_sub2:
 	add $sp, $sp, -8
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
@@ -33,14 +33,14 @@ function_sub:
 	add $sp, $sp, 4
 	sub $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_sub
-end_function_sub:
+	b end_function_sub2
+end_function_sub2:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
 	move $v0, $a0
 	jr $ra
-function_mul:
+function_mul3:
 	add $sp, $sp, -12
 	sw $fp, 8($sp)
 	add $fp, $sp, 8
@@ -73,14 +73,14 @@ function_mul:
 	add $sp, $sp, 4
 	div $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_mul
-end_function_mul:
+	b end_function_mul3
+end_function_mul3:
 	lw $ra, 4($sp)
 	lw $fp, 8($sp)
 	add $sp, $sp, 12
 	move $v0, $a0
 	jr $ra
-function_div:
+function_div4:
 	add $sp, $sp, -12
 	sw $fp, 8($sp)
 	add $fp, $sp, 8
@@ -113,14 +113,14 @@ function_div:
 	add $sp, $sp, 4
 	div $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_div
-end_function_div:
+	b end_function_div4
+end_function_div4:
 	lw $ra, 4($sp)
 	lw $fp, 8($sp)
 	add $sp, $sp, 12
 	move $v0, $a0
 	jr $ra
-function_of_int:
+function_of_int5:
 	add $sp, $sp, -8
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
@@ -133,14 +133,14 @@ function_of_int:
 	add $sp, $sp, 4
 	mul $a0, $t1, $a0
 	move $v0, $a0
-	b end_function_of_int
-end_function_of_int:
+	b end_function_of_int5
+end_function_of_int5:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
 	move $v0, $a0
 	jr $ra
-function_iter:
+function_iter6:
 	add $sp, $sp, -16
 	sw $fp, 12($sp)
 	add $fp, $sp, 12
@@ -156,7 +156,7 @@ function_iter:
 	beqz $a0, else_1
 	li $a0, 1
 	move $v0, $a0
-	b end_function_iter
+	b end_function_iter6
 	b end_if_1
 else_1:
 end_if_1:
@@ -167,8 +167,9 @@ end_if_1:
 	lw $a0, 16($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_mul
+	jal function_mul3
 	add $sp, $sp, 8
+	move $a0, $v0
 	sw $a0, -8($fp)
 	lw $a0, 20($fp)
 	sub $sp, $sp, 4
@@ -176,8 +177,9 @@ end_if_1:
 	lw $a0, 20($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_mul
+	jal function_mul3
 	add $sp, $sp, 8
+	move $a0, $v0
 	sw $a0, -12($fp)
 	add $sp, $sp, 0
 	lw $a0, -12($fp)
@@ -186,22 +188,24 @@ end_if_1:
 	lw $a0, -8($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_add
+	jal function_add1
 	add $sp, $sp, 8
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 4
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
 	sgt $a0, $t1, $a0
 	beqz $a0, else_2
 	li $a0, 0
 	move $v0, $a0
-	b end_function_iter
+	b end_function_iter6
 	b end_if_2
 else_2:
 end_if_2:
@@ -215,23 +219,27 @@ end_if_2:
 	lw $a0, 16($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_mul
+	jal function_mul3
 	add $sp, $sp, 8
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 2
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_mul
+	jal function_mul3
 	add $sp, $sp, 8
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_add
+	jal function_add1
 	add $sp, $sp, 8
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	lw $a0, 8($fp)
@@ -243,12 +251,14 @@ end_if_2:
 	lw $a0, -8($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_sub
+	jal function_sub2
 	add $sp, $sp, 8
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_add
+	jal function_add1
 	add $sp, $sp, 8
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	lw $a0, 12($fp)
@@ -266,17 +276,18 @@ end_if_2:
 	add $a0, $t1, $a0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_iter
+	jal function_iter6
 	add $sp, $sp, 20
+	move $a0, $v0
 	move $v0, $a0
-	b end_function_iter
-end_function_iter:
+	b end_function_iter6
+end_function_iter6:
 	lw $ra, 8($sp)
 	lw $fp, 12($sp)
 	add $sp, $sp, 16
 	move $v0, $a0
 	jr $ra
-function_inside:
+function_inside7:
 	add $sp, $sp, -8
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
@@ -284,15 +295,17 @@ function_inside:
 	li $a0, 0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	lw $a0, 8($fp)
@@ -304,11 +317,12 @@ function_inside:
 	li $a0, 0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_iter
+	jal function_iter6
 	add $sp, $sp, 20
+	move $a0, $v0
 	move $v0, $a0
-	b end_function_inside
-end_function_inside:
+	b end_function_inside7
+end_function_inside7:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
@@ -325,14 +339,16 @@ function_main:
 	neg $a0, $a0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	sw $a0, -12($fp)
 	li $a0, 1
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	sw $a0, -16($fp)
 	li $a0, 2
 	sub $sp, $sp, 4
@@ -343,8 +359,9 @@ function_main:
 	mul $a0, $t1, $a0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	lw $a0, -12($fp)
@@ -353,31 +370,36 @@ function_main:
 	lw $a0, -16($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_sub
+	jal function_sub2
 	add $sp, $sp, 8
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_div
+	jal function_div4
 	add $sp, $sp, 8
+	move $a0, $v0
 	sw $a0, -20($fp)
 	li $a0, 1
 	neg $a0, $a0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	sw $a0, -24($fp)
 	li $a0, 1
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	sw $a0, -28($fp)
 	lw $a0, -8($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	lw $a0, -24($fp)
@@ -386,12 +408,14 @@ function_main:
 	lw $a0, -28($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_sub
+	jal function_sub2
 	add $sp, $sp, 8
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_div
+	jal function_div4
 	add $sp, $sp, 8
+	move $a0, $v0
 	sw $a0, -32($fp)
 	li $a0, 0
 	sw $a0, -36($fp)
@@ -407,19 +431,22 @@ body_for_1:
 	lw $a0, -36($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_mul
+	jal function_mul3
 	add $sp, $sp, 8
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	lw $a0, -24($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_add
+	jal function_add1
 	add $sp, $sp, 8
+	move $a0, $v0
 	sw $a0, -40($fp)
 	li $a0, 0
 	sw $a0, -44($fp)
@@ -435,19 +462,22 @@ body_for_2:
 	lw $a0, -44($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_of_int
+	jal function_of_int5
 	add $sp, $sp, 4
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_mul
+	jal function_mul3
 	add $sp, $sp, 8
+	move $a0, $v0
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	lw $a0, -12($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_add
+	jal function_add1
 	add $sp, $sp, 8
+	move $a0, $v0
 	sw $a0, -48($fp)
 	add $sp, $sp, 0
 	lw $a0, -40($fp)
@@ -456,8 +486,9 @@ body_for_2:
 	lw $a0, -48($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_inside
+	jal function_inside7
 	add $sp, $sp, 8
+	move $a0, $v0
 	beqz $a0, else_3
 	la $a0, string_1
 	li $v0, 4

@@ -1,6 +1,6 @@
 .text
 	b function_main
-function_incr:
+function_incr1:
 	add $sp, $sp, -8
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
@@ -15,7 +15,7 @@ function_incr:
 	add $a0, $t1, $a0
 	lw $a1, 4($fp)
 	sw $a0, 0($a1)
-end_function_incr:
+end_function_incr1:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
@@ -40,8 +40,9 @@ function_main:
 	la $a0, -8($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_incr
+	jal function_incr1
 	add $sp, $sp, 4
+	move $a0, $v0
 	la $a0, string_3
 	li $v0, 4
 	syscall

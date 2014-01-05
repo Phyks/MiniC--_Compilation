@@ -1,6 +1,6 @@
 .text
 	b function_main
-function_fact_loop:
+function_fact_loop1:
 	add $sp, $sp, -12
 	sw $fp, 8($sp)
 	add $fp, $sp, 8
@@ -34,8 +34,8 @@ test_while_1:
 	add $sp, $sp, 0
 	lw $a0, -8($fp)
 	move $v0, $a0
-	b end_function_fact_loop
-end_function_fact_loop:
+	b end_function_fact_loop1
+end_function_fact_loop1:
 	lw $ra, 4($sp)
 	lw $fp, 8($sp)
 	add $sp, $sp, 12
@@ -49,8 +49,9 @@ function_main:
 	li $a0, 5
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_fact_loop
+	jal function_fact_loop1
 	add $sp, $sp, 4
+	move $a0, $v0
 	li $v0, 1
 	syscall
 	la $a0, string_1

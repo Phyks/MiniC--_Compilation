@@ -7,6 +7,8 @@ exception Error of string*Lexing.position
 type field_offset = int
 type in_class = False | InClass of string
 type class_fields = { name: at_ident; fields: (at_var, (at_ast_type * field_offset)) Hashtbl.t }
+type decl_fonction_record = { ident_decl: at_ident; args_decl: ((at_var * at_ast_type) * bool) list}
+type function_matches = FunctionFalse | FunctionMatches of decl_fonction_record
 
 let includes = ref false
 let is_main_here = ref false
@@ -17,6 +19,7 @@ let decl_fonction = Hashtbl.create 17
 let objects = Hashtbl.create 17
 let refs = Hashtbl.create 17
 let current_function = ref ""
+let nb_decl_function = ref 0
 
 
 let is_left_value = function
@@ -221,34 +224,51 @@ let rec type_expr pos locals = function
                 raise (Error ("Undefined function "^id^".", pos))
             end;
 
-            let decl_fonction_tmp = Hashtbl.find decl_fonction id in
+            let decl_fonction_list = Hashtbl.find decl_fonction id in
             let i = ref (-1) in
 
-            let correct_argument a b =
-                let tmp = type_expr pos locals a in
+            let test_function_match stop test_function =
+                match stop with
+                | FunctionFalse ->
+                    let correct_argument continue2 a b =
+                        if continue2 then begin
+                            let tmp = type_expr pos locals a in
 
-                if compatible_types (snd tmp) (snd (fst b)) then
-                    ()
-                else
-                    raise (Error ("Type mismatch for an argument in function call.", pos))
+                            if compatible_types (snd tmp) (snd (fst b)) then
+                                true
+                            else
+                                false
+                        end
+                        else
+                            false
+                    in
+
+                    begin
+                        try
+                            if List.fold_left2 correct_argument true le test_function.args_decl then
+                                FunctionMatches test_function
+                            else
+                                FunctionFalse
+                        with
+                        | Invalid_argument _ -> FunctionFalse
+                    end;
+                | FunctionMatches _ as f -> f
             in
 
-            begin
-                try
-                    List.iter2 correct_argument le decl_fonction_tmp
-                with
-                | Invalid_argument _ -> raise (Error ("Wrong number of arguments for function "^id^".", pos))
-            end;
+            let decl_fonction_tmp = match List.fold_left test_function_match FunctionFalse decl_fonction_list with
+                | FunctionMatches f -> f
+                | FunctionFalse -> raise (Error ("Wrong arguments in function call.", pos))
+            in
 
             let type_expr_ref x =
                 i:=!i+1;
                 let tmp = type_expr pos locals x in
-                if snd(List.nth decl_fonction_tmp !i) then
+                if snd(List.nth decl_fonction_tmp.args_decl !i) then
                     ATUOp (ATEComm, fst tmp), true
                 else
                     fst tmp, false
             in
-            ATApply (id, List.map (type_expr_ref) le), snd tmp
+            ATApply (decl_fonction_tmp.ident_decl, List.map (type_expr_ref) le), snd tmp
         | _ -> raise (Error ("Expression cannot be used as a function.", pos))
     end
     | Dot (e, id) -> begin
@@ -288,17 +308,17 @@ let rec type_instruction locals x = match x.instruction_content with
     | Return some_expr -> begin
         let type_current_function = Hashtbl.find globals (ATVIdent !current_function) in
         match some_expr with
-            | None -> if type_current_function = ATVoid then ATReturn (None, !current_function) else raise (Error ("Returned value doesn't match with function type.", fst x.instruction_loc))
+            | None -> if type_current_function = ATVoid then ATReturn (None, if !current_function = "main" then "main" else (!current_function)^(string_of_int !nb_decl_function)) else raise (Error ("Returned value doesn't match with function type.", fst x.instruction_loc))
             | Some expr ->
                     let tmp = type_expr (fst x.instruction_loc) locals expr in
                     
                     if compatible_types (snd tmp) type_current_function then
                         if Hashtbl.mem refs (ATVIdent !current_function) then
                             match expr with
-                            | EQident _ -> ATReturn (Some (fst tmp), !current_function)
+                            | EQident _ -> ATReturn (Some (fst tmp), if !current_function = "main" then "main" else (!current_function)^(string_of_int !nb_decl_function))
                             | _ -> raise (Error ("Returned value doesn't match with function type..", fst x.instruction_loc))
                         else
-                            ATReturn (Some (fst tmp), !current_function)
+                            ATReturn (Some (fst tmp), if !current_function = "main" then "main" else (!current_function)^(string_of_int !nb_decl_function))
                     else
                         raise (Error ("Returned value doesn't match with function type..", fst x.instruction_loc))
     end
@@ -401,8 +421,10 @@ and type_bloc locals x =
 
 let type_proto_ident = function
     | Qvar (x, y) ->
+            nb_decl_function := !nb_decl_function + 1;
             ATQvar (types_ast_to_atast x, type_qvar y)
     | Type tid ->
+            nb_decl_function := !nb_decl_function + 1;
             ATType tid
     | _ -> assert false
     (* TODO *)
@@ -422,6 +444,7 @@ let type_args pos args x =
     tmp, reference
 
 let type_proto args x in_class virtualbool =
+    let typed_args = List.map (type_args (fst x.proto_loc) args) x.args in
     let () = 
         match x.ident with
         | Qvar (a, b) when a = Int && b = Qident (Ident "main") ->
@@ -452,8 +475,32 @@ let type_proto args x in_class virtualbool =
                 current_function := id;
 
                 if in_class = False then begin
-                    if Hashtbl.mem globals (ATVIdent id) then
-                        raise (Error ("Redeclaration of function "^id^"().", fst x.proto_loc));
+                    if Hashtbl.mem globals (ATVIdent id) then begin
+                        (* Vérifier qu'elle a le même type et des arguments différents *)
+                        let old_type = Hashtbl.find globals (ATVIdent id) in
+                        if old_type = (types_ast_to_atast a) then begin
+                            let old_decls = Hashtbl.find decl_fonction id in
+                            let old_args = List.map (fun x -> x.args_decl) old_decls in
+
+                            let check_duplicate x =
+                                (* x est une liste d'arguments, on cherche si x == typed_args *)
+                                let check_duplicate_arg x =
+                                    let ast_type = snd (fst x) in
+                                    let reference = snd x in
+
+                                    List.exists (fun y -> snd (fst y) = ast_type && snd y = reference && false) typed_args;
+                                in
+                                if List.length x != List.length typed_args then
+                                    false
+                                else
+                                    List.for_all check_duplicate_arg x
+                            in
+                            if List.exists check_duplicate old_args then
+                                raise (Error ("Redeclaration of function "^id^"().", fst x.proto_loc));
+                        end
+                        else
+                            raise (Error ("Redeclaration of function "^id^"().", fst x.proto_loc));
+                    end;
 
                     Hashtbl.add globals (ATVIdent id) (types_ast_to_atast a);
                 end
@@ -467,15 +514,51 @@ let type_proto args x in_class virtualbool =
         | _ -> assert false;
     in
 
-    let typed_args = List.map (type_args (fst x.proto_loc) args) x.args in
+    if !current_function = "main" then begin
+        Hashtbl.add decl_fonction !current_function ({ ident_decl = !current_function; args_decl = typed_args } :: []);
 
-    (* Sauve la déclaration dans une table pour pouvoir vérifier que l'appel est bon *)
-    Hashtbl.add decl_fonction !current_function typed_args;
+        {
+            at_ident_proto = type_proto_ident x.ident;
+            at_args = List.map fst typed_args;
+        }
+    end
+    else begin
+        let tmp_new_proto_ident = type_proto_ident x.ident in
+        let rec change_ident = function
+            | ATQident (ATIdent id) -> id^(string_of_int !nb_decl_function)
+            | ATQident _ -> assert false
+            | ATQUTimes var -> change_ident var
+            | ATQEComm var -> change_ident var
+        in
+        let new_ident = match tmp_new_proto_ident with
+        | ATType tid -> assert false; (* TODO *)
+        | ATQvar (x,y) -> change_ident y
+        | _ -> assert false (* TODO *)
+        in
+        let rec change_qvar_ident = function
+            | ATQident (ATIdent id) -> ATQident (ATIdent new_ident)
+            | ATQident _ -> assert false
+            | ATQUTimes var -> ATQUTimes (change_qvar_ident var)
+            | ATQEComm var -> ATQEComm (change_qvar_ident var)
+        in
+        let new_proto_ident = match tmp_new_proto_ident with
+        | ATType tid -> assert false; (* TODO *)
+        | ATQvar (x, y) -> ATQvar (x, change_qvar_ident y)
+        | _ -> assert false (* TODO *)
+        in
 
-    {
-        at_ident_proto = type_proto_ident x.ident;
-        at_args = List.map fst typed_args;
-    }
+        (* Sauve la déclaration dans une table pour pouvoir vérifier que l'appel est bon *)
+        if Hashtbl.mem decl_fonction !current_function then
+            let tmp = Hashtbl.find decl_fonction !current_function in
+            Hashtbl.replace decl_fonction !current_function ({ ident_decl = new_ident; args_decl = typed_args } :: tmp);
+        else
+            Hashtbl.add decl_fonction !current_function ({ ident_decl = new_ident; args_decl = typed_args } :: []);
+
+        {
+            at_ident_proto = new_proto_ident;
+            at_args = List.map fst typed_args;
+        }
+    end
 
 let type_fonction x =
     let locals = Hashtbl.create 17 in
