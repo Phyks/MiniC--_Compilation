@@ -1,6 +1,6 @@
 .text
 	b function_main
-function_fonction1:
+function__fonction1:
 	add $sp, $sp, -12
 	sw $fp, 8($sp)
 	add $fp, $sp, 8
@@ -10,13 +10,13 @@ function_fonction1:
 	la $a0, string_1
 	li $v0, 4
 	syscall
-end_function_fonction1:
+end_function__fonction1:
 	lw $ra, 4($sp)
 	lw $fp, 8($sp)
 	add $sp, $sp, 12
 	move $v0, $a0
 	jr $ra
-function_fonction_args2:
+function__fonction_args2:
 	add $sp, $sp, -12
 	sw $fp, 8($sp)
 	add $fp, $sp, 8
@@ -62,13 +62,13 @@ test_while_1:
 	la $a0, string_6
 	li $v0, 4
 	syscall
-end_function_fonction_args2:
+end_function__fonction_args2:
 	lw $ra, 4($sp)
 	lw $fp, 8($sp)
 	add $sp, $sp, 12
 	move $v0, $a0
 	jr $ra
-function_surcharge3:
+function__surcharge3:
 	add $sp, $sp, -8
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
@@ -79,13 +79,13 @@ function_surcharge3:
 	la $a0, string_7
 	li $v0, 4
 	syscall
-end_function_surcharge3:
+end_function__surcharge3:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
 	move $v0, $a0
 	jr $ra
-function_surcharge4:
+function__surcharge4:
 	add $sp, $sp, -8
 	sw $fp, 4($sp)
 	add $fp, $sp, 4
@@ -96,7 +96,7 @@ function_surcharge4:
 	la $a0, string_8
 	li $v0, 4
 	syscall
-end_function_surcharge4:
+end_function__surcharge4:
 	lw $ra, 0($sp)
 	lw $fp, 4($sp)
 	add $sp, $sp, 8
@@ -324,7 +324,7 @@ test_for_1:
 	slt $a0, $t1, $a0
 	bnez $a0, body_for_1
 	add $sp, $sp, 0
-	jal function_fonction1
+	jal function__fonction1
 	add $sp, $sp, 0
 	move $a0, $v0
 	sw $a0, -24($fp)
@@ -376,7 +376,7 @@ test_for_1:
 	li $a0, 42
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_fonction_args2
+	jal function__fonction_args2
 	add $sp, $sp, 8
 	move $a0, $v0
 	li $a0, 0
@@ -464,13 +464,13 @@ test_for_2:
 	slt $a0, $t1, $a0
 	bnez $a0, body_for_2
 	add $sp, $sp, 0
-	jal function_surcharge3
+	jal function__surcharge3
 	add $sp, $sp, 0
 	move $a0, $v0
 	li $a0, 43
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_surcharge4
+	jal function__surcharge4
 	add $sp, $sp, 4
 	move $a0, $v0
 	li $a0, 2
@@ -508,6 +508,8 @@ string_7:
 	.asciiz "\n"
 string_8:
 	.asciiz "\n"
+var_b:
+	.word 0
 object_a:
 	.word 0
 	.word 0

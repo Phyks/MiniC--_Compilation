@@ -525,7 +525,7 @@ let type_proto args x in_class virtualbool =
     else begin
         let tmp_new_proto_ident = type_proto_ident x.ident in
         let rec change_ident = function
-            | ATQident (ATIdent id) -> id^(string_of_int !nb_decl_function)
+            | ATQident (ATIdent id) -> "_"^id^(string_of_int !nb_decl_function) (* Commence l'ident par _ pour avoir un ident invalide au sens de MiniC++ et éviter un conflit avec une autre fonction *)
             | ATQident _ -> assert false
             | ATQUTimes var -> change_ident var
             | ATQEComm var -> change_ident var

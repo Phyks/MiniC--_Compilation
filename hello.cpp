@@ -29,6 +29,8 @@ void surcharge (int x) {
     std::cout << x << "\n";
 }
 
+A b;
+
 int main() {
     A a;
     // TODO A *a1 = new A();
