@@ -19,7 +19,9 @@ int fonction_args(int x, int y) {
     std::cout << "\n";
 }
 
-class A { public: int x; int y;};
+class A { public: int x; int y; A(int x, int y); };
+
+A::A(int x, int y) { std::cout << "ok\n"; }
 
 void surcharge() {
     std::cout << 42 << "\n";
@@ -47,7 +49,7 @@ int main() {
     }
     std::cout << b.x << "\n";
 
-    // TODO A *a1 = new A();
+    // A *a1 = new A();
     int x = 3;
     int y = 0;
 

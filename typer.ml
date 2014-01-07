@@ -18,6 +18,7 @@ let decl_fonction = Hashtbl.create 17
 let glob_objects = Hashtbl.create 17
 let refs = Hashtbl.create 17
 let current_function = ref ""
+let current_object= ref ""
 let nb_decl_function = ref 0
 
 
@@ -313,7 +314,7 @@ let rec type_expr pos locals objects = function
         | _ -> raise (Error ("Not an instance of a class.", pos))
     end
     | Instance _ -> assert false (* TODO *)
-    | EThis -> assert false (* TODO *)
+    | EThis -> ATEThis !current_object, ATPointer (ATClass !current_object)
 
 let type_expr_string pos locals objects = function
     | String s -> ATString s
@@ -519,7 +520,7 @@ let type_proto args x in_class virtualbool =
 
                                     List.exists (fun y -> snd (fst y) = ast_type && snd y = reference && false) typed_args;
                                 in
-                                if List.length x != List.length typed_args then
+                                if not(List.length x = List.length typed_args) then
                                     false
                                 else
                                     List.for_all check_duplicate_arg x
@@ -538,7 +539,7 @@ let type_proto args x in_class virtualbool =
         | Type tid -> begin
                 match in_class with
                 | False -> raise (Error ("Constructor is out a class.", fst x.proto_loc))
-                | InClass id -> if tid != id then raise (Error ("Bad constructor for class "^id^".", fst x.proto_loc))
+                | InClass id -> if not(tid = id) then raise (Error ("Bad constructor for class "^id^".", fst x.proto_loc))
                 end
         | _ -> assert false;
     in
@@ -643,6 +644,7 @@ let type_member tid pos = function
 let type_class x = begin
     match x.decl_class_content with
         | ident, supers, members ->
+            current_object := ident;
             let ast_typing_class = {
                 at_ident_class = ident;
                 at_supers = None;

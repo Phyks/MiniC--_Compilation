@@ -84,7 +84,20 @@ let rec mips_expr locals objects = function
                             ++ mips_expr2.data;
                     }
             end
-    | ATEThis -> assert false
+    | ATEThis id ->
+            if Hashtbl.mem locals (ATVIdent id) then
+                match snd (Hashtbl.find locals (ATVIdent id)) with
+                | (Pos pos, _) -> 
+                        {
+                            text = la a0 areg (-pos, fp);
+                            data = nop;
+                        }
+                | _ -> assert false; (* TODO *)
+            else
+                {
+                    text = la a0 alab ("var_"^id);
+                    data = nop;
+                }
     | ATENull ->
             {
                 text = li a0 0;

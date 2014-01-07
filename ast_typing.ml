@@ -22,7 +22,7 @@ type at_var = ATVIdent of at_ident | ATVUTimes of at_var | ATVEComm of at_var
 type at_qvar = ATQident of at_qident | ATQUTimes of at_qvar | ATQEComm of at_qvar
 
 type at_expr = ATEInt of int 
-            | ATEThis
+            | ATEThis of at_ident
             | ATENull
             | ATEQident of at_qident * bool (* Bool is true for locals *)
             | ATDot of at_expr * at_ident 
