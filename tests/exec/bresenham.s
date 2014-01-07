@@ -1,10 +1,10 @@
 .text
 	b function_main
-function_plot1:
-	add $sp, $sp, -8
-	sw $fp, 4($sp)
-	add $fp, $sp, 4
-	sw $ra, 0($sp)
+function__plot1:
+	add $sp, $sp, -12
+	sw $fp, 8($sp)
+	add $fp, $sp, 8
+	sw $ra, 4($sp)
 	add $sp, $sp, 0
 	b test_while_1
 body_while_1:
@@ -26,17 +26,17 @@ test_while_1:
 	la $a0, string_2
 	li $v0, 4
 	syscall
-end_function_plot1:
-	lw $ra, 0($sp)
-	lw $fp, 4($sp)
-	add $sp, $sp, 8
+end_function__plot1:
+	lw $ra, 4($sp)
+	lw $fp, 8($sp)
+	add $sp, $sp, 12
 	move $v0, $a0
 	jr $ra
-function_bresenham2:
-	add $sp, $sp, -20
-	sw $fp, 16($sp)
-	add $fp, $sp, 16
-	sw $ra, 12($sp)
+function__bresenham2:
+	add $sp, $sp, -24
+	sw $fp, 20($sp)
+	add $fp, $sp, 20
+	sw $ra, 16($sp)
 	li $a0, 0
 	sw $a0, -8($fp)
 	li $a0, 0
@@ -64,7 +64,7 @@ body_for_1:
 	lw $a0, -12($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_plot1
+	jal function__plot1
 	add $sp, $sp, 4
 	move $a0, $v0
 	add $sp, $sp, 0
@@ -133,30 +133,30 @@ test_for_1:
 	sle $a0, $t1, $a0
 	bnez $a0, body_for_1
 	add $sp, $sp, 0
-end_function_bresenham2:
-	lw $ra, 12($sp)
-	lw $fp, 16($sp)
-	add $sp, $sp, 20
+end_function__bresenham2:
+	lw $ra, 16($sp)
+	lw $fp, 20($sp)
+	add $sp, $sp, 24
 	move $v0, $a0
 	jr $ra
 function_main:
-	add $sp, $sp, -8
-	sw $fp, 4($sp)
-	add $fp, $sp, 4
-	sw $ra, 0($sp)
+	add $sp, $sp, -12
+	sw $fp, 8($sp)
+	add $fp, $sp, 8
+	sw $ra, 4($sp)
 	li $a0, 6
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 10
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_bresenham2
+	jal function__bresenham2
 	add $sp, $sp, 8
 	move $a0, $v0
 end_function_main:
-	lw $ra, 0($sp)
-	lw $fp, 4($sp)
-	add $sp, $sp, 8
+	lw $ra, 4($sp)
+	lw $fp, 8($sp)
+	add $sp, $sp, 12
 	li $v0, 10
 	syscall
 .data

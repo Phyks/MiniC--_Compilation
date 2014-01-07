@@ -37,6 +37,14 @@ int main() {
     int x = 3;
     int y = 0;
 
+    chose = 18;
+    std::cout << chose << "\n";
+
+    std::cout << x << "\n";
+    std::cout << y << "\n";
+    fonction_args(42, 42);
+    surcharge(43);
+
     y++;
     std::cout << y << "\n";
 

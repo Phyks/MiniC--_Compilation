@@ -38,7 +38,7 @@ type at_expr_string = ATExpr of at_expr | ATString of string
 type at_some_expr = at_expr option
 type at_some_assign = ATNoAssign | ATSAExpr of at_expr | ATSATident of at_tident * (at_expr list)
 
-type at_locals = (at_var, at_ast_type * at_var_pos) Hashtbl.t
+type at_locals = (at_var, at_ast_type * (at_var_pos * int)) Hashtbl.t
 
 type at_instruction = ATNop
                    | ATIExpr of at_expr

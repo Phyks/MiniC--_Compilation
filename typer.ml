@@ -6,7 +6,7 @@ exception Error of string*Lexing.position
 
 type field_offset = int
 type in_class = False | InClass of string
-type class_fields = { name: at_ident; fields: (at_var, (at_ast_type * field_offset)) Hashtbl.t }
+type class_fields = { name: at_ident; fields: (at_var, (at_ast_type * (int * int))) Hashtbl.t }
 type decl_fonction_record = { ident_decl: at_ident; args_decl: ((at_var * at_ast_type) * bool) list}
 type function_matches = FunctionFalse | FunctionMatches of decl_fonction_record
 
@@ -63,9 +63,17 @@ let type_qident = function
     (* TODO *)
 
 let max_hashtbl k d x = match snd d with
-    | Pos p -> if p < x then x else p
-    | Global_var_ref _ -> x
-    | Arg_ref p -> if p < x then x else p
+    | (Pos p, size) -> if p < fst x then x else p, size
+    | (Global_var_ref _, _) -> x
+    | (Arg_ref p, size) -> if p < fst x then x else p, size
+
+let stack_length htbl =
+    let tmp = (Hashtbl.fold max_hashtbl) htbl (0, 0) in
+    (fst tmp) + (snd tmp)
+
+let size_from_type = function
+    | Int | Void -> 4
+    | ASTTident x -> 4 (* TODO *)
 
 let rec type_var pos locals heap type_for_var = function
     | VIdent ident -> 
@@ -73,12 +81,13 @@ let rec type_var pos locals heap type_for_var = function
             raise (Error ("redeclaration of "^ident, pos));
 
         let pos = if not heap then
-                ((Hashtbl.fold max_hashtbl) locals 0) + 4
+            let tmp = (Hashtbl.fold max_hashtbl) locals (0, 0) in
+            (fst tmp) + (snd tmp)
             else
                 -1
             in
         let tmp_type = types_ast_to_atast type_for_var in
-        Hashtbl.add locals (ATVIdent ident) (tmp_type, Pos pos);
+        Hashtbl.add locals (ATVIdent ident) (tmp_type, (Pos pos, size_from_type type_for_var));
 
         ATVIdent ident, tmp_type;
     | VUTimes ((VIdent ident) as var) ->
@@ -308,17 +317,17 @@ let rec type_instruction locals x = match x.instruction_content with
     | Return some_expr -> begin
         let type_current_function = Hashtbl.find globals (ATVIdent !current_function) in
         match some_expr with
-            | None -> if type_current_function = ATVoid then ATReturn (None, if !current_function = "main" then "main" else (!current_function)^(string_of_int !nb_decl_function)) else raise (Error ("Returned value doesn't match with function type.", fst x.instruction_loc))
+            | None -> if type_current_function = ATVoid then ATReturn (None, if !current_function = "main" then "main" else "_"^(!current_function)^(string_of_int !nb_decl_function)) else raise (Error ("Returned value doesn't match with function type.", fst x.instruction_loc))
             | Some expr ->
                     let tmp = type_expr (fst x.instruction_loc) locals expr in
                     
                     if compatible_types (snd tmp) type_current_function then
                         if Hashtbl.mem refs (ATVIdent !current_function) then
                             match expr with
-                            | EQident _ -> ATReturn (Some (fst tmp), if !current_function = "main" then "main" else (!current_function)^(string_of_int !nb_decl_function))
+                            | EQident _ -> ATReturn (Some (fst tmp), if !current_function = "main" then "main" else "_"^(!current_function)^(string_of_int !nb_decl_function))
                             | _ -> raise (Error ("Returned value doesn't match with function type..", fst x.instruction_loc))
                         else
-                            ATReturn (Some (fst tmp), if !current_function = "main" then "main" else (!current_function)^(string_of_int !nb_decl_function))
+                            ATReturn (Some (fst tmp), if !current_function = "main" then "main" else "_"^(!current_function)^(string_of_int !nb_decl_function))
                     else
                         raise (Error ("Returned value doesn't match with function type..", fst x.instruction_loc))
     end
@@ -355,7 +364,7 @@ let rec type_instruction locals x = match x.instruction_content with
                                 ATIVar(var, ATSAExpr (ATEQident((ATIdent eident), true)))
                             with Not_found -> begin
                                 try
-                                    Hashtbl.add locals (ATVIdent ident) (Hashtbl.find globals (ATVIdent eident), Global_var_ref eident);
+                                    Hashtbl.add locals (ATVIdent ident) (Hashtbl.find globals (ATVIdent eident), (Global_var_ref eident, 0));
 
                                     ATIVar(var, ATSAExpr (ATEQident((ATIdent eident), false)))
                                 with Not_found ->
@@ -374,7 +383,7 @@ let rec type_instruction locals x = match x.instruction_content with
             let tmp = type_expr (fst x.instruction_loc) if_locals e in
 
             if snd tmp = ATInt then
-                ATIfElse (fst tmp, type_instruction if_locals instr, ATNop, if_locals, 4*(Hashtbl.length if_locals) - 4*(Hashtbl.length locals))
+                ATIfElse (fst tmp, type_instruction if_locals instr, ATNop, if_locals, (stack_length if_locals) - (stack_length locals))
             else
                 raise (Error ("Condition in if must be int.", fst x.instruction_loc))
     | IfElse (e, instr1, instr2)  ->
@@ -382,19 +391,19 @@ let rec type_instruction locals x = match x.instruction_content with
 
             let tmp = type_expr (fst x.instruction_loc) if_locals e in
             if snd tmp = ATInt then
-                ATIfElse (fst tmp, type_instruction if_locals instr1, type_instruction if_locals instr2, if_locals, 4*(Hashtbl.length if_locals) - 4*(Hashtbl.length locals))
+                ATIfElse (fst tmp, type_instruction if_locals instr1, type_instruction if_locals instr2, if_locals, (stack_length if_locals) - (stack_length locals))
             else
                 raise (Error ("Condition in if must be int.", fst x.instruction_loc))
     | IBloc bloc ->
             let bloc_locals = Hashtbl.copy locals in
             let tmp = type_bloc bloc_locals bloc in
-            ATIBloc (tmp, bloc_locals, 4*(Hashtbl.length bloc_locals) - 4*(Hashtbl.length locals))
+            ATIBloc (tmp, bloc_locals, (stack_length bloc_locals) - (stack_length locals))
     | While (e, instr) ->
             let while_locals = Hashtbl.copy locals in
 
             let tmp = type_expr (fst x.instruction_loc) while_locals e in
             if snd tmp = ATInt then
-                ATWhile (fst tmp, type_instruction while_locals instr, while_locals, 4*(Hashtbl.length while_locals) - 4*(Hashtbl.length locals))
+                ATWhile (fst tmp, type_instruction while_locals instr, while_locals, (stack_length while_locals) - (stack_length locals))
             else
                 raise (Error ("Loop condition in while must be int.", fst x.instruction_loc))
     | For (e1, se2, e3, i) ->
@@ -410,7 +419,7 @@ let rec type_instruction locals x = match x.instruction_content with
 
             let instr = type_instruction for_locals i in
 
-            ATFor(expr1, some_expr2, expr3, instr, for_locals, 4*(Hashtbl.length for_locals) - 4*(Hashtbl.length locals))
+            ATFor(expr1, some_expr2, expr3, instr, for_locals, (stack_length for_locals) - (stack_length locals))
 
 and type_bloc locals x =
     let bloc_content = match x.bloc_content with
@@ -435,7 +444,7 @@ let type_args pos args x =
     let reference = match fst tmp with
     | ATVEComm id -> begin
         match snd (Hashtbl.find args id) with
-        | Pos p -> Hashtbl.remove args id; Hashtbl.add args id (snd tmp, Arg_ref p); true
+        | (Pos p, size) -> Hashtbl.remove args id; Hashtbl.add args id (snd tmp, (Arg_ref p, size)); true
         | _ -> true
         end
     | _ -> false
@@ -563,25 +572,36 @@ let type_proto args x in_class virtualbool =
 let type_fonction x =
     let locals = Hashtbl.create 17 in
     (* Ajoute un identifiant (invalide = pas de conflits) pour tenir compte du décalage lié à la sauvegarde de fp et ra *)
-    Hashtbl.add locals (ATVIdent "_") (ATVoid, Pos 4);
+    Hashtbl.add locals (ATVIdent "_fp") (ATVoid, (Pos 0, 4));
+    Hashtbl.add locals (ATVIdent "_ra") (ATVoid, (Pos 4, 4));
 
     let args = Hashtbl.create 17 in
     let type_for_proto = type_proto args (fst x.fonction_content) False false in
     let args_to_locals a b =
         match snd b with
-        | Pos p -> Hashtbl.add locals a (fst b, Pos (-p))
-        | Arg_ref p -> Hashtbl.add locals a (fst b, Arg_ref (-p))
+        | (Pos p, size) -> Hashtbl.add locals a (fst b, (Pos (-p-4), size))
+        | (Arg_ref p, size) -> Hashtbl.add locals a (fst b, (Arg_ref (-p-4), size))
         | _ -> assert false
     in
     Hashtbl.iter args_to_locals args;
 
     let type_for_bloc = type_bloc locals (snd x.fonction_content) in
 
+    let frame_size =
+        let compute_sl k d x =
+            if Hashtbl.mem args k then
+                x
+            else
+                x+(snd (snd d))
+        in
+        Hashtbl.fold compute_sl locals 0
+    in
+
     {
         at_proto = type_for_proto; 
         at_bloc = type_for_bloc;
         at_locals = locals;
-        at_frame_size = 4*(Hashtbl.length locals) - 4*(Hashtbl.length args);
+        at_frame_size = frame_size;
     }
 
 let type_member tid pos = function
@@ -610,7 +630,7 @@ let type_class x = begin
 
             let fields = Hashtbl.create 17 in
             let form_members_hashtbl = function
-                | ATMVar var -> List.iter (fun x -> Hashtbl.add fields (fst x) (snd x, 4 * Hashtbl.length fields)) var;
+                | ATMVar var -> List.iter (fun x -> Hashtbl.add fields (fst x) (snd x, (4*(Hashtbl.length fields), 4))) var; (* TODO *** *)
                 | ATProto (virtuel, proto) -> ();
                         (* Table de méthode virtuelle ? TODO *)
             in

@@ -96,17 +96,17 @@ let rec mips_expr locals = function
                 if local then
                     begin
                         match snd (Hashtbl.find locals (ATVIdent ident)) with
-                        | Pos pos ->
+                        | (Pos pos, _) ->
                             {
                                 text = lw a0 areg (-pos, fp);
                                 data = nop;
                             }
-                        | Global_var_ref id ->
+                        | (Global_var_ref id, _) ->
                             {
                                 text = lw a0 alab ("var_"^id);
                                 data = nop;
                             }
-                        | Arg_ref pos ->
+                        | (Arg_ref pos, _) ->
                             {
                                 text = lw a1 areg (-pos, fp)
                                     ++ lw a0 areg (0, a1);
@@ -128,7 +128,7 @@ let rec mips_expr locals = function
             let ofs = snd (Hashtbl.find object_desc.fields (ATVIdent ident)) in
             {
                 text = la a0 alab ("object_"^(object_id))
-                    ++ lw a0 areg (ofs, a0);
+                    ++ lw a0 areg (fst ofs, a0);
                 data = nop;
             }
     | ATAssign (ATEQident (ATIdent i, local), e2) ->
@@ -137,19 +137,19 @@ let rec mips_expr locals = function
             if local then
                 begin
                     match snd(Hashtbl.find locals (ATVIdent i)) with
-                    | Pos pos ->
+                    | (Pos pos, _) ->
                         {
                             text = mips_for_e2.text
                                 ++ sw a0 areg (-pos, fp);
                             data = mips_for_e2.data;
                         }
-                    | Global_var_ref id ->
+                    | (Global_var_ref id, _) ->
                         {
                             text = mips_for_e2.text
                                 ++ sw a0 alab ("var_"^id);
                             data = mips_for_e2.data;
                         }
-                    | Arg_ref pos ->
+                    | (Arg_ref pos, _) ->
                         {
                             text = mips_for_e2.text
                                 ++ lw a1 areg (-pos, fp)
@@ -168,21 +168,21 @@ let rec mips_expr locals = function
             if local then
                 begin
                     match snd(Hashtbl.find locals (ATVIdent i)) with
-                    | Pos pos ->
+                    | (Pos pos, _) ->
                         {
                             text = mips_for_e2.text
                                 ++ lw a1 areg (-pos, fp)
                                 ++ sw a0 areg (0, a1);
                             data = mips_for_e2.data;
                         }
-                    | Global_var_ref id ->
+                    | (Global_var_ref id, _) ->
                         {
                             text = mips_for_e2.text
                                 ++ lw a1 alab ("var_"^i)
                                 ++ sw a0 areg (0, a1);
                             data = mips_for_e2.data;
                         }
-                    | Arg_ref pos ->
+                    | (Arg_ref pos, _) ->
                         {
                             text = mips_for_e2.text
                                 ++ lw a1 areg (-pos, fp)
@@ -207,7 +207,7 @@ let rec mips_expr locals = function
             {
                 text = mips_for_e2.text
                     ++ la t0 alab ("object_"^qid)
-                    ++ sw a0 areg (ofs, t0);
+                    ++ sw a0 areg (fst ofs, t0);
                 data = mips_for_e2.data;
             }
     | ATAssign (e1, e2) -> assert false (* TODO *)
@@ -236,11 +236,11 @@ let rec mips_expr locals = function
             if local then
                 begin
                     match snd(Hashtbl.find locals (ATVIdent i)) with
-                    | Pos pos ->
+                    | (Pos pos, _) ->
                         lw reg areg(-pos, fp)
-                    | Global_var_ref id ->
+                    | (Global_var_ref id, _) ->
                         lw reg alab ("var_"^id)
-                    | Arg_ref pos ->
+                    | (Arg_ref pos, _) ->
                         lw reg areg(-pos, fp) ++ lw reg areg (0, reg)
                 end
             else
@@ -249,11 +249,11 @@ let rec mips_expr locals = function
         let store reg = 
             if local then
                 begin match snd(Hashtbl.find locals (ATVIdent i)) with 
-                    | Pos pos ->
+                    | (Pos pos, _) ->
                         sw reg areg(-pos, fp)
-                    | Global_var_ref id ->
+                    | (Global_var_ref id, _) ->
                         sw reg alab ("var_"^id)
-                    | Arg_ref pos ->
+                    | (Arg_ref pos, _) ->
                         lw t0 areg (-pos, fp) ++ sw reg areg(0, t0)
                 end
             else
@@ -300,7 +300,7 @@ let rec mips_expr locals = function
                 let generated_mips = if local then (
                         begin
                             match snd(Hashtbl.find locals (ATVIdent ident)) with
-                            | Pos pos ->
+                            | (Pos pos, _) ->
                                 if pos = -1 then (* Object on the heap *)
                                     {
                                         text = la a0 alab ("object_"^ident);
@@ -311,12 +311,12 @@ let rec mips_expr locals = function
                                         text = la a0 areg (-pos,fp);
                                         data = nop;
                                     }
-                            | Global_var_ref id ->
+                            | (Global_var_ref id, _) ->
                                 {
                                     text = la a0 alab ("var_"^id);
                                     data = nop;
                                 }
-                            | Arg_ref pos ->
+                            | (Arg_ref pos, _) ->
                                 {
                                     text = la a0 areg (-pos,fp)
                                         ++ la a0 areg (0, a0);
@@ -343,19 +343,19 @@ let rec mips_expr locals = function
                 let generated_mips = if local then (
                         begin
                             match snd(Hashtbl.find locals (ATVIdent ident)) with
-                            | Pos pos ->
+                            | (Pos pos, _) ->
                                 {
                                     text = lw a0 areg (-pos,fp)
                                         ++ lw a0 areg (0, a0);
                                     data = nop;
                                 }
-                            | Global_var_ref id ->
+                            | (Global_var_ref id, _) ->
                                 {
                                     text = lw a0 alab ("var_"^id)
                                         ++ lw a0 areg (0, a0);
                                     data = nop;
                                 }
-                            | Arg_ref pos ->
+                            | (Arg_ref pos, _) ->
                                 {
                                     text = lw a0 areg (-pos,fp)
                                         ++ lw a0 areg (0, a0)
@@ -472,7 +472,7 @@ let rec mips_instruction locals x y = match y with
 
         begin
             match snd(Hashtbl.find locals (find_ident var)) with
-            | Pos pos -> 
+            | (Pos pos, _) -> 
                 {
                     text = x.text
                         ++ mips_for_assign.text
@@ -480,12 +480,12 @@ let rec mips_instruction locals x y = match y with
                     data = x.data
                         ++ mips_for_assign.data;
                 }
-            | Global_var_ref id ->
+            | (Global_var_ref id, _) ->
                 {
                     text = x.text;
                     data = x.data;
                 }
-            | Arg_ref _ -> assert false; (* TODO *)
+            | (Arg_ref _, _) -> assert false; (* TODO *)
         end
     | ATTVar (var, assign) ->
             let mips_for_assign = match assign with
