@@ -33,6 +33,13 @@ A b;
 
 int main() {
     A a;
+    a.x = 3;
+    a.y = 5;
+    std::cout << a.x << "\n";
+    std::cout << a.y << "\n";
+/* TODO     b.x = 5;
+    std::cout << b.x << "\n";*/
+
     // TODO A *a1 = new A();
     int x = 3;
     int y = 0;
@@ -92,15 +99,6 @@ int main() {
     int var = fonction();
     std::cout << var << "\n";
     int *p = NULL;
-
-    std::cout << a.x << "\n";
-    std::cout << a.y << "\n";
-
-    a.x = 3;
-    a.y = 5;
-
-    std::cout << a.x << "\n";
-    std::cout << a.y << "\n";
 
     fonction_args(42, 43);
 

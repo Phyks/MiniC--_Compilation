@@ -71,9 +71,25 @@ let stack_length htbl =
     let tmp = (Hashtbl.fold max_hashtbl) htbl (0, 0) in
     (fst tmp) + (snd tmp)
 
+let max_hashtbl_int k d x = match snd d with
+    | (p, size) -> if p < fst x then x else p, size
+
+let stack_length_int htbl =
+    let tmp = (Hashtbl.fold max_hashtbl_int) htbl (0, 0) in
+    (fst tmp) + (snd tmp)
+
 let size_from_type = function
     | Int | Void -> 4
-    | ASTTident x -> 4 (* TODO *)
+    | ASTTident x ->
+            let fields = Hashtbl.find decl_class x in
+            stack_length_int fields.fields
+
+let size_from_attype = function
+    | ATNull | ATInt | ATVoid -> 4
+    | ATPointer _ -> 4
+    | ATClass x ->
+            let fields = Hashtbl.find decl_class x in
+            stack_length_int fields.fields
 
 let rec type_var pos locals heap type_for_var = function
     | VIdent ident -> 
@@ -630,7 +646,7 @@ let type_class x = begin
 
             let fields = Hashtbl.create 17 in
             let form_members_hashtbl = function
-                | ATMVar var -> List.iter (fun x -> Hashtbl.add fields (fst x) (snd x, (4*(Hashtbl.length fields), 4))) var; (* TODO *** *)
+                | ATMVar var -> List.iter (fun x -> Hashtbl.add fields (fst x) (snd x, (stack_length_int fields, size_from_attype (snd x)))) var;
                 | ATProto (virtuel, proto) -> ();
                         (* Table de méthode virtuelle ? TODO *)
             in
