@@ -6,7 +6,6 @@ exception Error of string*Lexing.position
 
 type field_offset = int
 type in_class = False | InClass of string
-type class_fields = { name: at_ident; fields: (at_var, (at_ast_type * (int * int))) Hashtbl.t }
 type decl_fonction_record = { ident_decl: at_ident; args_decl: ((at_var * at_ast_type) * bool) list}
 type function_matches = FunctionFalse | FunctionMatches of decl_fonction_record
 
@@ -16,7 +15,7 @@ let is_main_here = ref false
 let globals = Hashtbl.create 17
 let decl_class = Hashtbl.create 17
 let decl_fonction = Hashtbl.create 17
-let objects = Hashtbl.create 17
+let glob_objects = Hashtbl.create 17
 let refs = Hashtbl.create 17
 let current_function = ref ""
 let nb_decl_function = ref 0
@@ -166,11 +165,11 @@ let rec subtype t1 t2 = match t1 with
         | _ -> false
     end
 
-let rec type_expr pos locals = function
+let rec type_expr pos locals objects = function
     | EInt n -> ATEInt n, ATInt
     | Assign (e1, e2) when is_left_value e1 ->
-            let tmp1 = type_expr pos locals e1 in
-            let tmp2 = type_expr pos locals e2 in
+            let tmp1 = type_expr pos locals objects e1 in
+            let tmp2 = type_expr pos locals objects e2 in
 
             if num (snd tmp1) then
                 if subtype (snd tmp2) (snd tmp1) then
@@ -181,8 +180,8 @@ let rec type_expr pos locals = function
                 raise (Error ("Left operand must be either an int or a pointer", pos))
     | Assign (e1, e2) -> raise (Error ("Valeur gauche attendue.", pos))
     | Op ((Eq | Neq) as op, e1, e2) ->
-            let tmp1 = type_expr pos locals e1 in
-            let tmp2 = type_expr pos locals e2 in
+            let tmp1 = type_expr pos locals objects e1 in
+            let tmp2 = type_expr pos locals objects e2 in
 
             if compatible_types (snd tmp1) (snd tmp2) then
                 if num (snd tmp1) then
@@ -192,29 +191,29 @@ let rec type_expr pos locals = function
             else
                 raise (Error ("Left and right operands must have the same type.", pos))
     | Op (op, e1, e2) ->
-            let tmp1 = type_expr pos locals e1 in
-            let tmp2 = type_expr pos locals e2 in
+            let tmp1 = type_expr pos locals objects e1 in
+            let tmp2 = type_expr pos locals objects e2 in
 
             if snd tmp1 = ATInt && snd tmp2 = ATInt then
                 ATOp (op_ast_to_atast op, fst tmp1, fst tmp2), ATInt
             else
                 raise (Error ("Left and right operands must be int.", pos))
     | UOp ((UMinus | UPlus | Not) as uop, e) ->
-            let tmp = type_expr pos locals e in
+            let tmp = type_expr pos locals objects e in
 
             if snd tmp = ATInt then
                 ATUOp (uop_ast_to_atast uop, fst tmp), ATInt
             else
                 raise (Error ("Operand must be int.", pos))
     | UOp (UTimes, e) -> begin
-            let tmp = type_expr pos locals e in
+            let tmp = type_expr pos locals objects e in
 
             match snd tmp with
             | ATPointer t -> ATUOp (ATUTimes, fst tmp), t
             | _ -> raise (Error ("Not a valid pointer to dereference.", pos))
     end
     | UOp (EComm, e) -> begin
-            let tmp = type_expr pos locals e in
+            let tmp = type_expr pos locals objects e in
 
             match fst tmp with
             | ATEQident _ -> ATUOp (ATEComm, fst tmp), ATPointer (snd tmp)
@@ -233,7 +232,7 @@ let rec type_expr pos locals = function
         | Tident (tid1, tid2) -> assert false (* TODO *)
     end
     | Incr (incr, expr) when is_left_value expr ->
-            let tmp = type_expr pos locals expr in
+            let tmp = type_expr pos locals objects expr in
 
             if snd tmp = ATInt then
                 ATIncr (type_incr incr, fst tmp), ATInt
@@ -242,7 +241,7 @@ let rec type_expr pos locals = function
     | Incr (incr, expr) -> raise (Error ("Valeur gauche attendue.", pos))
     | ENull -> ATEInt 0, ATNull
     | Apply (e, le) -> begin
-        let tmp = type_expr pos locals e in
+        let tmp = type_expr pos locals objects e in
         match fst tmp with
         | ATEQident (ATIdent id, _) ->
             if not (Hashtbl.mem globals (ATVIdent id)) then begin
@@ -257,7 +256,7 @@ let rec type_expr pos locals = function
                 | FunctionFalse ->
                     let correct_argument continue2 a b =
                         if continue2 then begin
-                            let tmp = type_expr pos locals a in
+                            let tmp = type_expr pos locals objects a in
 
                             if compatible_types (snd tmp) (snd (fst b)) then
                                 true
@@ -287,7 +286,7 @@ let rec type_expr pos locals = function
 
             let type_expr_ref x =
                 i:=!i+1;
-                let tmp = type_expr pos locals x in
+                let tmp = type_expr pos locals objects x in
                 if snd(List.nth decl_fonction_tmp.args_decl !i) then
                     ATUOp (ATEComm, fst tmp), true
                 else
@@ -297,7 +296,7 @@ let rec type_expr pos locals = function
         | _ -> raise (Error ("Expression cannot be used as a function.", pos))
     end
     | Dot (e, id) -> begin
-        let tmp = type_expr pos locals e in
+        let tmp = type_expr pos locals objects e in
         begin match snd tmp with
             | ATClass _ -> ();
             | _ -> raise (Error ("Left operand must be a class name.", pos));
@@ -316,26 +315,26 @@ let rec type_expr pos locals = function
     | Instance _ -> assert false (* TODO *)
     | EThis -> assert false (* TODO *)
 
-let type_expr_string pos locals = function
+let type_expr_string pos locals objects = function
     | String s -> ATString s
-    | Expr e -> let tmp = type_expr pos locals e in if snd tmp = ATInt then ATExpr (fst tmp) else raise (Error ("Argument of std::cout must be either a string or an int", pos))
+    | Expr e -> let tmp = type_expr pos locals objects e in if snd tmp = ATInt then ATExpr (fst tmp) else raise (Error ("Argument of std::cout must be either a string or an int", pos))
 
-let rec type_instruction locals x = match x.instruction_content with
+let rec type_instruction locals objects x = match x.instruction_content with
     | Nop -> ATNop
     | Cout expr ->
             if !includes then
-                ATCout (List.map (type_expr_string (fst x.instruction_loc) locals) expr)
+                ATCout (List.map (type_expr_string (fst x.instruction_loc) locals objects) expr)
             else
                 raise (Error ("iostream not included.", (fst x.instruction_loc)))
     | IExpr expr ->
-            let tmp = type_expr (fst x.instruction_loc) locals expr in
+            let tmp = type_expr (fst x.instruction_loc) locals objects expr in
             ATIExpr (fst tmp)
     | Return some_expr -> begin
         let type_current_function = Hashtbl.find globals (ATVIdent !current_function) in
         match some_expr with
             | None -> if type_current_function = ATVoid then ATReturn (None, if !current_function = "main" then "main" else "_"^(!current_function)^(string_of_int !nb_decl_function)) else raise (Error ("Returned value doesn't match with function type.", fst x.instruction_loc))
             | Some expr ->
-                    let tmp = type_expr (fst x.instruction_loc) locals expr in
+                    let tmp = type_expr (fst x.instruction_loc) locals objects expr in
                     
                     if compatible_types (snd tmp) type_current_function then
                         if Hashtbl.mem refs (ATVIdent !current_function) then
@@ -366,7 +365,7 @@ let rec type_instruction locals x = match x.instruction_content with
                 | ATVIdent _ | ATVUTimes _ -> begin
                     match assign with
                     | NoAssign -> ATIVar (fst new_ident, ATNoAssign)
-                    | SAExpr e -> ATIVar (fst new_ident, ATSAExpr (fst(type_expr (fst x.instruction_loc) locals e)))
+                    | SAExpr e -> ATIVar (fst new_ident, ATSAExpr (fst(type_expr (fst x.instruction_loc) locals objects e)))
                     | SATident (ident, expr_list) -> raise(Error ("Cannot convert right type to left type in initialization.", fst x.instruction_loc))
                 end
                 | ATVEComm ((ATVIdent ident) as var) -> begin
@@ -387,7 +386,7 @@ let rec type_instruction locals x = match x.instruction_content with
                                     raise (Error ("Unbound variable "^eident, fst x.instruction_loc))
                             end
                         end
-                    | SAExpr (Apply (EQident (Ident id), _) as apply) when Hashtbl.mem refs (ATVIdent id) -> ATIVar(var, ATSAExpr (fst (type_expr (fst x.instruction_loc) locals apply)))
+                    | SAExpr (Apply (EQident (Ident id), _) as apply) when Hashtbl.mem refs (ATVIdent id) -> ATIVar(var, ATSAExpr (fst (type_expr (fst x.instruction_loc) locals objects apply)))
                     | SATident _ | SAExpr _ -> raise (Error ("Invalid reference initialization.", (fst x.instruction_loc)))
                     end
                 | _ -> assert false (* TODO *)
@@ -396,53 +395,58 @@ let rec type_instruction locals x = match x.instruction_content with
         end
     | If (e, instr) ->
             let if_locals = Hashtbl.copy locals in
-            let tmp = type_expr (fst x.instruction_loc) if_locals e in
+            let if_objects = Hashtbl.copy objects in
+            let tmp = type_expr (fst x.instruction_loc) if_locals if_objects e in
 
             if snd tmp = ATInt then
-                ATIfElse (fst tmp, type_instruction if_locals instr, ATNop, if_locals, (stack_length if_locals) - (stack_length locals))
+                ATIfElse (fst tmp, type_instruction if_locals if_objects instr, ATNop, if_locals, if_objects, (stack_length if_locals) - (stack_length locals))
             else
                 raise (Error ("Condition in if must be int.", fst x.instruction_loc))
     | IfElse (e, instr1, instr2)  ->
             let if_locals = Hashtbl.copy locals in
+            let if_objects = Hashtbl.copy objects in
 
-            let tmp = type_expr (fst x.instruction_loc) if_locals e in
+            let tmp = type_expr (fst x.instruction_loc) if_locals if_objects e in
             if snd tmp = ATInt then
-                ATIfElse (fst tmp, type_instruction if_locals instr1, type_instruction if_locals instr2, if_locals, (stack_length if_locals) - (stack_length locals))
+                ATIfElse (fst tmp, type_instruction if_locals if_objects instr1, type_instruction if_locals if_objects instr2, if_locals, if_objects, (stack_length if_locals) - (stack_length locals))
             else
                 raise (Error ("Condition in if must be int.", fst x.instruction_loc))
     | IBloc bloc ->
             let bloc_locals = Hashtbl.copy locals in
-            let tmp = type_bloc bloc_locals bloc in
-            ATIBloc (tmp, bloc_locals, (stack_length bloc_locals) - (stack_length locals))
+            let bloc_objects = Hashtbl.copy objects in
+            let tmp = type_bloc bloc_locals bloc_objects bloc in
+            ATIBloc (tmp, bloc_locals, bloc_objects, (stack_length bloc_locals) - (stack_length locals))
     | While (e, instr) ->
             let while_locals = Hashtbl.copy locals in
+            let while_objects = Hashtbl.copy objects in
 
-            let tmp = type_expr (fst x.instruction_loc) while_locals e in
+            let tmp = type_expr (fst x.instruction_loc) while_locals while_objects e in
             if snd tmp = ATInt then
-                ATWhile (fst tmp, type_instruction while_locals instr, while_locals, (stack_length while_locals) - (stack_length locals))
+                ATWhile (fst tmp, type_instruction while_locals while_objects instr, while_locals, while_objects, (stack_length while_locals) - (stack_length locals))
             else
                 raise (Error ("Loop condition in while must be int.", fst x.instruction_loc))
     | For (e1, se2, e3, i) ->
             let for_locals = Hashtbl.copy locals in
+            let for_objects = Hashtbl.copy objects in
             let some_expr2 = 
                 match se2 with
                 | None -> ATEInt 1
-                | Some expr -> let tmp = type_expr (fst x.instruction_loc) for_locals expr in if snd tmp = ATInt then fst tmp else raise (Error ("Loop condition in for must be int", (fst x.instruction_loc)))
+                | Some expr -> let tmp = type_expr (fst x.instruction_loc) for_locals for_objects expr in if snd tmp = ATInt then fst tmp else raise (Error ("Loop condition in for must be int", (fst x.instruction_loc)))
             in
 
-            let expr1 = List.map (fun a -> fst(type_expr (fst x.instruction_loc) for_locals a)) e1 in
-            let expr3 = List.map (fun a -> fst(type_expr (fst x.instruction_loc) for_locals a)) e3 in
+            let expr1 = List.map (fun a -> fst(type_expr (fst x.instruction_loc) for_locals for_objects a)) e1 in
+            let expr3 = List.map (fun a -> fst(type_expr (fst x.instruction_loc) for_locals for_objects a)) e3 in
 
-            let instr = type_instruction for_locals i in
+            let instr = type_instruction for_locals for_objects i in
 
-            ATFor(expr1, some_expr2, expr3, instr, for_locals, (stack_length for_locals) - (stack_length locals))
+            ATFor(expr1, some_expr2, expr3, instr, for_locals, for_objects, (stack_length for_locals) - (stack_length locals))
 
-and type_bloc locals x =
+and type_bloc locals objects x =
     let bloc_content = match x.bloc_content with
     | Bloc_content y -> y
     in
 
-    List.map (type_instruction locals) bloc_content
+    List.map (type_instruction locals objects) bloc_content
 
 let type_proto_ident = function
     | Qvar (x, y) ->
@@ -587,6 +591,7 @@ let type_proto args x in_class virtualbool =
 
 let type_fonction x =
     let locals = Hashtbl.create 17 in
+    let objects = Hashtbl.copy glob_objects in
     (* Ajoute un identifiant (invalide = pas de conflits) pour tenir compte du décalage lié à la sauvegarde de fp et ra *)
     Hashtbl.add locals (ATVIdent "_fp") (ATVoid, (Pos 0, 4));
     Hashtbl.add locals (ATVIdent "_ra") (ATVoid, (Pos 4, 4));
@@ -601,7 +606,7 @@ let type_fonction x =
     in
     Hashtbl.iter args_to_locals args;
 
-    let type_for_bloc = type_bloc locals (snd x.fonction_content) in
+    let type_for_bloc = type_bloc locals objects (snd x.fonction_content) in
 
     let frame_size =
         let compute_sl k d x =
@@ -617,6 +622,7 @@ let type_fonction x =
         at_proto = type_for_proto; 
         at_bloc = type_for_bloc;
         at_locals = locals;
+        at_objects = objects;
         at_frame_size = frame_size;
     }
 
@@ -677,7 +683,7 @@ let type_decl = function
                 end;
 
                 begin match (fst x.decl_vars_content) with
-                    | ASTTident tid -> Hashtbl.add objects tmp (Hashtbl.find decl_class tid);
+                    | ASTTident tid -> Hashtbl.add glob_objects tmp (Hashtbl.find decl_class tid);
                     | _ -> ();
                 end;
 

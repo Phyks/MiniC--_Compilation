@@ -40,6 +40,13 @@ int main() {
     b.x = 5;
     std::cout << b.x << "\n";
 
+    if(true) {
+        A b;
+        b.x = 42;
+        std::cout << b.x << "\n";
+    }
+    std::cout << b.x << "\n";
+
     // TODO A *a1 = new A();
     int x = 3;
     int y = 0;

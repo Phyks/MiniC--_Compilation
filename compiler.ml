@@ -15,15 +15,15 @@ let empty_mips = {
     data = nop;
 }
 
-let rec mips_expr locals = function
+let rec mips_expr locals objects = function
     | ATEInt n ->
             {
                 text = li a0 n;
                 data = nop;
             }
     | ATOp (op, e1, e2) ->
-            let mips_expr1 = mips_expr locals e1 in
-            let mips_expr2 = mips_expr locals e2 in
+            let mips_expr1 = mips_expr locals objects e1 in
+            let mips_expr2 = mips_expr locals objects e2 in
 
             let mips_op = match op with
             | ATPlus -> add a0 t1 oreg a0
@@ -145,7 +145,7 @@ let rec mips_expr locals = function
                 }
             end
     | ATAssign (ATEQident (ATIdent i, local), e2) ->
-            let mips_for_e2 = mips_expr locals e2 in
+            let mips_for_e2 = mips_expr locals objects e2 in
             
             if local then
                 begin
@@ -177,7 +177,7 @@ let rec mips_expr locals = function
                     data = mips_for_e2.data;
                 }
     | ATAssign (ATUOp (ATUTimes, ATEQident (ATIdent i, local)), e2) ->
-            let mips_for_e2 = mips_expr locals e2 in
+            let mips_for_e2 = mips_expr locals objects e2 in
             if local then
                 begin
                     match snd(Hashtbl.find locals (ATVIdent i)) with
@@ -216,7 +216,7 @@ let rec mips_expr locals = function
 
             let ofs = snd(Hashtbl.find object_desc.fields (ATVIdent id)) in
 
-            let mips_for_e2 = mips_expr locals e2 in
+            let mips_for_e2 = mips_expr locals objects e2 in
             if Hashtbl.mem locals (ATVIdent qid) then begin
                 match snd (Hashtbl.find locals (ATVIdent qid)) with
                 | (Pos pos, _) -> 
@@ -239,7 +239,7 @@ let rec mips_expr locals = function
     | ATAssign (e1, e2) -> assert false (* TODO *)
     | ATApply (id, le) ->
             let compute_mips_push_args x e =
-                let mips_for_expr = mips_expr locals (fst e) in
+                let mips_for_expr = mips_expr locals objects (fst e) in
                 {
                     text =  mips_for_expr.text
                         ++ push a0
@@ -399,28 +399,28 @@ let rec mips_expr locals = function
             | _ -> assert false (* TODO *)
             end
         | ATNot -> 
-                let mips_for_expr = mips_expr locals e in
+                let mips_for_expr = mips_expr locals objects e in
                 {
                     text = mips_for_expr.text
                         ++ seq a0 a0 zero;
                     data = mips_for_expr.data;
                 }
         | ATUMinus ->
-                let mips_for_expr = mips_expr locals e in
+                let mips_for_expr = mips_expr locals objects e in
                 {
                     text = mips_for_expr.text
                         ++ neg a0 a0;
                     data = mips_for_expr.data;
                 }
         | ATUPlus ->
-                let mips_for_expr = mips_expr locals e in
+                let mips_for_expr = mips_expr locals objects e in
                 {
                     text = mips_for_expr.text;
                     data = mips_for_expr.data;
                 }
     end
 
-let mips_expr_string locals x y = match y with
+let mips_expr_string locals objects x y = match y with
     | ATString s -> 
             nb_string := !nb_string + 1;
             {
@@ -432,7 +432,7 @@ let mips_expr_string locals x y = match y with
                     ++ label ("string_"^(string_of_int !nb_string)) ++ asciiz ("\""^(String.escaped s)^"\"");
             }
     | ATExpr e ->
-            let mips_for_expr = mips_expr locals e in
+            let mips_for_expr = mips_expr locals objects e in
             {
                 text = x.text
                     ++ mips_for_expr.text
@@ -448,10 +448,10 @@ let rec mips_class x =
         data = nop;
     }
 
-let rec mips_instruction locals x y = match y with
+let rec mips_instruction locals objects x y = match y with
     | ATNop -> { text = x.text; data = x.data }
     | ATCout expr_string ->
-            let cout_mips = List.fold_left (mips_expr_string locals) empty_mips expr_string in
+            let cout_mips = List.fold_left (mips_expr_string locals objects) empty_mips expr_string in
             {
                 text = x.text
                     ++ cout_mips.text;
@@ -459,7 +459,7 @@ let rec mips_instruction locals x y = match y with
                     ++ cout_mips.data;
             }
     | ATIExpr e ->
-            let mips_for_expr = mips_expr locals e in
+            let mips_for_expr = mips_expr locals objects e in
             {
                 text = x.text
                     ++ mips_for_expr.text;
@@ -469,7 +469,7 @@ let rec mips_instruction locals x y = match y with
     | ATIVar (var, assign) ->
         let mips_for_assign = match assign with
             | ATNoAssign -> { text = li a0 0; data = nop; }
-            | ATSAExpr e -> mips_expr locals e
+            | ATSAExpr e -> mips_expr locals objects e
             | ATSATident (ident, expr_list) -> assert false (* TODO *)
         in
 
@@ -515,13 +515,13 @@ let rec mips_instruction locals x y = match y with
                     ++ mips_for_assign.data
                     ++ mips_for_class.data;
             }
-    | ATIfElse (e, i1, i2, if_locals, frame_size) ->
+    | ATIfElse (e, i1, i2, if_locals, if_objects, frame_size) ->
         nb_if := !nb_if + 1;
         let if_id = !nb_if in
 
-        let mips_for_expr = mips_expr if_locals e in
-        let mips_for_instr1 = mips_instruction if_locals empty_mips i1 in
-        let mips_for_instr2 = mips_instruction if_locals empty_mips i2 in
+        let mips_for_expr = mips_expr if_locals if_objects e in
+        let mips_for_instr1 = mips_instruction if_locals if_objects empty_mips i1 in
+        let mips_for_instr2 = mips_instruction if_locals if_objects empty_mips i2 in
         {
             text = x.text
                 ++ add sp sp oi (-frame_size)
@@ -538,11 +538,11 @@ let rec mips_instruction locals x y = match y with
                 ++ mips_for_instr1.data
                 ++ mips_for_instr2.data;
         }
-    | ATWhile (e, i, while_locals, frame_size) ->
+    | ATWhile (e, i, while_locals, while_objects, frame_size) ->
             nb_while := !nb_while + 1;
             let while_id = !nb_while in 
-            let mips_for_expr = mips_expr while_locals e in
-            let mips_for_instr = mips_instruction while_locals empty_mips i in
+            let mips_for_expr = mips_expr while_locals while_objects e in
+            let mips_for_instr = mips_instruction while_locals while_objects empty_mips i in
 
             {
                 text = x.text
@@ -558,14 +558,14 @@ let rec mips_instruction locals x y = match y with
                     ++ mips_for_instr.data
                     ++ mips_for_expr.data;
             }
-    | ATFor (e1, e2, e3, i, for_locals, frame_size) ->
+    | ATFor (e1, e2, e3, i, for_locals, for_objects, frame_size) ->
             nb_for := !nb_for + 1;
             let for_id = !nb_for in
 
-            let mips_for_expr1 = List.fold_left (fun a b -> let tmp_mips = mips_expr for_locals b in { text = a.text ++ tmp_mips.text; data = a.data ++ tmp_mips.data; } ) empty_mips e1 in
-            let mips_for_expr2 = mips_expr for_locals e2 in
-            let mips_for_expr3 = List.fold_left (fun a b -> let tmp_mips = mips_expr for_locals b in { text = a.text ++ tmp_mips.text; data = a.data ++ tmp_mips.data; } ) empty_mips e3 in
-            let mips_for_instr = mips_instruction for_locals empty_mips i in
+            let mips_for_expr1 = List.fold_left (fun a b -> let tmp_mips = mips_expr for_locals for_objects b in { text = a.text ++ tmp_mips.text; data = a.data ++ tmp_mips.data; } ) empty_mips e1 in
+            let mips_for_expr2 = mips_expr for_locals for_objects e2 in
+            let mips_for_expr3 = List.fold_left (fun a b -> let tmp_mips = mips_expr for_locals for_objects b in { text = a.text ++ tmp_mips.text; data = a.data ++ tmp_mips.data; } ) empty_mips e3 in
+            let mips_for_instr = mips_instruction for_locals for_objects empty_mips i in
 
             {
                 text = x.text
@@ -585,8 +585,8 @@ let rec mips_instruction locals x y = match y with
                     ++ mips_for_expr3.data
                     ++ mips_for_instr.data;
             }
-    | ATIBloc (bloc, bloc_locals, frame_size) ->
-            let tmp_mips = List.fold_left (mips_instruction bloc_locals) empty_mips bloc in
+    | ATIBloc (bloc, bloc_locals, bloc_objects, frame_size) ->
+            let tmp_mips = List.fold_left (mips_instruction bloc_locals bloc_objects) empty_mips bloc in
             {
                 text = x.text
                     ++ add sp sp oi (-frame_size)
@@ -597,7 +597,7 @@ let rec mips_instruction locals x y = match y with
             }
     | ATReturn (e, f_label) ->
             let mips_for_expr = match e with
-            | Some expr -> mips_expr locals expr
+            | Some expr -> mips_expr locals objects expr
             | None -> { text = li a0 0; data = nop; }
             in
 
@@ -632,7 +632,7 @@ let mips_fonction f =
             }
     in
 
-    let mips_bloc = List.fold_left (mips_instruction f.at_locals) empty_mips f.at_bloc in
+    let mips_bloc = List.fold_left (mips_instruction f.at_locals f.at_objects) empty_mips f.at_bloc in
 
     let length = f.at_frame_size in
     

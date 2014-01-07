@@ -39,15 +39,17 @@ type at_some_expr = at_expr option
 type at_some_assign = ATNoAssign | ATSAExpr of at_expr | ATSATident of at_tident * (at_expr list)
 
 type at_locals = (at_var, at_ast_type * (at_var_pos * int)) Hashtbl.t
+type at_class_fields = { name: at_ident; fields: (at_var, (at_ast_type * (int * int))) Hashtbl.t }
+type at_objects = (at_var, at_class_fields) Hashtbl.t
 
 type at_instruction = ATNop
                    | ATIExpr of at_expr
                    | ATIVar of at_var * at_some_assign
                    | ATTVar of at_var * at_some_assign
-                   | ATIfElse of at_expr * at_instruction * at_instruction * at_locals * int (* int is frame size *)
-                   | ATWhile of at_expr * at_instruction * at_locals * int
-                   | ATFor of at_expr list * at_expr * at_expr list * at_instruction * at_locals * int
-                   | ATIBloc of at_bloc * at_locals * int
+                   | ATIfElse of at_expr * at_instruction * at_instruction * at_locals * at_objects * int (* int is frame size *)
+                   | ATWhile of at_expr * at_instruction * at_locals * at_objects * int
+                   | ATFor of at_expr list * at_expr * at_expr list * at_instruction * at_locals * at_objects * int
+                   | ATIBloc of at_bloc * at_locals * at_objects * int
                    | ATCout of at_expr_string list
                    | ATReturn of (at_some_expr * at_ident) (* at_ident is function name *)
                and
@@ -65,7 +67,7 @@ and at_decl_vars = (at_var * at_ast_type) list
 and at_member = ATMVar of at_decl_vars | ATProto of bool * at_proto
 and at_supers = (at_tident list) option
 and at_decl_class = { at_ident_class: at_ident; at_supers: at_supers; at_member: (at_member list)}
-and at_fonction = { at_proto: at_proto; at_bloc: at_bloc; at_locals: at_locals; at_frame_size: int }
+and at_fonction = { at_proto: at_proto; at_bloc: at_bloc; at_locals: at_locals; at_objects: at_objects; at_frame_size: int }
 and at_decl = AT_DVar of at_decl_vars | AT_Class of at_decl_class | AT_Fonction of at_fonction
 
 and at_program = at_decl list
