@@ -350,7 +350,7 @@ let rec type_instruction locals x = match x.instruction_content with
     | IVar (ast_type, ident, assign) -> begin
         match ast_type with
             | ASTTident tident -> begin
-                let new_ident = type_var (fst x.instruction_loc) locals true ast_type ident in
+                let new_ident = type_var (fst x.instruction_loc) locals false ast_type ident in
 
                 match assign with
                 | NoAssign ->
@@ -662,7 +662,7 @@ let type_decl = function
             let pos = fst x.decl_vars_loc in
 
             let fold_globals a b =
-                let typed_var = type_var pos (Hashtbl.create 17) false (fst x.decl_vars_content) b in
+                let typed_var = type_var pos (Hashtbl.create 17) true (fst x.decl_vars_content) b in
                 let rec get_ident = function
                     | ATVIdent ident -> ATVIdent ident
                     | ATVUTimes var -> get_ident var
@@ -674,6 +674,11 @@ let type_decl = function
                     match tmp with
                     | ATVIdent id -> raise (Error ("Redeclaration of "^id^".", pos));
                     | _ -> assert false; (* Never happens *)
+                end;
+
+                begin match (fst x.decl_vars_content) with
+                    | ASTTident tid -> Hashtbl.add objects tmp (Hashtbl.find decl_class tid);
+                    | _ -> ();
                 end;
 
                 Hashtbl.add globals tmp (snd typed_var)

@@ -7,7 +7,7 @@
 * Fonctions
     * ref6.cpp
 * Classes
-    * classes globales
+    * classes globales => faire comme les variables, avec un deuxime hashtbl "objects"
     * new / objets
     * Constructeurs
     * Méthodes

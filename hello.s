@@ -108,47 +108,57 @@ function_main:
 	add $fp, $sp, 40
 	sw $ra, 36($sp)
 	li $a0, 3
-	la $t0, object_a
+	la $t0, -8($fp)
 	sw $a0, 0($t0)
 	li $a0, 5
-	la $t0, object_a
+	la $t0, -8($fp)
 	sw $a0, 4($t0)
-	la $a0, object_a
+	la $a0, -8($fp)
 	lw $a0, 0($a0)
 	li $v0, 1
 	syscall
 	la $a0, string_9
 	li $v0, 4
 	syscall
-	la $a0, object_a
+	la $a0, -8($fp)
 	lw $a0, 4($a0)
 	li $v0, 1
 	syscall
 	la $a0, string_10
 	li $v0, 4
 	syscall
-	li $a0, 3
-	sw $a0, -8($fp)
-	li $a0, 0
-	sw $a0, -12($fp)
-	li $a0, 18
-	sw $a0, var_chose
-	lw $a0, var_chose
+	li $a0, 5
+	la $t0, var_b
+	sw $a0, 0($t0)
+	la $a0, var_b
+	lw $a0, 0($a0)
 	li $v0, 1
 	syscall
 	la $a0, string_11
 	li $v0, 4
 	syscall
-	lw $a0, -8($fp)
+	li $a0, 3
+	sw $a0, -16($fp)
+	li $a0, 0
+	sw $a0, -20($fp)
+	li $a0, 18
+	sw $a0, var_chose
+	lw $a0, var_chose
 	li $v0, 1
 	syscall
 	la $a0, string_12
 	li $v0, 4
 	syscall
-	lw $a0, -12($fp)
+	lw $a0, -16($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_13
+	li $v0, 4
+	syscall
+	lw $a0, -20($fp)
+	li $v0, 1
+	syscall
+	la $a0, string_14
 	li $v0, 4
 	syscall
 	li $a0, 42
@@ -166,13 +176,13 @@ function_main:
 	jal function__surcharge4
 	add $sp, $sp, 4
 	move $a0, $v0
-	lw $a0, -12($fp)
+	lw $a0, -20($fp)
 	add $a1, $a0, 1
-	sw $a1, -12($fp)
-	lw $a0, -12($fp)
+	sw $a1, -20($fp)
+	lw $a0, -20($fp)
 	li $v0, 1
 	syscall
-	la $a0, string_14
+	la $a0, string_15
 	li $v0, 4
 	syscall
 	li $a0, 3
@@ -188,52 +198,52 @@ function_main:
 	lw $a0, var_test
 	li $v0, 1
 	syscall
-	la $a0, string_15
-	li $v0, 4
-	syscall
-	lw $a0, -8($fp)
-	li $v0, 1
-	syscall
 	la $a0, string_16
 	li $v0, 4
 	syscall
+	lw $a0, -16($fp)
+	li $v0, 1
+	syscall
 	la $a0, string_17
+	li $v0, 4
+	syscall
+	la $a0, string_18
 	li $v0, 4
 	syscall
 	lw $a0, var_bidule
 	li $v0, 1
 	syscall
-	la $a0, string_18
+	la $a0, string_19
 	li $v0, 4
 	syscall
-	lw $a0, -8($fp)
+	lw $a0, -16($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 1
 	lw $t1, 0($sp)
 	add $sp, $sp, 4
 	add $a0, $t1, $a0
-	sw $a0, -8($fp)
-	lw $a0, -8($fp)
-	li $v0, 1
-	syscall
-	la $a0, string_19
-	li $v0, 4
-	syscall
-	lw $a0, -8($fp)
-	add $a1, $a0, 1
-	sw $a1, -8($fp)
-	sw $a0, -12($fp)
-	lw $a0, -8($fp)
+	sw $a0, -16($fp)
+	lw $a0, -16($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_20
 	li $v0, 4
 	syscall
-	lw $a0, -12($fp)
+	lw $a0, -16($fp)
+	add $a1, $a0, 1
+	sw $a1, -16($fp)
+	sw $a0, -20($fp)
+	lw $a0, -16($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_21
+	li $v0, 4
+	syscall
+	lw $a0, -20($fp)
+	li $v0, 1
+	syscall
+	la $a0, string_22
 	li $v0, 4
 	syscall
 	li $a0, 41
@@ -272,9 +282,6 @@ function_main:
 	li $a0, 43
 	li $v0, 1
 	syscall
-	la $a0, string_22
-	li $v0, 4
-	syscall
 	la $a0, string_23
 	li $v0, 4
 	syscall
@@ -287,6 +294,9 @@ function_main:
 	la $a0, string_26
 	li $v0, 4
 	syscall
+	la $a0, string_27
+	li $v0, 4
+	syscall
 	add $sp, $sp, 0
 	lw $a0, var_test
 	sub $sp, $sp, 4
@@ -297,25 +307,25 @@ function_main:
 	seq $a0, $t1, $a0
 	beqz $a0, else_1
 	add $sp, $sp, 0
-	la $a0, string_27
+	la $a0, string_28
 	li $v0, 4
 	syscall
-	la $a0, string_28
+	la $a0, string_29
 	li $v0, 4
 	syscall
 	add $sp, $sp, 0
 	b end_if_1
 else_1:
 	add $sp, $sp, 0
-	la $a0, string_29
+	la $a0, string_30
 	li $v0, 4
 	syscall
 	add $sp, $sp, 0
 end_if_1:
 	add $sp, $sp, 0
 	li $a0, 0
-	sw $a0, -16($fp)
-	lw $a0, -16($fp)
+	sw $a0, -24($fp)
+	lw $a0, -24($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 3
@@ -324,25 +334,25 @@ end_if_1:
 	slt $a0, $t1, $a0
 	li $v0, 1
 	syscall
-	la $a0, string_30
+	la $a0, string_31
 	li $v0, 4
 	syscall
 	add $sp, $sp, 0
 	b test_while_2
 body_while_2:
 	add $sp, $sp, 0
-	lw $a0, -16($fp)
+	lw $a0, -24($fp)
 	li $v0, 1
 	syscall
-	la $a0, string_31
+	la $a0, string_32
 	li $v0, 4
 	syscall
-	lw $a0, -16($fp)
+	lw $a0, -24($fp)
 	add $a1, $a0, 1
-	sw $a1, -16($fp)
+	sw $a1, -24($fp)
 	add $sp, $sp, 0
 test_while_2:
-	lw $a0, -16($fp)
+	lw $a0, -24($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 3
@@ -352,25 +362,25 @@ test_while_2:
 	bnez $a0, body_while_2
 	add $sp, $sp, 0
 	li $a0, 0
-	sw $a0, -20($fp)
+	sw $a0, -28($fp)
 	add $sp, $sp, 0
 	li $a0, 0
-	sw $a0, -20($fp)
+	sw $a0, -28($fp)
 	b test_for_1
 body_for_1:
 	add $sp, $sp, 0
-	lw $a0, -20($fp)
+	lw $a0, -28($fp)
 	li $v0, 1
 	syscall
-	la $a0, string_32
+	la $a0, string_33
 	li $v0, 4
 	syscall
 	add $sp, $sp, 0
-	lw $a0, -20($fp)
+	lw $a0, -28($fp)
 	add $a1, $a0, 1
-	sw $a1, -20($fp)
+	sw $a1, -28($fp)
 test_for_1:
-	lw $a0, -20($fp)
+	lw $a0, -28($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 5
@@ -382,15 +392,15 @@ test_for_1:
 	jal function__fonction1
 	add $sp, $sp, 0
 	move $a0, $v0
-	sw $a0, -24($fp)
-	lw $a0, -24($fp)
+	sw $a0, -32($fp)
+	lw $a0, -32($fp)
 	li $v0, 1
 	syscall
-	la $a0, string_33
+	la $a0, string_34
 	li $v0, 4
 	syscall
 	li $a0, 0
-	sw $a0, -28($fp)
+	sw $a0, -36($fp)
 	li $a0, 43
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
@@ -401,22 +411,22 @@ test_for_1:
 	add $sp, $sp, 8
 	move $a0, $v0
 	li $a0, 0
-	sw $a0, -16($fp)
+	sw $a0, -24($fp)
 	add $sp, $sp, 0
 	b test_while_3
 body_while_3:
 	add $sp, $sp, 0
-	lw $a0, -16($fp)
+	lw $a0, -24($fp)
 	add $a0, $a0, 1
-	sw $a0, -16($fp)
+	sw $a0, -24($fp)
 	li $v0, 1
 	syscall
-	la $a0, string_34
+	la $a0, string_35
 	li $v0, 4
 	syscall
 	add $sp, $sp, 0
 test_while_3:
-	lw $a0, -16($fp)
+	lw $a0, -24($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 5
@@ -425,44 +435,44 @@ test_while_3:
 	slt $a0, $t1, $a0
 	bnez $a0, body_while_3
 	add $sp, $sp, 0
-	la $a0, string_35
-	li $v0, 4
-	syscall
 	la $a0, string_36
 	li $v0, 4
-	syscall
-	add $sp, $sp, 0
-	li $a0, 0
-	sw $a0, -16($fp)
-	b test_for_2
-body_for_2:
-	add $sp, $sp, -4
-	li $a0, 0
-	sw $a0, -32($fp)
-	add $sp, $sp, 0
-	li $a0, 0
-	sw $a0, -32($fp)
-	b test_for_3
-body_for_3:
-	add $sp, $sp, 0
-	lw $a0, -16($fp)
-	li $v0, 1
 	syscall
 	la $a0, string_37
 	li $v0, 4
 	syscall
-	lw $a0, -32($fp)
+	add $sp, $sp, 0
+	li $a0, 0
+	sw $a0, -24($fp)
+	b test_for_2
+body_for_2:
+	add $sp, $sp, -4
+	li $a0, 0
+	sw $a0, -40($fp)
+	add $sp, $sp, 0
+	li $a0, 0
+	sw $a0, -40($fp)
+	b test_for_3
+body_for_3:
+	add $sp, $sp, 0
+	lw $a0, -24($fp)
 	li $v0, 1
 	syscall
 	la $a0, string_38
 	li $v0, 4
 	syscall
+	lw $a0, -40($fp)
+	li $v0, 1
+	syscall
+	la $a0, string_39
+	li $v0, 4
+	syscall
 	add $sp, $sp, 0
-	lw $a0, -32($fp)
+	lw $a0, -40($fp)
 	add $a1, $a0, 1
-	sw $a1, -32($fp)
+	sw $a1, -40($fp)
 test_for_3:
-	lw $a0, -32($fp)
+	lw $a0, -40($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 5
@@ -472,11 +482,11 @@ test_for_3:
 	bnez $a0, body_for_3
 	add $sp, $sp, 0
 	add $sp, $sp, 4
-	lw $a0, -16($fp)
+	lw $a0, -24($fp)
 	add $a1, $a0, 1
-	sw $a1, -16($fp)
+	sw $a1, -24($fp)
 test_for_2:
-	lw $a0, -16($fp)
+	lw $a0, -24($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 5
@@ -531,9 +541,6 @@ string_8:
 	.asciiz "\n"
 var_b:
 	.word 0
-object_a:
-	.word 0
-	.word 0
 string_9:
 	.asciiz "\n"
 string_10:
@@ -551,9 +558,9 @@ string_15:
 string_16:
 	.asciiz "\n"
 string_17:
-	.asciiz "bidule"
-string_18:
 	.asciiz "\n"
+string_18:
+	.asciiz "bidule"
 string_19:
 	.asciiz "\n"
 string_20:
@@ -563,21 +570,21 @@ string_21:
 string_22:
 	.asciiz "\n"
 string_23:
-	.asciiz "test"
+	.asciiz "\n"
 string_24:
-	.asciiz "print "
+	.asciiz "test"
 string_25:
-	.asciiz "plusieurs\n"
+	.asciiz "print "
 string_26:
-	.asciiz "chaines\n"
+	.asciiz "plusieurs\n"
 string_27:
-	.asciiz "if ok"
+	.asciiz "chaines\n"
 string_28:
-	.asciiz "\n"
+	.asciiz "if ok"
 string_29:
-	.asciiz "else ok \n"
-string_30:
 	.asciiz "\n"
+string_30:
+	.asciiz "else ok \n"
 string_31:
 	.asciiz "\n"
 string_32:
@@ -587,10 +594,12 @@ string_33:
 string_34:
 	.asciiz "\n"
 string_35:
-	.asciiz "test for imbriques"
-string_36:
 	.asciiz "\n"
+string_36:
+	.asciiz "test for imbriques"
 string_37:
-	.asciiz ", "
+	.asciiz "\n"
 string_38:
+	.asciiz ", "
+string_39:
 	.asciiz "\n"

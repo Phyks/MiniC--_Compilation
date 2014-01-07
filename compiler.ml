@@ -126,11 +126,24 @@ let rec mips_expr locals = function
             let object_desc = Hashtbl.find objects (ATVIdent object_id) in
 
             let ofs = snd (Hashtbl.find object_desc.fields (ATVIdent ident)) in
-            {
-                text = la a0 alab ("object_"^(object_id))
-                    ++ lw a0 areg (fst ofs, a0);
-                data = nop;
-            }
+
+            if Hashtbl.mem locals (ATVIdent object_id) then begin
+                match snd (Hashtbl.find locals (ATVIdent object_id)) with
+                | (Pos pos, _) -> 
+                        {
+                            text = la a0 areg (-pos, fp)
+                                ++ lw a0 areg (fst ofs, a0);
+                            data = nop;
+                        }
+                | _ -> assert false; (* TODO *)
+            end
+            else begin
+                {
+                    text = la a0 alab ("var_"^(object_id))
+                        ++ lw a0 areg (fst ofs, a0);
+                    data = nop;
+                }
+            end
     | ATAssign (ATEQident (ATIdent i, local), e2) ->
             let mips_for_e2 = mips_expr locals e2 in
             
@@ -204,12 +217,25 @@ let rec mips_expr locals = function
             let ofs = snd(Hashtbl.find object_desc.fields (ATVIdent id)) in
 
             let mips_for_e2 = mips_expr locals e2 in
-            {
-                text = mips_for_e2.text
-                    ++ la t0 alab ("object_"^qid)
-                    ++ sw a0 areg (fst ofs, t0);
-                data = mips_for_e2.data;
-            }
+            if Hashtbl.mem locals (ATVIdent qid) then begin
+                match snd (Hashtbl.find locals (ATVIdent qid)) with
+                | (Pos pos, _) -> 
+                        {
+                            text = mips_for_e2.text
+                                ++ la t0 areg (-pos, fp)
+                                ++ sw a0 areg (fst ofs, t0);
+                            data = mips_for_e2.data;
+                        }
+                | _ -> assert false; (* TODO *)
+            end
+            else begin
+                {
+                    text = mips_for_e2.text
+                        ++ la t0 alab ("var_"^(qid))
+                        ++ sw a0 areg (fst ofs, t0);
+                    data = mips_for_e2.data;
+                }
+            end
     | ATAssign (e1, e2) -> assert false (* TODO *)
     | ATApply (id, le) ->
             let compute_mips_push_args x e =
@@ -301,16 +327,10 @@ let rec mips_expr locals = function
                         begin
                             match snd(Hashtbl.find locals (ATVIdent ident)) with
                             | (Pos pos, _) ->
-                                if pos = -1 then (* Object on the heap *)
-                                    {
-                                        text = la a0 alab ("object_"^ident);
-                                        data = nop;
-                                    }
-                                else
-                                    {
-                                        text = la a0 areg (-pos,fp);
-                                        data = nop;
-                                    }
+                                {
+                                    text = la a0 areg (-pos,fp);
+                                    data = nop;
+                                }
                             | (Global_var_ref id, _) ->
                                 {
                                     text = la a0 alab ("var_"^id);
@@ -423,20 +443,9 @@ let mips_expr_string locals x y = match y with
             }
 
 let rec mips_class x =
-    let rec mips_for_fields k d prev =
-        {
-            text = prev.text;
-            data = prev.data
-                ++ dword [0];
-        }
-    in
-
-    let mips_for_fields = Hashtbl.fold mips_for_fields x.fields empty_mips in
-    (* TODO : Mips for proto *)
-
     {
-        text = mips_for_fields.text;
-        data = mips_for_fields.data;
+        text = nop;
+        data = nop;
     }
 
 let rec mips_instruction locals x y = match y with
@@ -498,19 +507,12 @@ let rec mips_instruction locals x y = match y with
 
             let mips_for_class = mips_class decl_class in
 
-            let rec find_ident = function
-                | ATVIdent ident -> ident
-                | ATVUTimes var -> assert false (* TODO *)
-                | ATVEComm var -> assert false (* TODO *)
-            in
-
             {
                 text = x.text
                     ++ mips_for_assign.text
                     ++ mips_for_class.text;
                 data = x.data
                     ++ mips_for_assign.data
-                    ++ label ("object_"^(find_ident var))
                     ++ mips_for_class.data;
             }
     | ATIfElse (e, i1, i2, if_locals, frame_size) ->
@@ -672,6 +674,8 @@ let mips_decl x y = match y with
                 | ATVUTimes var -> etiquette var
                 | ATVEComm var -> etiquette var
                 in
+
+                (* TODO *** type *)
 
                 {
                     text = x.text;

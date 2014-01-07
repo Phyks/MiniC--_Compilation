@@ -37,8 +37,8 @@ int main() {
     a.y = 5;
     std::cout << a.x << "\n";
     std::cout << a.y << "\n";
-/* TODO     b.x = 5;
-    std::cout << b.x << "\n";*/
+    b.x = 5;
+    std::cout << b.x << "\n";
 
     // TODO A *a1 = new A();
     int x = 3;
