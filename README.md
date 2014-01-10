@@ -20,6 +20,10 @@ Les fichiers suivants sont présents dans l'archive :
 * `lexer.mll` : Analyseur lexical.
 * `parser.mly` : Analyseur syntaxique.
 * `lexhack.ml` : Module pour la mise en place du _lexer hack_.
+* `typer.ml` : Typeur
+* `compiler.ml` : Production de code
+* `ast_typing.mli` : Arbre de syntaxe abstraite en sortie du typeur
+* `mips.ml` : Module pour la production de code MIPS
 
 ## Choix techniques
 
@@ -46,6 +50,22 @@ Enfin, pour la résolution des conflits, et notamment des conflits avec la struc
 
 j'ai assigné une priorité supérieure au _token_ `ELSE` qu'au _token_ `IF` afin de reproduire le comportement du C++ et résoudre les conflits.
 
-## Éléments non-réalisés
+Pour le typage, j'utilise des Hashtbl pour stocker toute donnée utile ultérieurement, et j'ai adapté l'arbre de syntaxe abstraite pour compiler plus facilement.
 
-Les erreurs syntaxiques pourraient être plus détaillées, incluant notamment les causes pour certaines erreurs basiques (parenthèse ouvrante non fermée, _token_ attendu, ...).
+## Bugs connus et fonctions non implémentées
+
+* Fonctions qui renvoient un référence (int &f())
+* Classes
+    * Instanciation de classes globales (objet global)
+    * Passage d'arguments au constructeur
+    * Vérification que le constructeur a bien le bon nombre d'argument et de bons types
+    * Méthodes
+    * Héritage (multiple)
+
+* Tests de typing qui sont censés échouer:
+    * good/subtype2,3
+    * bad/subtyping1
+    * bad/extra-qualification1
+    * bad/overload1
+* Test d'exécution qui sont censés échouer:
+    * ref6.cpp
