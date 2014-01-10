@@ -28,7 +28,7 @@ type at_expr = ATEInt of int
             | ATDot of at_expr * at_ident 
             | ATAssign of at_expr * at_expr
             | ATApply of at_ident * ((at_expr*bool)list) * int * bool (* Bool is true if passed by reference, int is arguments size on stack, last bool is to know wether to pass this or not *)
-            | ATInstance of at_tident * (at_expr list)
+            | ATInstance of at_tident * (at_expr list) * int (* int is mem space necessary *)
             | ATIncr of at_incr * at_expr
             | ATUOp of at_uoperateur * at_expr
             | ATOp of at_operateur * at_expr * at_expr

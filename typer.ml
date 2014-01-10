@@ -333,7 +333,11 @@ let rec type_expr pos locals objects = function
                     raise (Error ("No field "^id^" in object "^decl_class.name, pos))
         | _ -> raise (Error ("Not an instance of a class.", pos))
     end
-    | Instance _ -> assert false (* TODO *)
+    | Instance (tid, le) ->
+            if not(Hashtbl.mem decl_class tid) then
+                raise (Error ("Class "^tid^" undefined.", pos));
+
+            ATInstance (tid, List.map (fun x -> fst (type_expr pos locals objects x)) le, size_from_type (ASTTident tid)), ATPointer (ATClass tid)
     | EThis ->
             if Hashtbl.mem locals (ATVIdent "_this") then
                 ATEThis !current_object, ATPointer (ATClass !current_object)
@@ -376,19 +380,31 @@ let rec type_instruction locals objects x = match x.instruction_content with
             | ASTTident tident -> begin
                 let new_ident = type_var (fst x.instruction_loc) locals false ast_type true ident in
 
+                let use_constructor = match new_ident with
+                    | ATVIdent _, _ -> true
+                    | _ -> false
+                in
+
+                if Hashtbl.mem constructors tident then begin
+                    (* Vérifier qu'il existe bien un constructeur sans argument *)
+                    let constructors_decl = Hashtbl.find decl_fonction tident in
+                    if not(List.fold_left (fun x y -> if x then true else begin if List.length y.args_decl = 0 then true else false end) false constructors_decl) then
+                        raise (Error ("No matching constructors without arguments for class instance.", fst x.instruction_loc))
+                end;
+
+                let decl_class = Hashtbl.find decl_class tident in
+                Hashtbl.add objects (fst new_ident) decl_class;
+
                 match assign with
                 | NoAssign ->
-                        let decl_class = Hashtbl.find decl_class tident in
-                        Hashtbl.add objects (fst new_ident) decl_class;
+                        ATTVar (fst new_ident, ATNoAssign, if use_constructor then Hashtbl.mem constructors tident else false)
+                | SAExpr ((Instance _) as expr) ->
+                        let type_for_expr = type_expr (fst x.instruction_loc) locals objects expr in
 
-                        if Hashtbl.mem constructors tident then begin
-                            (* Vérifier qu'il existe bien un constructeur sans argument *)
-                            let constructors_decl = Hashtbl.find decl_fonction tident in
-                            if not(List.fold_left (fun x y -> if x then true else begin if List.length y.args_decl = 0 then true else false end) false constructors_decl) then
-                                raise (Error ("No matching constructors without arguments for class instance.", fst x.instruction_loc))
-                        end;
-
-                        ATTVar (fst new_ident, ATNoAssign, Hashtbl.mem constructors tident)
+                        if compatible_types (snd type_for_expr) (snd new_ident) then
+                            ATTVar (fst new_ident, ATSAExpr (fst type_for_expr), if use_constructor then Hashtbl.mem constructors tident else false)
+                        else
+                            raise (Error ("Object initialization with incompatible type.", fst x.instruction_loc))
                 | _ -> assert false (* TODO *)
             end
             | Int ->begin

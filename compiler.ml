@@ -293,7 +293,25 @@ let rec mips_expr locals objects = function
                     ++ move a0 v0;
                 data = mips_push_args.data;
             }
-    | ATInstance (tident, l) -> assert false
+    | ATInstance (tident, l, size) ->
+            (* TODO : args *)
+            let decl_class = Hashtbl.find decl_class tident in
+
+            {
+                text = li v0 9
+                    ++ li a0 size
+                    ++ syscall
+                    ++ if Hashtbl.mem constructors decl_class.name then begin
+                            la a0 alab (Hashtbl.find constructors decl_class.name)
+                            ++ push v0
+                            ++ jalr a0
+                            ++ popn 4
+                        end
+                        else
+                            nop
+                    ++ move a0 v0;
+                data = nop;
+            }
     | ATIncr (incr, ATEQident ((ATIdent i), local)) ->
         let load reg =
             if local then
@@ -534,9 +552,26 @@ let rec mips_instruction locals objects x y = match y with
             | (Arg_ref _, _) -> assert false; (* TODO *)
         end
     | ATTVar (var, assign, constructor) ->
+            let ident_locals = match var with
+            | ATVIdent id -> ATVIdent id
+            | ATVUTimes (ATVIdent id) -> ATVIdent id
+            | _ -> assert false; (* TODO *)
+            in
+
             let mips_for_assign = match assign with
             | ATNoAssign -> { text = nop; data = nop; }
-            | ATSAExpr e -> assert false (* TODO *)
+            | ATSAExpr e ->
+                    let pos_var = match snd (Hashtbl.find locals ident_locals) with
+                    | (Pos pos, _) -> pos
+                    | _ -> assert false;
+                    in
+
+                    let mips_for_expr = mips_expr locals objects e in
+                    {
+                        text = mips_for_expr.text
+                            ++ sw a0 areg (-pos_var, fp);
+                        data = mips_for_expr.data;
+                    }
             | ATSATident (ident, expr_list) -> assert false (* TODO *)
             in
 
@@ -546,13 +581,14 @@ let rec mips_instruction locals objects x y = match y with
 
             let mips_for_constructor =
                 if constructor then
-                    match snd (Hashtbl.find locals var) with
+                    match snd (Hashtbl.find locals ident_locals) with
                     | (Pos pos, _) -> 
                             {
                                 text = la a0 alab (Hashtbl.find constructors decl_class.name)
                                     ++ la t0 areg (-pos, fp)
                                     ++ push t0
-                                    ++ jalr a0;
+                                    ++ jalr a0
+                                    ++ popn 4;
                                 data = nop;
                             }
                     | _ -> assert false; (* TODO *)
