@@ -33,7 +33,7 @@ function_main:
 	la $a0, string_2
 	li $v0, 4
 	syscall
-	la $a0, object_a
+	la $a0, -16($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
 	li $a0, 0
@@ -56,6 +56,5 @@ string_1:
 	.asciiz "\n"
 string_2:
 	.asciiz "\n"
-object_a:
 string_3:
 	.asciiz "\n"

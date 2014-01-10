@@ -1,10 +1,10 @@
 .text
 	b function_main
 function_main:
-	add $sp, $sp, -16
-	sw $fp, 12($sp)
-	add $fp, $sp, 12
-	sw $ra, 8($sp)
+	add $sp, $sp, -20
+	sw $fp, 16($sp)
+	add $fp, $sp, 16
+	sw $ra, 12($sp)
 	li $a0, 0
 	sw $a0, -8($fp)
 	li $a0, 0
@@ -79,9 +79,9 @@ test_for_1:
 	li $v0, 4
 	syscall
 end_function_main:
-	lw $ra, 8($sp)
-	lw $fp, 12($sp)
-	add $sp, $sp, 16
+	lw $ra, 12($sp)
+	lw $fp, 16($sp)
+	add $sp, $sp, 20
 	li $v0, 10
 	syscall
 .data

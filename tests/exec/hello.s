@@ -1,17 +1,17 @@
 .text
 	b function_main
 function_main:
-	add $sp, $sp, -8
-	sw $fp, 4($sp)
-	add $fp, $sp, 4
-	sw $ra, 0($sp)
+	add $sp, $sp, -12
+	sw $fp, 8($sp)
+	add $fp, $sp, 8
+	sw $ra, 4($sp)
 	la $a0, string_1
 	li $v0, 4
 	syscall
 end_function_main:
-	lw $ra, 0($sp)
-	lw $fp, 4($sp)
-	add $sp, $sp, 8
+	lw $ra, 4($sp)
+	lw $fp, 8($sp)
+	add $sp, $sp, 12
 	li $v0, 10
 	syscall
 .data

@@ -19,9 +19,10 @@ int fonction_args(int x, int y) {
     std::cout << "\n";
 }
 
-class A { public: int x; int y; A(int x, int y); };
+class A { public: int x; int y; A(); void f(); };
 
-A::A(int x, int y) { std::cout << "ok\n"; }
+A::A() { this->x = 1; std::cout << "constructeur ok\n"; }
+void A::f() { std::cout << "working !\n"; }
 
 void surcharge() {
     std::cout << 42 << "\n";
@@ -31,23 +32,20 @@ void surcharge (int x) {
     std::cout << x << "\n";
 }
 
-A b;
-
 int main() {
     A a;
+    a.f();
+    std::cout << a.x << "\n";
     a.x = 3;
     a.y = 5;
     std::cout << a.x << "\n";
     std::cout << a.y << "\n";
-    b.x = 5;
-    std::cout << b.x << "\n";
 
     if(true) {
         A b;
         b.x = 42;
         std::cout << b.x << "\n";
     }
-    std::cout << b.x << "\n";
 
     // A *a1 = new A();
     int x = 3;

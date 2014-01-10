@@ -1,10 +1,10 @@
 .text
 	b function_main
-function_f1:
-	add $sp, $sp, -8
-	sw $fp, 4($sp)
-	add $fp, $sp, 4
-	sw $ra, 0($sp)
+function__f1:
+	add $sp, $sp, -12
+	sw $fp, 8($sp)
+	add $fp, $sp, 8
+	sw $ra, 4($sp)
 	lw $a1, 4($fp)
 	lw $a0, 0($a1)
 	sub $sp, $sp, 4
@@ -15,17 +15,17 @@ function_f1:
 	add $a0, $t1, $a0
 	lw $a1, 4($fp)
 	sw $a0, 0($a1)
-end_function_f1:
-	lw $ra, 0($sp)
-	lw $fp, 4($sp)
-	add $sp, $sp, 8
+end_function__f1:
+	lw $ra, 4($sp)
+	lw $fp, 8($sp)
+	add $sp, $sp, 12
 	move $v0, $a0
 	jr $ra
 function_main:
-	add $sp, $sp, -20
-	sw $fp, 16($sp)
-	add $fp, $sp, 16
-	sw $ra, 12($sp)
+	add $sp, $sp, -24
+	sw $fp, 20($sp)
+	add $fp, $sp, 20
+	sw $ra, 16($sp)
 	li $a0, 41
 	sw $a0, -8($fp)
 	la $a0, string_1
@@ -40,7 +40,7 @@ function_main:
 	la $a0, -8($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_f1
+	jal function__f1
 	add $sp, $sp, 4
 	move $a0, $v0
 	la $a0, string_3
@@ -57,7 +57,7 @@ function_main:
 	la $a0, -8($fp)
 	sub $sp, $sp, 4
 	sw $a0, 0($sp)
-	jal function_f1
+	jal function__f1
 	add $sp, $sp, 4
 	move $a0, $v0
 	la $a0, string_5
@@ -79,9 +79,9 @@ function_main:
 	li $v0, 4
 	syscall
 end_function_main:
-	lw $ra, 12($sp)
-	lw $fp, 16($sp)
-	add $sp, $sp, 20
+	lw $ra, 16($sp)
+	lw $fp, 20($sp)
+	add $sp, $sp, 24
 	li $v0, 10
 	syscall
 .data

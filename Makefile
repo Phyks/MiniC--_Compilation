@@ -1,4 +1,4 @@
-CMO=ast_typing.cmo lexhack.cmo lexer.cmo parser.cmo typer.cmo mips.cmo compiler.cmo main.cmo
+CMO=lexhack.cmo lexer.cmo parser.cmo typer.cmo mips.cmo compiler.cmo main.cmo
 GENERATED = lexer.ml parser.ml parser.mli
 BIN=minic++
 FLAGS=-annot
@@ -22,9 +22,6 @@ $(BIN):$(CMO)
 
 .mly.mli:
 	ocamlyacc -v $<
-
-ast_typing.cmo:
-	ocamlc -c ast_typing.ml
 
 clean:
 	rm -f *.cm[io] *.o *~ $(BIN) $(GENERATED)

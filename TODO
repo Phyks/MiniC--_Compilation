@@ -1,14 +1,15 @@
-* Makefile pourri
-* Typing
+* Tests typing
+    * good/subtype2,3
     * bad/subtyping1
-    * bad/extra_qualification1
+    * bad/extra-qualification1
     * bad/overload1
-    * good/subtype2, 3
 * Fonctions
     * ref6.cpp
 * Classes
+    * Classes globales
+    * Constructeurs => vérifier nombre d'arguments avec déclaration dans classe
+    * constructeurs avec arguments
     * new / objets
-    * Constructeurs
     * Méthodes
     * Héritage
     * Héritage multiple

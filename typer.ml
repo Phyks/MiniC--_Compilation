@@ -6,7 +6,7 @@ exception Error of string*Lexing.position
 
 type field_offset = int
 type in_class = False | InClass of string
-type decl_fonction_record = { ident_decl: at_ident; args_decl: ((at_var * at_ast_type) * bool) list}
+type decl_fonction_record = { ident_decl: at_ident; args_decl: ((at_var * at_ast_type) * bool) list; this: bool}
 type function_matches = FunctionFalse | FunctionMatches of decl_fonction_record
 
 let includes = ref false
@@ -17,6 +17,7 @@ let decl_class = Hashtbl.create 17
 let decl_fonction = Hashtbl.create 17
 let glob_objects = Hashtbl.create 17
 let refs = Hashtbl.create 17
+let constructors = Hashtbl.create 17
 let current_function = ref ""
 let current_object= ref ""
 let nb_decl_function = ref 0
@@ -26,6 +27,8 @@ let is_left_value = function
     | EQident _ -> true
     | UOp (UTimes, _) -> true
     | Dot (EQident _, _) -> true
+    | Dot (UOp (UTimes, EQident _), _) -> true
+    | Dot (UOp (UTimes, EThis), _) -> true
     | Apply (EQident (Ident id), _) when Hashtbl.mem refs (ATVIdent id) -> true
     | _ -> false
 
@@ -59,8 +62,7 @@ let uop_ast_to_atast = function
 
 let type_qident = function
     | Ident x -> ATIdent x
-    | _ -> assert false
-    (* TODO *)
+    | Tident (tid, id) -> ATTident (tid, id)
 
 let max_hashtbl k d x = match snd d with
     | (Pos p, size) -> if p < fst x then x else p, size
@@ -91,23 +93,26 @@ let size_from_attype = function
             let fields = Hashtbl.find decl_class x in
             stack_length_int fields.fields
 
-let rec type_var pos locals heap type_for_var = function
+let rec type_var pos locals heap type_for_var determine_size = function
     | VIdent ident -> 
         if Hashtbl.mem locals (ATVIdent ident) then
             raise (Error ("redeclaration of "^ident, pos));
 
-        let pos = if not heap then
+        let var_pos = if not heap then
             let tmp = (Hashtbl.fold max_hashtbl) locals (0, 0) in
             (fst tmp) + (snd tmp)
             else
                 -1
             in
         let tmp_type = types_ast_to_atast type_for_var in
-        Hashtbl.add locals (ATVIdent ident) (tmp_type, (Pos pos, size_from_type type_for_var));
+        begin try
+            Hashtbl.add locals (ATVIdent ident) (tmp_type, (Pos var_pos, if determine_size then size_from_type type_for_var else 4));
+        with Not_found -> raise (Error ("Undefined type for variable "^ident^".", pos));
+        end;
 
         ATVIdent ident, tmp_type;
     | VUTimes ((VIdent ident) as var) ->
-            let new_var = type_var pos locals false type_for_var var in
+            let new_var = type_var pos locals false type_for_var false var in
             let tmp_type = types_ast_to_atast type_for_var in
 
             let old_binding = Hashtbl.find locals (ATVIdent ident) in
@@ -117,7 +122,7 @@ let rec type_var pos locals heap type_for_var = function
             ATVUTimes (fst new_var), ATPointer tmp_type
     | VUTimes _ -> raise (Error ("double pointer not allowed", pos))
     | VEComm ((VIdent ident) as var) ->
-            let new_var = type_var pos locals false type_for_var var in
+            let new_var = type_var pos locals false type_for_var true var in
             let tmp_type = types_ast_to_atast type_for_var in
 
             Hashtbl.add refs (ATVIdent ident) ();
@@ -293,7 +298,10 @@ let rec type_expr pos locals objects = function
                 else
                     fst tmp, false
             in
-            ATApply (decl_fonction_tmp.ident_decl, List.map (type_expr_ref) le), snd tmp
+
+            let length = List.fold_left (fun x y -> x + size_from_attype (snd (fst y))) 0 decl_fonction_tmp.args_decl in
+
+            ATApply (decl_fonction_tmp.ident_decl, List.map (type_expr_ref) le, length, decl_fonction_tmp.this), snd tmp
         | _ -> raise (Error ("Expression cannot be used as a function.", pos))
     end
     | Dot (e, id) -> begin
@@ -309,12 +317,28 @@ let rec type_expr pos locals objects = function
                 
                 if Hashtbl.mem decl_class.fields (ATVIdent id) then
                     ATDot (qident, id), fst (Hashtbl.find decl_class.fields (ATVIdent id))
+                else begin
+                    if Hashtbl.mem decl_class.methods id then
+                        ATDot (qident, id), (*snd (snd (Hashtbl.find decl_class.methods id))*) ATInt
+                    else
+                        raise (Error ("No field "^id^" in object "^decl_class.name, pos))
+                end
+        | ATUOp(ATUTimes, ATEQident _) -> assert false (* TODO *)
+        | ATUOp(ATUTimes, ATEThis object_id) ->
+                let decl_class = Hashtbl.find decl_class object_id in
+
+                if Hashtbl.mem decl_class.fields (ATVIdent id) then
+                    ATDot (ATUOp (ATUTimes, ATEThis object_id), id), fst (Hashtbl.find decl_class.fields (ATVIdent id))
                 else
                     raise (Error ("No field "^id^" in object "^decl_class.name, pos))
         | _ -> raise (Error ("Not an instance of a class.", pos))
     end
     | Instance _ -> assert false (* TODO *)
-    | EThis -> ATEThis !current_object, ATPointer (ATClass !current_object)
+    | EThis ->
+            if Hashtbl.mem locals (ATVIdent "_this") then
+                ATEThis !current_object, ATPointer (ATClass !current_object)
+            else
+                raise (Error ("This keyword outside of a class.", pos))
 
 let type_expr_string pos locals objects = function
     | String s -> ATString s
@@ -350,17 +374,25 @@ let rec type_instruction locals objects x = match x.instruction_content with
     | IVar (ast_type, ident, assign) -> begin
         match ast_type with
             | ASTTident tident -> begin
-                let new_ident = type_var (fst x.instruction_loc) locals false ast_type ident in
+                let new_ident = type_var (fst x.instruction_loc) locals false ast_type true ident in
 
                 match assign with
                 | NoAssign ->
                         let decl_class = Hashtbl.find decl_class tident in
                         Hashtbl.add objects (fst new_ident) decl_class;
-                        ATTVar (fst new_ident, ATNoAssign)
+
+                        if Hashtbl.mem constructors tident then begin
+                            (* Vérifier qu'il existe bien un constructeur sans argument *)
+                            let constructors_decl = Hashtbl.find decl_fonction tident in
+                            if not(List.fold_left (fun x y -> if x then true else begin if List.length y.args_decl = 0 then true else false end) false constructors_decl) then
+                                raise (Error ("No matching constructors without arguments for class instance.", fst x.instruction_loc))
+                        end;
+
+                        ATTVar (fst new_ident, ATNoAssign, Hashtbl.mem constructors tident)
                 | _ -> assert false (* TODO *)
             end
             | Int ->begin
-                let new_ident = type_var (fst x.instruction_loc) locals false ast_type ident in
+                let new_ident = type_var (fst x.instruction_loc) locals false ast_type true ident in
 
                 match fst new_ident with
                 | ATVIdent _ | ATVUTimes _ -> begin
@@ -456,11 +488,11 @@ let type_proto_ident = function
     | Type tid ->
             nb_decl_function := !nb_decl_function + 1;
             ATType tid
-    | _ -> assert false
-    (* TODO *)
+    | Herit (tid, id) ->
+            ATHerit (tid, id)
 
 let type_args pos args x =
-    let tmp = type_var pos args false (fst x) (snd x) in
+    let tmp = type_var pos args false (fst x) true (snd x) in
 
     let reference = match fst tmp with
     | ATVEComm id -> begin
@@ -474,7 +506,13 @@ let type_args pos args x =
     tmp, reference
 
 let type_proto args x in_class virtualbool =
-    let typed_args = List.map (type_args (fst x.proto_loc) args) x.args in
+    let tmp_args = match x.ident with
+    | Herit (_, _) -> x.args @ [(Void, VIdent "_this")]
+    | _ ->  x.args
+    in
+    
+    let typed_args = List.map (type_args (fst x.proto_loc) args) tmp_args  in
+
     let () = 
         match x.ident with
         | Qvar (a, b) when a = Int && b = Qident (Ident "main") ->
@@ -496,7 +534,7 @@ let type_proto args x in_class virtualbool =
         | Qvar (a, qid) -> 
                 let rec find_ident = function
                     | Qident (Ident ident) -> ident
-                    | Qident _ -> assert false
+                    | Qident (Tident (tid, id)) -> id
                     | QUTimes var -> find_ident var
                     | QEComm var -> let tmp = find_ident var in Hashtbl.add refs (ATVIdent tmp) (); tmp
                 in
@@ -540,12 +578,27 @@ let type_proto args x in_class virtualbool =
                 match in_class with
                 | False -> raise (Error ("Constructor is out a class.", fst x.proto_loc))
                 | InClass id -> if not(tid = id) then raise (Error ("Bad constructor for class "^id^".", fst x.proto_loc))
+                end;
+                current_function := tid;
+        | Herit (tid, id) ->
+                let declaration_class = Hashtbl.find decl_class tid in
+                let declaration_function = Hashtbl.find decl_fonction id in
+
+                if tid = id then begin (* Constructeur *)
+                    current_function := tid;
+                    if not(Hashtbl.mem declaration_class.methods (List.hd declaration_function).ident_decl) then
+                        let decl = Hashtbl.find declaration_class.methods (List.hd declaration_function).ident_decl in
+                        if not(snd (snd decl) = ATType (List.hd declaration_function).ident_decl) then
+                            raise (Error ("Undeclared constructor "^id^".", fst x.proto_loc));
                 end
-        | _ -> assert false;
+                else begin
+                    assert false;
+                end
+
     in
 
     if !current_function = "main" then begin
-        Hashtbl.add decl_fonction !current_function ({ ident_decl = !current_function; args_decl = typed_args } :: []);
+        Hashtbl.add decl_fonction !current_function ({ ident_decl = !current_function; args_decl = typed_args; this = false; } :: []);
 
         {
             at_ident_proto = type_proto_ident x.ident;
@@ -556,33 +609,51 @@ let type_proto args x in_class virtualbool =
         let tmp_new_proto_ident = type_proto_ident x.ident in
         let rec change_ident = function
             | ATQident (ATIdent id) -> "_"^id^(string_of_int !nb_decl_function) (* Commence l'ident par _ pour avoir un ident invalide au sens de MiniC++ et éviter un conflit avec une autre fonction *)
-            | ATQident _ -> assert false
+            | ATQident (ATTident (tid, id)) -> "_"^tid^"_"^id^(string_of_int !nb_decl_function)
             | ATQUTimes var -> change_ident var
             | ATQEComm var -> change_ident var
         in
-        let new_ident = match tmp_new_proto_ident with
-        | ATType tid -> assert false; (* TODO *)
+        let new_ident_tmp = match tmp_new_proto_ident with
+        | ATType tid -> "_"^tid^(string_of_int !nb_decl_function)
         | ATQvar (x,y) -> change_ident y
-        | _ -> assert false (* TODO *)
+        | ATHerit (tid, id) ->
+                let declaration_function = Hashtbl.find decl_fonction id in
+
+                if tid = id then begin (* Constructeur *)
+                    (List.hd declaration_function).ident_decl
+                end
+                else begin
+                    assert false;
+                end
+        in
+        let new_ident = match in_class with
+        | False -> new_ident_tmp
+        | InClass tid -> "_"^tid^"_"^new_ident_tmp
         in
         let rec change_qvar_ident = function
             | ATQident (ATIdent id) -> ATQident (ATIdent new_ident)
-            | ATQident _ -> assert false
+            | ATQident (ATTident (tid, id)) -> ATQident (ATTident (tid, new_ident))
             | ATQUTimes var -> ATQUTimes (change_qvar_ident var)
             | ATQEComm var -> ATQEComm (change_qvar_ident var)
         in
         let new_proto_ident = match tmp_new_proto_ident with
-        | ATType tid -> assert false; (* TODO *)
+        | ATType tid -> Hashtbl.add constructors tid ("function_"^new_ident); ATType new_ident
         | ATQvar (x, y) -> ATQvar (x, change_qvar_ident y)
-        | _ -> assert false (* TODO *)
+        | ATHerit (tid, id) -> ATHerit (tid, new_ident)
+        in
+
+        let this_bool = match tmp_new_proto_ident with
+        | ATHerit (_, _) -> true
+        | _ -> false
         in
 
         (* Sauve la déclaration dans une table pour pouvoir vérifier que l'appel est bon *)
-        if Hashtbl.mem decl_fonction !current_function then
+        if Hashtbl.mem decl_fonction !current_function then begin
             let tmp = Hashtbl.find decl_fonction !current_function in
-            Hashtbl.replace decl_fonction !current_function ({ ident_decl = new_ident; args_decl = typed_args } :: tmp);
+            Hashtbl.replace decl_fonction !current_function ({ ident_decl = new_ident; args_decl = typed_args; this = this_bool } :: tmp);
+        end
         else
-            Hashtbl.add decl_fonction !current_function ({ ident_decl = new_ident; args_decl = typed_args } :: []);
+            Hashtbl.add decl_fonction !current_function ({ ident_decl = new_ident; args_decl = typed_args; this = this_bool } :: []);
 
         {
             at_ident_proto = new_proto_ident;
@@ -630,7 +701,7 @@ let type_fonction x =
 let type_member tid pos = function
     | MVar var -> 
             let map_type_member x =
-                let tmp = type_var pos (Hashtbl.create 17) false (fst var.decl_vars_content) x in
+                let tmp = type_var pos (Hashtbl.create 17) false (fst var.decl_vars_content) true x in
                 if fst var.decl_vars_content = ASTTident tid then
                     match fst tmp with
                     | ATVIdent _ -> raise (Error ("Error this field has incomplete type.", pos))
@@ -648,19 +719,26 @@ let type_class x = begin
             let ast_typing_class = {
                 at_ident_class = ident;
                 at_supers = None;
-                at_member = List.map (type_member ident (fst x.decl_class_loc)) members;
+                at_member = List.map (fun y -> type_member ident (fst x.decl_class_loc) y) members;
             }
             in
 
             let fields = Hashtbl.create 17 in
+            let methods = Hashtbl.create 17 in
             let form_members_hashtbl = function
                 | ATMVar var -> List.iter (fun x -> Hashtbl.add fields (fst x) (snd x, (stack_length_int fields, size_from_attype (snd x)))) var;
-                | ATProto (virtuel, proto) -> ();
+                | ATProto (virtuel, proto) -> 
+                        begin match proto.at_ident_proto with
+                        | ATQvar (_, ATQident (ATIdent ident)) -> Hashtbl.add methods ident (virtuel, (proto.at_args, proto.at_ident_proto));
+                        | ATHerit (_, ident) -> Hashtbl.add methods ident (virtuel, (proto.at_args, proto.at_ident_proto));
+                        | ATType tident -> Hashtbl.add methods tident (virtuel, (proto.at_args, proto.at_ident_proto));
+                        | _ -> assert false (* TODO *)
                         (* Table de méthode virtuelle ? TODO *)
+                        end;
             in
             let _ = List.iter form_members_hashtbl ast_typing_class.at_member in
 
-            Hashtbl.add decl_class ident {name = ident; fields = fields;};
+            Hashtbl.add decl_class ident {name = ident; fields = fields; methods = methods};
             ast_typing_class
     end
     (* TODO *)
@@ -670,7 +748,7 @@ let type_decl = function
             let pos = fst x.decl_vars_loc in
 
             let fold_globals a b =
-                let typed_var = type_var pos (Hashtbl.create 17) true (fst x.decl_vars_content) b in
+                let typed_var = type_var pos (Hashtbl.create 17) true (fst x.decl_vars_content) true b in
                 let rec get_ident = function
                     | ATVIdent ident -> ATVIdent ident
                     | ATVUTimes var -> get_ident var
@@ -697,7 +775,7 @@ let type_decl = function
 
             List.fold_left fold_globals () (snd x.decl_vars_content);
 
-            AT_DVar (List.map (type_var pos (Hashtbl.create 17) false (fst x.decl_vars_content)) (snd x.decl_vars_content))
+            AT_DVar (List.map (type_var pos (Hashtbl.create 17) false (fst x.decl_vars_content) true) (snd x.decl_vars_content))
 
     | Class x -> AT_Class (type_class x)
     | Fonction x -> AT_Fonction (type_fonction x)
