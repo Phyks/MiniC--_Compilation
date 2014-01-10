@@ -24,6 +24,7 @@ function_main:
 	sub $sp, $sp, 4
 	sw $t0, 0($sp)
 	jalr $a0
+	add $sp, $sp, 4
 end_function_main:
 	lw $ra, 4($sp)
 	lw $fp, 8($sp)
